@@ -4,11 +4,12 @@
              xmlns:local="clr-namespace:automeas_ui"
              xmlns:viewModel="clr-namespace:automeas_ui.MWM.ViewModel"
              xmlns:view="clr-namespace:automeas_ui.MWM.View"
-             StartupUri="Dashboard.xaml">
+             StartupUri="Launcher.xaml">
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Theme/MenuButtonTheme.xaml"/>
+                <ResourceDictionary Source="Theme/FlatSquareButton.xaml"/>
                 <ResourceDictionary Source="Theme/TextBoxTheme.xaml"/>
                 <ResourceDictionary Source="Theme/ProgressBarTheme.xaml"/>
             </ResourceDictionary.MergedDictionaries>

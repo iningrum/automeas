@@ -8,6 +8,7 @@
         Title="MainWindow" Height="600" Width="920"
         WindowStyle="None"
         ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen"
         Background="Transparent"
         AllowsTransparency="True">
     <Border Background="#272537"
@@ -29,9 +30,7 @@
                     Height="50"
                     Content="❌"
                     FontSize="32"
-                    Foreground="#323232"
-                    Background="DimGray"
-                    Style="{StaticResource RoundCorner}"/>
+                    Style="{StaticResource FOC_SquareButtonTheme}"/>
             <Button Grid.Row="1"
                     Grid.Column="2"
                     Content="&#9655;"
@@ -50,21 +49,22 @@
                         HorizontalAlignment="Center"
                         Grid.Row="2"
                         Grid.Column="1">
-                <RadioButton Content="|>"
-                             Height="50"
+                <Button Content="|>"
+                             Width="50"
                              Foreground="White"
                              FontSize="14"
-                             Style="{StaticResource MenuButtonTheme}"/>
+                             Margin="0,0,0,0"
+                             />
                 <RadioButton Content="[ ]"
                              Height="50"
                              Foreground="White"
                              FontSize="14"
-                             Style="{StaticResource MenuButtonTheme}"/>
+                             />
                 <RadioButton Content="@"
                              Height="50"
                              Foreground="White"
                              FontSize="14"
-                             Style="{StaticResource MenuButtonTheme}"/>
+                             />
                 
             </StackPanel>
             <Label Grid.Row="0"

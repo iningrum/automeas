@@ -11,7 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-
+using automeas_ui.MWM.ViewModel;
 namespace automeas_ui
 {
     /// <summary>
@@ -22,6 +22,11 @@ namespace automeas_ui
         public Launcher()
         {
             InitializeComponent();
+        }
+
+        private void NextPage(object sender, RoutedEventArgs e)
+        {
+            PageBarViewModel.NextPage();
         }
     }
 }

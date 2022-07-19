@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:automeas_ui"
         xmlns:view="clr-namespace:automeas_ui.MWM.View"
+        xmlns:viewm="clr-namespace:automeas_ui.MWM.ViewModel"
         mc:Ignorable="d"
         Title="MainWindow" Height="600" Width="920"
         WindowStyle="None"
@@ -12,6 +13,9 @@
         WindowStartupLocation="CenterScreen"
         Background="Transparent"
         AllowsTransparency="True">
+    <Window.DataContext>
+        <viewm:PageBarViewModel/>
+    </Window.DataContext>
     <Border Background="#272537"
             CornerRadius="10">
         <Grid>
@@ -38,7 +42,7 @@
                     Foreground="#323232"
                     Background="Transparent"
                     BorderThickness="0"
-                    FontSize="72"/>
+                    FontSize="72" Click="NextPage"/>
             <Button Grid.Row="1"
                     Grid.Column="0"
                     Content="&#9665;"
@@ -54,8 +58,8 @@
                        FontFamily="Verdana"
                        Content="Forma pomiarów"
                        Foreground="White"/>
-            <view:PageBarView Grid.Row="2" Grid.Column="1" 
-                              Margin="150,0,150,0"/>
+            <view:PageBarView Grid.Column="1" 
+                              Grid.Row="2"/>
         </Grid>
     </Border>
 </Window>

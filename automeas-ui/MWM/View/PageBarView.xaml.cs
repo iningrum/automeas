@@ -24,5 +24,10 @@ namespace automeas_ui.MWM.View
         {
             InitializeComponent();
         }
+
+        private void RadioButton_Checked(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

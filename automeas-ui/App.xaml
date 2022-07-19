@@ -13,6 +13,7 @@
                 <ResourceDictionary Source="Theme/FlatSquareButton.xaml"/>
                 <ResourceDictionary Source="Theme/TextBoxTheme.xaml"/>
                 <ResourceDictionary Source="Theme/ProgressBarTheme.xaml"/>
+                <ResourceDictionary Source="Theme/PageBarRadioButtonTheme.xaml"/>
             </ResourceDictionary.MergedDictionaries>
             <DataTemplate DataType="{x:Type viewModel:HomeViewModel}">
                 <view:HomeView/>

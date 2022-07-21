@@ -14,19 +14,15 @@ using System.Windows.Shapes;
 using automeas_ui.MWM.ViewModel;
 namespace automeas_ui
 {
-    /// <summary>
-    /// Logika interakcji dla klasy Launcher.xaml
-    /// </summary>
     public partial class Launcher : Window
     {
         public Launcher()
         {
             InitializeComponent();
         }
-
-        private void NextPage(object sender, RoutedEventArgs e)
+        private void Button_Clicked(object sender, RoutedEventArgs e)
         {
-            PageBarViewModel.NextPage();
+            System.Windows.Application.Current.Shutdown();
         }
     }
 }

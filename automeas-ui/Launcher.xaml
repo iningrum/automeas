@@ -35,28 +35,31 @@
                     Height="50"
                     Content="❌"
                     FontSize="32"
-                    Style="{StaticResource FOC_SquareButtonTheme}"/>
+                    Style="{StaticResource FOC_SquareButtonTheme}"
+                    Click="Button_Clicked"/>
             <Button Grid.Row="1"
                     Grid.Column="2"
                     Content="&#9655;"
                     Foreground="#323232"
                     Background="Transparent"
                     BorderThickness="0"
-                    FontSize="72" Click="NextPage"/>
+                    FontSize="72" 
+                    Command="{Binding Path=NpCommad}"/>
             <Button Grid.Row="1"
                     Grid.Column="0"
                     Content="&#9665;"
                     Foreground="#323232"
                     Background="Transparent"
                     BorderThickness="0"
-                    FontSize="72"/>
+                    FontSize="72"
+                    Command="{Binding Path=PpCommad}"/>
             <Label Grid.Row="0"
                        Grid.Column="1"
                        HorizontalAlignment="Center"
                        VerticalAlignment="Center"
                        FontSize="44"
                        FontFamily="Verdana"
-                       Content="Forma pomiarów"
+                       Content="Some text"
                        Foreground="White"/>
             <view:PageBarView Grid.Column="1" 
                               Grid.Row="2"/>

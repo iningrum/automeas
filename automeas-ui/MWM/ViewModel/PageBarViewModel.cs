@@ -105,13 +105,16 @@ namespace automeas_ui.MWM.ViewModel
                 NotifyPropertyChanged();
             }
         }
+        private readonly Launcher_MainViewModel master;
         public event PropertyChangedEventHandler PropertyChanged;
         private void NotifyPropertyChanged([CallerMemberName] string propertyName = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
-        public PageBarViewModel()
+        public PageBarViewModel(Launcher_MainViewModel master)
         {
+            this.master = master;
+            master.PageChanged += LauncherMaster_PageChanged;
             Pages = new TrulyObservableCollection<ViewedPage>();
             Pages.Add(new ViewedPage(true));
             Pages.Last().PropertyChanged += ViewedPage_PropertyChanged;
@@ -158,7 +161,7 @@ namespace automeas_ui.MWM.ViewModel
             return true;
         }
 
-        private void NextPage()
+        public void NextPage()
         {
             int pgn = 1;
             if (Pages.Last().IsFocused) // last page - goto first page
@@ -176,8 +179,9 @@ namespace automeas_ui.MWM.ViewModel
             }
             Pages[pgn].IsFocused = true;
             CollectionViewSource.GetDefaultView(Pages).Refresh();
+            System.Windows.Application.Current.Shutdown();
         }
-        private void PreviousPage()
+        public void PreviousPage()
         {
             int pgn = -1;
             if (Pages.First().IsFocused) // first page - goto last page
@@ -205,11 +209,28 @@ namespace automeas_ui.MWM.ViewModel
                     if (Pages.ElementAt(i).IsFocused)
                     {
                         Title.Title = PageTitles.Get(i); // <DO NOT USE> Title = new TitleStr(i);
+                        PageChanged?.Invoke(i);
                         return;
                     }
                 }
 
             }
         }
+        public void LauncherMaster_PageChanged(int sender)
+        {
+            if (sender <= 0)
+            {
+                sender = Pages.Count - 1;
+            }
+            else if (sender >= Pages.Count)
+            {
+                sender = 0;
+            }
+            Pages.ElementAt(sender).IsFocused = true;
+            Title.Title = PageTitles.Get(sender);
+            PageChanged?.Invoke(sender);
+            return;
+        }
+        public event Action<int> PageChanged;
     }
 }

@@ -7,6 +7,10 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-            
+        <Label HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   Content="Page 2"
+                   FontSize="72"
+                   Foreground="Wheat"/>
     </Grid>
 </UserControl>

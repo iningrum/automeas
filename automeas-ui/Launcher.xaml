@@ -24,6 +24,15 @@
         <DataTemplate x:Key="View2Template" DataType="{x:Type viewm:Launcher_MainViewModel}">
             <view:Launcher_View2 />
         </DataTemplate>
+        <DataTemplate x:Key="View3Template" DataType="{x:Type viewm:Launcher_MainViewModel}">
+            <view:Launcher_View3 />
+        </DataTemplate>
+        <DataTemplate x:Key="View4Template" DataType="{x:Type viewm:Launcher_MainViewModel}">
+            <view:Launcher_View4 />
+        </DataTemplate>
+        <DataTemplate x:Key="View5Template" DataType="{x:Type viewm:Launcher_MainViewModel}">
+            <view:Launcher_View5 />
+        </DataTemplate>
         <DataTemplate DataType="{x:Type viewm:PageBarViewModel}">
             <view:PageBarView/>
         </DataTemplate>
@@ -78,6 +87,29 @@
                   HorizontalAlignment="Center"
                   VerticalAlignment="Center">
                 <ContentControl x:Name="Pages" Content="{Binding PageBarView}"/>
+            </Grid>
+            <Grid Grid.Row="1" Grid.Column="1">
+                <ContentControl Content="{Binding }">
+                    <ContentControl.Style>
+                        <Style TargetType="{x:Type ContentControl}">
+                            <Setter Property="ContentTemplate" Value="{StaticResource View1Template}" />
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding ObservableCurrentPage.Val}" Value="1">
+                                    <Setter Property="ContentTemplate" Value="{StaticResource View2Template}" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding ObservableCurrentPage.Val}" Value="2">
+                                    <Setter Property="ContentTemplate" Value="{StaticResource View3Template}" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding ObservableCurrentPage.Val}" Value="3">
+                                    <Setter Property="ContentTemplate" Value="{StaticResource View4Template}" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding ObservableCurrentPage.Val}" Value="4">
+                                    <Setter Property="ContentTemplate" Value="{StaticResource View5Template}" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </ContentControl.Style>
+                </ContentControl>
             </Grid>
         </Grid>
     </Border>

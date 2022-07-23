@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="automeas_ui.MWM.View.Launcher_View1"
+﻿<UserControl x:Class="automeas_ui.MWM.View.Launcher_View5"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -9,7 +9,7 @@
     <Grid>
         <Label HorizontalAlignment="Center"
                    VerticalAlignment="Center"
-                   Content="Page 1"
+                   Content="Page 5"
                    FontSize="72"
                    Foreground="Wheat"/>
     </Grid>

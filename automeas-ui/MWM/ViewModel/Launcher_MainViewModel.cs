@@ -49,13 +49,36 @@ namespace automeas_ui.MWM.ViewModel
         }
         public event PropertyChangedEventHandler? PropertyChanged;
     }
+    public class ObservableInt : INotifyPropertyChanged
+    {
+        private int m_Val;
+        public int Val
+        {
+            get { return m_Val; }
+            set
+            {
+                m_Val = value;
+                OnPropertyChanged("Val");
+            }
+        }
+        public ObservableInt(int value = 0)
+        {
+            Val = value;
+        }
+        private void OnPropertyChanged(string propertyName)
+        {
+            var handler = PropertyChanged;
+            if (handler != null)
+                handler(this, new PropertyChangedEventArgs(propertyName));
+        }
+        public event PropertyChangedEventHandler? PropertyChanged;
+    }
     public class Launcher_MainViewModel
     {
-        private object _currentView1;
         private object _currentView2;
         private PageBarViewModel _PageBarView;
-        private object _view2;
         public int CurrentPage { get; set; }
+        public ObservableInt ObservableCurrentPage { get; set; }
         public TtleStr CurrentPageTitle { get; set; }
         public event PropertyChangedEventHandler? PropertyChanged;
         public Launcher_MainViewModel()
@@ -64,13 +87,14 @@ namespace automeas_ui.MWM.ViewModel
             CurrentPageTitle = new TtleStr();
             _PageBarView.PageChanged += _PageBarView_PageChanged;
             PageBarView = _PageBarView;
-            CurrentView2 = _PageBarView;
             CurrentPage = 0;
+            ObservableCurrentPage = new ObservableInt();
         }
 
         private void _PageBarView_PageChanged(int sender)
         {
             CurrentPage = sender;
+            ObservableCurrentPage.Val = CurrentPage;
             CurrentPageTitle.Title = PgeTitles.Get(sender);
             return;
         }

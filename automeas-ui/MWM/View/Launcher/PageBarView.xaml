@@ -28,7 +28,7 @@
                              Margin="10,0,0,0">
                         <RadioButton
                             GroupName="pgs"
-                            IsChecked="{Binding IsFocused, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
+                            IsChecked="{Binding Value, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
                     </Viewbox>
                 </DataTemplate>
             </ItemsControl.ItemTemplate>

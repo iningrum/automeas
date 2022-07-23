@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace automeas_ui.MWM.View
+namespace automeas_ui.MWM.View.Launcher.Pages
 {
     /// <summary>
-    /// Logika interakcji dla klasy Launcher_MainView.xaml
+    /// Logika interakcji dla klasy Page5.xaml
     /// </summary>
-    public partial class Launcher_MainView : UserControl
+    public partial class Page5 : UserControl
     {
-        public Launcher_MainView()
+        public Page5()
         {
             InitializeComponent();
         }

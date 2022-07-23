@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:automeas_ui"
         xmlns:view="clr-namespace:automeas_ui.MWM.View"
+        xmlns:page="clr-namespace:automeas_ui.MWM.View.Launcher.Pages"
         xmlns:viewm="clr-namespace:automeas_ui.MWM.ViewModel"
         mc:Ignorable="d"
         Title="MainWindow" Height="600" Width="920"
@@ -18,20 +19,20 @@
     </Window.DataContext>
     <Window.Resources>
         <DataTemplate x:Key="View1Template" DataType="{x:Type viewm:Launcher_MainViewModel}">
-            <view:Launcher_View1 />
+            <page:Page1 />
         </DataTemplate>
 
         <DataTemplate x:Key="View2Template" DataType="{x:Type viewm:Launcher_MainViewModel}">
-            <view:Launcher_View2 />
+            <page:Page2 />
         </DataTemplate>
         <DataTemplate x:Key="View3Template" DataType="{x:Type viewm:Launcher_MainViewModel}">
-            <view:Launcher_View3 />
+            <page:Page3 />
         </DataTemplate>
         <DataTemplate x:Key="View4Template" DataType="{x:Type viewm:Launcher_MainViewModel}">
-            <view:Launcher_View4 />
+            <page:Page4 />
         </DataTemplate>
         <DataTemplate x:Key="View5Template" DataType="{x:Type viewm:Launcher_MainViewModel}">
-            <view:Launcher_View5 />
+            <page:Page5 />
         </DataTemplate>
         <DataTemplate DataType="{x:Type viewm:PageBarViewModel}">
             <view:PageBarView/>
@@ -81,7 +82,7 @@
                        VerticalAlignment="Center"
                        FontSize="44"
                        FontFamily="Verdana"
-                       Content="{Binding CurrentPageTitle.Title, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+                       Content="{Binding CurrentPageTitle.Value, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
                        Foreground="White"/>
             <Grid DockPanel.Dock="Right" Grid.Row="2" Grid.Column="1"
                   HorizontalAlignment="Center"
@@ -94,16 +95,16 @@
                         <Style TargetType="{x:Type ContentControl}">
                             <Setter Property="ContentTemplate" Value="{StaticResource View1Template}" />
                             <Style.Triggers>
-                                <DataTrigger Binding="{Binding ObservableCurrentPage.Val}" Value="1">
+                                <DataTrigger Binding="{Binding CurrentPage.Value}" Value="1">
                                     <Setter Property="ContentTemplate" Value="{StaticResource View2Template}" />
                                 </DataTrigger>
-                                <DataTrigger Binding="{Binding ObservableCurrentPage.Val}" Value="2">
+                                <DataTrigger Binding="{Binding CurrentPage.Value}" Value="2">
                                     <Setter Property="ContentTemplate" Value="{StaticResource View3Template}" />
                                 </DataTrigger>
-                                <DataTrigger Binding="{Binding ObservableCurrentPage.Val}" Value="3">
+                                <DataTrigger Binding="{Binding CurrentPage.Value}" Value="3">
                                     <Setter Property="ContentTemplate" Value="{StaticResource View4Template}" />
                                 </DataTrigger>
-                                <DataTrigger Binding="{Binding ObservableCurrentPage.Val}" Value="4">
+                                <DataTrigger Binding="{Binding CurrentPage.Value}" Value="4">
                                     <Setter Property="ContentTemplate" Value="{StaticResource View5Template}" />
                                 </DataTrigger>
                             </Style.Triggers>

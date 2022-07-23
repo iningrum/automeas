@@ -3,11 +3,11 @@
 namespace automeas_ui.MWM.View
 {
     /// <summary>
-    /// Logika interakcji dla klasy HomeView.xaml
+    /// Logika interakcji dla klasy Launcher_MainView.xaml
     /// </summary>
-    public partial class HomeView : UserControl
+    public partial class Launcher_MainView : UserControl
     {
-        public HomeView()
+        public Launcher_MainView()
         {
             InitializeComponent();
         }

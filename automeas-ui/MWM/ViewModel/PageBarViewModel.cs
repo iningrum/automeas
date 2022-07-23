@@ -15,7 +15,46 @@ using System.Windows.Input;
 
 namespace automeas_ui.MWM.ViewModel
 {
+    internal static class PageTitles
+    {
+        static public string Get(int id)
+        {
+            List<string> results = new List<String>{
+                "Katalog docelowy",
+                "Opracowanie pomiarów",
+                "Nazwa i opis próby pomiarowej",
+                "Konfiguracja próby",
+                "Podsumowanie"
+            };
+            return results.ElementAt(id);
+        }
+
+    }
     
+    public class TitleStr: INotifyPropertyChanged
+    {
+        private string m_Title;
+        public string Title
+        {
+            get { return m_Title; }
+            set
+            {
+                m_Title = value;
+                OnPropertyChanged("Title");
+            }
+        }
+        public TitleStr(int value = 0)
+        {
+            Title = PageTitles.Get(value);
+        }
+        private void OnPropertyChanged(string propertyName)
+        {
+            var handler = PropertyChanged;
+            if (handler != null)
+                handler(this, new PropertyChangedEventArgs(propertyName));
+        }
+        public event PropertyChangedEventHandler? PropertyChanged;
+    }
     public class ViewedPage: INotifyPropertyChanged
     {
         private bool m_IsFocused;
@@ -55,6 +94,17 @@ namespace automeas_ui.MWM.ViewModel
                 NotifyPropertyChanged();
             }
         }
+        private TitleStr _Title;
+        public TitleStr Title
+        {
+            get { return _Title; }
+            set
+            {
+                if (_Title == value) return;
+                _Title = value;
+                NotifyPropertyChanged();
+            }
+        }
         public event PropertyChangedEventHandler PropertyChanged;
         private void NotifyPropertyChanged([CallerMemberName] string propertyName = null)
         {
@@ -64,10 +114,13 @@ namespace automeas_ui.MWM.ViewModel
         {
             Pages = new TrulyObservableCollection<ViewedPage>();
             Pages.Add(new ViewedPage(true));
+            Pages.Last().PropertyChanged += ViewedPage_PropertyChanged;
             for (int i = 1; i < NumberOfPages; i++)
             {
                 Pages.Add(new ViewedPage());
+                Pages.Last().PropertyChanged += ViewedPage_PropertyChanged;
             }
+            Title = new TitleStr();
         }
         private ICommand? _npCommand;
         private ICommand? _ppCommand;
@@ -143,6 +196,20 @@ namespace automeas_ui.MWM.ViewModel
             Pages[pgn].IsFocused = true;
             CollectionViewSource.GetDefaultView(Pages).Refresh();
         }
+        public void ViewedPage_PropertyChanged(object sender, PropertyChangedEventArgs e)
+        {
+            if (e.PropertyName == "IsFocused")
+            {
+                for (int i = 0; i < Pages.Count(); i++)
+                {
+                    if (Pages.ElementAt(i).IsFocused)
+                    {
+                        Title.Title = PageTitles.Get(i); // <DO NOT USE> Title = new TitleStr(i);
+                        return;
+                    }
+                }
 
+            }
+        }
     }
 }

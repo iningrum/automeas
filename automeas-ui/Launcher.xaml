@@ -59,7 +59,7 @@
                        VerticalAlignment="Center"
                        FontSize="44"
                        FontFamily="Verdana"
-                       Content="Some text"
+                       Content="{Binding Title.Title, Mode=OneWay,UpdateSourceTrigger=PropertyChanged}"
                        Foreground="White"/>
             <view:PageBarView Grid.Column="1" 
                               Grid.Row="2"/>

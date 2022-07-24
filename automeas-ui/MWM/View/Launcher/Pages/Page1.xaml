@@ -20,7 +20,7 @@
                           Grid.Row="0">
                 <ItemsControl.ItemsPanel>
                     <ItemsPanelTemplate>
-                        <WrapPanel Orientation="Vertical"
+                        <StackPanel Orientation="Vertical"
                                 Margin="0,25,0,25"
                                 HorizontalAlignment="Left"
                                 />
@@ -28,12 +28,19 @@
                 </ItemsControl.ItemsPanel>
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
-                        <Viewbox Height="40" 
+                        <StackPanel Orientation="Horizontal">
+                            <Viewbox Height="40" 
                              Margin="10,0,0,0">
-                            <CheckBox
-                            IsChecked="{Binding Value.Checked, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
-                            IsEnabled="{Binding Value.Enabled, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
-                        </Viewbox>
+                                <CheckBox
+                                IsChecked="{Binding Value.Checked, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+                                IsEnabled="{Binding Value.Enabled, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
+                            </Viewbox>
+                            <TextBlock Text="{Binding Value.Text}"
+                                       VerticalAlignment="Center"
+                                       Margin="15,0,0,10"
+                                       FontSize="30"
+                                       Foreground="Wheat"/>
+                        </StackPanel>
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>
             </ItemsControl>

@@ -12,29 +12,39 @@ namespace automeas_ui.MWM.ViewModel.Launcher.Pages
 {
     public class CheckBox
     {
-        public CheckBox(bool IsActive = false, bool IsEditable = true)
+        public CheckBox(string text = "Sample text", bool IsActive = false, bool IsEditable = true)
         {
             Enabled = IsEditable;
             Checked = IsActive;
+            Text = text;
         }
         public bool Enabled { get; set; }
         public bool Checked { get; set; }
+        public string Text { get; set; }
     }
     public class Page1
     {
         // internal interface
         const int NumberOfPages = 5;
+        private string[] CheckBoxText = 
+        {
+            "*.csv",
+            "*.pdf (template required)",
+            "*.docx (template required)",
+            "*.xslx (template required)",
+            "*.jpg (templates required)"
+        };
         // ctor
         public Page1(Launcher_MainViewModel master)
         {
             this.master = master;
             //master.PageChanged += LauncherMaster_PageChanged;
             Pages = new TrulyObservableCollection<ObservableType<CheckBox>>();
-            Pages.Add(new ObservableType<CheckBox>(new CheckBox(true, false)));
+            Pages.Add(new ObservableType<CheckBox>(new CheckBox(CheckBoxText[0], true, false)));
             Pages.Last().PropertyChanged += ViewedPage_PropertyChanged;
             for (int i = 1; i < NumberOfPages; i++)
             {
-                Pages.Add(new ObservableType<CheckBox>(new CheckBox()));
+                Pages.Add(new ObservableType<CheckBox>(new CheckBox(CheckBoxText[i])));
                 Pages.Last().PropertyChanged += ViewedPage_PropertyChanged;
             }
         }

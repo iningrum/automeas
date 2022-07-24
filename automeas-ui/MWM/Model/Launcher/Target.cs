@@ -9,6 +9,6 @@ namespace automeas_ui.MWM.Model.Launcher
     public class Target
     {
         // attr
-        public string? Src;
+        public ObservableType<string> Src = new ObservableType<string>("File Path     📁  ");
     }
 }

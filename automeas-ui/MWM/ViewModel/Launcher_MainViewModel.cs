@@ -1,5 +1,7 @@
 ﻿using automeas_ui.Core;
 using automeas_ui.MWM.Model;
+using automeas_ui.MWM.Model.Launcher;
+using automeas_ui.MWM.ViewModel.Launcher.Pages;
 using System;
 using System.Windows.Input;
 
@@ -9,16 +11,22 @@ namespace automeas_ui.MWM.ViewModel
     {
         public Launcher_MainViewModel()
         {
+            // views
             PageBarView = new PageBarViewModel(this);
+            CurrentView = new Page1(this);
+            // event links
             PageBarView.PageChanged += _PageBarView_PageChanged;
             // observables
             CurrentPage = new ObservableType<int>(0);
             CurrentPageTitle = new ObservableType<string>(PageTitles.Get(CurrentPage.Value));
+            Config = new Target();
+            Config.Src.Value= "File path";
         }
         private object _currentView; // responsible for switching views
         public PageBarViewModel PageBarView { get; set; }
         public ObservableType<int> CurrentPage { get; set; }
         public ObservableType<string> CurrentPageTitle { get; set; }
+        public Target Config { get; set; }
 
         public object CurrentView
         {

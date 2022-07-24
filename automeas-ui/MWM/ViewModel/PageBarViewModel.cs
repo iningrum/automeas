@@ -62,7 +62,7 @@ namespace automeas_ui.MWM.ViewModel
         }
         public void LauncherMaster_PageChanged(int sender)
         {
-            if (sender <= 0)
+            if (sender < 0)
             {
                 sender = Pages.Count - 1;
             }

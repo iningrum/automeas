@@ -11,17 +11,19 @@ namespace automeas_ui.MWM.ViewModel
     {
         public Launcher_MainViewModel()
         {
+            // pages
+            p1 = new Page1(this);
             // views
             PageBarView = new PageBarViewModel(this);
-            CurrentView = new Page1(this);
+            CurrentView = p1;
             // event links
             PageBarView.PageChanged += _PageBarView_PageChanged;
             // observables
             CurrentPage = new ObservableType<int>(0);
             CurrentPageTitle = new ObservableType<string>(PageTitles.Get(CurrentPage.Value));
-            Config = new Target();
-            Config.Src.Value= "File path";
+            Config = new Target(p1);
         }
+        private readonly Page1 p1;
         private object _currentView; // responsible for switching views
         public PageBarViewModel PageBarView { get; set; }
         public ObservableType<int> CurrentPage { get; set; }

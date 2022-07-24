@@ -41,65 +41,42 @@ namespace automeas_ui.MWM.ViewModel.Launcher.Pages
             this.master = master;
             ChosenTargetPath = new ObservableType<string>("File Path     📁  ");
             //master.PageChanged += LauncherMaster_PageChanged;
-            Pages = new TrulyObservableCollection<ObservableType<CheckBox>>();
-            Pages.Add(new ObservableType<CheckBox>(new CheckBox(CheckBoxText[0], true, false)));
-            Pages.Last().PropertyChanged += ViewedPage_PropertyChanged;
+            Options = new TrulyObservableCollection<ObservableType<CheckBox>>();
+            Options.Add(new ObservableType<CheckBox>(new CheckBox(CheckBoxText[0], true, false)));
             for (int i = 1; i < NumberOfPages; i++)
             {
-                Pages.Add(new ObservableType<CheckBox>(new CheckBox(CheckBoxText[i])));
-                Pages.Last().PropertyChanged += ViewedPage_PropertyChanged;
+                Options.Add(new ObservableType<CheckBox>(new CheckBox(CheckBoxText[i])));
             }
         }
         // attrs
         public ObservableType<string> ChosenTargetPath { get; set; }
         private readonly Launcher_MainViewModel master;
-        private TrulyObservableCollection<ObservableType<CheckBox>> _Pages;
-        public TrulyObservableCollection<ObservableType<CheckBox>> Pages
+        private TrulyObservableCollection<ObservableType<CheckBox>> _Options;
+        public TrulyObservableCollection<ObservableType<CheckBox>> Options
         {
-            get { return _Pages; }
+            get { return _Options; }
             set
             {
-                if (_Pages == value) return;
-                _Pages = value;
+                if (_Options == value) return;
+                _Options = value;
                 NotifyPropertyChanged();
+                NotifyOptionsChanged();
             }
         }
         // events
         public event PropertyChangedEventHandler? PropertyChanged;
-        public event Action<int>? PageChanged;
-        private void NotifyPropertyChanged([CallerMemberName] string propertyName = null)
+        public event Action<string>? TargetDestinationChanged;
+        public event Action<List<bool>>? OptionsChanged;
+        private void NotifyPropertyChanged([CallerMemberName] string propertyName = null) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        private void NotifyTargetDestinationChanged(string val) => TargetDestinationChanged?.Invoke(val);
+        private void NotifyOptionsChanged()
         {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
-        public void ViewedPage_PropertyChanged(object sender, PropertyChangedEventArgs e)
-        {
-            if (e.PropertyName == "Value")
+            List<bool> result = new List<bool>();
+            for (int i = 0; i < Options.Count; i++)
             {
-                for (int i = 0; i < Pages.Count(); i++)
-                {
-                    return;
-                    /*if (Pages.ElementAt(i).Value)
-                    {
-                        PageChanged?.Invoke(i);
-                        return;
-                    }*/
-                }
-
+                result.Add(Options.ElementAt(i).Value.Checked);
             }
-        }
-        public void LauncherMaster_PageChanged(int sender)
-        {
-            if (sender <= 0)
-            {
-                sender = Pages.Count - 1;
-            }
-            else if (sender >= Pages.Count)
-            {
-                sender = 0;
-            }
-            //Pages.ElementAt(sender).Value = true;
-            PageChanged?.Invoke(sender);
-            return;
+            OptionsChanged?.Invoke(result);
         }
         // handlers
         private ICommand? _ChooseFileCommand;
@@ -123,7 +100,13 @@ namespace automeas_ui.MWM.ViewModel.Launcher.Pages
             var result = openFileDlg.ShowDialog();
             if (result.ToString() != string.Empty)
             {
-                ChosenTargetPath.Value = openFileDlg.SelectedPath;
+                string src = openFileDlg.SelectedPath;
+                NotifyTargetDestinationChanged(src);
+                if (src.Length > 25)
+                {
+                    src = src.Substring(0, 30);
+                }
+                ChosenTargetPath.Value = $"{src}...";
             }
         }
     }

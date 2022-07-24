@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using automeas_ui.MWM.Model;
 using LiveChartsCore;
 using LiveChartsCore.SkiaSharpView;
 using LiveChartsCore.SkiaSharpView.Painting;
@@ -14,6 +15,9 @@ namespace automeas_ui.MWM.ViewModel
 {
     internal class LiveChartModel
     {
+        public ObservableType<string> Title { get; set; }
+        public ObservableType<string> Subtitle { get; set; }
+        public ObservableType<string> EstimatedTime { get; set; }
         public ISeries[] Series { get; set; }
             = new ISeries[]
             {
@@ -57,7 +61,12 @@ namespace automeas_ui.MWM.ViewModel
         }
     };
 
-
+        public LiveChartModel()
+        {
+            Title = new ObservableType<string>("Profil B");
+            Subtitle = new ObservableType<string>("Pomiar nr. 7");
+            EstimatedTime = new ObservableType<string>("1h 30m 15s");
+        }
         public Axis[] YAxes { get; set; } =
         {
         new Axis

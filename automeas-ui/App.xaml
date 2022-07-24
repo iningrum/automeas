@@ -4,7 +4,7 @@
              xmlns:local="clr-namespace:automeas_ui"
              xmlns:viewModel="clr-namespace:automeas_ui.MWM.ViewModel"
              xmlns:view="clr-namespace:automeas_ui.MWM.View"
-             StartupUri="Launcher.xaml">
+             StartupUri="Dashboard.xaml">
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>

@@ -7,6 +7,7 @@
         xmlns:lvc="clr-namespace:LiveChartsCore.SkiaSharpView.WPF;assembly=LiveChartsCore.SkiaSharpView.WPF"
         mc:Ignorable="d"
         Title="MainWindow" Height="600" Width="920"
+        WindowStartupLocation="CenterScreen"
         WindowStyle="None"
         ResizeMode="NoResize"
         Background="Transparent"
@@ -18,52 +19,59 @@
             CornerRadius="10">
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="0"/>
+                <RowDefinition Height="0.5*"/>
                 <RowDefinition Height="2*"/>
-                <RowDefinition/>
+                <RowDefinition Height="0.5*"/>
             </Grid.RowDefinitions>
             <ProgressBar 
                          Value="80"
                          Style="{StaticResource ModernProgressBar}" Width="915" Height="145"/>
-            <TextBlock Text="Profil A"
+            <TextBlock Text="{Binding Title.Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                    VerticalAlignment="Top"
                    HorizontalAlignment="Center"
                    FontSize="32"
                    Margin="0,10,0,0"
                    Foreground="White"/>
-            <TextBlock Text="1h 12m 35s"
+            <TextBlock Text="{Binding EstimatedTime.Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                    VerticalAlignment="Center"
                    HorizontalAlignment="Right"
                    FontSize="32"
                    Margin="0,0,40,0"
                    Foreground="White"/>
-            <TextBlock Text="Pomiar nr. 1"
+            <TextBlock Text="{Binding Subtitle.Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                    VerticalAlignment="Center"
                    HorizontalAlignment="Center"
                    FontSize="22"
                    Margin="0,32,0,0"
                    Foreground="White"/>
-            <lvc:CartesianChart Grid.Row="2"
-            Series="{Binding Series}">
+            <lvc:CartesianChart Grid.Row="1" 
+                   Series="{Binding Series}"
+                   YAxes="{Binding YAxes}"
+        DrawMarginFrame="{Binding Frame}">
             </lvc:CartesianChart>
             <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Center"
                         Grid.Row="3">
-                <RadioButton Content="|>"
-                             Height="50"
+                <RadioButton
+                             Content="⏯"
+                             Width="75"
+                             Height="75"
                              Foreground="White"
-                             FontSize="14"
-                             Style="{StaticResource MenuButtonTheme}"/>
-                <RadioButton Content="[ ]"
-                             Height="50"
+                             FontSize="25"
+                             />
+                <RadioButton Content="⏹️"
+                             Height="75"
+                             Width="75"
                              Foreground="White"
-                             FontSize="14"
-                             Style="{StaticResource MenuButtonTheme}"/>
-                <RadioButton Content="@"
-                             Height="50"
+                             FontSize="25"
+                             Click="Button_Clicked"
+                             />
+                <RadioButton Content="🔁"
+                             Width="75"
+                             Height="75"
                              Foreground="White"
-                             FontSize="14"
-                             Style="{StaticResource MenuButtonTheme}"/>
+                             FontSize="25"
+                             />
             </StackPanel>
         </Grid>
     </Border>

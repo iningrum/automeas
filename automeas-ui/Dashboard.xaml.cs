@@ -25,5 +25,10 @@ namespace automeas_ui
         {
             InitializeComponent();
         }
+        private void Button_Clicked(object sender, RoutedEventArgs e)
+        {
+            System.Windows.Application.Current.Shutdown();
+        }
     }
+
 }

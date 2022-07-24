@@ -64,6 +64,7 @@
                              Width="75"
                              Foreground="White"
                              FontSize="25"
+                             Click="Button_Clicked"
                              Style="{StaticResource ModernButtonTheme}"/>
                 <RadioButton Content="🔁"
                              Width="75"

@@ -1,6 +1,6 @@
 ﻿namespace automeas_ui.MWM.ViewModel
 {
-    internal class HomeViewModel
+    internal class Launcher_View2Model
     {
     }
 }

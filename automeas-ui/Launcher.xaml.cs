@@ -1,13 +1,9 @@
 ﻿using System.Windows;
-
 namespace automeas_ui
 {
-    /// <summary>
-    /// Logika interakcji dla Dashboard.xaml
-    /// </summary>
-    public partial class Dashboard : Window
+    public partial class Launcher : Window
     {
-        public Dashboard()
+        public Launcher()
         {
             InitializeComponent();
         }
@@ -16,5 +12,4 @@ namespace automeas_ui
             System.Windows.Application.Current.Shutdown();
         }
     }
-
 }

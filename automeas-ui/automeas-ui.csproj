@@ -19,6 +19,7 @@
     <PackageReference Include="System.ObjectModel" Version="4.3.0">
       <TreatAsUsed>true</TreatAsUsed>
     </PackageReference>
+    <PackageReference Include="System.Windows.Forms" Version="4.0.0" />
   </ItemGroup>
 
   <ItemGroup>

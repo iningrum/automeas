@@ -7,6 +7,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace automeas_ui.MWM.ViewModel.Launcher.Pages
 {
@@ -38,6 +39,7 @@ namespace automeas_ui.MWM.ViewModel.Launcher.Pages
         public Page1(Launcher_MainViewModel master)
         {
             this.master = master;
+            ChosenTargetPath = new ObservableType<string>("File Path     📁  ");
             //master.PageChanged += LauncherMaster_PageChanged;
             Pages = new TrulyObservableCollection<ObservableType<CheckBox>>();
             Pages.Add(new ObservableType<CheckBox>(new CheckBox(CheckBoxText[0], true, false)));
@@ -49,6 +51,7 @@ namespace automeas_ui.MWM.ViewModel.Launcher.Pages
             }
         }
         // attrs
+        public ObservableType<string> ChosenTargetPath { get; set; }
         private readonly Launcher_MainViewModel master;
         private TrulyObservableCollection<ObservableType<CheckBox>> _Pages;
         public TrulyObservableCollection<ObservableType<CheckBox>> Pages
@@ -98,6 +101,30 @@ namespace automeas_ui.MWM.ViewModel.Launcher.Pages
             PageChanged?.Invoke(sender);
             return;
         }
-        // NO handlers
+        // handlers
+        private ICommand? _ChooseFileCommand;
+        public ICommand ChooseFileCommand
+        {
+            get
+            {
+                if (_ChooseFileCommand == null)
+                {
+                    _ChooseFileCommand = new JSRelayCommand(
+                        param => this.ChooseFile()
+                    );
+                }
+                return _ChooseFileCommand;
+            }
+        }
+        // functions
+        void ChooseFile()
+        {
+            System.Windows.Forms.FolderBrowserDialog openFileDlg = new System.Windows.Forms.FolderBrowserDialog();
+            var result = openFileDlg.ShowDialog();
+            if (result.ToString() != string.Empty)
+            {
+                ChosenTargetPath.Value = openFileDlg.SelectedPath;
+            }
+        }
     }
 }

@@ -46,11 +46,12 @@
             </ItemsControl>
             <Button Grid.Row="1" VerticalAlignment="Center"
                 Margin="50,0,50,0"
-                Content="File Path     📁  "
+                Content="{Binding ChosenTargetPath.Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                 FontSize="72"
                 Foreground="Wheat"
                 Background="Black"
                 Height="100"
+                Command="{Binding ChooseFileCommand}"
                 HorizontalContentAlignment="Right"/>
     </Grid>
     </Border>

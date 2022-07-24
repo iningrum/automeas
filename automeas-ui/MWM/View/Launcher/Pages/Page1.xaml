@@ -5,12 +5,35 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:automeas_ui.MWM.View.Launcher.Pages"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-        <Label HorizontalAlignment="Center"
-                   VerticalAlignment="Center"
-                   Content="Page 1"
-                   FontSize="72"
-                   Foreground="Wheat"/>
+             d:DesignHeight="400" d:DesignWidth="800">
+    <Grid Margin="50,0,50,0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1.2*"/>
+            <RowDefinition Height="0.5*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Vertical" Margin="0,50,0,0">
+            <TextBlock Grid.Row="0" VerticalAlignment="Center"
+               Margin="0,0,0,0"
+               TextWrapping="Wrap"
+               Text="Wybierz folder docelowy w którym mają się znaleźć wyniki"
+               FontSize="40"
+               Foreground="Wheat"
+               Background="Transparent"/>
+            <TextBlock Grid.Row="0" VerticalAlignment="Center"
+               Margin="15,30,0,0"
+               TextWrapping="Wrap"
+               Text="W folderze docelowym powstanie archiwum zip zawierające opracowane dane pomiarowe."
+               FontSize="25"
+               Foreground="Wheat"
+               Background="Transparent"/>
+        </StackPanel>
+        <Button Grid.Row="1" VerticalAlignment="Center"
+                Margin="50,0,50,0"
+                Content="File Path     📁  "
+                FontSize="72"
+                Foreground="Wheat"
+                Background="Black"
+                Height="100"
+                HorizontalContentAlignment="Right"/>
     </Grid>
 </UserControl>

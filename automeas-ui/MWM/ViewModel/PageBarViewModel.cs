@@ -71,7 +71,7 @@ namespace automeas_ui.MWM.ViewModel
                 sender = 0;
             }
             Pages.ElementAt(sender).Value = true;
-            PageChanged?.Invoke(sender);
+            //PageChanged?.Invoke(sender);
             return;
         }
         // NO handlers

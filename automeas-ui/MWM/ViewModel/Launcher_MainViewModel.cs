@@ -71,13 +71,12 @@ namespace automeas_ui.MWM.ViewModel
                 return _ppCommand;
             }
         }
-        private void _PageBarView_PageChanged(int sender)
+        public void _PageBarView_PageChanged(int sender)
         {
             //CurrentView.Value = GetCurrentView(sender);
-            GetCurrentPage(sender);
             PageNoLongerRelevant?.Invoke(CurrentPage.Value);
             CurrentPage.Value = sender;
-            
+            GetCurrentPage(sender);
             CurrentPageTitle.Value = PageTitles.Get(sender);
             return;
         }

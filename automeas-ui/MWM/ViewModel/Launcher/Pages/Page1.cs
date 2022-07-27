@@ -1,5 +1,6 @@
 ﻿using automeas_ui.Core;
 using automeas_ui.MWM.Model;
+using automeas_ui.MWM.Model.Launcher;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -23,10 +24,11 @@ namespace automeas_ui.MWM.ViewModel.Launcher.Pages
         public bool Checked { get; set; }
         public string Text { get; set; }
     }
-    public class Page1
+    public class Page1 : BaseViewModel, IBaseViewModel
     {
         // internal interface
         const int NumberOfPages = 5;
+        const int ID = 0;
         private string[] CheckBoxText = 
         {
             "*.csv",
@@ -36,10 +38,11 @@ namespace automeas_ui.MWM.ViewModel.Launcher.Pages
             "*.jpg (templates required)"
         };
         // ctor
-        public Page1(Launcher_MainViewModel master)
+        public Page1()
         {
-            this.master = master;
-            ChosenTargetPath = new ObservableType<string>("File Path     📁  ");
+            // parent init
+            //this.master = master;
+            ChosenTargetPath = new ObservableType<string>("");
             //master.PageChanged += LauncherMaster_PageChanged;
             Options = new TrulyObservableCollection<ObservableType<CheckBox>>();
             Options.Add(new ObservableType<CheckBox>(new CheckBox(CheckBoxText[0], true, false)));
@@ -50,7 +53,7 @@ namespace automeas_ui.MWM.ViewModel.Launcher.Pages
         }
         // attrs
         public ObservableType<string> ChosenTargetPath { get; set; }
-        private readonly Launcher_MainViewModel master;
+        //private readonly Launcher_MainViewModel master;
         private TrulyObservableCollection<ObservableType<CheckBox>> _Options;
         public TrulyObservableCollection<ObservableType<CheckBox>> Options
         {
@@ -101,12 +104,57 @@ namespace automeas_ui.MWM.ViewModel.Launcher.Pages
             if (result.ToString() != string.Empty)
             {
                 string src = openFileDlg.SelectedPath;
+                if (src == null || src.Length == 0)
+                {
+                    return;
+                }
                 NotifyTargetDestinationChanged(src);
                 if (src.Length > 25)
                 {
                     src = src.Substring(0, 30);
                 }
+                /*ChosenTargetPath*/
                 ChosenTargetPath.Value = $"{src}...";
+            }
+        }
+
+        public void HandlePageChanged(int msg)
+        {
+            if(ID == msg)
+            {
+                _target.Destination = this.ChosenTargetPath.Value;
+                List<bool> options = new List<bool>();
+                foreach (var item in Options)
+                {
+                    options.Add(item.Value.Checked);
+                }
+                _target.Options = options;
+            }
+
+        }
+
+        public void Bind(Target T, Action<int> handler) 
+        {
+            _target = T;
+            _target.PageChangedEvent += HandlePageChanged;
+            if (_target.Options == null || _target.Options.Count < NumberOfPages)
+            {
+                _target.Options = new List<bool>(NumberOfPages);
+                _target.Options.Add(true);
+                for (int i = 1; i < NumberOfPages; i++)
+                {
+                    _target.Options.Add(false);
+                }
+            }
+        }
+
+        public void Load(Target T)
+        {
+            Bind(T, HandlePageChanged);
+            this.ChosenTargetPath.Value = _target.Destination;
+            for (int i = 0; i < Options.Count; i++)
+            {
+                Options[i].Value.Checked = _target.Options[i];
             }
         }
     }

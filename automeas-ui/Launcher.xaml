@@ -91,7 +91,7 @@
                 <ContentControl x:Name="Pages" Content="{Binding PageBarView}"/>
             </Grid>
             <Grid Grid.Row="1" Grid.Column="1">
-                <ContentControl Content="{Binding CurrentView}">
+                <ContentControl Content="{Binding CurrentView.Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
                     <ContentControl.Style>
                         <Style TargetType="{x:Type ContentControl}">
                             <Setter Property="ContentTemplate" Value="{StaticResource View1Template}" />

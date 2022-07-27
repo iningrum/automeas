@@ -9,7 +9,7 @@ namespace automeas_ui.MWM.Model
         {
             List<string> results = new List<string>{
                 "Katalog docelowy",
-                "Opracowanie pomiarów",
+                "Nazwa i opis próby pomiarowej",
                 "Nazwa i opis próby pomiarowej",
                 "Konfiguracja próby",
                 "Podsumowanie"

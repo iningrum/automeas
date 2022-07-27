@@ -10,19 +10,21 @@ namespace automeas_ui.MWM.Model.Launcher
     public class Target
     {
         // ctor
-        public Target(Page1 master)
+        public Target()
         {
-            _Master = master;
-            _Master.OptionsChanged += Master_OptionsChanged;
-            _Master.TargetDestinationChanged += Master_DestinationChanged;
+            Destination = "File Path     📁  ";
+            Name = "Sample name";
+            Description = "Sample description";
         }
         // events
+        public event Action<int>? PageChangedEvent;
+        // senders
+        private void NotifyPageChanged(int msg) => PageChangedEvent?.Invoke(msg);
         // handlers
-        void Master_OptionsChanged(List<bool> msg) => Options = msg;
-        void Master_DestinationChanged(string msg) => Destination = msg;
         // attr
-        private readonly Page1 _Master;
-        public string? Destination { get; set; }
-        public List<bool>? Options { get; set; }
+        public string Destination;
+        public string Name;
+        public string Description;
+        public List<bool> Options;
     }
 }

@@ -9,37 +9,36 @@ namespace automeas_ui.MWM.ViewModel
 {
     public class Launcher_MainViewModel
     {
+        // new
+        public ObservableType<object> CurrentView { get; set; }
+        // end
         public Launcher_MainViewModel()
         {
+            Config = new Target();
+            CurrentView = new ObservableType<object>(null);
+            GetCurrentPage(0);
+
+            
             // pages
-            p1 = new Page1(this);
             // views
             PageBarView = new PageBarViewModel(this);
-            CurrentView = p1;
             // event links
             PageBarView.PageChanged += _PageBarView_PageChanged;
             // observables
             CurrentPage = new ObservableType<int>(0);
             CurrentPageTitle = new ObservableType<string>(PageTitles.Get(CurrentPage.Value));
-            Config = new Target(p1);
         }
-        private readonly Page1 p1;
-        private object _currentView; // responsible for switching views
+        //private object _currentView; // responsible for switching views
+        Page1 p1;
+        NameDescriptionViewModel p2;
         public PageBarViewModel PageBarView { get; set; }
         public ObservableType<int> CurrentPage { get; set; }
         public ObservableType<string> CurrentPageTitle { get; set; }
         public Target Config { get; set; }
 
-        public object CurrentView
-        {
-            get { return _currentView; }
-            set
-            {
-                _currentView = value;
-            }
-        }
         // events
         public event Action<int>? PageChanged;
+        public event Action? NameDescriptionOutOfFocus;
         void NextPage() => PageChanged?.Invoke(CurrentPage.Value + 1);
         void PreviousPage() => PageChanged?.Invoke(CurrentPage.Value - 1);
         // handlers
@@ -73,9 +72,32 @@ namespace automeas_ui.MWM.ViewModel
         }
         private void _PageBarView_PageChanged(int sender)
         {
+            //CurrentView.Value = GetCurrentView(sender);
             CurrentPage.Value = sender;
+            GetCurrentPage(sender);
             CurrentPageTitle.Value = PageTitles.Get(sender);
             return;
+        }
+        private void GetCurrentPage(int cp)
+        {
+            switch (cp)
+            {
+                case 0:
+                    {
+                        var result = new Page1();
+                        result.Load(Config);
+                        CurrentView.Value = result;
+                    }
+                    break;
+                case 1:
+                    {
+                        var result = new NameDescriptionViewModel();
+                        result.Load(Config);
+                        CurrentView.Value = result;
+                    }
+                    break;
+            }
+            
         }
     }
 }

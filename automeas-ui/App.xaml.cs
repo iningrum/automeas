@@ -1,4 +1,6 @@
-﻿using System.Windows;
+﻿using automeas_ui.Core;
+using automeas_ui.MWM.ViewModel;
+using System.Windows;
 
 namespace automeas_ui
 {

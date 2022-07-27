@@ -1,4 +1,5 @@
-﻿using automeas_ui.MWM.ViewModel.Launcher.Pages;
+﻿using automeas_ui.MWM.ViewModel;
+using automeas_ui.MWM.ViewModel.Launcher.Pages;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,8 +11,10 @@ namespace automeas_ui.MWM.Model.Launcher
     public class Target
     {
         // ctor
-        public Target()
+        public Target(Launcher_MainViewModel master)
         {
+            _master = master;
+            master.PageChanged += NotifyPageChanged;
             Destination = "File Path     📁  ";
             Name = "Sample name";
             Description = "Sample description";
@@ -22,6 +25,7 @@ namespace automeas_ui.MWM.Model.Launcher
         private void NotifyPageChanged(int msg) => PageChangedEvent?.Invoke(msg);
         // handlers
         // attr
+        private readonly Launcher_MainViewModel _master;
         public string Destination;
         public string Name;
         public string Description;

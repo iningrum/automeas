@@ -32,7 +32,10 @@ namespace automeas_ui.MWM.ViewModel.Launcher.Pages
 
         public void HandlePageChanged(int msg)
         {
-            throw new NotImplementedException();
+            if(this.Name.Value!=null)
+                _target.Name = this.Name.Value;
+            if(this.Description.Value!=null)
+                _target.Description = this.Description.Value;
         }
 
         // handlers

@@ -14,7 +14,7 @@ namespace automeas_ui.MWM.ViewModel
         // end
         public Launcher_MainViewModel()
         {
-            Config = new Target();
+            Config = new Target(this);
             CurrentView = new ObservableType<object>(null);
             GetCurrentPage(0);
 

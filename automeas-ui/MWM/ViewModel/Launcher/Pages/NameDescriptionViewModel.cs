@@ -16,7 +16,9 @@ namespace automeas_ui.MWM.ViewModel.Launcher.Pages
             Name = new ObservableType<string>("");
             Description = new ObservableType<string>("");
         }
-
+        // attr
+        private const int ID = 1;
+        // IBaseViewModel
         public void Bind(Target T, Action<int> handler)
         {
             _target = T;
@@ -32,6 +34,8 @@ namespace automeas_ui.MWM.ViewModel.Launcher.Pages
 
         public void HandlePageChanged(int msg)
         {
+            if (msg != ID)
+                return;
             if(this.Name.Value!=null)
                 _target.Name = this.Name.Value;
             if(this.Description.Value!=null)

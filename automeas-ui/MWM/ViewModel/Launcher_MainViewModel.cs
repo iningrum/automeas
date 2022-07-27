@@ -38,6 +38,7 @@ namespace automeas_ui.MWM.ViewModel
 
         // events
         public event Action<int>? PageChanged;
+        public event Action<int>? PageNoLongerRelevant;
         public event Action? NameDescriptionOutOfFocus;
         void NextPage() => PageChanged?.Invoke(CurrentPage.Value + 1);
         void PreviousPage() => PageChanged?.Invoke(CurrentPage.Value - 1);
@@ -73,8 +74,10 @@ namespace automeas_ui.MWM.ViewModel
         private void _PageBarView_PageChanged(int sender)
         {
             //CurrentView.Value = GetCurrentView(sender);
-            CurrentPage.Value = sender;
             GetCurrentPage(sender);
+            PageNoLongerRelevant?.Invoke(CurrentPage.Value);
+            CurrentPage.Value = sender;
+            
             CurrentPageTitle.Value = PageTitles.Get(sender);
             return;
         }
@@ -96,6 +99,14 @@ namespace automeas_ui.MWM.ViewModel
                         CurrentView.Value = result;
                     }
                     break;
+                case 3:
+                    {
+                        var result = new LauncherSummaryViewModel(Config);
+                        CurrentView.Value = result;
+                    }
+                    break;
+                default:
+                    throw new NotImplementedException();
             }
             
         }

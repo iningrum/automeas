@@ -14,7 +14,7 @@ namespace automeas_ui.MWM.Model.Launcher
         public Target(Launcher_MainViewModel master)
         {
             _master = master;
-            master.PageChanged += NotifyPageChanged;
+            master.PageNoLongerRelevant += NotifyPageChanged;
             Destination = "File Path     📁  ";
             Name = "Sample name";
             Description = "Sample description";

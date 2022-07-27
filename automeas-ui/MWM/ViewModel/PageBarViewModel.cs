@@ -10,7 +10,7 @@ namespace automeas_ui.MWM.ViewModel
     public class PageBarViewModel
     {
         // internal interface
-        const int NumberOfPages = 5;
+        const int NumberOfPages = 4;
         // ctor
         public PageBarViewModel(Launcher_MainViewModel master)
         {
@@ -51,7 +51,7 @@ namespace automeas_ui.MWM.ViewModel
             {
                 for (int i = 0; i < Pages.Count(); i++)
                 {
-                    if (Pages.ElementAt(i).Value)
+                    if (Pages.ElementAt(i).Value==true && master.CurrentPage.Value!=i)
                     {
                         PageChanged?.Invoke(i);
                         return;

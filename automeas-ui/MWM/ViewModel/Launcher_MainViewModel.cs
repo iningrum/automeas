@@ -98,6 +98,13 @@ namespace automeas_ui.MWM.ViewModel
                         CurrentView.Value = result;
                     }
                     break;
+                case 2:
+                    {
+                        var result = new UploadConfigFileViewModel();
+                        result.Load(Config);
+                        CurrentView.Value = result;
+                    }
+                    break;
                 case 3:
                     {
                         var result = new LauncherSummaryViewModel(Config);

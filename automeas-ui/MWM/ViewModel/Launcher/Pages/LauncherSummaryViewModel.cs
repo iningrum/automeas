@@ -27,7 +27,7 @@ namespace automeas_ui.MWM.ViewModel.Launcher.Pages
             "Nazwa próby:\t\t",
             "Katalog docelowy:\t",
             "Wybrane formaty:\t",
-            "Typy ruchów:\t\t",
+            "Plik ruchu:\t\t",
             "Ilość krokow:\t\t",
             "Szacowany Czas:\t\t"
         };
@@ -42,6 +42,7 @@ namespace automeas_ui.MWM.ViewModel.Launcher.Pages
             }
             ChosenOptions[0].Value.Description = _target.Name;
             ChosenOptions[1].Value.Description = _target.Destination;
+            ChosenOptions[3].Value.Description = _target.ConfigFileName;
         }
         // attr
         public TrulyObservableCollection<ObservableType<Summary>> ChosenOptions { get; set; }

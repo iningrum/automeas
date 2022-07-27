@@ -29,6 +29,8 @@ namespace automeas_ui.MWM.Model.Launcher
         public string Destination;
         public string Name;
         public string Description;
+        public string ConfigFilePath;
+        public string ConfigFileName;
         public List<bool> Options;
     }
 }

@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:automeas_ui"
         xmlns:view="clr-namespace:automeas_ui.MWM.View"
         xmlns:page="clr-namespace:automeas_ui.MWM.View.Launcher.Pages"
+        xmlns:pagem="clr-namespace:automeas_ui.MWM.ViewModel.Launcher.Pages"
         xmlns:viewm="clr-namespace:automeas_ui.MWM.ViewModel"
         mc:Ignorable="d"
         Title="MainWindow" Height="600" Width="920"
@@ -90,7 +91,7 @@
                 <ContentControl x:Name="Pages" Content="{Binding PageBarView}"/>
             </Grid>
             <Grid Grid.Row="1" Grid.Column="1">
-                <ContentControl Content="{Binding }">
+                <ContentControl Content="{Binding CurrentView.Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
                     <ContentControl.Style>
                         <Style TargetType="{x:Type ContentControl}">
                             <Setter Property="ContentTemplate" Value="{StaticResource View1Template}" />
@@ -104,7 +105,7 @@
                                 <DataTrigger Binding="{Binding CurrentPage.Value}" Value="3">
                                     <Setter Property="ContentTemplate" Value="{StaticResource View4Template}" />
                                 </DataTrigger>
-                                <DataTrigger Binding="{Binding CurrentPage.Value}" Value="4">
+                                <DataTrigger Binding="{Binding CurrentPage.Value}" Value="-1">
                                     <Setter Property="ContentTemplate" Value="{StaticResource View5Template}" />
                                 </DataTrigger>
                             </Style.Triggers>

@@ -1,16 +1,27 @@
 ﻿using automeas_ui.Core;
 using automeas_ui.MWM.Model;
+using automeas_ui.MWM.Model.Launcher;
 using System;
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
 
+/*
+         * Generates navigation UI that is:
+         *  [X] RadioButton panel that indicates current page and allows to
+         *  switch to any page.
+         *  [X] Tells Launcher_MainViewModel number of current page
+         *  [X] Tells Launcher_MainViewModel which title should be displayed
+         * ----------------------------------------------------------------
+         *  Launcher_MainViewModel tells PageBarView to switch pages if
+         *  left or right button has been pressed. Those buttons allow
+         *  for switching to next/previous page.
+         *  
+         */
 namespace automeas_ui.MWM.ViewModel
 {
     public class PageBarViewModel
     {
-        // internal interface
-        const int NumberOfPages = 5;
         // ctor
         public PageBarViewModel(Launcher_MainViewModel master)
         {
@@ -19,7 +30,7 @@ namespace automeas_ui.MWM.ViewModel
             Pages = new TrulyObservableCollection<ObservableType<bool>>();
             Pages.Add(new ObservableType<bool>(true));
             Pages.Last().PropertyChanged += ViewedPage_PropertyChanged;
-            for (int i = 1; i < NumberOfPages; i++)
+            for (int i = 1; i < AMDevConfig.NumberOfPages; i++)
             {
                 Pages.Add(new ObservableType<bool>(false));
                 Pages.Last().PropertyChanged += ViewedPage_PropertyChanged;
@@ -51,7 +62,7 @@ namespace automeas_ui.MWM.ViewModel
             {
                 for (int i = 0; i < Pages.Count(); i++)
                 {
-                    if (Pages.ElementAt(i).Value)
+                    if (Pages.ElementAt(i).Value == true && master.CurrentPage.Value != i)
                     {
                         PageChanged?.Invoke(i);
                         return;
@@ -62,7 +73,7 @@ namespace automeas_ui.MWM.ViewModel
         }
         public void LauncherMaster_PageChanged(int sender)
         {
-            if (sender <= 0)
+            if (sender < 0)
             {
                 sender = Pages.Count - 1;
             }
@@ -71,9 +82,7 @@ namespace automeas_ui.MWM.ViewModel
                 sender = 0;
             }
             Pages.ElementAt(sender).Value = true;
-            PageChanged?.Invoke(sender);
             return;
         }
-        // NO handlers
     }
 }

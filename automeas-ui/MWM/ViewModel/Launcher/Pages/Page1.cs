@@ -135,30 +135,5 @@ namespace automeas_ui.MWM.ViewModel.Launcher.Pages
             }
 
         }
-
-        /*public void Bind(Target T, Action<int> handler)
-        {
-            Target.Instance = T;
-            Target.Instance.PageChangedEvent += HandlePageChanged;
-            if (Target.Instance.Options == null || Target.Instance.Options.Count < AMDevConfig.CheckBoxText.Count())
-            {
-                Target.Instance.Options = new List<bool>(AMDevConfig.CheckBoxText.Count());
-                Target.Instance.Options.Add(true);
-                for (int i = 1; i < AMDevConfig.CheckBoxText.Count(); i++)
-                {
-                    Target.Instance.Options.Add(false);
-                }
-            }
-        }*/
-
-        /*public void Load(Target T)
-        {
-            Bind(T, HandlePageChanged);
-            this.ChosenTargetPath.Value = Target.Instance.Destination;
-            for (int i = 0; i < Options.Count; i++)
-            {
-                Options[i].Value.Checked = Target.Instance.Options[i];
-            }
-        }*/
     }
 }

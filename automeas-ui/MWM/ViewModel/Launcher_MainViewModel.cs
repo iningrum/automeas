@@ -33,7 +33,6 @@ namespace automeas_ui.MWM.ViewModel
         public PageBarViewModel PageBarView { get; set; }
         public ObservableType<int> CurrentPage { get; set; }
         public ObservableType<string> CurrentPageTitle { get; set; }
-        //public Target Target.Instance { get; set; }
 
         // events
         public event Action<int>? PageChanged; // sent to PageBarView
@@ -71,7 +70,6 @@ namespace automeas_ui.MWM.ViewModel
         }
         public void _PageBarView_PageChanged(int sender)
         {
-            //CurrentView.Value = GetCurrentView(sender);
             PageNoLongerRelevant?.Invoke(CurrentPage.Value);
             CurrentPage.Value = sender;
             GetCurrentPage(sender);
@@ -85,21 +83,18 @@ namespace automeas_ui.MWM.ViewModel
                 case 0:
                     {
                         var result = new Page1();
-                        //result.Load(Target.Instance);
                         CurrentView.Value = result;
                     }
                     break;
                 case 1:
                     {
                         var result = new NameDescriptionViewModel();
-                        //result.Load(Target.Instance);
                         CurrentView.Value = result;
                     }
                     break;
                 case 2:
                     {
                         var result = new UploadConfigFileViewModel();
-                        //result.Load(Target.Instance);
                         CurrentView.Value = result;
                     }
                     break;

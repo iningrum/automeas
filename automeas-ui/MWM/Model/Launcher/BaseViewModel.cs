@@ -6,6 +6,5 @@ namespace automeas_ui.MWM.Model.Launcher
 {
     public class BaseViewModel
     {
-        protected Target _target;
     }
 }

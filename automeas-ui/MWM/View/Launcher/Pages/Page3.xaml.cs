@@ -39,5 +39,11 @@ namespace automeas_ui.MWM.View.Launcher.Pages
                 vm.DragDropFile(filename, full_path);
             }
         }
+
+        private void IntegerUpDown_InputValidationError(object sender, Xceed.Wpf.Toolkit.Core.Input.InputValidationErrorEventArgs e)
+        {
+            var vm = (UploadConfigFileViewModel)this.DataContext;
+            vm.NOfRepeatsInt.Value = 1;
+        }
     }
 }

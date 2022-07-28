@@ -6,6 +6,7 @@
              xmlns:local="clr-namespace:automeas_ui.MWM.View.Launcher.Pages"
              xmlns:model="clr-namespace:automeas_ui.MWM.ViewModel.Launcher.Pages" 
              xmlns:viewm="clr-namespace:automeas_ui.MWM.ViewModel"
+             xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
              d:DataContext="{d:DesignInstance Type=model:UploadConfigFileViewModel}"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
@@ -25,6 +26,20 @@
                     <ColumnDefinition Width="0.75*"/>
                     <ColumnDefinition Width="1*"/>
                 </Grid.ColumnDefinitions>
+                <xctk:IntegerUpDown Grid.Row="1"
+                         Grid.Column="2"
+                         FormatString="N0"  
+                         Increment="1"
+                         Minimum="1"
+                         Maximum="200000"
+                         MinWidth="100"
+                         MaxHeight="100"
+                         Value="{Binding NOfRepeatsInt.Value}"
+                         VerticalContentAlignment="Center"
+                         HorizontalAlignment="Center"
+                         Margin="7,0,0,7"
+                         InputValidationError="IntegerUpDown_InputValidationError"
+                         FontSize="{Binding NOfRepeatsFontSize.Value}"/>
                 <Button Grid.Row="1"
                         Grid.Column="1"
                         Margin="0,0,0,7"
@@ -36,6 +51,7 @@
                         Content="Otwórz edytor ruchu"
                         Grid.Column="1"
                         Margin="0,5,0,0"/>
+
             </Grid>
         </Border>
     </Grid>

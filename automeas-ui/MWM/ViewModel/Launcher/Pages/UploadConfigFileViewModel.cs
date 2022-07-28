@@ -26,12 +26,6 @@ namespace automeas_ui.MWM.ViewModel.Launcher.Pages
         private int ID = 2;
         public ObservableType<int> NOfRepeatsFontSize { get; set; }
         public ObservableType<int> NOfRepeatsInt { get; set; }
-        // IBaseViewModel
-        /*public void Bind(Target T, Action<int> handler)
-        {
-            Target.Instance = T;
-            Target.Instance.PageChangedEvent += handler;
-        }*/
 
         public void HandlePageChanged(int msg)
         {
@@ -39,12 +33,6 @@ namespace automeas_ui.MWM.ViewModel.Launcher.Pages
                 return;
             Target.Instance.NumberOfMoves = NOfRepeatsInt.Value;
         }
-
-        /*public void Load(Target T)
-        {
-            Bind(T, HandlePageChanged);
-            NOfRepeatsInt.Value = Target.Instance.NumberOfMoves;
-        }*/
         // handle drag&drop
         public void DragDropFile(string filename, string path)
         {

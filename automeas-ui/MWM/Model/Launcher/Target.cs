@@ -21,6 +21,7 @@ namespace automeas_ui.MWM.Model.Launcher
         }
         // events
         public event Action<int>? PageChangedEvent;
+        public event Action<List<string>>? ChangeWindowToDashboard;
         // senders
         private void NotifyPageChanged(int msg) => PageChangedEvent?.Invoke(msg);
         // handlers
@@ -32,5 +33,6 @@ namespace automeas_ui.MWM.Model.Launcher
         public string ConfigFilePath;
         public string ConfigFileName;
         public List<bool> Options;
+        public void NotifyChangeWindowToDashboard() => ChangeWindowToDashboard?.Invoke(new List<string>());
     }
 }

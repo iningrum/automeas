@@ -30,8 +30,10 @@
                         Margin="0,0,0,7"
                         AllowDrop="True"
                         Drop="Button_HandleDrop"
+                        Content="Upuść plik"
                         Command="{Binding ChooseFileCommand}"/>
                 <Button Grid.Row="2"
+                        Content="Otwórz edytor ruchu"
                         Grid.Column="1"
                         Margin="0,5,0,0"/>
             </Grid>

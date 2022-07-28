@@ -111,10 +111,10 @@ namespace automeas_ui.MWM.ViewModel.Launcher.Pages
                 NotifyTargetDestinationChanged(src);
                 if (src.Length > 25)
                 {
-                    src = src.Substring(0, 30);
+                    src = src.Substring(0, 28);
                 }
                 /*ChosenTargetPath*/
-                ChosenTargetPath.Value = $"{src}...";
+                ChosenTargetPath.Value = $"{src}... ";
             }
         }
 

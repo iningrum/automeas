@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace automeas_ui.MWM.ViewModel.Launcher.Pages
 {
@@ -42,9 +43,54 @@ namespace automeas_ui.MWM.ViewModel.Launcher.Pages
             }
             ChosenOptions[0].Value.Description = _target.Name;
             ChosenOptions[1].Value.Description = _target.Destination;
+            ChosenOptions[2].Value.Description = GetCheckBoxString();
             ChosenOptions[3].Value.Description = _target.ConfigFileName;
         }
         // attr
         public TrulyObservableCollection<ObservableType<Summary>> ChosenOptions { get; set; }
+
+        // func
+        private string GetCheckBoxString()
+        {
+            string[] titles =
+            {
+                "csv",
+                "pdf",
+                "docx",
+                "xslx",
+                "jpg"
+            };
+            string result = "";
+            for (int i = 0; i < _target.Options.Count(); i++)
+            {
+                if (_target.Options[i] == true)
+                {
+                    result += $"{titles[i]},  ";
+                }
+               
+            }
+            if(result.Length>2)
+                result = result.Substring(0, result.Length - ",  ".Length);
+            return result;
+        }
+        private ICommand? _SwitchToDashboard;
+        public ICommand SwitchToDashboard
+        {
+            get
+            {
+                if (_SwitchToDashboard == null)
+                {
+                    _SwitchToDashboard = new JSRelayCommand(
+                        param => this.SwitchWindowToDashboard()
+                    );
+                }
+                return _SwitchToDashboard;
+            }
+        }
+        // functions
+        void SwitchWindowToDashboard()
+        {
+            _target.NotifyChangeWindowToDashboard();
+        }
     }
 }

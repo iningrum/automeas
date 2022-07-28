@@ -1,4 +1,5 @@
-﻿using automeas_ui.MWM.ViewModel;
+﻿using automeas_ui.MWM.Model.Launcher;
+using automeas_ui.MWM.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Windows;
@@ -19,7 +20,7 @@ namespace automeas_ui
         {
             Launcher launcher = new Launcher();
             var x = (Launcher_MainViewModel)launcher.DataContext;
-            x.Config.ChangeWindowToDashboard += HandleWindowToDashboard;
+            Target.Instance.ChangeWindowToDashboard += HandleWindowToDashboard;
             mw = launcher;
             mw.Show();
             return;

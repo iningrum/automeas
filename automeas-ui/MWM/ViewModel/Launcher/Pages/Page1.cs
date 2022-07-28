@@ -34,13 +34,27 @@ namespace automeas_ui.MWM.ViewModel.Launcher.Pages
         // ctor
         public Page1()
         {
-            ChosenTargetPath = new ObservableType<string>("");
-            Options = new TrulyObservableCollection<ObservableType<CheckBox>>();
-            Options.Add(new ObservableType<CheckBox>(new CheckBox(AMDevConfig.CheckBoxText[0], true, false)));
-            for (int i = 1; i < AMDevConfig.CheckBoxText.Count(); i++)
-            {
-                Options.Add(new ObservableType<CheckBox>(new CheckBox(AMDevConfig.CheckBoxText[i])));
+            { // load from Target
+                Target.Instance.PageChangedEvent += HandlePageChanged;
+                if (Target.Instance.Options == null || Target.Instance.Options.Count < AMDevConfig.CheckBoxText.Count())
+                {
+                    Target.Instance.Options = new List<bool>(AMDevConfig.CheckBoxText.Count());
+                    Target.Instance.Options.Add(true);
+                    for (int i = 1; i < AMDevConfig.CheckBoxText.Count(); i++)
+                    {
+                        Target.Instance.Options.Add(false);
+                    }
+                }
+                this.ChosenTargetPath = new ObservableType<string>(Target.Instance.Destination);
+                this.Options = new TrulyObservableCollection<ObservableType<CheckBox>>();
+                Options.Add(new ObservableType<CheckBox>(new CheckBox(AMDevConfig.CheckBoxText[0], true, false)));
+                for (int i = 1; i < AMDevConfig.CheckBoxText.Count(); i++)
+                {
+                    Options.Add(new ObservableType<CheckBox>(new CheckBox(AMDevConfig.CheckBoxText[i], Target.Instance.Options[i])));
+                }
+
             }
+            
         }
         // attrs
         public ObservableType<string> ChosenTargetPath { get; set; }
@@ -111,40 +125,40 @@ namespace automeas_ui.MWM.ViewModel.Launcher.Pages
         {
             if (ID == msg)
             {
-                _target.Destination = this.ChosenTargetPath.Value;
+                Target.Instance.Destination = this.ChosenTargetPath.Value;
                 List<bool> options = new List<bool>();
                 foreach (var item in Options)
                 {
                     options.Add(item.Value.Checked);
                 }
-                _target.Options = options;
+                Target.Instance.Options = options;
             }
 
         }
 
-        public void Bind(Target T, Action<int> handler)
+        /*public void Bind(Target T, Action<int> handler)
         {
-            _target = T;
-            _target.PageChangedEvent += HandlePageChanged;
-            if (_target.Options == null || _target.Options.Count < AMDevConfig.CheckBoxText.Count())
+            Target.Instance = T;
+            Target.Instance.PageChangedEvent += HandlePageChanged;
+            if (Target.Instance.Options == null || Target.Instance.Options.Count < AMDevConfig.CheckBoxText.Count())
             {
-                _target.Options = new List<bool>(AMDevConfig.CheckBoxText.Count());
-                _target.Options.Add(true);
+                Target.Instance.Options = new List<bool>(AMDevConfig.CheckBoxText.Count());
+                Target.Instance.Options.Add(true);
                 for (int i = 1; i < AMDevConfig.CheckBoxText.Count(); i++)
                 {
-                    _target.Options.Add(false);
+                    Target.Instance.Options.Add(false);
                 }
             }
-        }
+        }*/
 
-        public void Load(Target T)
+        /*public void Load(Target T)
         {
             Bind(T, HandlePageChanged);
-            this.ChosenTargetPath.Value = _target.Destination;
+            this.ChosenTargetPath.Value = Target.Instance.Destination;
             for (int i = 0; i < Options.Count; i++)
             {
-                Options[i].Value.Checked = _target.Options[i];
+                Options[i].Value.Checked = Target.Instance.Options[i];
             }
-        }
+        }*/
     }
 }

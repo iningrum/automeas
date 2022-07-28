@@ -13,33 +13,35 @@ namespace automeas_ui.MWM.ViewModel.Launcher.Pages
         // ctor
         public NameDescriptionViewModel()
         {
-            Name = new ObservableType<string>("");
-            Description = new ObservableType<string>("");
+            // bind to target
+            Target.Instance.PageChangedEvent += HandlePageChanged;
+            this.Name = new ObservableType<string>(Target.Instance.Name);
+            this.Description = new ObservableType<string>(Target.Instance.Description);
         }
         // attr
         private const int ID = 1;
         // IBaseViewModel
-        public void Bind(Target T, Action<int> handler)
+        /*public void Bind(Target T, Action<int> handler)
         {
-            _target = T;
-            _target.PageChangedEvent += HandlePageChanged;
-        }
+             // Target.Instance = T;
+            //  Target.Instance.PageChangedEvent += HandlePageChanged;
+        }*/
 
-        public void Load(Target T)
+        /*public void Load(Target T)
         {
             Bind(T, HandlePageChanged);
-            this.Name.Value = _target.Name;
-            this.Description.Value = _target.Description;
-        }
+            this.Name.Value = Target.Instance.Name;
+            this.Description.Value = Target.Instance.Description;
+        }*/
 
         public void HandlePageChanged(int msg)
         {
             if (msg != ID)
                 return;
             if (this.Name.Value != null)
-                _target.Name = this.Name.Value;
+                Target.Instance.Name = this.Name.Value;
             if (this.Description.Value != null)
-                _target.Description = this.Description.Value;
+                Target.Instance.Description = this.Description.Value;
         }
 
         // attr

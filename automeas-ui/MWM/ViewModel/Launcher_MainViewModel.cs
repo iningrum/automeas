@@ -19,7 +19,7 @@ namespace automeas_ui.MWM.ViewModel
         // end
         public Launcher_MainViewModel()
         {
-            Config = new Target(this);
+            Target.Instance.Launcher_MainViewModel_SetMaster(this);
             CurrentView = new ObservableType<object>(null);
             GetCurrentPage(0);
             // views
@@ -33,7 +33,7 @@ namespace automeas_ui.MWM.ViewModel
         public PageBarViewModel PageBarView { get; set; }
         public ObservableType<int> CurrentPage { get; set; }
         public ObservableType<string> CurrentPageTitle { get; set; }
-        public Target Config { get; set; }
+        //public Target Target.Instance { get; set; }
 
         // events
         public event Action<int>? PageChanged; // sent to PageBarView
@@ -85,27 +85,27 @@ namespace automeas_ui.MWM.ViewModel
                 case 0:
                     {
                         var result = new Page1();
-                        result.Load(Config);
+                        //result.Load(Target.Instance);
                         CurrentView.Value = result;
                     }
                     break;
                 case 1:
                     {
                         var result = new NameDescriptionViewModel();
-                        result.Load(Config);
+                        //result.Load(Target.Instance);
                         CurrentView.Value = result;
                     }
                     break;
                 case 2:
                     {
                         var result = new UploadConfigFileViewModel();
-                        result.Load(Config);
+                        //result.Load(Target.Instance);
                         CurrentView.Value = result;
                     }
                     break;
                 case 3:
                     {
-                        var result = new LauncherSummaryViewModel(Config);
+                        var result = new LauncherSummaryViewModel();
                         CurrentView.Value = result;
                     }
                     break;

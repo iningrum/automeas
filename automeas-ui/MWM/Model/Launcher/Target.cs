@@ -11,13 +11,16 @@ using System.Collections.Generic;
          */
 namespace automeas_ui.MWM.Model.Launcher
 {
-    public class Target
+    public sealed class Target
     {
+        // singleton implementation - thread safe
+        private static readonly Lazy<Target> lazy = new Lazy<Target>(() => new Target());
+        public static Target Instance { get { return lazy.Value; } }
         // ctor
-        public Target(Launcher_MainViewModel master)
+        private Target()
         {
-            _master = master;
-            master.PageNoLongerRelevant += NotifyPageChanged;
+            ConfigFilePath = "";
+            ConfigFileName = "";
             Destination = "File Path     📁  ";
             Name = "Sample name";
             Description = "Sample description";
@@ -44,7 +47,13 @@ namespace automeas_ui.MWM.Model.Launcher
         private void NotifyPageChanged(int msg) => PageChangedEvent?.Invoke(msg);
         // handlers
         // attr
-        private readonly Launcher_MainViewModel _master;
+        private Launcher_MainViewModel _master;
+        public void Launcher_MainViewModel_SetMaster(Launcher_MainViewModel master)
+        {
+            _master = master;
+            master.PageNoLongerRelevant += NotifyPageChanged;
+            return;
+        }
         public string Destination;
         public string Name;
         public string Description;

@@ -27,19 +27,18 @@ namespace automeas_ui.MWM.ViewModel.Launcher.Pages
     {
         // internal config
         // ctor
-        public LauncherSummaryViewModel(Target T)
+        public LauncherSummaryViewModel()
         {
-            _target = T;
             ChosenOptions = new TrulyObservableCollection<ObservableType<Summary>>();
             foreach (var item in AMDevConfig.SummaryTitles)
             {
                 ChosenOptions.Add(new ObservableType<Summary>(new Summary(item)));
             }
-            ChosenOptions[0].Value.Description = _target.Name;
-            ChosenOptions[1].Value.Description = _target.Destination;
+            ChosenOptions[0].Value.Description = Target.Instance.Name;
+            ChosenOptions[1].Value.Description = Target.Instance.Destination;
             ChosenOptions[2].Value.Description = GetCheckBoxString();
-            ChosenOptions[3].Value.Description = _target.ConfigFileName;
-            ChosenOptions[4].Value.Description = _target.NumberOfMoves.ToString();
+            ChosenOptions[3].Value.Description = Target.Instance.ConfigFileName;
+            ChosenOptions[4].Value.Description = Target.Instance.NumberOfMoves.ToString();
         }
         // attr
         public TrulyObservableCollection<ObservableType<Summary>> ChosenOptions { get; set; }
@@ -48,9 +47,9 @@ namespace automeas_ui.MWM.ViewModel.Launcher.Pages
         private string GetCheckBoxString()
         {
             string result = "";
-            for (int i = 0; i < _target.Options.Count(); i++)
+            for (int i = 0; i < Target.Instance.Options.Count(); i++)
             {
-                if (_target.Options[i] == true)
+                if (Target.Instance.Options[i] == true)
                 {
                     result += $"{AMDevConfig.CheckBoxText_Alternative[i]},  ";
                 }
@@ -77,7 +76,7 @@ namespace automeas_ui.MWM.ViewModel.Launcher.Pages
         // functions
         void SwitchWindowToDashboard()
         {
-            _target.NotifyChangeWindowToDashboard();
+            Target.Instance.NotifyChangeWindowToDashboard();
         }
     }
 }

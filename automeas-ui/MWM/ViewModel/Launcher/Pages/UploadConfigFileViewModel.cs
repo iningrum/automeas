@@ -15,6 +15,10 @@ namespace automeas_ui.MWM.ViewModel.Launcher.Pages
         // ctor
         public UploadConfigFileViewModel()
         {
+            { // load Target
+                Target.Instance.PageChangedEvent += HandlePageChanged;
+                NOfRepeatsInt = new ObservableType<int>(Target.Instance.NumberOfMoves);
+            }
             NOfRepeatsFontSize = new ObservableType<int>(32);
             NOfRepeatsInt = new ObservableType<int>(1);
         }
@@ -23,29 +27,29 @@ namespace automeas_ui.MWM.ViewModel.Launcher.Pages
         public ObservableType<int> NOfRepeatsFontSize { get; set; }
         public ObservableType<int> NOfRepeatsInt { get; set; }
         // IBaseViewModel
-        public void Bind(Target T, Action<int> handler)
+        /*public void Bind(Target T, Action<int> handler)
         {
-            _target = T;
-            _target.PageChangedEvent += handler;
-        }
+            Target.Instance = T;
+            Target.Instance.PageChangedEvent += handler;
+        }*/
 
         public void HandlePageChanged(int msg)
         {
             if (msg != ID)
                 return;
-            _target.NumberOfMoves = NOfRepeatsInt.Value;
+            Target.Instance.NumberOfMoves = NOfRepeatsInt.Value;
         }
 
-        public void Load(Target T)
+        /*public void Load(Target T)
         {
             Bind(T, HandlePageChanged);
-            NOfRepeatsInt.Value = _target.NumberOfMoves;
-        }
+            NOfRepeatsInt.Value = Target.Instance.NumberOfMoves;
+        }*/
         // handle drag&drop
         public void DragDropFile(string filename, string path)
         {
-            _target.ConfigFileName = filename;
-            _target.ConfigFilePath = path;
+            Target.Instance.ConfigFileName = filename;
+            Target.Instance.ConfigFilePath = path;
             return;
         }
         // icommand
@@ -75,10 +79,10 @@ namespace automeas_ui.MWM.ViewModel.Launcher.Pages
                 {
                     return;
                 }
-                _target.ConfigFileName = System.IO.Path.GetFileName(src);
-                _target.ConfigFilePath = src;
+                Target.Instance.ConfigFileName = System.IO.Path.GetFileName(src);
+                Target.Instance.ConfigFilePath = src;
             }
         }
-        public void RefreshIntegerUpDown(int msg) => _target.NumberOfMoves = msg;
+        public void RefreshIntegerUpDown(int msg) => Target.Instance.NumberOfMoves = msg;
     }
 }

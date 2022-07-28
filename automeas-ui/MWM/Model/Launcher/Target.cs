@@ -1,11 +1,14 @@
 ﻿using automeas_ui.MWM.ViewModel;
-using automeas_ui.MWM.ViewModel.Launcher.Pages;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+/*
+         * Launcher_MainViewModel is the main view that manages navigation
+         * Target (Launcher_MainViewModel._target) serves as intermediary
+         * between MainViewModel and pages 1-N
+         * ----------------------------------------------------------------
+         * ViewModel deinit => upload user input to Target
+         * ViewModel init => restore already input data from Target
+         */
 namespace automeas_ui.MWM.Model.Launcher
 {
     public class Target
@@ -21,8 +24,22 @@ namespace automeas_ui.MWM.Model.Launcher
             NumberOfMoves = 1;
         }
         // events
+
         public event Action<int>? PageChangedEvent;
+        /*
+         * Launcher_MainViewModel.PageNoLonger Relevant  ->
+         * -> this.PageChangedEvent -> all pages
+         * ------------------------------------------------
+         * It prompts old view to upload all user data that it's got
+         * into Target
+         */
         public event Action<List<string>>? ChangeWindowToDashboard;
+        /*
+         *  LauncherSummaryViewModel.SwitchToDashboard() ->
+         *  -> this.ChangeWindowToDashboard -> App.HandleWindowToDashboard()
+         *  -----------------------------------------------
+         *  Used solely to close Launcher and open Dashboard
+         */
         // senders
         private void NotifyPageChanged(int msg) => PageChangedEvent?.Invoke(msg);
         // handlers

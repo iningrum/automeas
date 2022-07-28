@@ -1,13 +1,16 @@
 ﻿using automeas_ui.Core;
 using automeas_ui.MWM.Model;
 using automeas_ui.MWM.Model.Launcher;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
 
+/*
+         * Displays summary of user input and estimated time untill measurments
+         * will be completed.
+         * 
+         * Prompts for executing Launch.
+         * ----------------------------------------------------------------
+         */
 namespace automeas_ui.MWM.ViewModel.Launcher.Pages
 {
     public class Summary
@@ -51,9 +54,9 @@ namespace automeas_ui.MWM.ViewModel.Launcher.Pages
                 {
                     result += $"{AMDevConfig.CheckBoxText_Alternative[i]},  ";
                 }
-               
+
             }
-            if(result.Length>2)
+            if (result.Length > 2)
                 result = result.Substring(0, result.Length - ",  ".Length);
             return result;
         }

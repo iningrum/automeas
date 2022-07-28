@@ -6,10 +6,13 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
 
+/*
+         * Prompts user to choose where the results should be uploaded
+         * and in which form.
+         * ----------------------------------------------------------------
+         */
 namespace automeas_ui.MWM.ViewModel.Launcher.Pages
 {
     public class CheckBox
@@ -106,7 +109,7 @@ namespace automeas_ui.MWM.ViewModel.Launcher.Pages
 
         public void HandlePageChanged(int msg)
         {
-            if(ID == msg)
+            if (ID == msg)
             {
                 _target.Destination = this.ChosenTargetPath.Value;
                 List<bool> options = new List<bool>();
@@ -119,7 +122,7 @@ namespace automeas_ui.MWM.ViewModel.Launcher.Pages
 
         }
 
-        public void Bind(Target T, Action<int> handler) 
+        public void Bind(Target T, Action<int> handler)
         {
             _target = T;
             _target.PageChangedEvent += HandlePageChanged;

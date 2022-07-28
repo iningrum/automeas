@@ -1,6 +1,4 @@
-﻿using automeas_ui.Core;
-using automeas_ui.MWM.Model.Launcher;
-using automeas_ui.MWM.ViewModel;
+﻿using automeas_ui.MWM.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Windows;

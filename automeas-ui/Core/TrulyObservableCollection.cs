@@ -3,7 +3,11 @@ using System.Collections.ObjectModel;
 using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Reflection;
-
+/*
+         * ObservableCollection<T>... but better
+         * Another piece of code straight from StackOverflow
+         * ----------------------------------------------------------------
+         */
 namespace automeas_ui.Core
 {
     /*

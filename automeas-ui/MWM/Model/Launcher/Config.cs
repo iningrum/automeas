@@ -1,9 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
+/*
+         * Static config class that allows for easy modification
+         * of used <ItemsControl/>
+         * ----------------------------------------------------------------
+         */
 namespace automeas_ui.MWM.Model.Launcher
 {
     public static class AMDevConfig
@@ -16,7 +18,7 @@ namespace automeas_ui.MWM.Model.Launcher
             "Konfiguracja próby",
             "Podsumowanie"
         };
-        public static int NumberOfPages = PageTitles.Count();        
+        public static int NumberOfPages = PageTitles.Count();
         // Podpisy przy CheckBoxach
         public static string[] CheckBoxText =
         {

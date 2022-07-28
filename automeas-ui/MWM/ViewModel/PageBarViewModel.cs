@@ -6,6 +6,18 @@ using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
 
+/*
+         * Generates navigation UI that is:
+         *  [X] RadioButton panel that indicates current page and allows to
+         *  switch to any page.
+         *  [X] Tells Launcher_MainViewModel number of current page
+         *  [X] Tells Launcher_MainViewModel which title should be displayed
+         * ----------------------------------------------------------------
+         *  Launcher_MainViewModel tells PageBarView to switch pages if
+         *  left or right button has been pressed. Those buttons allow
+         *  for switching to next/previous page.
+         *  
+         */
 namespace automeas_ui.MWM.ViewModel
 {
     public class PageBarViewModel
@@ -50,7 +62,7 @@ namespace automeas_ui.MWM.ViewModel
             {
                 for (int i = 0; i < Pages.Count(); i++)
                 {
-                    if (Pages.ElementAt(i).Value==true && master.CurrentPage.Value!=i)
+                    if (Pages.ElementAt(i).Value == true && master.CurrentPage.Value != i)
                     {
                         PageChanged?.Invoke(i);
                         return;

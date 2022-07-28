@@ -2,12 +2,12 @@
 using automeas_ui.MWM.Model;
 using automeas_ui.MWM.Model.Launcher;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
 
+/*
+         * Handles, loads and verifies integrity of Move file
+         * ----------------------------------------------------------------
+         */
 namespace automeas_ui.MWM.ViewModel.Launcher.Pages
 {
     public class UploadConfigFileViewModel : BaseViewModel, IBaseViewModel
@@ -33,7 +33,7 @@ namespace automeas_ui.MWM.ViewModel.Launcher.Pages
         {
             if (msg != ID)
                 return;
-             _target.NumberOfMoves = NOfRepeatsInt.Value;
+            _target.NumberOfMoves = NOfRepeatsInt.Value;
         }
 
         public void Load(Target T)

@@ -1,11 +1,11 @@
 ﻿using automeas_ui.MWM.Model;
 using automeas_ui.MWM.Model.Launcher;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
+/*
+         * Gets the Name and Description of current setup
+         * ----------------------------------------------------------------
+         */
 namespace automeas_ui.MWM.ViewModel.Launcher.Pages
 {
     public class NameDescriptionViewModel : BaseViewModel, IBaseViewModel
@@ -36,9 +36,9 @@ namespace automeas_ui.MWM.ViewModel.Launcher.Pages
         {
             if (msg != ID)
                 return;
-            if(this.Name.Value!=null)
+            if (this.Name.Value != null)
                 _target.Name = this.Name.Value;
-            if(this.Description.Value!=null)
+            if (this.Description.Value != null)
                 _target.Description = this.Description.Value;
         }
 

@@ -2,6 +2,10 @@
 using System.Diagnostics;
 using System.Windows.Input;
 
+/*
+         * A command that everyone on StackOverflow seems to love, use & reccomend.
+         * ----------------------------------------------------------------
+         */
 namespace automeas_ui.Core
 {
     /// <summary>

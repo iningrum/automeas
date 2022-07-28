@@ -5,6 +5,11 @@ using automeas_ui.MWM.ViewModel.Launcher.Pages;
 using System;
 using System.Windows.Input;
 
+/*
+         * Launcher_MainViewModel is the main view that manages navigation between other views
+         * ----------------------------------------------------------------
+         * 
+         */
 namespace automeas_ui.MWM.ViewModel
 {
     public class Launcher_MainViewModel
@@ -25,17 +30,14 @@ namespace automeas_ui.MWM.ViewModel
             CurrentPage = new ObservableType<int>(0);
             CurrentPageTitle = new ObservableType<string>(AMDevConfig.PageTitles[CurrentPage.Value]);
         }
-        Page1 p1;
-        NameDescriptionViewModel p2;
         public PageBarViewModel PageBarView { get; set; }
         public ObservableType<int> CurrentPage { get; set; }
         public ObservableType<string> CurrentPageTitle { get; set; }
         public Target Config { get; set; }
 
         // events
-        public event Action<int>? PageChanged;
-        public event Action<int>? PageNoLongerRelevant;
-        public event Action? NameDescriptionOutOfFocus;
+        public event Action<int>? PageChanged; // sent to PageBarView
+        public event Action<int>? PageNoLongerRelevant; // sent to subviews
         void NextPage() => PageChanged?.Invoke(CurrentPage.Value + 1);
         void PreviousPage() => PageChanged?.Invoke(CurrentPage.Value - 1);
         // handlers
@@ -110,7 +112,7 @@ namespace automeas_ui.MWM.ViewModel
                 default:
                     throw new NotImplementedException();
             }
-            
+
         }
     }
 }

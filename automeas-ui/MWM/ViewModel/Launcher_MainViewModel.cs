@@ -17,18 +17,14 @@ namespace automeas_ui.MWM.ViewModel
             Config = new Target(this);
             CurrentView = new ObservableType<object>(null);
             GetCurrentPage(0);
-
-            
-            // pages
             // views
             PageBarView = new PageBarViewModel(this);
             // event links
             PageBarView.PageChanged += _PageBarView_PageChanged;
             // observables
             CurrentPage = new ObservableType<int>(0);
-            CurrentPageTitle = new ObservableType<string>(PageTitles.Get(CurrentPage.Value));
+            CurrentPageTitle = new ObservableType<string>(AMDevConfig.PageTitles[CurrentPage.Value]);
         }
-        //private object _currentView; // responsible for switching views
         Page1 p1;
         NameDescriptionViewModel p2;
         public PageBarViewModel PageBarView { get; set; }
@@ -77,7 +73,7 @@ namespace automeas_ui.MWM.ViewModel
             PageNoLongerRelevant?.Invoke(CurrentPage.Value);
             CurrentPage.Value = sender;
             GetCurrentPage(sender);
-            CurrentPageTitle.Value = PageTitles.Get(sender);
+            CurrentPageTitle.Value = AMDevConfig.PageTitles[sender];
             return;
         }
         private void GetCurrentPage(int cp)

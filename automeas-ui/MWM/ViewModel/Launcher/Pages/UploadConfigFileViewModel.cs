@@ -33,12 +33,13 @@ namespace automeas_ui.MWM.ViewModel.Launcher.Pages
         {
             if (msg != ID)
                 return;
-
+             _target.NumberOfMoves = NOfRepeatsInt.Value;
         }
 
         public void Load(Target T)
         {
             Bind(T, HandlePageChanged);
+            NOfRepeatsInt.Value = _target.NumberOfMoves;
         }
         // handle drag&drop
         public void DragDropFile(string filename, string path)
@@ -78,5 +79,6 @@ namespace automeas_ui.MWM.ViewModel.Launcher.Pages
                 _target.ConfigFilePath = src;
             }
         }
+        public void RefreshIntegerUpDown(int msg) => _target.NumberOfMoves = msg;
     }
 }

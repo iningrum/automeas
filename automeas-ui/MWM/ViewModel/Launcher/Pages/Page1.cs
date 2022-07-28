@@ -27,33 +27,20 @@ namespace automeas_ui.MWM.ViewModel.Launcher.Pages
     public class Page1 : BaseViewModel, IBaseViewModel
     {
         // internal interface
-        const int NumberOfPages = 5;
         const int ID = 0;
-        private string[] CheckBoxText = 
-        {
-            "*.csv",
-            "*.pdf (template required)",
-            "*.docx (template required)",
-            "*.xslx (template required)",
-            "*.jpg (templates required)"
-        };
         // ctor
         public Page1()
         {
-            // parent init
-            //this.master = master;
             ChosenTargetPath = new ObservableType<string>("");
-            //master.PageChanged += LauncherMaster_PageChanged;
             Options = new TrulyObservableCollection<ObservableType<CheckBox>>();
-            Options.Add(new ObservableType<CheckBox>(new CheckBox(CheckBoxText[0], true, false)));
-            for (int i = 1; i < NumberOfPages; i++)
+            Options.Add(new ObservableType<CheckBox>(new CheckBox(AMDevConfig.CheckBoxText[0], true, false)));
+            for (int i = 1; i < AMDevConfig.CheckBoxText.Count(); i++)
             {
-                Options.Add(new ObservableType<CheckBox>(new CheckBox(CheckBoxText[i])));
+                Options.Add(new ObservableType<CheckBox>(new CheckBox(AMDevConfig.CheckBoxText[i])));
             }
         }
         // attrs
         public ObservableType<string> ChosenTargetPath { get; set; }
-        //private readonly Launcher_MainViewModel master;
         private TrulyObservableCollection<ObservableType<CheckBox>> _Options;
         public TrulyObservableCollection<ObservableType<CheckBox>> Options
         {
@@ -113,7 +100,6 @@ namespace automeas_ui.MWM.ViewModel.Launcher.Pages
                 {
                     src = src.Substring(0, 28);
                 }
-                /*ChosenTargetPath*/
                 ChosenTargetPath.Value = $"{src}... ";
             }
         }
@@ -137,11 +123,11 @@ namespace automeas_ui.MWM.ViewModel.Launcher.Pages
         {
             _target = T;
             _target.PageChangedEvent += HandlePageChanged;
-            if (_target.Options == null || _target.Options.Count < NumberOfPages)
+            if (_target.Options == null || _target.Options.Count < AMDevConfig.CheckBoxText.Count())
             {
-                _target.Options = new List<bool>(NumberOfPages);
+                _target.Options = new List<bool>(AMDevConfig.CheckBoxText.Count());
                 _target.Options.Add(true);
-                for (int i = 1; i < NumberOfPages; i++)
+                for (int i = 1; i < AMDevConfig.CheckBoxText.Count(); i++)
                 {
                     _target.Options.Add(false);
                 }

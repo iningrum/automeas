@@ -18,6 +18,7 @@ namespace automeas_ui.MWM.Model.Launcher
             Destination = "File Path     📁  ";
             Name = "Sample name";
             Description = "Sample description";
+            NumberOfMoves = 1;
         }
         // events
         public event Action<int>? PageChangedEvent;
@@ -32,6 +33,7 @@ namespace automeas_ui.MWM.Model.Launcher
         public string Description;
         public string ConfigFilePath;
         public string ConfigFileName;
+        public int NumberOfMoves;
         public List<bool> Options;
         public void NotifyChangeWindowToDashboard() => ChangeWindowToDashboard?.Invoke(new List<string>());
     }

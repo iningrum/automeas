@@ -23,21 +23,12 @@ namespace automeas_ui.MWM.ViewModel.Launcher.Pages
     public class LauncherSummaryViewModel : BaseViewModel
     {
         // internal config
-        private List<string> _summaryTitles = new List<string>
-        {
-            "Nazwa próby:\t\t",
-            "Katalog docelowy:\t",
-            "Wybrane formaty:\t",
-            "Plik ruchu:\t\t",
-            "Ilość krokow:\t\t",
-            "Szacowany Czas:\t\t"
-        };
         // ctor
         public LauncherSummaryViewModel(Target T)
         {
             _target = T;
             ChosenOptions = new TrulyObservableCollection<ObservableType<Summary>>();
-            foreach (var item in _summaryTitles)
+            foreach (var item in AMDevConfig.SummaryTitles)
             {
                 ChosenOptions.Add(new ObservableType<Summary>(new Summary(item)));
             }
@@ -45,6 +36,7 @@ namespace automeas_ui.MWM.ViewModel.Launcher.Pages
             ChosenOptions[1].Value.Description = _target.Destination;
             ChosenOptions[2].Value.Description = GetCheckBoxString();
             ChosenOptions[3].Value.Description = _target.ConfigFileName;
+            ChosenOptions[4].Value.Description = _target.NumberOfMoves.ToString();
         }
         // attr
         public TrulyObservableCollection<ObservableType<Summary>> ChosenOptions { get; set; }
@@ -52,20 +44,12 @@ namespace automeas_ui.MWM.ViewModel.Launcher.Pages
         // func
         private string GetCheckBoxString()
         {
-            string[] titles =
-            {
-                "csv",
-                "pdf",
-                "docx",
-                "xslx",
-                "jpg"
-            };
             string result = "";
             for (int i = 0; i < _target.Options.Count(); i++)
             {
                 if (_target.Options[i] == true)
                 {
-                    result += $"{titles[i]},  ";
+                    result += $"{AMDevConfig.CheckBoxText_Alternative[i]},  ";
                 }
                
             }

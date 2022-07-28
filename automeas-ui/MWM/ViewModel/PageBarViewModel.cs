@@ -1,5 +1,6 @@
 ﻿using automeas_ui.Core;
 using automeas_ui.MWM.Model;
+using automeas_ui.MWM.Model.Launcher;
 using System;
 using System.ComponentModel;
 using System.Linq;
@@ -9,8 +10,6 @@ namespace automeas_ui.MWM.ViewModel
 {
     public class PageBarViewModel
     {
-        // internal interface
-        const int NumberOfPages = 4;
         // ctor
         public PageBarViewModel(Launcher_MainViewModel master)
         {
@@ -19,7 +18,7 @@ namespace automeas_ui.MWM.ViewModel
             Pages = new TrulyObservableCollection<ObservableType<bool>>();
             Pages.Add(new ObservableType<bool>(true));
             Pages.Last().PropertyChanged += ViewedPage_PropertyChanged;
-            for (int i = 1; i < NumberOfPages; i++)
+            for (int i = 1; i < AMDevConfig.NumberOfPages; i++)
             {
                 Pages.Add(new ObservableType<bool>(false));
                 Pages.Last().PropertyChanged += ViewedPage_PropertyChanged;
@@ -71,9 +70,7 @@ namespace automeas_ui.MWM.ViewModel
                 sender = 0;
             }
             Pages.ElementAt(sender).Value = true;
-            //PageChanged?.Invoke(sender);
             return;
         }
-        // NO handlers
     }
 }

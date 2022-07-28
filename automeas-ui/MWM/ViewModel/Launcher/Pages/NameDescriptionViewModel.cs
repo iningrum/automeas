@@ -42,7 +42,6 @@ namespace automeas_ui.MWM.ViewModel.Launcher.Pages
                 _target.Description = this.Description.Value;
         }
 
-        // handlers
         // attr
         public ObservableType<string> Name { get; set; }
         public ObservableType<string> Description { get; set; }

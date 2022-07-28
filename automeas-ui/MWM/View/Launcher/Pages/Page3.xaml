@@ -34,7 +34,7 @@
                          Maximum="200000"
                          MinWidth="100"
                          MaxHeight="100"
-                         Value="{Binding NOfRepeatsInt.Value}"
+                         Value="{Binding NOfRepeatsInt.Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                          VerticalContentAlignment="Center"
                          HorizontalAlignment="Center"
                          Margin="7,0,0,7"

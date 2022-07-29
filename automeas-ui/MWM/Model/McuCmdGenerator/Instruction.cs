@@ -65,27 +65,67 @@ namespace automeas_ui.MWM.Model.McuCmdGenerator
     }
     internal class Instruction
     {
-        public Instruction(DataPoint prevoius, DataPoint current)
+        public HexChar Mode2;
+        public HexChar Clk1;
+        public HexChar Clk0;
+        public override string ToString()
         {
-
+            if(Mode2 == null || Clk1==null || Clk0 == null)
+                throw new NotSupportedException();
+            return $"{Mode2.Value}{Clk1.Value}{Clk0.Value}";
         }
     }
     internal class Line
     {
-        // ctor
-        public Line(DataPoint previous, DataPoint current)
+        public Instruction GetInstruction(DataPoint current)
         {
-            double requested_acceleration = (current.Velocity-previous.Velocity)/(current.Time-previous.Time);
-            double requested_velocty = current.Velocity;
-            /*
-             *  Mode mode = GetClosestMode(requested_acceleration, requested_velocity);
-             *  double frequency = 360requested_acceleration/2pir
-             *  convert this into two commands
-             */
+            int step_number = -1;
+            double clk_freq = -1;
+            Instruction result = new Instruction();
+            { // 1. find best ||step_number|| for achieving desired velocity
+                List<Step> steps = StepperMotorModel.Steps;
+                steps.Reverse();
+                for (int i=0; i<steps.Count; i++)
+                {
+                    if (steps[i].Velocity >= current.Velocity)
+                    {
+                        step_number = i;
+                        break;
+                    }
+                }
+            }
+            { // 2. find requested clk freq
+                clk_freq = (180 * current.Velocity) / (Math.PI*StepperMotorModel.Max.StepAngle);
+            }
+            { // map step_number to instruction
+                // assuming device only moves right for now
+                step_number = (step_number)*2; // corresponds to bit shift left
+                step_number += 1; // 1 = right, 0 = left
+                result.Mode2 = new HexChar(step_number);
+            }
+            { // map frequency
+              // very sloppy solution - just accept range 0-255
+              if (clk_freq<0 || clk_freq > 255)
+              {
+                    throw new NotSupportedException();
+              }
+              else
+              {
+                    int f = (int)clk_freq;
+                    { // confert the result to two hexes
+                        string binary = Convert.ToString(f, 2);
+                        string first, second;
+                        first = binary.Substring(0, 4);
+                        second = binary.Substring(4, 4);
+                        int a = Convert.ToInt32(first, 2);
+                        int b = Convert.ToInt32(second, 2);
+                        result.Clk1 = new HexChar(a);
+                        result.Clk0 = new HexChar(b);
+                    }
+              }
+            }
+            return result;
         }
-        // attr
-        public readonly DataPoint A;
-        public readonly DataPoint B;
     }
     internal class DataPoint
     {

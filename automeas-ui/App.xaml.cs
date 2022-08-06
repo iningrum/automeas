@@ -1,4 +1,5 @@
-﻿using automeas_ui.MWM.Model.Launcher;
+﻿using automeas_ui.MVGenerator;
+using automeas_ui.MWM.Model.Launcher;
 using automeas_ui.MWM.ViewModel;
 using System;
 using System.Collections.Generic;
@@ -19,9 +20,11 @@ namespace automeas_ui
         private void InitLauncher()
         {
             Launcher launcher = new Launcher();
+            MVG mvg = new MVG();
             var x = (Launcher_MainViewModel)launcher.DataContext;
             Target.Instance.ChangeWindowToDashboard += HandleWindowToDashboard;
-            mw = launcher;
+            //mw = launcher;
+            mw = mvg;
             mw.Show();
             return;
         }

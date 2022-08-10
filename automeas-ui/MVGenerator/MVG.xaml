@@ -30,8 +30,7 @@
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
-                <RowDefinition Height="7*"/>
-                <RowDefinition Height="*"/>
+                <RowDefinition Height="8*"/>
             </Grid.RowDefinitions>
             <Button Grid.Row="0"
                     Grid.Column="2"
@@ -44,11 +43,6 @@
                     Style="{StaticResource FOC_SquareButtonTheme}"
                     Click="Button_Click"/>
             <Grid Grid.Row="1">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="3*"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
                 <ContentControl Grid.Column="1"
                 Content="{Binding CurrentView.Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
                 <ContentControl.Style>

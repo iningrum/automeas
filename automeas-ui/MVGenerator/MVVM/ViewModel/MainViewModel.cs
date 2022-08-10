@@ -25,6 +25,20 @@ namespace automeas_ui.MVGenerator.MVVM.ViewModel
         private ICommand? _pushMoveCreator;
         private ICommand? _pullMoveCreator;
         private ICommand? _saveData;
+        private ICommand? _goToMainView;
+        public ICommand GoToMainView
+        {
+            get
+            {
+                if(_goToMainView == null)
+                {
+                    _goToMainView = new JSRelayCommand(
+                        param => this.ReturnToMainView()
+                    );
+                }
+                return _goToMainView;
+            }
+        }
         public ICommand PushMoveCreator
         {
             get
@@ -71,11 +85,18 @@ namespace automeas_ui.MVGenerator.MVVM.ViewModel
         }
         public void OpenPullCreator()
         {
-
+            CurrentPage.Value = 2;
+            CurrentView.Value = new MoveCreatorViewModel(false);
         }
         public void OpenPushCreator()
         {
-
+            CurrentPage.Value = 1;
+            CurrentView.Value = new MoveCreatorViewModel(true);
+        }
+        public void ReturnToMainView()
+        {
+            CurrentPage.Value = 0;
+            CurrentView.Value = this;
         }
     }
     

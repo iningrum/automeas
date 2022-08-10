@@ -38,6 +38,7 @@ namespace automeas_ui.MWM.Model.Launcher
          */
         public event Action<List<string>>? ChangeWindowToDashboard;
         public event Action ChangeWindowToMVG;
+        public event Action ChangeMVGToLauncher;
         /*
          *  LauncherSummaryViewModel.SwitchToDashboard() ->
          *  -> this.ChangeWindowToDashboard -> App.HandleWindowToDashboard()
@@ -64,5 +65,6 @@ namespace automeas_ui.MWM.Model.Launcher
         public List<bool> Options;
         public void NotifyChangeWindowToDashboard() => ChangeWindowToDashboard?.Invoke(new List<string>());
         public void NotifyChangeWindowToMVG() => ChangeWindowToMVG?.Invoke();
+        public void NotifyChangeMVGToLauncher() => ChangeMVGToLauncher?.Invoke();
     }
 }

@@ -24,6 +24,7 @@ namespace automeas_ui
             var x = (Launcher_MainViewModel)launcher.DataContext;
             Target.Instance.ChangeWindowToDashboard += HandleWindowToDashboard;
             Target.Instance.ChangeWindowToMVG += HandleWindowToMVG;
+            Target.Instance.ChangeMVGToLauncher += HandleUnsavedMVG;
             //mw = launcher;
             mw = launcher;
             mw.Show();
@@ -43,6 +44,12 @@ namespace automeas_ui
             mw.Show();
             return;
         }
+        private void ReInitLauncher()
+        {
+            mw = new Launcher();
+            mw.Show();
+            return;
+        }
         private void Switch(Action initializer)
         {
             Window toBeClosed = mw;
@@ -52,6 +59,10 @@ namespace automeas_ui
         public void HandleWindowToDashboard(List<string> msg)
         {
             Switch(InitDashboard);
+        }
+        public void HandleUnsavedMVG()
+        {
+            Switch(ReInitLauncher);
         }
         public void HandleWindowToMVG()
         {

@@ -20,7 +20,12 @@
         <DataTemplate x:Key="MainTemplate" DataType="{x:Type viewm:MainViewModel}">
             <view:MainView/>
         </DataTemplate>
-
+        <DataTemplate x:Key="PlaceholderTemplate" DataType="{x:Type viewm:MainViewModel}">
+            <view:EmptyView/>
+        </DataTemplate>
+        <DataTemplate x:Key="MinimapTemplate" DataType="{x:Type viewm:MainViewModel}">
+            <view:MinimapView/>
+        </DataTemplate>
         <DataTemplate x:Key="MoveCreatorTemplate" DataType="{x:Type viewm:MainViewModel}">
             <view:MoveCreatorView/>
         </DataTemplate>
@@ -32,7 +37,13 @@
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="8*"/>
             </Grid.RowDefinitions>
-            <Button Grid.Row="0"
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="5*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Button Grid.Row="0"
                     Grid.Column="2"
                     Width="50"
                     Height="50"
@@ -42,6 +53,24 @@
                     Margin="0,0,7,0"
                     Style="{StaticResource FOC_SquareButtonTheme}"
                     Click="Button_Click"/>
+                <ContentControl Grid.Column="1"
+                Content="{Binding CurrentView.Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                    <ContentControl.Style>
+                        <Style TargetType="{x:Type ContentControl}">
+                            <Setter Property="ContentTemplate" Value="{StaticResource PlaceholderTemplate}"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding CurrentPage.Value}" Value="1">
+                                    <Setter Property="ContentTemplate" Value="{StaticResource MinimapTemplate}" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding CurrentPage.Value}" Value="2">
+                                    <Setter Property="ContentTemplate" Value="{StaticResource MinimapTemplate}" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </ContentControl.Style>
+                </ContentControl>
+            </Grid>
+
             <Grid Grid.Row="1">
                 <ContentControl Grid.Column="1"
                 Content="{Binding CurrentView.Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">

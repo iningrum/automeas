@@ -22,13 +22,23 @@ namespace automeas_ui
             Launcher launcher = new Launcher();
             MVG mvg = new MVG();
             var x = (Launcher_MainViewModel)launcher.DataContext;
-            Target.Instance.ChangeWindowToDashboard += HandleWindowToDashboard;
-            Target.Instance.ChangeWindowToMVG += HandleWindowToMVG;
-            Target.Instance.ChangeMVGToLauncher += HandleUnsavedMVG;
+            Navigator.Instance.WindowChanged += HandleWindowChanged;
+            //Target.Instance.ChangeWindowToDashboard += HandleWindowToDashboard;
+            //Target.Instance.ChangeWindowToMVG += HandleWindowToMVG;
+            //Target.Instance.ChangeMVGToLauncher += HandleUnsavedMVG;
             //mw = launcher;
             mw = launcher;
             mw.Show();
             return;
+        }
+        private void InitAnyWindow(Type T)
+        {
+            mw = (Window?)Activator.CreateInstance(T);
+            if (mw == null)
+            {
+                throw new Exception("It should not even be possible for app.mw to be null");
+            }
+            mw.Show();
         }
         private void InitDashboard()
         {
@@ -56,6 +66,12 @@ namespace automeas_ui
             initializer();
             toBeClosed.Close();
         }
+        private void SwitchAnyWindow(Type window)
+        {
+            Window toBeClosed = mw;
+            InitAnyWindow(window);
+            toBeClosed.Close();
+        }
         public void HandleWindowToDashboard(List<string> msg)
         {
             Switch(InitDashboard);
@@ -68,5 +84,6 @@ namespace automeas_ui
         {
             Switch(InitMVG);
         }
+        public void HandleWindowChanged(Type msg) => SwitchAnyWindow(msg);
     }
 }

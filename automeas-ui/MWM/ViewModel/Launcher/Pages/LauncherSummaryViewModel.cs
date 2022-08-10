@@ -76,7 +76,8 @@ namespace automeas_ui.MWM.ViewModel.Launcher.Pages
         // functions
         void SwitchWindowToDashboard()
         {
-            Target.Instance.NotifyChangeWindowToDashboard();
+            //Target.Instance.NotifyChangeWindowToDashboard();
+            Navigator.Instance.ChangeWindow("dashboard");
         }
     }
 }

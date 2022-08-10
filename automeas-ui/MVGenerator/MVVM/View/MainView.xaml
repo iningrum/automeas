@@ -16,23 +16,25 @@
                     VerticalAlignment="Center"
                     HorizontalAlignment="Center">
             <Button Style="{StaticResource FOC_SquareButtonTheme}"
+                    Command="{Binding PushMoveCreator}"
                     Background="Red"
                     Margin="0,0,25,0"
                     FontSize="32"
-                    Content=":-("
+                    Content="PUSH"
                     Width="250"/>
             <Button Style="{StaticResource FOC_SquareButtonTheme}"
+                    Command="{Binding PullMoveCreator}"
                     Background="Red"
                     Margin="25,0,0,0"
                     FontSize="32"
-                    Content=":-("
+                    Content="PULL"
                     Width="250"/>
         </StackPanel>
         <Button Style="{StaticResource FOC_SquareButtonTheme}"
                     Grid.Row="1"
                     Background="Red"
-                    Margin="125,0,125,0"
+                    Margin="0,0,0,0"
                     FontSize="32"
-                    Content=":-("/>
+                    Content="OK"/>
     </Grid>
 </UserControl>

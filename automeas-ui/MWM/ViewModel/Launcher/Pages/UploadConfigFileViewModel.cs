@@ -42,6 +42,7 @@ namespace automeas_ui.MWM.ViewModel.Launcher.Pages
         }
         // icommand
         private ICommand? _ChooseFileCommand;
+        private ICommand? _OpenMVGCommand;
         public ICommand ChooseFileCommand
         {
             get
@@ -53,6 +54,19 @@ namespace automeas_ui.MWM.ViewModel.Launcher.Pages
                     );
                 }
                 return _ChooseFileCommand;
+            }
+        }
+        public ICommand OpenMVGCommand
+        {
+            get
+            {
+                if (_OpenMVGCommand == null)
+                {
+                    _OpenMVGCommand = new JSRelayCommand(
+                        param => this.OpenMVG()
+                    );
+                }
+                return _OpenMVGCommand;
             }
         }
         // command
@@ -70,6 +84,10 @@ namespace automeas_ui.MWM.ViewModel.Launcher.Pages
                 Target.Instance.ConfigFileName = System.IO.Path.GetFileName(src);
                 Target.Instance.ConfigFilePath = src;
             }
+        }
+        void OpenMVG()
+        {
+            Target.Instance.NotifyChangeWindowToMVG();
         }
         public void RefreshIntegerUpDown(int msg) => Target.Instance.NumberOfMoves = msg;
     }

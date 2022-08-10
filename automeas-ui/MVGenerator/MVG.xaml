@@ -28,7 +28,19 @@
     <Border Background="#272537"
             CornerRadius="10">
         <Grid>
-            <ContentControl Content="{Binding CurrentView.Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="7*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="3*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <ContentControl Grid.Column="1"
+                Content="{Binding CurrentView.Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
                 <ContentControl.Style>
                     <Style TargetType="{x:Type ContentControl}">
                         <Setter Property="ContentTemplate" Value="{StaticResource MainTemplate}" />
@@ -43,6 +55,7 @@
                     </Style>
                 </ContentControl.Style>
             </ContentControl>
+            </Grid>
         </Grid>
     </Border>
 </Window>

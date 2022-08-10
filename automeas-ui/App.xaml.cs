@@ -23,8 +23,9 @@ namespace automeas_ui
             MVG mvg = new MVG();
             var x = (Launcher_MainViewModel)launcher.DataContext;
             Target.Instance.ChangeWindowToDashboard += HandleWindowToDashboard;
+            Target.Instance.ChangeWindowToMVG += HandleWindowToMVG;
             //mw = launcher;
-            mw = mvg;
+            mw = launcher;
             mw.Show();
             return;
         }
@@ -32,6 +33,13 @@ namespace automeas_ui
         {
             Dashboard dashboard = new Dashboard();
             mw = dashboard;
+            mw.Show();
+            return;
+        }
+        private void InitMVG()
+        {
+            MVG MoVeGenerator = new MVG();
+            mw = MoVeGenerator;
             mw.Show();
             return;
         }
@@ -44,6 +52,10 @@ namespace automeas_ui
         public void HandleWindowToDashboard(List<string> msg)
         {
             Switch(InitDashboard);
+        }
+        public void HandleWindowToMVG()
+        {
+            Switch(InitMVG);
         }
     }
 }

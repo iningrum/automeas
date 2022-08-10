@@ -30,13 +30,13 @@ namespace automeas_ui.MWM.Model.Launcher
         private Type _previousWindow;
         public void ChangeWindow(string id)
         {
-            if (id== "previous")
+            if (id== "\r")
             {
                 _currentWindow = _previousWindow;
             }
-            if (id == "shutdown")
+            else if (id == "\0")
             {
-                throw new NotImplementedException();
+                System.Windows.Application.Current.Shutdown();
             }
             else
             {
@@ -45,12 +45,14 @@ namespace automeas_ui.MWM.Model.Launcher
                 {
                     _previousWindow = _currentWindow;
                     _currentWindow = getVal;
-                    NotifyWindowChanged(_currentWindow);
-                    return;
                     
                 }
-                throw new InvalidOperationException("Window id not in register");
+                else 
+                {
+                    throw new InvalidOperationException("Window id not in register");
+                }
             }
+            NotifyWindowChanged(_currentWindow);
         }
         // events
         public Action<Type> WindowChanged;

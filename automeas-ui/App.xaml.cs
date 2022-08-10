@@ -20,13 +20,8 @@ namespace automeas_ui
         private void InitLauncher()
         {
             Launcher launcher = new Launcher();
-            MVG mvg = new MVG();
-            var x = (Launcher_MainViewModel)launcher.DataContext;
+            //var x = (Launcher_MainViewModel)launcher.DataContext;
             Navigator.Instance.WindowChanged += HandleWindowChanged;
-            //Target.Instance.ChangeWindowToDashboard += HandleWindowToDashboard;
-            //Target.Instance.ChangeWindowToMVG += HandleWindowToMVG;
-            //Target.Instance.ChangeMVGToLauncher += HandleUnsavedMVG;
-            //mw = launcher;
             mw = launcher;
             mw.Show();
             return;

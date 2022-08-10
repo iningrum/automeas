@@ -85,10 +85,7 @@ namespace automeas_ui.MWM.ViewModel.Launcher.Pages
                 Target.Instance.ConfigFilePath = src;
             }
         }
-        void OpenMVG()
-        {
-            Target.Instance.NotifyChangeWindowToMVG();
-        }
+        void OpenMVG() => Navigator.Instance.ChangeWindow("mvg");
         public void RefreshIntegerUpDown(int msg) => Target.Instance.NumberOfMoves = msg;
     }
 }

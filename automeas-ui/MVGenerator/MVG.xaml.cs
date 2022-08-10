@@ -27,7 +27,7 @@ namespace automeas_ui.MVGenerator
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Target.Instance.NotifyChangeMVGToLauncher();
+            Navigator.Instance.ChangeWindow("\r");
         }
     }
 }

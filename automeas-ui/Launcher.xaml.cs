@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using automeas_ui.MWM.Model.Launcher;
+using System.Windows;
 namespace automeas_ui
 {
     public partial class Launcher : Window
@@ -9,7 +10,7 @@ namespace automeas_ui
         }
         private void Button_Clicked(object sender, RoutedEventArgs e)
         {
-            System.Windows.Application.Current.Shutdown();
+            Navigator.Instance.ChangeWindow("\0"); // shutdown app
         }
     }
 }

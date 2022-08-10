@@ -1,4 +1,5 @@
 ﻿using automeas_ui.Core;
+using System.Windows.Input;
 
 namespace automeas_ui.MWM.ViewModel
 {
@@ -20,6 +21,13 @@ namespace automeas_ui.MWM.ViewModel
         {
             HomeVM = new HomeViewModel();
             CurrentView = HomeVM;
+        }
+
+        private JSRelayCommand pushMoveCreator;
+        public ICommand PushMoveCreator => pushMoveCreator ??= new JSRelayCommand(PerformPushMoveCreator);
+
+        private void PerformPushMoveCreator(object commandParameter)
+        {
         }
     }
 }

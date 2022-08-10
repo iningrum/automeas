@@ -115,11 +115,17 @@ namespace automeas_ui.MVGenerator.MVVM.ViewModel
         private void XZoom(object value)
         {
             double zoom = int.Parse(value.ToString());
-            var axis = XAxes[0];
-            var delta = 10.0 / zoom;
-            axis.MinLimit = Data.Last().X - 0.2*delta;
-            axis.MaxLimit = axis.MinLimit + delta;
+            delta = 10.0 / zoom;
+            ReloadXaxis();
             return;
         }
+        public void ReloadXaxis(double panning = 0.0)
+        {
+            if (Data.Count()==0 || (panning <0 && Data.Last().X < -1*panning)) { return; }
+            var axis = XAxes[0];
+            axis.MinLimit = Data.Last().X - 0.2 * delta + panning;
+            axis.MaxLimit = axis.MinLimit + delta;
+        }
+        public double delta = 10;
     }
 }

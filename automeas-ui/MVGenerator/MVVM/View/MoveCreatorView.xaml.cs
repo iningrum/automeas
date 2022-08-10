@@ -60,6 +60,7 @@ namespace automeas_ui.MVGenerator.MVVM.View
             y = StepperMotorDriver.Instance.QuantitizeVelocity(y);
             // finally add the new point to the data in our chart.
             viewModel.Data.Add(new ObservablePoint(x, y));
+            viewModel.ReloadXaxis(-0.5);
         }
     }
 }

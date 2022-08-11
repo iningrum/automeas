@@ -12,7 +12,9 @@ using System.Collections.ObjectModel;
 using automeas_ui.MVGenerator.MVVM.Model;
 using LiveChartsCore.Defaults;
 using automeas_ui.Core;
+using CommunityToolkit;
 using System.Windows.Interop;
+using CommunityToolkit.Mvvm.Input;
 
 namespace automeas_ui.MVGenerator.MVVM.ViewModel
 {

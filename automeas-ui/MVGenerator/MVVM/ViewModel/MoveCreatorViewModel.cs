@@ -15,10 +15,11 @@ using automeas_ui.MWM.Model.Launcher;
 using automeas_ui.Core;
 using automeas_ui.MVGenerator.MVVM.Model;
 using System.Windows.Input;
+using CommunityToolkit.Mvvm.Input;
 
 namespace automeas_ui.MVGenerator.MVVM.ViewModel
 {
-    internal class MoveCreatorViewModel
+    internal partial class MoveCreatorViewModel
     {
         // ctor
         public MoveCreatorViewModel(bool push)
@@ -145,6 +146,11 @@ namespace automeas_ui.MVGenerator.MVVM.ViewModel
             var axis = XAxes[0];
             axis.MinLimit = x - width;
             axis.MaxLimit = x + width;
+        }
+        [RelayCommand]
+        private void SaveMove()
+        {
+            System.Windows.Application.Current.Shutdown();
         }
     }
 }

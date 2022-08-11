@@ -12,6 +12,7 @@
     <PackageReference Include="Caliburn.Micro.Core" Version="4.0.210">
       <TreatAsUsed>true</TreatAsUsed>
     </PackageReference>
+    <PackageReference Include="CommunityToolkit.Mvvm" Version="8.0.0" />
     <PackageReference Include="Extended.Wpf.Toolkit" Version="4.3.0">
       <TreatAsUsed>true</TreatAsUsed>
     </PackageReference>
@@ -21,7 +22,16 @@
     </PackageReference>
     <PackageReference Include="System.Windows.Forms" Version="4.0.0" />
   </ItemGroup>
+	<!-- VERY IMPORTANT WORKAROUND-->
+	<Target Name="RemoveDuplicateAnalyzers" BeforeTargets="CoreCompile">
+		<!-- Work around https://github.com/dotnet/wpf/issues/6792 -->
 
+		<ItemGroup>
+			<FilteredAnalyzer Include="@(Analyzer->Distinct())" />
+			<Analyzer Remove="@(Analyzer)" />
+			<Analyzer Include="@(FilteredAnalyzer)" />
+		</ItemGroup>
+	</Target>
   <ItemGroup>
     <Page Update="Theme\SquareButtonTheme.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>

@@ -90,10 +90,27 @@ namespace automeas_ui.MVGenerator.MVVM.ViewModel
         public void HandlePointAdded(ObservablePoint msg)
         {
             _observableValues.Add(msg);
+            Sections[0].Xi = _observableValues.Last().X - 5;
+            Sections[0].Xj = _observableValues.Last().X + 5;
         }
+        public ObservableCollection<RectangularSection> Sections { get; set; } = new ObservableCollection<RectangularSection>
+    {
+        new RectangularSection
+        {
+            Xi = MVGTarget.Instance.Xa,
+            Xj = MVGTarget.Instance.Xb,
+            Fill = new SolidColorPaint { Color = SKColors.Blue.WithAlpha(20) }
+        },
+    };
         public void HandleRangeChanged(double max)
         {
             XAxes[0].MaxLimit = 1.2 * max;
+        }
+        public void MoveFocus(ObservablePoint P)
+        {
+            Sections[0].Xi = P.X - 5;
+            Sections[0].Xj = P.X + 5;
+            MVGTarget.Instance.NotifyFocusChanged((double)P.X, 5);
         }
     }
 }

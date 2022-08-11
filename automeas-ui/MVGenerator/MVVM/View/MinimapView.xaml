@@ -14,6 +14,8 @@
                             Series="{Binding Series, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                             XAxes="{Binding XAxes}"
                             YAxes="{Binding YAxes}"
+                            Sections="{Binding Sections}"
+                            MouseDown="chart_MouseDown"
                             DrawMarginFrame="{Binding Frame}"/>
     </Grid>
 </UserControl>

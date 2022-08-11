@@ -23,6 +23,7 @@ namespace automeas_ui.MVGenerator.MVVM.ViewModel
         // ctor
         public MoveCreatorViewModel(bool push)
         {
+            MVGTarget.Instance.FocusChanged += HandleFocusChanged;
             var data = new ObservableCollection<ObservablePoint>
             {
                 new(0, 0)
@@ -139,5 +140,11 @@ namespace automeas_ui.MVGenerator.MVVM.ViewModel
             }
         }
         public double delta = 10;
+        public void HandleFocusChanged(double x, double width)
+        {
+            var axis = XAxes[0];
+            axis.MinLimit = x - width;
+            axis.MaxLimit = x + width;
+        }
     }
 }

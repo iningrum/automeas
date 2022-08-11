@@ -75,7 +75,24 @@ namespace automeas_ui.MVGenerator.MVVM.View
                 {
                     if (viewModel.Data[i].X > x)
                     {
-                        viewModel.Data[i].Y = y;
+                        if ( i>0)
+                        {
+                            if ((x - (double)viewModel.Data[i - 1].X) < ((double)viewModel.Data[i].X - x))
+                            {
+                                viewModel.Data[i - 1].X = x;
+                                viewModel.Data[i-1].Y = y;
+                            }
+                            else
+                            {
+                                viewModel.Data[i].X = x;
+                                viewModel.Data[i].Y = y;
+                            }
+                        }
+                        else
+                        {
+                            viewModel.Data[i].X = x;
+                            viewModel.Data[i].Y = y;
+                        }
                         break;
                     }
                 }

@@ -58,10 +58,9 @@ namespace automeas_ui.MVGenerator.MVVM.View
         }
         private void chart_RMBDown(object sender, MouseButtonEventArgs e)
         {
-            //var chart = (CartesianChart)FindName("chart");
             var viewModel = (MinimapViewModel)DataContext;
-            if (viewModel._editMode == true) { return; }
-            else { viewModel._editMode = true; }
+            if (MVGTarget.Instance._creator_EditMode == true) { return; }
+            else { MVGTarget.Instance._creator_EditMode = true; }
             viewModel.Series.Add(new StepLineSeries<ObservablePoint>
             {
                 Values = viewModel._observableValues,
@@ -74,10 +73,9 @@ namespace automeas_ui.MVGenerator.MVVM.View
         }
         private void chart_LMBDown(object sender, MouseButtonEventArgs e)
         {
-            //var chart = (CartesianChart)FindName("chart");
             var viewModel = (MinimapViewModel)DataContext;
-            if (viewModel._editMode == false) { return; }
-            else { viewModel._editMode = false; }
+            if (MVGTarget.Instance._creator_EditMode == false) { return; }
+            else { MVGTarget.Instance._creator_EditMode = false; }
             viewModel.Series.Add(new StepLineSeries<ObservablePoint>
             {
                 Values = viewModel._observableValues,

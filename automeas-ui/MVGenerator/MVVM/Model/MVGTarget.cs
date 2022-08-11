@@ -27,6 +27,7 @@ namespace automeas_ui.MVGenerator.MVVM.Model
         }
         public double Xmin, Ymin, Xmax, Ymax, Xa, Xb;
         private double[] PushSeries, PullSeries;
+        public bool _creator_EditMode = false;
         public TrulyObservableCollection<ObservablePoint> CurrentSeries = new TrulyObservableCollection<ObservablePoint>();
         // event
         public event Action<ObservablePoint>? MoveUpdated;

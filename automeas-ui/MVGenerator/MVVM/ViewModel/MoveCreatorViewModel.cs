@@ -126,6 +126,17 @@ namespace automeas_ui.MVGenerator.MVVM.ViewModel
             axis.MinLimit = Data.Last().X - 0.2 * delta + panning;
             axis.MaxLimit = axis.MinLimit + delta;
             axis.MinStep = 0.1 * delta;
+            { // push to Target
+                var T = MVGTarget.Instance;
+                T.Xmin = (double)axis.MinLimit;
+                T.Xmax = (double)axis.MaxLimit;
+                axis = YAxes[0];
+                T.Ymin = (double)axis.MinLimit;
+                T.Xmax = (double)axis.MaxLimit;
+                axis = XAxes[0];
+                //T.CurrentSeries = Data;
+                T.NotifyMoveUpdated(Data.Last());
+            }
         }
         public double delta = 10;
     }

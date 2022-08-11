@@ -10,6 +10,10 @@
              d:DataContext="{d:DesignInstance Type=viewm:MinimapViewModel}"
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <lvc:CartesianChart x:Name="chart"/>
+        <lvc:CartesianChart x:Name="chart"
+                            Series="{Binding Series, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                            XAxes="{Binding XAxes}"
+                            YAxes="{Binding YAxes}"
+                            DrawMarginFrame="{Binding Frame}"/>
     </Grid>
 </UserControl>

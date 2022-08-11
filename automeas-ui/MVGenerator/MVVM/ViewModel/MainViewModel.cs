@@ -17,10 +17,12 @@ namespace automeas_ui.MVGenerator.MVVM.ViewModel
         {
             CurrentPage = new ObservableType<int>(0);
             CurrentView = new ObservableType<object>(this);
+            mmView = new ObservableType<MinimapViewModel>(new MinimapViewModel());
         }
         // attr
         public ObservableType<int> CurrentPage { get; set; }
         public ObservableType<object> CurrentView { get; set; }
+        public ObservableType<MinimapViewModel> mmView { get; set; }
         // cmd
         private ICommand? _pushMoveCreator;
         private ICommand? _pullMoveCreator;

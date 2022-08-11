@@ -54,7 +54,7 @@
                     Style="{StaticResource FOC_SquareButtonTheme}"
                     Click="Button_Click"/>
                 <ContentControl Grid.Column="1"
-                Content="{Binding CurrentView.Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                Content="{Binding mmView.Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
                     <ContentControl.Style>
                         <Style TargetType="{x:Type ContentControl}">
                             <Setter Property="ContentTemplate" Value="{StaticResource PlaceholderTemplate}"/>

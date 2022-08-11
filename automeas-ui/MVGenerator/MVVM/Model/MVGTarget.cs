@@ -6,6 +6,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Xceed.Wpf.Toolkit.Zoombox;
 
 namespace automeas_ui.MVGenerator.MVVM.Model
 {
@@ -18,7 +19,7 @@ namespace automeas_ui.MVGenerator.MVVM.Model
         public MVGTarget()
         {
             Xmin = 0;
-            Xmax = 100;
+            Xmax = 10;
             Ymin = 0;
             Ymax = 10;
         }
@@ -27,7 +28,9 @@ namespace automeas_ui.MVGenerator.MVVM.Model
         public TrulyObservableCollection<ObservablePoint> CurrentSeries = new TrulyObservableCollection<ObservablePoint>();
         // event
         public event Action<ObservablePoint>? MoveUpdated;
+        public event Action<double> RangeChanged;
         public void NotifyMoveUpdated(ObservablePoint msg) => MoveUpdated?.Invoke(msg);
+        public void NotifyRangeChanged(double max) => RangeChanged?.Invoke(max);
 
     }
 }

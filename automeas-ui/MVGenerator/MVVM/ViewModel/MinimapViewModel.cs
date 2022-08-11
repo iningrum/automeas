@@ -12,6 +12,7 @@ using System.Collections.ObjectModel;
 using automeas_ui.MVGenerator.MVVM.Model;
 using LiveChartsCore.Defaults;
 using automeas_ui.Core;
+using System.Windows.Interop;
 
 namespace automeas_ui.MVGenerator.MVVM.ViewModel
 {
@@ -22,6 +23,7 @@ namespace automeas_ui.MVGenerator.MVVM.ViewModel
         public MinimapViewModel()
         {
             MVGTarget.Instance.MoveUpdated += HandlePointAdded;
+            MVGTarget.Instance.RangeChanged += HandleRangeChanged;
             _observableValues = new ObservableCollection<ObservablePoint> { new ObservablePoint(0,0)};
             Series = new ObservableCollection<ISeries>
             {
@@ -41,8 +43,8 @@ namespace automeas_ui.MVGenerator.MVVM.ViewModel
         {
         new Axis
         {
-            MinLimit = MVGTarget.Instance.Xmin,
-            MaxLimit = MVGTarget.Instance.Xmax,
+            MinLimit = 0,
+            MaxLimit = 1.2*10,
             ForceStepToMin = true,
             MinStep = int.MaxValue,
             TextSize = 0,
@@ -88,6 +90,10 @@ namespace automeas_ui.MVGenerator.MVVM.ViewModel
         public void HandlePointAdded(ObservablePoint msg)
         {
             _observableValues.Add(msg);
+        }
+        public void HandleRangeChanged(double max)
+        {
+            XAxes[0].MaxLimit = 1.2 * max;
         }
     }
 }

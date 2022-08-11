@@ -21,6 +21,7 @@ using automeas_ui.MVGenerator.MVVM.ViewModel;
 using automeas_ui.MVGenerator.MVVM.Model;
 using LiveChartsCore;
 using LiveChartsCore.SkiaSharpView;
+using System.Windows.Markup;
 
 namespace automeas_ui.MVGenerator.MVVM.View
 {
@@ -59,8 +60,11 @@ namespace automeas_ui.MVGenerator.MVVM.View
             var y = scaledPoint[1];
             y = StepperMotorDriver.Instance.QuantitizeVelocity(y);
             // finally add the new point to the data in our chart.
-            viewModel.Data.Add(new ObservablePoint(x, y));
+            var ClickedPoint = new ObservablePoint(x, y);
+            viewModel.Data.Add(ClickedPoint);
             viewModel.ReloadXaxis();
+            MVGTarget.Instance.NotifyMoveUpdated(ClickedPoint);
+
         }
     }
 }

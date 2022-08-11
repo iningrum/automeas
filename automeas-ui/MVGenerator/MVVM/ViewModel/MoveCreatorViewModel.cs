@@ -135,7 +135,7 @@ namespace automeas_ui.MVGenerator.MVVM.ViewModel
                 T.Xmax = (double)axis.MaxLimit;
                 axis = XAxes[0];
                 //T.CurrentSeries = Data;
-                T.NotifyMoveUpdated(Data.Last());
+                T.NotifyRangeChanged((double)axis.MaxLimit);
             }
         }
         public double delta = 10;

@@ -24,8 +24,8 @@ namespace automeas_ui.MVGenerator.MVVM.ViewModel
         // ctor
         public MinimapViewModel()
         {
-            MVGTarget.Instance.MoveUpdated += HandlePointAdded;
-            MVGTarget.Instance.RangeChanged += HandleRangeChanged;
+            MVGTarget.Instance.DataModified += HandleDataChanged;
+            MVGTarget.Instance.FocusChanged += HandleFocusChanged;
             _observableValues = new ObservableCollection<ObservablePoint> { new ObservablePoint(0,0)};
             Series = new ObservableCollection<ISeries>
             {
@@ -90,30 +90,39 @@ namespace automeas_ui.MVGenerator.MVVM.ViewModel
                 StrokeThickness = 2
             }
         };
-        public void HandlePointAdded(ObservablePoint msg)
-        {
-            _observableValues.Add(msg);
-            Sections[0].Xi = _observableValues.Last().X - 5;
-            Sections[0].Xj = _observableValues.Last().X + 5;
-        }
+
         public ObservableCollection<RectangularSection> Sections { get; set; } = new ObservableCollection<RectangularSection>
     {
         new RectangularSection
         {
             Xi = MVGTarget.Instance.Xa,
             Xj = MVGTarget.Instance.Xb,
-            Fill = new SolidColorPaint { Color = SKColors.Blue.WithAlpha(20) }
+            Fill = new SolidColorPaint { Color = SKColors.White.WithAlpha(20) }
         },
     };
-        public void HandleRangeChanged(double max)
+        public void HandleFocusChanged(ObservablePoint P)
         {
-            XAxes[0].MaxLimit = 1.2 * max;
-        }
-        public void MoveFocus(ObservablePoint P)
-        {
+            XAxes[0].MinLimit = 0;
             Sections[0].Xi = P.X - 5;
             Sections[0].Xj = P.X + 5;
-            MVGTarget.Instance.NotifyFocusChanged((double)P.X, 5);
+            XAxes[0].MaxLimit = MVGTarget.Instance.CurrentMove.X.Max+5;
+        }
+        public void HandleDataChanged(int i, ObservablePoint P)
+        {
+            switch (i)
+            {
+                case -1:
+                    _observableValues.Add(P);
+                    break;
+                case -2:
+                    if (_observableValues.Count() <= 1) { return; }
+                    _observableValues.RemoveAt(_observableValues.Count() - 1);
+                    break;
+                default:
+                    if(i == 0) { return; }
+                    _observableValues[i] = P;
+                    break;
+            }
         }
     }
 }

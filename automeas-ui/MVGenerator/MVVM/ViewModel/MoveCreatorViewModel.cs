@@ -25,18 +25,31 @@ namespace automeas_ui.MVGenerator.MVVM.ViewModel
         public MoveCreatorViewModel(bool push)
         {
             MVGTarget.Instance.FocusChanged += HandleFocusChanged;
-            var data = new ObservableCollection<ObservablePoint>
+            _push = push;
+            if (push && MVGTarget.Instance.Moves[0].Data.Count() > 0)
             {
-                new(0, 0)
-            };
+                Data = MVGTarget.Instance.Moves[0].Data;
+            }
+            else if (!push && MVGTarget.Instance.Moves[1].Data.Count() > 0)
+            {
+                Data = MVGTarget.Instance.Moves[1].Data;
+            }
+            else
+            {
+                var data = new ObservableCollection<ObservablePoint>
+                {
+                    new(0, 0)
+                };
 
-            Data = data;
+                Data = data;
+            }
+            
 
             SeriesCollection = new ISeries[]
             {
                 new StepLineSeries<ObservablePoint>
                 {
-                    Values = data,
+                    Values = Data,
                     Fill = null,
                     DataPadding = new LiveChartsCore.Drawing.LvcPoint(5,5)
                 }
@@ -79,6 +92,7 @@ namespace automeas_ui.MVGenerator.MVVM.ViewModel
             }
         }
     };
+        private readonly bool _push;
         public RectangularSection[] Sections { get; set; } = GenerateLineSections();
         private static RectangularSection[] GenerateLineSections()
         {
@@ -99,58 +113,17 @@ namespace automeas_ui.MVGenerator.MVVM.ViewModel
             }
             return result;
         }
-        // pagination/ adjustable X-zoom
-        private ICommand? _zoom;
-        public ICommand Zoom
+        public void HandleFocusChanged(ObservablePoint P)
         {
-            get
+            if (P.X - 5 > 0)
             {
-                if (_zoom == null)
-                {
-                    _zoom = new JSRelayCommand(
-                        param => this.XZoom(param)
-                    );
-                }
-                return _zoom;
+                XAxes[0].MinLimit = P.X - 5;
             }
-        }
-        private void XZoom(object value)
-        {
-            double zoom = int.Parse(value.ToString());
-            delta = 10.0 / zoom;
-            ReloadXaxis();
-            return;
-        }
-        public void ReloadXaxis(double panning = 0.0)
-        {
-            if (Data.Count()==0 || (panning <0 && Data.Last().X < -1*panning)) { return; }
-            var axis = XAxes[0];
-            axis.MinLimit = Data.Last().X - 0.2 * delta + panning;
-            axis.MaxLimit = axis.MinLimit + delta;
-            axis.MinStep = 0.1 * delta;
-            { // push to Target
-                var T = MVGTarget.Instance;
-                T.Xmin = (double)axis.MinLimit;
-                T.Xmax = (double)axis.MaxLimit;
-                axis = YAxes[0];
-                T.Ymin = (double)axis.MinLimit;
-                T.Xmax = (double)axis.MaxLimit;
-                axis = XAxes[0];
-                //T.CurrentSeries = Data;
-                T.NotifyRangeChanged((double)axis.MaxLimit);
+            else
+            {
+                XAxes[0].MinLimit = 0;
             }
-        }
-        public double delta = 10;
-        public void HandleFocusChanged(double x, double width)
-        {
-            var axis = XAxes[0];
-            axis.MinLimit = x - width;
-            axis.MaxLimit = x + width;
-        }
-        [RelayCommand]
-        private void SaveMove()
-        {
-            System.Windows.Application.Current.Shutdown();
+            XAxes[0].MaxLimit = P.X+5;
         }
     }
 }

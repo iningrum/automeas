@@ -54,7 +54,7 @@ namespace automeas_ui.MVGenerator.MVVM.View
             var y = scaledPoint[1];
             // finally add the new point to the data in our chart.
             var ClickedPoint = new ObservablePoint(x, y);
-            viewModel.MoveFocus(ClickedPoint);
+            MVGTarget.Instance.NotifyFocusChanged(ClickedPoint);
         }
         private void chart_RMBDown(object sender, MouseButtonEventArgs e)
         {

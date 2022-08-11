@@ -65,9 +65,11 @@ namespace automeas_ui.MVGenerator.MVVM.View
 
                 // finally add the new point to the data in our chart.
                 var ClickedPoint = new ObservablePoint(x, y);
+                var mvgt = MVGTarget.Instance.CurrentMove;
                 viewModel.Data.Add(ClickedPoint);
-                viewModel.ReloadXaxis();
-                MVGTarget.Instance.NotifyMoveUpdated(ClickedPoint);
+                MVGTarget.Instance.NotifyDataModified("+", ClickedPoint);
+                MVGTarget.Instance.CurrentMove.X.Max = x;
+                MVGTarget.Instance.NotifyFocusChanged(new ObservablePoint(x-2,x+5));
             }
             else
             {
@@ -77,7 +79,7 @@ namespace automeas_ui.MVGenerator.MVVM.View
                     {
                         if ( i>0)
                         {
-                            if ((x - (double)viewModel.Data[i - 1].X) < ((double)viewModel.Data[i].X - x))
+                            if ((x - (double)viewModel.Data[i - 1].X) < ((double)viewModel.Data[i].X - x) && i>1)
                             {
                                 viewModel.Data[i - 1].X = x;
                                 viewModel.Data[i-1].Y = y;
@@ -87,11 +89,6 @@ namespace automeas_ui.MVGenerator.MVVM.View
                                 viewModel.Data[i].X = x;
                                 viewModel.Data[i].Y = y;
                             }
-                        }
-                        else
-                        {
-                            viewModel.Data[i].X = x;
-                            viewModel.Data[i].Y = y;
                         }
                         break;
                     }

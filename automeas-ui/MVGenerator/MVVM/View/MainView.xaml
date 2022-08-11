@@ -24,14 +24,14 @@
                     VerticalAlignment="Center"
                     HorizontalAlignment="Center">
             <Button Style="{StaticResource FOC_SquareButtonTheme}"
-                    Command="{Binding PullMoveCreator}"
+                    Command="{Binding OpenPushCreatorCommand}"
                     Background="Red"
                     Margin="0,0,25,0"
                     FontSize="32"
                     Content="PUSH"
                     Width="250"/>
             <Button Style="{StaticResource FOC_SquareButtonTheme}"
-                    Command="{Binding PullMoveCreator}"
+                    Command="{Binding OpenPullCreatorCommand}"
                     Background="Red"
                     Margin="25,0,0,0"
                     FontSize="32"
@@ -39,7 +39,7 @@
                     Width="250"/>
         </StackPanel>
         <Button Style="{StaticResource FOC_SquareButtonTheme}"
-                    Command="{Binding SaveData}"
+                    Command="{Binding SaveMVGDataCommand}"
                     Grid.Row="1"
                 Grid.Column="1"
                     Background="Red"

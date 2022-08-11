@@ -2,6 +2,7 @@
 using automeas_ui.MWM.Model;
 using automeas_ui.MWM.Model.Launcher;
 using automeas_ui.MWM.ViewModel.Launcher.Pages;
+using CommunityToolkit.Mvvm.Input;
 using System;
 using System.Windows.Input;
 
@@ -12,7 +13,7 @@ using System.Windows.Input;
          */
 namespace automeas_ui.MWM.ViewModel
 {
-    public class Launcher_MainViewModel
+    public partial class Launcher_MainViewModel
     {
         // new
         public ObservableType<object> CurrentView { get; set; }
@@ -37,37 +38,12 @@ namespace automeas_ui.MWM.ViewModel
         // events
         public event Action<int>? PageChanged; // sent to PageBarView
         public event Action<int>? PageNoLongerRelevant; // sent to subviews
+        [RelayCommand]
         void NextPage() => PageChanged?.Invoke(CurrentPage.Value + 1);
+        [RelayCommand]
         void PreviousPage() => PageChanged?.Invoke(CurrentPage.Value - 1);
         // handlers
-        private ICommand? _npCommand;
-        private ICommand? _ppCommand;
-        public ICommand NpCommad
-        {
-            get
-            {
-                if (_npCommand == null)
-                {
-                    _npCommand = new JSRelayCommand(
-                        param => this.NextPage()
-                    );
-                }
-                return _npCommand;
-            }
-        }
-        public ICommand PpCommad
-        {
-            get
-            {
-                if (_ppCommand == null)
-                {
-                    _ppCommand = new JSRelayCommand(
-                        param => this.PreviousPage()
-                    );
-                }
-                return _ppCommand;
-            }
-        }
+        
         public void _PageBarView_PageChanged(int sender)
         {
             PageNoLongerRelevant?.Invoke(CurrentPage.Value);

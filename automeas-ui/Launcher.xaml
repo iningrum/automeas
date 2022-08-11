@@ -67,7 +67,7 @@
                     Background="Transparent"
                     BorderThickness="0"
                     FontSize="72" 
-                    Command="{Binding NpCommad}"/>
+                    Command="{Binding NextPageCommand}"/>
             <Button Grid.Row="1"
                     Grid.Column="0"
                     Content="&#9665;"
@@ -76,7 +76,7 @@
                     BorderThickness="0"
                     FontSize="72"
                     x:Name="PageBarView"
-                    Command="{Binding PpCommad}"/>
+                    Command="{Binding PreviousPageCommand}"/>
             <Label Grid.Row="0"
                        Grid.Column="1"
                        HorizontalAlignment="Center"

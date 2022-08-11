@@ -41,7 +41,7 @@
                 </ItemsControl.ItemTemplate>
             </ItemsControl>
             <Button Grid.Row="1"
-                    Command="{Binding SwitchToDashboard}"
+                    Command="{Binding SwitchToDashboardCommand}"
                     CommandParameter="dashboard"
                     Margin="125,25,125,25"/>
         </Grid>

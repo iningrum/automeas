@@ -1,6 +1,7 @@
 ﻿using automeas_ui.Core;
 using automeas_ui.MWM.Model;
 using automeas_ui.MWM.Model.Launcher;
+using CommunityToolkit.Mvvm.Input;
 using System.Linq;
 using System.Windows.Input;
 
@@ -23,7 +24,7 @@ namespace automeas_ui.MWM.ViewModel.Launcher.Pages
         public string? Description { get; set; }
         public string? Color { get; set; }
     }
-    public class LauncherSummaryViewModel : BaseViewModel
+    public partial class LauncherSummaryViewModel : BaseViewModel
     {
         // internal config
         // ctor
@@ -59,22 +60,9 @@ namespace automeas_ui.MWM.ViewModel.Launcher.Pages
                 result = result.Substring(0, result.Length - ",  ".Length);
             return result;
         }
-        private ICommand? _SwitchToDashboard;
-        public ICommand SwitchToDashboard
-        {
-            get
-            {
-                if (_SwitchToDashboard == null)
-                {
-                    _SwitchToDashboard = new JSRelayCommand(
-                        param => this.SwitchWindowToDashboard()
-                    );
-                }
-                return _SwitchToDashboard;
-            }
-        }
         // functions
-        void SwitchWindowToDashboard()
+        [RelayCommand]
+        void SwitchToDashboard()
         {
             //Target.Instance.NotifyChangeWindowToDashboard();
             Navigator.Instance.ChangeWindow("dashboard");

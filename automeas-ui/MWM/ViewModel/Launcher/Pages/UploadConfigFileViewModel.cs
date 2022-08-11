@@ -1,6 +1,7 @@
 ﻿using automeas_ui.Core;
 using automeas_ui.MWM.Model;
 using automeas_ui.MWM.Model.Launcher;
+using CommunityToolkit.Mvvm.Input;
 using System;
 using System.Windows.Input;
 
@@ -10,7 +11,7 @@ using System.Windows.Input;
          */
 namespace automeas_ui.MWM.ViewModel.Launcher.Pages
 {
-    public class UploadConfigFileViewModel : BaseViewModel, IBaseViewModel
+    public partial class UploadConfigFileViewModel : BaseViewModel, IBaseViewModel
     {
         // ctor
         public UploadConfigFileViewModel()
@@ -41,35 +42,7 @@ namespace automeas_ui.MWM.ViewModel.Launcher.Pages
             return;
         }
         // icommand
-        private ICommand? _ChooseFileCommand;
-        private ICommand? _OpenMVGCommand;
-        public ICommand ChooseFileCommand
-        {
-            get
-            {
-                if (_ChooseFileCommand == null)
-                {
-                    _ChooseFileCommand = new JSRelayCommand(
-                        param => this.ChooseFile()
-                    );
-                }
-                return _ChooseFileCommand;
-            }
-        }
-        public ICommand OpenMVGCommand
-        {
-            get
-            {
-                if (_OpenMVGCommand == null)
-                {
-                    _OpenMVGCommand = new JSRelayCommand(
-                        param => this.OpenMVG()
-                    );
-                }
-                return _OpenMVGCommand;
-            }
-        }
-        // command
+        [RelayCommand]
         void ChooseFile()
         {
             System.Windows.Forms.FolderBrowserDialog openFileDlg = new System.Windows.Forms.FolderBrowserDialog();
@@ -85,6 +58,7 @@ namespace automeas_ui.MWM.ViewModel.Launcher.Pages
                 Target.Instance.ConfigFilePath = src;
             }
         }
+        [RelayCommand]
         void OpenMVG() => Navigator.Instance.ChangeWindow("mvg");
         public void RefreshIntegerUpDown(int msg) => Target.Instance.NumberOfMoves = msg;
     }

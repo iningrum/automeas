@@ -1,6 +1,7 @@
 ﻿using automeas_ui.Core;
 using automeas_ui.MWM.Model;
 using automeas_ui.MWM.Model.Launcher;
+using CommunityToolkit.Mvvm.Input;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -27,7 +28,7 @@ namespace automeas_ui.MWM.ViewModel.Launcher.Pages
         public bool Checked { get; set; }
         public string Text { get; set; }
     }
-    public class Page1 : BaseViewModel, IBaseViewModel
+    public partial class Page1 : BaseViewModel, IBaseViewModel
     {
         // internal interface
         const int ID = 0;
@@ -85,22 +86,8 @@ namespace automeas_ui.MWM.ViewModel.Launcher.Pages
             }
             OptionsChanged?.Invoke(result);
         }
-        // handlers
-        private ICommand? _ChooseFileCommand;
-        public ICommand ChooseFileCommand
-        {
-            get
-            {
-                if (_ChooseFileCommand == null)
-                {
-                    _ChooseFileCommand = new JSRelayCommand(
-                        param => this.ChooseFile()
-                    );
-                }
-                return _ChooseFileCommand;
-            }
-        }
         // functions
+        [RelayCommand]
         void ChooseFile()
         {
             System.Windows.Forms.FolderBrowserDialog openFileDlg = new System.Windows.Forms.FolderBrowserDialog();

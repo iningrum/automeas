@@ -18,7 +18,7 @@ namespace automeas_ui.MVGenerator.MVVM.ViewModel
 {
     internal class MinimapViewModel
     {
-        private readonly ObservableCollection<ObservablePoint> _observableValues;
+        public readonly ObservableCollection<ObservablePoint> _observableValues;
         // ctor
         public MinimapViewModel()
         {
@@ -37,6 +37,7 @@ namespace automeas_ui.MVGenerator.MVVM.ViewModel
                 }
             };
         }
+        public bool _editMode = false;
         public ObservableCollection<ISeries> Series { get; set; }
 
         public Axis[] XAxes { get; set; } =

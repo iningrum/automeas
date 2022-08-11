@@ -20,6 +20,10 @@ using System.Windows.Shapes;
 using LiveChartsCore.SkiaSharpView.WPF;
 using automeas_ui.MVGenerator.MVVM.ViewModel;
 using automeas_ui.MVGenerator.MVVM.Model;
+using LiveChartsCore.SkiaSharpView.Painting;
+using SkiaSharp;
+using System.Windows.Ink;
+using LiveChartsCore.SkiaSharpView;
 
 namespace automeas_ui.MVGenerator.MVVM.View
 {
@@ -51,6 +55,38 @@ namespace automeas_ui.MVGenerator.MVVM.View
             // finally add the new point to the data in our chart.
             var ClickedPoint = new ObservablePoint(x, y);
             viewModel.MoveFocus(ClickedPoint);
+        }
+        private void chart_RMBDown(object sender, MouseButtonEventArgs e)
+        {
+            //var chart = (CartesianChart)FindName("chart");
+            var viewModel = (MinimapViewModel)DataContext;
+            if (viewModel._editMode == true) { return; }
+            else { viewModel._editMode = true; }
+            viewModel.Series.Add(new StepLineSeries<ObservablePoint>
+            {
+                Values = viewModel._observableValues,
+                Stroke = new SolidColorPaint(SKColors.Orange) { StrokeThickness = 1.5F },
+                Fill = null,
+                GeometryFill = null,
+                GeometryStroke = null,
+            });
+            viewModel.Series.RemoveAt(0);
+        }
+        private void chart_LMBDown(object sender, MouseButtonEventArgs e)
+        {
+            //var chart = (CartesianChart)FindName("chart");
+            var viewModel = (MinimapViewModel)DataContext;
+            if (viewModel._editMode == false) { return; }
+            else { viewModel._editMode = false; }
+            viewModel.Series.Add(new StepLineSeries<ObservablePoint>
+            {
+                Values = viewModel._observableValues,
+                Stroke = new SolidColorPaint(SKColors.Green) { StrokeThickness = 1.5F },
+                Fill = null,
+                GeometryFill = null,
+                GeometryStroke = null,
+            });
+            viewModel.Series.RemoveAt(0);
         }
     }
 }

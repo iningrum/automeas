@@ -16,6 +16,8 @@
                             YAxes="{Binding YAxes}"
                             Sections="{Binding Sections}"
                             MouseDown="chart_MouseDown"
+                            MouseLeftButtonDown="chart_LMBDown"
+                            MouseRightButtonDown="chart_RMBDown"
                             DrawMarginFrame="{Binding Frame}"/>
     </Grid>
 </UserControl>

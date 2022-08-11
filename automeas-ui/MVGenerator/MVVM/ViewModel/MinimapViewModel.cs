@@ -38,6 +38,50 @@ namespace automeas_ui.MVGenerator.MVVM.ViewModel
                     GeometryStroke=null,
                 }
             };
+            { // load from MVGT
+                var mvgt = MVGTarget.Instance.CurrentMove;
+                if (mvgt.Data.Count() > 1) 
+                {
+                    // loading data
+                    _observableValues = mvgt.Data;
+                    {// forcibly updating ObservableCollection
+                        Series.Add(new StepLineSeries<ObservablePoint>
+                        {
+                            Values = _observableValues,
+                            Stroke = new SolidColorPaint(SKColors.Green) { StrokeThickness = 1.5F },
+                            Fill = null,
+                            GeometryFill = null,
+                            GeometryStroke = null,
+                        });
+                        Series.RemoveAt(0);
+                    }
+                    // setting data range
+                    XAxes[0].MinLimit = 0;
+                    XAxes[0].MaxLimit = mvgt.X.Max+5;
+                    // Drawing rectangle
+                    Sections[0].Xi = mvgt.Focus.Min;
+                    Sections[0].Xj = mvgt.Focus.Max;
+                }
+            }
+        }
+        ~MinimapViewModel()
+        {
+            MVGTarget.Instance.DataModified -= HandleDataChanged;
+            MVGTarget.Instance.FocusChanged -= HandleFocusChanged;
+            { // upload to MVGT
+                var mvgt = MVGTarget.Instance.CurrentMove;
+                mvgt.X = new((double)XAxes[0].MinLimit, (double)XAxes[0].MaxLimit);
+            }
+            MVGTarget.Instance._creator_EditMode = false;
+        }
+        public void Save()
+        {
+            { // upload to MVGT
+                var mvgt = MVGTarget.Instance.CurrentMove;
+                mvgt.X = new((double)XAxes[0].MinLimit, (double)XAxes[0].MaxLimit);
+                MVGTarget.Instance.CurrentMove = mvgt;
+            }
+            MVGTarget.Instance._creator_EditMode = false;
         }
         public bool _editMode = false;
         public ObservableCollection<ISeries> Series { get; set; }
@@ -95,8 +139,8 @@ namespace automeas_ui.MVGenerator.MVVM.ViewModel
     {
         new RectangularSection
         {
-            Xi = MVGTarget.Instance.Xa,
-            Xj = MVGTarget.Instance.Xb,
+            Xi = null,
+            Xj = null,
             Fill = new SolidColorPaint { Color = SKColors.White.WithAlpha(20) }
         },
     };
@@ -112,6 +156,7 @@ namespace automeas_ui.MVGenerator.MVVM.ViewModel
             switch (i)
             {
                 case -1:
+                    if(_observableValues.Last() == P) { return; } // hotfix for visual bug caused by double event trigger
                     _observableValues.Add(P);
                     break;
                 case -2:

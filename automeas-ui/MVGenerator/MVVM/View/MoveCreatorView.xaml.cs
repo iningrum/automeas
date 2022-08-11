@@ -22,6 +22,7 @@ using automeas_ui.MVGenerator.MVVM.Model;
 using LiveChartsCore;
 using LiveChartsCore.SkiaSharpView;
 using System.Windows.Markup;
+using CommunityToolkit.Mvvm.Input;
 
 namespace automeas_ui.MVGenerator.MVVM.View
 {
@@ -65,7 +66,6 @@ namespace automeas_ui.MVGenerator.MVVM.View
 
                 // finally add the new point to the data in our chart.
                 var ClickedPoint = new ObservablePoint(x, y);
-                var mvgt = MVGTarget.Instance.CurrentMove;
                 viewModel.Data.Add(ClickedPoint);
                 MVGTarget.Instance.NotifyDataModified("+", ClickedPoint);
                 MVGTarget.Instance.CurrentMove.X.Max = x;

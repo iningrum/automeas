@@ -25,14 +25,13 @@ namespace automeas_ui.MVGenerator.MVVM.ViewModel
         public MoveCreatorViewModel(bool push)
         {
             MVGTarget.Instance.FocusChanged += HandleFocusChanged;
+            var mvgt = MVGTarget.Instance.CurrentMove;
             _push = push;
-            if (push && MVGTarget.Instance.Moves[0].Data.Count() > 0)
+            if (mvgt.Data.Count() > 1)
             {
-                Data = MVGTarget.Instance.Moves[0].Data;
-            }
-            else if (!push && MVGTarget.Instance.Moves[1].Data.Count() > 0)
-            {
-                Data = MVGTarget.Instance.Moves[1].Data;
+                Data = mvgt.Data;
+                XAxes[0].MinLimit = mvgt.Focus.Min;
+                XAxes[0].MaxLimit = mvgt.Focus.Max;
             }
             else
             {
@@ -54,6 +53,24 @@ namespace automeas_ui.MVGenerator.MVVM.ViewModel
                     DataPadding = new LiveChartsCore.Drawing.LvcPoint(5,5)
                 }
             };
+        }
+        ~MoveCreatorViewModel()
+        {
+            MVGTarget.Instance.FocusChanged -= HandleFocusChanged;
+            { // upload data to MVGT
+                var mvgt = MVGTarget.Instance.CurrentMove;
+                mvgt.Focus = new((double)XAxes[0].MinLimit, (double)XAxes[0].MaxLimit);
+                mvgt.Data = Data;
+                
+            }
+        }
+        [RelayCommand]
+        public void Save()
+        {
+            var mvgt = MVGTarget.Instance.CurrentMove;
+            mvgt.Focus = new((double)XAxes[0].MinLimit, (double)XAxes[0].MaxLimit);
+            mvgt.Data = Data;
+            MVGTarget.Instance.CurrentMove = mvgt;
         }
         // lvc
         public ObservableCollection<ObservablePoint> Data { get; set; }

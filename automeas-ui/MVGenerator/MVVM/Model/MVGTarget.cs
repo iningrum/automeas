@@ -19,21 +19,13 @@ namespace automeas_ui.MVGenerator.MVVM.Model
         // ctor
         public MVGTarget()
         {
-            Xmin = 0;
-            Xmax = 10;
-            Ymin = 0;
-            Ymax = 10;
-            Xa = 0;
-            Xb = Xmax * 0.2;
         }
-        public List<MVData> Moves = new List<MVData>()
+        private List<MVData> Moves = new List<MVData>()
         {
             new MVData(),
             new()
         };
         public MVData CurrentMove = new MVData();
-        public double Xmin, Ymin, Xmax, Ymax, Xa, Xb;
-        public ObservableCollection<ObservablePoint>? PushSeries, PullSeries;
         public bool _creator_EditMode = false;
         public TrulyObservableCollection<ObservablePoint> CurrentSeries = new TrulyObservableCollection<ObservablePoint>();
         // event

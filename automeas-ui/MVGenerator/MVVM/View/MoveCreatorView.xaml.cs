@@ -93,6 +93,11 @@ namespace automeas_ui.MVGenerator.MVVM.View
                         }
                         break;
                     }
+                    else if (i == viewModel.Data.Count - 1)
+                    {
+                        viewModel.Data[i].X = x;
+                        viewModel.Data[i].Y = y;
+                    }
                 }
             }
 

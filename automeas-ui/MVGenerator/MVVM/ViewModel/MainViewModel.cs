@@ -61,10 +61,12 @@ namespace automeas_ui.MVGenerator.MVVM.ViewModel
                     break;
                 case "push":
                     CurrentPage.Value = 1;
+                    mmView.Value = new MinimapViewModel();
                     CurrentView.Value = new MoveCreatorViewModel(true);
                     break;
                 case "pull":
                     CurrentPage.Value = 1;
+                    mmView.Value = new MinimapViewModel();
                     CurrentView.Value = new MoveCreatorViewModel(false);
                     break;
             }   

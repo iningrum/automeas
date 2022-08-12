@@ -1,4 +1,5 @@
 ﻿using automeas_ui.Core;
+using automeas_ui.MVGenerator.MVVM.Model;
 using automeas_ui.MWM.Model;
 using automeas_ui.MWM.Model.Launcher;
 using CommunityToolkit.Mvvm.Input;
@@ -16,8 +17,9 @@ namespace automeas_ui.MVGenerator.MVVM.ViewModel
         // ctor
         public MainViewModel()
         {
+            MVGTarget.Instance.ViewNavigate += HandleViewNavigate;
             CurrentPage = new ObservableType<int>(0);
-            CurrentView = new ObservableType<object>(this);
+            CurrentView = new ObservableType<object>(null);
             mmView = new ObservableType<MinimapViewModel>(new MinimapViewModel());
         }
         // attr
@@ -31,7 +33,7 @@ namespace automeas_ui.MVGenerator.MVVM.ViewModel
             // open file browser, save data, generate data
             Navigator.Instance.ChangeWindow("\r");
         }
-        [RelayCommand]
+        /*[RelayCommand]
         public void OpenPullCreator()
         {
             CurrentPage.Value = 2;
@@ -47,7 +49,25 @@ namespace automeas_ui.MVGenerator.MVVM.ViewModel
         public void ReturnToMainView()
         {
             CurrentPage.Value = 0;
-            CurrentView.Value = this;
+            CurrentView.Value = null;
+        }*/
+        public void HandleViewNavigate(string id)
+        {
+            switch (id)
+            {
+                case "main":
+                    CurrentPage.Value = 0;
+                    CurrentView.Value = null;
+                    break;
+                case "push":
+                    CurrentPage.Value = 1;
+                    CurrentView.Value = new MoveCreatorViewModel(true);
+                    break;
+                case "pull":
+                    CurrentPage.Value = 1;
+                    CurrentView.Value = new MoveCreatorViewModel(false);
+                    break;
+            }   
         }
     }
     

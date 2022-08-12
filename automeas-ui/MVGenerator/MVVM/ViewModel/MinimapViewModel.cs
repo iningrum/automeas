@@ -26,6 +26,7 @@ namespace automeas_ui.MVGenerator.MVVM.ViewModel
         {
             MVGTarget.Instance.DataModified += HandleDataChanged;
             MVGTarget.Instance.FocusChanged += HandleFocusChanged;
+            MVGTarget.Instance.Save += Save;
             _observableValues = new ObservableCollection<ObservablePoint> { new ObservablePoint(0,0)};
             Series = new ObservableCollection<ISeries>
             {
@@ -48,12 +49,12 @@ namespace automeas_ui.MVGenerator.MVVM.ViewModel
                         Series.Add(new StepLineSeries<ObservablePoint>
                         {
                             Values = _observableValues,
-                            Stroke = new SolidColorPaint(SKColors.Green) { StrokeThickness = 1.5F },
+                            Stroke = new SolidColorPaint(SKColors.Red) { StrokeThickness = 1.5F },
                             Fill = null,
                             GeometryFill = null,
                             GeometryStroke = null,
                         });
-                        Series.RemoveAt(0);
+                        //Series.RemoveAt(0);
                     }
                     // setting data range
                     XAxes[0].MinLimit = 0;
@@ -82,6 +83,17 @@ namespace automeas_ui.MVGenerator.MVVM.ViewModel
                 MVGTarget.Instance.CurrentMove = mvgt;
             }
             MVGTarget.Instance._creator_EditMode = false;
+            { // spaghetti bypass of the bug. Garbage collector does not destroy object even though no one else keeps reference?
+                Series.Add(new StepLineSeries<ObservablePoint>
+                {
+                    Values = _observableValues,
+                    Stroke = new SolidColorPaint(SKColors.Green) { StrokeThickness = 1.5F },
+                    Fill = null,
+                    GeometryFill = null,
+                    GeometryStroke = null,
+                });
+                Series.RemoveAt(0);
+            }
         }
         public bool _editMode = false;
         public ObservableCollection<ISeries> Series { get; set; }
@@ -169,5 +181,6 @@ namespace automeas_ui.MVGenerator.MVVM.ViewModel
                     break;
             }
         }
+
     }
 }

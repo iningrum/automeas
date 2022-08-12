@@ -35,7 +35,7 @@
                             ZoomMode="None"
                    TooltipPosition="Hidden"/>
         <Button Style="{StaticResource FOC_SquareButtonTheme}"
-                    Command="{Binding SaveCommand}"
+                    Click="SaveButton_Click"
                     Grid.Row="2"
                     Background="MediumSeaGreen"
                     Opacity="0.4"

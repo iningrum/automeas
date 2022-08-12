@@ -1,4 +1,5 @@
-﻿using System;
+﻿using automeas_ui.MVGenerator.MVVM.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,16 @@ namespace automeas_ui.MVGenerator.MVVM.View
         public MainView()
         {
             InitializeComponent();
+        }
+        private void PushButton_Click(object sender, RoutedEventArgs e)
+        {
+            MVGTarget.Instance.LoadCurrentMove(0);
+            MVGTarget.Instance.NotifyViewNavigate("push");
+        }
+        private void PullButton_Click(object sender, RoutedEventArgs e)
+        {
+            MVGTarget.Instance.LoadCurrentMove(1);
+            MVGTarget.Instance.NotifyViewNavigate("pull");
         }
     }
 }

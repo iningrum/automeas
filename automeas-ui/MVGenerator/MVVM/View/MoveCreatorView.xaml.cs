@@ -23,6 +23,7 @@ using LiveChartsCore;
 using LiveChartsCore.SkiaSharpView;
 using System.Windows.Markup;
 using CommunityToolkit.Mvvm.Input;
+using automeas_ui.MWM.Model.Launcher;
 
 namespace automeas_ui.MVGenerator.MVVM.View
 {
@@ -95,6 +96,26 @@ namespace automeas_ui.MVGenerator.MVVM.View
                 }
             }
 
+        }
+        private void SaveButton_Click(object sender, RoutedEventArgs e)
+        {
+            MVGTarget.Instance.NotifySave();
+            { // load new move
+                var viewModel = (MoveCreatorViewModel)DataContext;
+                if (MVGTarget.Instance.CurrentMove.id == -1)
+                {
+                    if (viewModel._push == true)
+                    {
+                        MVGTarget.Instance.CurrentMove.id = 0;
+                    }
+                    else
+                    {
+                        MVGTarget.Instance.CurrentMove.id = 1;
+                    }
+                }
+                MVGTarget.Instance.SaveCurrentMove();
+            }
+            MVGTarget.Instance.NotifyViewNavigate("main");
         }
     }
 }

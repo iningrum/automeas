@@ -16,6 +16,7 @@ using automeas_ui.Core;
 using automeas_ui.MVGenerator.MVVM.Model;
 using System.Windows.Input;
 using CommunityToolkit.Mvvm.Input;
+using System.Data;
 
 namespace automeas_ui.MVGenerator.MVVM.ViewModel
 {
@@ -25,6 +26,7 @@ namespace automeas_ui.MVGenerator.MVVM.ViewModel
         public MoveCreatorViewModel(bool push)
         {
             MVGTarget.Instance.FocusChanged += HandleFocusChanged;
+            MVGTarget.Instance.Save += Save;
             var mvgt = MVGTarget.Instance.CurrentMove;
             _push = push;
             if (mvgt.Data.Count() > 1)
@@ -64,7 +66,6 @@ namespace automeas_ui.MVGenerator.MVVM.ViewModel
                 
             }
         }
-        [RelayCommand]
         public void Save()
         {
             var mvgt = MVGTarget.Instance.CurrentMove;
@@ -109,7 +110,7 @@ namespace automeas_ui.MVGenerator.MVVM.ViewModel
             }
         }
     };
-        private readonly bool _push;
+        public readonly bool _push;
         public RectangularSection[] Sections { get; set; } = GenerateLineSections();
         private static RectangularSection[] GenerateLineSections()
         {
@@ -142,5 +143,6 @@ namespace automeas_ui.MVGenerator.MVVM.ViewModel
             }
             XAxes[0].MaxLimit = P.X+5;
         }
+
     }
 }

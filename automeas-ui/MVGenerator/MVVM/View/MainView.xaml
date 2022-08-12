@@ -24,14 +24,14 @@
                     VerticalAlignment="Center"
                     HorizontalAlignment="Center">
             <Button Style="{StaticResource FOC_SquareButtonTheme}"
-                    Command="{Binding OpenPushCreatorCommand}"
+                    Click="PushButton_Click"
                     Background="Red"
                     Margin="0,0,25,0"
                     FontSize="32"
                     Content="PUSH"
                     Width="250"/>
             <Button Style="{StaticResource FOC_SquareButtonTheme}"
-                    Command="{Binding OpenPullCreatorCommand}"
+                    Click="PullButton_Click"
                     Background="Red"
                     Margin="25,0,0,0"
                     FontSize="32"

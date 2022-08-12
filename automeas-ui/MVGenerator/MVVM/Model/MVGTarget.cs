@@ -30,6 +30,8 @@ namespace automeas_ui.MVGenerator.MVVM.Model
         public TrulyObservableCollection<ObservablePoint> CurrentSeries = new TrulyObservableCollection<ObservablePoint>();
         // event
         public event Action<ObservablePoint> FocusChanged;
+        public event Action Save;
+        public event Action<string> ViewNavigate;
         public event Action<int, ObservablePoint> DataModified;
         public void NotifyFocusChanged(ObservablePoint P)
         {
@@ -38,6 +40,11 @@ namespace automeas_ui.MVGenerator.MVVM.Model
         public void NotifyFocusChanged(double a, double b)
         {
             FocusChanged?.Invoke(new ObservablePoint(a, b));
+        }
+        public void NotifySave() => Save?.Invoke();
+        public void NotifyViewNavigate(string id)
+        {
+            ViewNavigate?.Invoke(id);
         }
         public void NotifyDataModified(string code, ObservablePoint value, int i = 0)
         {
@@ -59,8 +66,24 @@ namespace automeas_ui.MVGenerator.MVVM.Model
     }
     internal partial class MVGTarget
     {
+        public void SaveCurrentMove(int new_id = 0)
+        {
+            if(CurrentMove.id==-1) { return; }
+            else if(CurrentMove.id<0 || CurrentMove.id> Moves.Count-1) { throw new InvalidOperationException("Id has been set but is invalid"); }
+            else
+            {
+                Moves[CurrentMove.id] = CurrentMove; // load Move into the list
+                CurrentMove = Moves[new_id]; // grab new move from saved moves list
+                CurrentMove.id = new_id;
+            }
+        }
+        public void LoadCurrentMove(int id)
+        {
+            CurrentMove = Moves[id];
+        }
         public struct MVData
         {
+            public int id = -1;
             public MVData()
             {
                 X = new(0, 10);

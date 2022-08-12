@@ -30,9 +30,11 @@ namespace automeas_ui.MVGenerator.MVVM.Model
         public TrulyObservableCollection<ObservablePoint> CurrentSeries = new TrulyObservableCollection<ObservablePoint>();
         // event
         public event Action<ObservablePoint> FocusChanged;
+        public event Action<string, int, ObservablePoint> UndoRedoPerformed;
         public event Action Save;
         public event Action<string> ViewNavigate;
         public event Action<int, ObservablePoint> DataModified;
+        public void NotifyUndoRedoPerformed(string action, int id, ObservablePoint P) => UndoRedoPerformed?.Invoke(action, id, P);
         public void NotifyFocusChanged(ObservablePoint P)
         {
             FocusChanged?.Invoke(P);

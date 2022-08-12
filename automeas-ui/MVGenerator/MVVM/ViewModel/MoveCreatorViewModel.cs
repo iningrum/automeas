@@ -17,6 +17,7 @@ using automeas_ui.MVGenerator.MVVM.Model;
 using System.Windows.Input;
 using CommunityToolkit.Mvvm.Input;
 using System.Data;
+using System.Runtime.InteropServices;
 
 namespace automeas_ui.MVGenerator.MVVM.ViewModel
 {
@@ -26,6 +27,7 @@ namespace automeas_ui.MVGenerator.MVVM.ViewModel
         public MoveCreatorViewModel(bool push)
         {
             MVGTarget.Instance.FocusChanged += HandleFocusChanged;
+            MVGTarget.Instance.UndoRedoPerformed += HandleUndoRedo;
             MVGTarget.Instance.Save += Save;
             var mvgt = MVGTarget.Instance.CurrentMove;
             _push = push;
@@ -142,6 +144,24 @@ namespace automeas_ui.MVGenerator.MVVM.ViewModel
                 XAxes[0].MinLimit = 0;
             }
             XAxes[0].MaxLimit = P.X+5;
+        }
+        public void HandleUndoRedo(string type, int i, ObservablePoint P)
+        {
+            switch (type)
+            {
+                case "+":
+                    if (Data.Last() == P) { return; } // hotfix for visual bug caused by double event trigger
+                    Data.Add(P);
+                    break;
+                case "-":
+                    if (Data.Count() <= 1) { return; }
+                    Data.RemoveAt(Data.Count() - 1);
+                    break;
+                default:
+                    if (i == 0) { return; }
+                    Data[i] = P;
+                    break;
+            }
         }
 
     }

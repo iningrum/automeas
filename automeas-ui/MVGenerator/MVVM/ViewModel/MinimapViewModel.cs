@@ -15,12 +15,15 @@ using automeas_ui.Core;
 using CommunityToolkit;
 using System.Windows.Interop;
 using CommunityToolkit.Mvvm.Input;
+using System.Windows.Navigation;
+using System.Windows.Media;
 
 namespace automeas_ui.MVGenerator.MVVM.ViewModel
 {
-    internal class MinimapViewModel
+    internal partial class MinimapViewModel
     {
         public readonly ObservableCollection<ObservablePoint> _observableValues;
+        public List<URSave> SaveBuffer = new List<URSave>();
         // ctor
         public MinimapViewModel()
         {
@@ -28,7 +31,7 @@ namespace automeas_ui.MVGenerator.MVVM.ViewModel
             MVGTarget.Instance.DataModified += HandleDataChanged;
             MVGTarget.Instance.FocusChanged += HandleFocusChanged;
             MVGTarget.Instance.Save += Save;
-            _observableValues = new ObservableCollection<ObservablePoint> { new ObservablePoint(0,0)};
+            _observableValues = new ObservableCollection<ObservablePoint> { new ObservablePoint(0, 0) };
             Series = new ObservableCollection<ISeries>
             {
                 new StepLineSeries<ObservablePoint>
@@ -41,13 +44,13 @@ namespace automeas_ui.MVGenerator.MVVM.ViewModel
                 }
             };
             { // load from MVGT
-                if (mvgt.Data.Count() > 1) 
+                if (mvgt.Data.Count() > 1)
                 {
                     // assign data
                     _observableValues = mvgt.Data;
                     // setting data range
                     XAxes[0].MinLimit = 0;
-                    XAxes[0].MaxLimit = mvgt.X.Max+5;
+                    XAxes[0].MaxLimit = mvgt.X.Max + 5;
                     // Drawing rectangle
                     Sections[0].Xi = mvgt.Focus.Min;
                     Sections[0].Xj = mvgt.Focus.Max;
@@ -139,26 +142,73 @@ namespace automeas_ui.MVGenerator.MVVM.ViewModel
             XAxes[0].MinLimit = 0;
             Sections[0].Xi = P.X - 5;
             Sections[0].Xj = P.X + 5;
-            XAxes[0].MaxLimit = MVGTarget.Instance.CurrentMove.X.Max+5;
+            XAxes[0].MaxLimit = MVGTarget.Instance.CurrentMove.X.Max + 5;
         }
         public void HandleDataChanged(int i, ObservablePoint P)
         {
             switch (i)
             {
                 case -1:
-                    if(_observableValues.Last() == P) { return; } // hotfix for visual bug caused by double event trigger
+                    if (_observableValues.Last() == P) { return; } // hotfix for visual bug caused by double event trigger
+                    SaveBuffer.Add(new(_observableValues.Count(), "+", P));
                     _observableValues.Add(P);
                     break;
                 case -2:
                     if (_observableValues.Count() <= 1) { return; }
+                    //SaveBuffer.Add(new(_observableValues.Count() - 1, "-", P));
                     _observableValues.RemoveAt(_observableValues.Count() - 1);
                     break;
                 default:
-                    if(i == 0) { return; }
+                    if (i == 0) { return; }
+                    //SaveBuffer.Add(new(i, "e", _observableValues[i]));
                     _observableValues[i] = P;
                     break;
             }
-        }
+            if (SaveBuffer.Count > 6)
+            {
+                SaveBuffer.RemoveAt(0);
 
+            }
+        }
+        // commands
+        [RelayCommand]
+        public void Undo()
+        {
+            if(SaveBuffer.Count() < 1) { return; }
+            var action = SaveBuffer.Last();
+            switch (action.Type)
+            {
+                case "+":
+                    action.Type = "-";
+                    MVGTarget.Instance.NotifyUndoRedoPerformed(action.Type, action.Index, action.Point);
+                    if (_observableValues.Count() - 1 > 0)
+                    {
+                        _observableValues.RemoveAt(_observableValues.Count() - 1);
+                        SaveBuffer.RemoveAt(SaveBuffer.Count() - 1);
+                    }
+                    break;
+                case "e":
+                    break;
+                default:
+                    break;
+            }
+        }
+        [RelayCommand]
+        public void Redo()
+        {
+
+        }
+        public struct URSave
+        {
+            public int Index;
+            public string Type;
+            public ObservablePoint Point;
+            public URSave(int i, string t, ObservablePoint point)
+            {
+                Point = point;
+                Index = i;
+                Type = t;
+            }
+        }
     }
 }

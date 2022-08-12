@@ -26,6 +26,9 @@
         <DataTemplate x:Key="MinimapTemplate" DataType="{x:Type viewm:MainViewModel}">
             <view:MinimapView/>
         </DataTemplate>
+        <DataTemplate x:Key="UndoRedoTemplate" DataType="{x:Type viewm:MainViewModel}">
+            <view:UndoRedoView/>
+        </DataTemplate>
         <DataTemplate x:Key="MoveCreatorTemplate" DataType="{x:Type viewm:MainViewModel}">
             <view:MoveCreatorView/>
         </DataTemplate>
@@ -64,6 +67,22 @@
                                 </DataTrigger>
                                 <DataTrigger Binding="{Binding CurrentPage.Value}" Value="2">
                                     <Setter Property="ContentTemplate" Value="{StaticResource MinimapTemplate}" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </ContentControl.Style>
+                </ContentControl>
+                <ContentControl Grid.Column="0"
+                Content="{Binding mmView.Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                    <ContentControl.Style>
+                        <Style TargetType="{x:Type ContentControl}">
+                            <Setter Property="ContentTemplate" Value="{StaticResource PlaceholderTemplate}"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding CurrentPage.Value}" Value="1">
+                                    <Setter Property="ContentTemplate" Value="{StaticResource UndoRedoTemplate}" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding CurrentPage.Value}" Value="2">
+                                    <Setter Property="ContentTemplate" Value="{StaticResource UndoRedoTemplate}" />
                                 </DataTrigger>
                             </Style.Triggers>
                         </Style>

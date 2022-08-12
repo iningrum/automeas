@@ -1,0 +1,33 @@
+﻿<UserControl x:Class="automeas_ui.MVGenerator.MVVM.View.UndoRedoView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:automeas_ui.MVGenerator.MVVM.View"
+             mc:Ignorable="d" 
+             xmlns:viewm="clr-namespace:automeas_ui.MVGenerator.MVVM.ViewModel"
+             d:DataContext="{d:DesignInstance Type=viewm:MinimapViewModel}"
+             d:DesignHeight="150" d:DesignWidth="150">
+    <Grid>
+        <StackPanel Orientation="Horizontal"
+                    VerticalAlignment="Top"
+                    Margin="0,2,0,0">
+            <Button
+                    Width="50"
+                    Height="50"
+                    Content="&#9665;"
+                    FontSize="32"
+                    Margin="7,0,0,0"
+                    Style="{StaticResource FOC_SquareButtonTheme}"
+                    Command="{Binding UndoCommand}"/>
+            <Button
+                        Width="50"
+                        Height="50"
+                        Content="&#9655;"
+                        FontSize="32"
+                        Margin="7,0,0,0"
+                        Style="{StaticResource FOC_SquareButtonTheme}"
+                        Command="{Binding RedoCommand}"/>
+        </StackPanel>
+    </Grid>
+</UserControl>

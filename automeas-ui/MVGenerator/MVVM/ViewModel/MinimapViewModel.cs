@@ -43,6 +43,8 @@ namespace automeas_ui.MVGenerator.MVVM.ViewModel
             { // load from MVGT
                 if (mvgt.Data.Count() > 1) 
                 {
+                    // assign data
+                    _observableValues = mvgt.Data;
                     // setting data range
                     XAxes[0].MinLimit = 0;
                     XAxes[0].MaxLimit = mvgt.X.Max+5;

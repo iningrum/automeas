@@ -24,6 +24,7 @@ namespace automeas_ui.MVGenerator.MVVM.ViewModel
         // ctor
         public MinimapViewModel()
         {
+            var mvgt = MVGTarget.Instance.CurrentMove;
             MVGTarget.Instance.DataModified += HandleDataChanged;
             MVGTarget.Instance.FocusChanged += HandleFocusChanged;
             MVGTarget.Instance.Save += Save;
@@ -32,7 +33,7 @@ namespace automeas_ui.MVGenerator.MVVM.ViewModel
             {
                 new StepLineSeries<ObservablePoint>
                 {
-                    Values = _observableValues,
+                    Values = (mvgt.Data.Count()>1)?  mvgt.Data: _observableValues,
                     Stroke = new SolidColorPaint(SKColors.Green) { StrokeThickness = 1.5F },
                     Fill=null,
                     GeometryFill=null,
@@ -40,22 +41,8 @@ namespace automeas_ui.MVGenerator.MVVM.ViewModel
                 }
             };
             { // load from MVGT
-                var mvgt = MVGTarget.Instance.CurrentMove;
                 if (mvgt.Data.Count() > 1) 
                 {
-                    // loading data
-                    _observableValues = mvgt.Data;
-                    {// forcibly updating ObservableCollection
-                        Series.Add(new StepLineSeries<ObservablePoint>
-                        {
-                            Values = _observableValues,
-                            Stroke = new SolidColorPaint(SKColors.Red) { StrokeThickness = 1.5F },
-                            Fill = null,
-                            GeometryFill = null,
-                            GeometryStroke = null,
-                        });
-                        //Series.RemoveAt(0);
-                    }
                     // setting data range
                     XAxes[0].MinLimit = 0;
                     XAxes[0].MaxLimit = mvgt.X.Max+5;
@@ -83,17 +70,6 @@ namespace automeas_ui.MVGenerator.MVVM.ViewModel
                 MVGTarget.Instance.CurrentMove = mvgt;
             }
             MVGTarget.Instance._creator_EditMode = false;
-            { // spaghetti bypass of the bug. Garbage collector does not destroy object even though no one else keeps reference?
-                Series.Add(new StepLineSeries<ObservablePoint>
-                {
-                    Values = _observableValues,
-                    Stroke = new SolidColorPaint(SKColors.Green) { StrokeThickness = 1.5F },
-                    Fill = null,
-                    GeometryFill = null,
-                    GeometryStroke = null,
-                });
-                Series.RemoveAt(0);
-            }
         }
         public bool _editMode = false;
         public ObservableCollection<ISeries> Series { get; set; }

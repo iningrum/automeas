@@ -61,6 +61,7 @@ namespace automeas_ui.MVGenerator.MVVM.View
             var viewModel = (MinimapViewModel)DataContext;
             if (MVGTarget.Instance._creator_EditMode == true) { return; }
             else { MVGTarget.Instance._creator_EditMode = true; }
+            viewModel.Series.RemoveAt(0);
             viewModel.Series.Add(new StepLineSeries<ObservablePoint>
             {
                 Values = viewModel._observableValues,
@@ -69,13 +70,14 @@ namespace automeas_ui.MVGenerator.MVVM.View
                 GeometryFill = null,
                 GeometryStroke = null,
             });
-            viewModel.Series.RemoveAt(0);
+            //viewModel.Series.RemoveAt(0);
         }
         private void chart_LMBDown(object sender, MouseButtonEventArgs e)
         {
             var viewModel = (MinimapViewModel)DataContext;
             if (MVGTarget.Instance._creator_EditMode == false) { return; }
             else { MVGTarget.Instance._creator_EditMode = false; }
+            viewModel.Series.RemoveAt(0);
             viewModel.Series.Add(new StepLineSeries<ObservablePoint>
             {
                 Values = viewModel._observableValues,
@@ -84,7 +86,7 @@ namespace automeas_ui.MVGenerator.MVVM.View
                 GeometryFill = null,
                 GeometryStroke = null,
             });
-            viewModel.Series.RemoveAt(0);
+            //viewModel.Series.RemoveAt(0);
         }
     }
 }

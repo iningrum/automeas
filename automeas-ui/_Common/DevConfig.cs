@@ -9,7 +9,7 @@ namespace automeas_ui._Common
     /// <summary>
     /// Class <c> DevConfig </c> is used for internal configuration of databound xaml elements.
     /// </summary>
-    internal partial class DevConfig
+    public partial class DevConfig
     { // Launcher
         /// <summary>
         /// Titles of pages displayed by <c> Launcher </c>

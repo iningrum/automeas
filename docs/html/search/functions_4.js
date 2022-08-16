@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['dashboard_0',['Dashboard',['../classautomeas__ui_1_1_dashboard.html#acd3bc109221ef6337cad38484669daa0',1,'automeas_ui::Dashboard']]],
-  ['dragdropfile_1',['DragDropFile',['../classautomeas__ui_1_1___launcher_1_1_view_model_1_1_pages_1_1_upload_config_file_view_model.html#a3a793d3b470a9edb1d5da82afb38dabf',1,'automeas_ui._Launcher.ViewModel.Pages.UploadConfigFileViewModel.DragDropFile()'],['../classautomeas__ui_1_1_m_w_m_1_1_view_model_1_1_launcher_1_1_pages_1_1_upload_config_file_view_model.html#a3f3ef926e4270bd9614c359073b7cba7',1,'automeas_ui.MWM.ViewModel.Launcher.Pages.UploadConfigFileViewModel.DragDropFile()']]]
+  ['jsrelaycommand_0',['JSRelayCommand',['../classautomeas__ui_1_1_core_1_1_j_s_relay_command.html#a21a781a873a8e85bc9fd3a3463fcf595',1,'automeas_ui.Core.JSRelayCommand.JSRelayCommand(Action&lt; object &gt; execute)'],['../classautomeas__ui_1_1_core_1_1_j_s_relay_command.html#af5e5351471072a19a50806b1ac384d9a',1,'automeas_ui.Core.JSRelayCommand.JSRelayCommand(Action&lt; object &gt; execute, Predicate&lt; object &gt; canExecute)']]]
 ];

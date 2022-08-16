@@ -1,6 +1,6 @@
 \hypertarget{_m_w_m_2_model_2_observable_type_8cs_source}{}\doxysection{Observable\+Type.\+cs}
 \label{_m_w_m_2_model_2_observable_type_8cs_source}\index{C:/Users/Admin/source/repos/automeas/automeas-\/ui/MWM/Model/ObservableType.cs@{C:/Users/Admin/source/repos/automeas/automeas-\/ui/MWM/Model/ObservableType.cs}}
-\mbox{\hyperlink{_m_w_m_2_model_2_observable_type_8cs}{Go to the documentation of this file.}}
+
 \begin{DoxyCode}{0}
 \DoxyCodeLine{\Hypertarget{_m_w_m_2_model_2_observable_type_8cs_source_l00001}00001 \textcolor{keyword}{using }System.ComponentModel;}
 \DoxyCodeLine{\Hypertarget{_m_w_m_2_model_2_observable_type_8cs_source_l00002}00002 }
@@ -8,27 +8,27 @@
 \DoxyCodeLine{\Hypertarget{_m_w_m_2_model_2_observable_type_8cs_source_l00004}00004 \{}
 \DoxyCodeLine{\Hypertarget{_m_w_m_2_model_2_observable_type_8cs_source_l00005}\mbox{\hyperlink{classautomeas__ui_1_1_m_w_m_1_1_model_1_1_observable_type}{00005}}     \textcolor{keyword}{public} \textcolor{keyword}{class }\mbox{\hyperlink{classautomeas__ui_1_1_m_w_m_1_1_model_1_1_observable_type}{ObservableType}}<T> : INotifyPropertyChanged}
 \DoxyCodeLine{\Hypertarget{_m_w_m_2_model_2_observable_type_8cs_source_l00006}00006     \{}
-\DoxyCodeLine{\Hypertarget{_m_w_m_2_model_2_observable_type_8cs_source_l00007}\mbox{\hyperlink{classautomeas__ui_1_1_m_w_m_1_1_model_1_1_observable_type_a61347fb7bd571d8f462229877fc7e6fc}{00007}}         \textcolor{keyword}{public} \mbox{\hyperlink{classautomeas__ui_1_1_m_w_m_1_1_model_1_1_observable_type_a61347fb7bd571d8f462229877fc7e6fc}{ObservableType}}(T? val)}
+\DoxyCodeLine{\Hypertarget{_m_w_m_2_model_2_observable_type_8cs_source_l00007}00007         \textcolor{keyword}{public} \mbox{\hyperlink{classautomeas__ui_1_1_m_w_m_1_1_model_1_1_observable_type}{ObservableType}}(T? val)}
 \DoxyCodeLine{\Hypertarget{_m_w_m_2_model_2_observable_type_8cs_source_l00008}00008         \{}
-\DoxyCodeLine{\Hypertarget{_m_w_m_2_model_2_observable_type_8cs_source_l00009}00009             \mbox{\hyperlink{classautomeas__ui_1_1_m_w_m_1_1_model_1_1_observable_type_a43b576f98cf081264009e80b6638abb9}{Value}} = val;}
+\DoxyCodeLine{\Hypertarget{_m_w_m_2_model_2_observable_type_8cs_source_l00009}00009             Value = val;}
 \DoxyCodeLine{\Hypertarget{_m_w_m_2_model_2_observable_type_8cs_source_l00010}00010         \}}
 \DoxyCodeLine{\Hypertarget{_m_w_m_2_model_2_observable_type_8cs_source_l00011}00011         \textcolor{comment}{// Interface implementation}}
-\DoxyCodeLine{\Hypertarget{_m_w_m_2_model_2_observable_type_8cs_source_l00012}\mbox{\hyperlink{classautomeas__ui_1_1_m_w_m_1_1_model_1_1_observable_type_a86e984187b76794dd843371dcb75397f}{00012}}         \textcolor{keyword}{public} \textcolor{keyword}{event} PropertyChangedEventHandler? \mbox{\hyperlink{classautomeas__ui_1_1_m_w_m_1_1_model_1_1_observable_type_a86e984187b76794dd843371dcb75397f}{PropertyChanged}};}
-\DoxyCodeLine{\Hypertarget{_m_w_m_2_model_2_observable_type_8cs_source_l00013}\mbox{\hyperlink{classautomeas__ui_1_1_m_w_m_1_1_model_1_1_observable_type_a24a52668424386f7ae6eb8e99cb0673c}{00013}}         \textcolor{keyword}{private} \textcolor{keywordtype}{void} \mbox{\hyperlink{classautomeas__ui_1_1_m_w_m_1_1_model_1_1_observable_type_a24a52668424386f7ae6eb8e99cb0673c}{OnPropertyChanged}}(\textcolor{keywordtype}{string} propertyName)}
+\DoxyCodeLine{\Hypertarget{_m_w_m_2_model_2_observable_type_8cs_source_l00012}00012         \textcolor{keyword}{public} \textcolor{keyword}{event} PropertyChangedEventHandler? PropertyChanged;}
+\DoxyCodeLine{\Hypertarget{_m_w_m_2_model_2_observable_type_8cs_source_l00013}00013         \textcolor{keyword}{private} \textcolor{keywordtype}{void} OnPropertyChanged(\textcolor{keywordtype}{string} propertyName)}
 \DoxyCodeLine{\Hypertarget{_m_w_m_2_model_2_observable_type_8cs_source_l00014}00014         \{}
-\DoxyCodeLine{\Hypertarget{_m_w_m_2_model_2_observable_type_8cs_source_l00015}00015             var handler = \mbox{\hyperlink{classautomeas__ui_1_1_m_w_m_1_1_model_1_1_observable_type_a86e984187b76794dd843371dcb75397f}{PropertyChanged}};}
+\DoxyCodeLine{\Hypertarget{_m_w_m_2_model_2_observable_type_8cs_source_l00015}00015             var handler = PropertyChanged;}
 \DoxyCodeLine{\Hypertarget{_m_w_m_2_model_2_observable_type_8cs_source_l00016}00016             \textcolor{keywordflow}{if} (handler != \textcolor{keyword}{null})}
 \DoxyCodeLine{\Hypertarget{_m_w_m_2_model_2_observable_type_8cs_source_l00017}00017                 handler(\textcolor{keyword}{this}, \textcolor{keyword}{new} PropertyChangedEventArgs(propertyName));}
 \DoxyCodeLine{\Hypertarget{_m_w_m_2_model_2_observable_type_8cs_source_l00018}00018         \}}
 \DoxyCodeLine{\Hypertarget{_m_w_m_2_model_2_observable_type_8cs_source_l00019}00019         \textcolor{comment}{// Values}}
-\DoxyCodeLine{\Hypertarget{_m_w_m_2_model_2_observable_type_8cs_source_l00020}\mbox{\hyperlink{classautomeas__ui_1_1_m_w_m_1_1_model_1_1_observable_type_a6f0a227288d96c7e63d816975247ce7b}{00020}}         \textcolor{keyword}{private} T? \mbox{\hyperlink{classautomeas__ui_1_1_m_w_m_1_1_model_1_1_observable_type_a6f0a227288d96c7e63d816975247ce7b}{\_value}};}
-\DoxyCodeLine{\Hypertarget{_m_w_m_2_model_2_observable_type_8cs_source_l00021}\mbox{\hyperlink{classautomeas__ui_1_1_m_w_m_1_1_model_1_1_observable_type_a43b576f98cf081264009e80b6638abb9}{00021}}         \textcolor{keyword}{public} T? \mbox{\hyperlink{classautomeas__ui_1_1_m_w_m_1_1_model_1_1_observable_type_a43b576f98cf081264009e80b6638abb9}{Value}}}
+\DoxyCodeLine{\Hypertarget{_m_w_m_2_model_2_observable_type_8cs_source_l00020}00020         \textcolor{keyword}{private} T? \_value;}
+\DoxyCodeLine{\Hypertarget{_m_w_m_2_model_2_observable_type_8cs_source_l00021}00021         \textcolor{keyword}{public} T? Value}
 \DoxyCodeLine{\Hypertarget{_m_w_m_2_model_2_observable_type_8cs_source_l00022}00022         \{}
-\DoxyCodeLine{\Hypertarget{_m_w_m_2_model_2_observable_type_8cs_source_l00023}00023             \textcolor{keyword}{get} \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classautomeas__ui_1_1_m_w_m_1_1_model_1_1_observable_type_a6f0a227288d96c7e63d816975247ce7b}{\_value}}; \}}
+\DoxyCodeLine{\Hypertarget{_m_w_m_2_model_2_observable_type_8cs_source_l00023}00023             \textcolor{keyword}{get} \{ \textcolor{keywordflow}{return} \_value; \}}
 \DoxyCodeLine{\Hypertarget{_m_w_m_2_model_2_observable_type_8cs_source_l00024}00024             \textcolor{keyword}{set}}
 \DoxyCodeLine{\Hypertarget{_m_w_m_2_model_2_observable_type_8cs_source_l00025}00025             \{}
-\DoxyCodeLine{\Hypertarget{_m_w_m_2_model_2_observable_type_8cs_source_l00026}00026                 \mbox{\hyperlink{classautomeas__ui_1_1_m_w_m_1_1_model_1_1_observable_type_a6f0a227288d96c7e63d816975247ce7b}{\_value}} = value;}
-\DoxyCodeLine{\Hypertarget{_m_w_m_2_model_2_observable_type_8cs_source_l00027}00027                 \mbox{\hyperlink{classautomeas__ui_1_1_m_w_m_1_1_model_1_1_observable_type_a24a52668424386f7ae6eb8e99cb0673c}{OnPropertyChanged}}(\textcolor{stringliteral}{"{}Value"{}});}
+\DoxyCodeLine{\Hypertarget{_m_w_m_2_model_2_observable_type_8cs_source_l00026}00026                 \_value = value;}
+\DoxyCodeLine{\Hypertarget{_m_w_m_2_model_2_observable_type_8cs_source_l00027}00027                 OnPropertyChanged(\textcolor{stringliteral}{"{}Value"{}});}
 \DoxyCodeLine{\Hypertarget{_m_w_m_2_model_2_observable_type_8cs_source_l00028}00028             \}}
 \DoxyCodeLine{\Hypertarget{_m_w_m_2_model_2_observable_type_8cs_source_l00029}00029         \}}
 \DoxyCodeLine{\Hypertarget{_m_w_m_2_model_2_observable_type_8cs_source_l00030}00030     \}}

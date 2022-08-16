@@ -1,6 +1,6 @@
 \hypertarget{_john_smith___relay_command_8cs_source}{}\doxysection{John\+Smith\+\_\+\+Relay\+Command.\+cs}
 \label{_john_smith___relay_command_8cs_source}\index{C:/Users/Admin/source/repos/automeas/automeas-\/ui/Core/JohnSmith\_RelayCommand.cs@{C:/Users/Admin/source/repos/automeas/automeas-\/ui/Core/JohnSmith\_RelayCommand.cs}}
-\mbox{\hyperlink{_john_smith___relay_command_8cs}{Go to the documentation of this file.}}
+
 \begin{DoxyCode}{0}
 \DoxyCodeLine{\Hypertarget{_john_smith___relay_command_8cs_source_l00001}00001 \textcolor{keyword}{using }System;}
 \DoxyCodeLine{\Hypertarget{_john_smith___relay_command_8cs_source_l00002}00002 \textcolor{keyword}{using }System.Diagnostics;}
@@ -16,8 +16,8 @@
 \DoxyCodeLine{\Hypertarget{_john_smith___relay_command_8cs_source_l00019}00019     \{}
 \DoxyCodeLine{\Hypertarget{_john_smith___relay_command_8cs_source_l00020}00020 \textcolor{preprocessor}{        \#region Fields}}
 \DoxyCodeLine{\Hypertarget{_john_smith___relay_command_8cs_source_l00021}00021 }
-\DoxyCodeLine{\Hypertarget{_john_smith___relay_command_8cs_source_l00022}\mbox{\hyperlink{classautomeas__ui_1_1_core_1_1_j_s_relay_command_a5d3ed379a6d23253773167ee75496c1e}{00022}}         readonly Action<object> \mbox{\hyperlink{classautomeas__ui_1_1_core_1_1_j_s_relay_command_a5d3ed379a6d23253773167ee75496c1e}{\_execute}};}
-\DoxyCodeLine{\Hypertarget{_john_smith___relay_command_8cs_source_l00023}\mbox{\hyperlink{classautomeas__ui_1_1_core_1_1_j_s_relay_command_a91aaaba6c017a63ee1b95cb3e047c86b}{00023}}         readonly Predicate<object> \mbox{\hyperlink{classautomeas__ui_1_1_core_1_1_j_s_relay_command_a91aaaba6c017a63ee1b95cb3e047c86b}{\_canExecute}};}
+\DoxyCodeLine{\Hypertarget{_john_smith___relay_command_8cs_source_l00022}00022         readonly Action<object> \_execute;}
+\DoxyCodeLine{\Hypertarget{_john_smith___relay_command_8cs_source_l00023}00023         readonly Predicate<object> \_canExecute;}
 \DoxyCodeLine{\Hypertarget{_john_smith___relay_command_8cs_source_l00024}00024 }
 \DoxyCodeLine{\Hypertarget{_john_smith___relay_command_8cs_source_l00025}00025 \textcolor{preprocessor}{        \#endregion }\textcolor{comment}{// Fields}}
 \DoxyCodeLine{\Hypertarget{_john_smith___relay_command_8cs_source_l00026}00026 }
@@ -33,8 +33,8 @@
 \DoxyCodeLine{\Hypertarget{_john_smith___relay_command_8cs_source_l00045}00045             \textcolor{keywordflow}{if} (execute == \textcolor{keyword}{null})}
 \DoxyCodeLine{\Hypertarget{_john_smith___relay_command_8cs_source_l00046}00046                 \textcolor{keywordflow}{throw} \textcolor{keyword}{new} ArgumentNullException(\textcolor{stringliteral}{"{}execute"{}});}
 \DoxyCodeLine{\Hypertarget{_john_smith___relay_command_8cs_source_l00047}00047 }
-\DoxyCodeLine{\Hypertarget{_john_smith___relay_command_8cs_source_l00048}00048             \mbox{\hyperlink{classautomeas__ui_1_1_core_1_1_j_s_relay_command_a5d3ed379a6d23253773167ee75496c1e}{\_execute}} = execute;}
-\DoxyCodeLine{\Hypertarget{_john_smith___relay_command_8cs_source_l00049}00049             \mbox{\hyperlink{classautomeas__ui_1_1_core_1_1_j_s_relay_command_a91aaaba6c017a63ee1b95cb3e047c86b}{\_canExecute}} = canExecute;}
+\DoxyCodeLine{\Hypertarget{_john_smith___relay_command_8cs_source_l00048}00048             \_execute = execute;}
+\DoxyCodeLine{\Hypertarget{_john_smith___relay_command_8cs_source_l00049}00049             \_canExecute = canExecute;}
 \DoxyCodeLine{\Hypertarget{_john_smith___relay_command_8cs_source_l00050}00050         \}}
 \DoxyCodeLine{\Hypertarget{_john_smith___relay_command_8cs_source_l00051}00051 }
 \DoxyCodeLine{\Hypertarget{_john_smith___relay_command_8cs_source_l00052}00052 \textcolor{preprocessor}{        \#endregion }\textcolor{comment}{// Constructors}}
@@ -42,20 +42,20 @@
 \DoxyCodeLine{\Hypertarget{_john_smith___relay_command_8cs_source_l00054}00054 \textcolor{preprocessor}{        \#region ICommand Members}}
 \DoxyCodeLine{\Hypertarget{_john_smith___relay_command_8cs_source_l00055}00055 }
 \DoxyCodeLine{\Hypertarget{_john_smith___relay_command_8cs_source_l00056}00056         [DebuggerStepThrough]}
-\DoxyCodeLine{\Hypertarget{_john_smith___relay_command_8cs_source_l00057}\mbox{\hyperlink{classautomeas__ui_1_1_core_1_1_j_s_relay_command_aeec804b131f2c17864a2c1852eb85011}{00057}}         \textcolor{keyword}{public} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classautomeas__ui_1_1_core_1_1_j_s_relay_command_aeec804b131f2c17864a2c1852eb85011}{CanExecute}}(\textcolor{keywordtype}{object} parameters)}
+\DoxyCodeLine{\Hypertarget{_john_smith___relay_command_8cs_source_l00057}00057         \textcolor{keyword}{public} \textcolor{keywordtype}{bool} CanExecute(\textcolor{keywordtype}{object} parameters)}
 \DoxyCodeLine{\Hypertarget{_john_smith___relay_command_8cs_source_l00058}00058         \{}
-\DoxyCodeLine{\Hypertarget{_john_smith___relay_command_8cs_source_l00059}00059             \textcolor{keywordflow}{return} \mbox{\hyperlink{classautomeas__ui_1_1_core_1_1_j_s_relay_command_a91aaaba6c017a63ee1b95cb3e047c86b}{\_canExecute}} == \textcolor{keyword}{null} ? true : \mbox{\hyperlink{classautomeas__ui_1_1_core_1_1_j_s_relay_command_a91aaaba6c017a63ee1b95cb3e047c86b}{\_canExecute}}(parameters);}
+\DoxyCodeLine{\Hypertarget{_john_smith___relay_command_8cs_source_l00059}00059             \textcolor{keywordflow}{return} \_canExecute == \textcolor{keyword}{null} ? true : \_canExecute(parameters);}
 \DoxyCodeLine{\Hypertarget{_john_smith___relay_command_8cs_source_l00060}00060         \}}
 \DoxyCodeLine{\Hypertarget{_john_smith___relay_command_8cs_source_l00061}00061 }
-\DoxyCodeLine{\Hypertarget{_john_smith___relay_command_8cs_source_l00062}\mbox{\hyperlink{classautomeas__ui_1_1_core_1_1_j_s_relay_command_ac2b2b15fa99f084f96a32c0101f677e3}{00062}}         \textcolor{keyword}{public} \textcolor{keyword}{event} EventHandler \mbox{\hyperlink{classautomeas__ui_1_1_core_1_1_j_s_relay_command_ac2b2b15fa99f084f96a32c0101f677e3}{CanExecuteChanged}}}
+\DoxyCodeLine{\Hypertarget{_john_smith___relay_command_8cs_source_l00062}00062         \textcolor{keyword}{public} \textcolor{keyword}{event} EventHandler CanExecuteChanged}
 \DoxyCodeLine{\Hypertarget{_john_smith___relay_command_8cs_source_l00063}00063         \{}
 \DoxyCodeLine{\Hypertarget{_john_smith___relay_command_8cs_source_l00064}00064             add \{ CommandManager.RequerySuggested += value; \}}
 \DoxyCodeLine{\Hypertarget{_john_smith___relay_command_8cs_source_l00065}00065             \textcolor{keyword}{remove} \{ CommandManager.RequerySuggested -\/= value; \}}
 \DoxyCodeLine{\Hypertarget{_john_smith___relay_command_8cs_source_l00066}00066         \}}
 \DoxyCodeLine{\Hypertarget{_john_smith___relay_command_8cs_source_l00067}00067 }
-\DoxyCodeLine{\Hypertarget{_john_smith___relay_command_8cs_source_l00068}\mbox{\hyperlink{classautomeas__ui_1_1_core_1_1_j_s_relay_command_ad63ceab862aa85e89d42715f58b87de3}{00068}}         \textcolor{keyword}{public} \textcolor{keywordtype}{void} \mbox{\hyperlink{classautomeas__ui_1_1_core_1_1_j_s_relay_command_ad63ceab862aa85e89d42715f58b87de3}{Execute}}(\textcolor{keywordtype}{object} parameters)}
+\DoxyCodeLine{\Hypertarget{_john_smith___relay_command_8cs_source_l00068}00068         \textcolor{keyword}{public} \textcolor{keywordtype}{void} Execute(\textcolor{keywordtype}{object} parameters)}
 \DoxyCodeLine{\Hypertarget{_john_smith___relay_command_8cs_source_l00069}00069         \{}
-\DoxyCodeLine{\Hypertarget{_john_smith___relay_command_8cs_source_l00070}00070             \mbox{\hyperlink{classautomeas__ui_1_1_core_1_1_j_s_relay_command_a5d3ed379a6d23253773167ee75496c1e}{\_execute}}(parameters);}
+\DoxyCodeLine{\Hypertarget{_john_smith___relay_command_8cs_source_l00070}00070             \_execute(parameters);}
 \DoxyCodeLine{\Hypertarget{_john_smith___relay_command_8cs_source_l00071}00071         \}}
 \DoxyCodeLine{\Hypertarget{_john_smith___relay_command_8cs_source_l00072}00072 }
 \DoxyCodeLine{\Hypertarget{_john_smith___relay_command_8cs_source_l00073}00073 \textcolor{preprocessor}{        \#endregion }\textcolor{comment}{// ICommand Members}}

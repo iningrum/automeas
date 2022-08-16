@@ -1,6 +1,6 @@
 \hypertarget{_config_8cs_source}{}\doxysection{Config.\+cs}
 \label{_config_8cs_source}\index{C:/Users/Admin/source/repos/automeas/automeas-\/ui/MWM/Model/Launcher/Config.cs@{C:/Users/Admin/source/repos/automeas/automeas-\/ui/MWM/Model/Launcher/Config.cs}}
-\mbox{\hyperlink{_config_8cs}{Go to the documentation of this file.}}
+
 \begin{DoxyCode}{0}
 \DoxyCodeLine{\Hypertarget{_config_8cs_source_l00001}00001 \textcolor{keyword}{using }System.Collections.Generic;}
 \DoxyCodeLine{\Hypertarget{_config_8cs_source_l00002}00002 \textcolor{keyword}{using }System.Linq;}
@@ -15,16 +15,16 @@
 \DoxyCodeLine{\Hypertarget{_config_8cs_source_l00011}\mbox{\hyperlink{classautomeas__ui_1_1_m_w_m_1_1_model_1_1_launcher_1_1_a_m_dev_config}{00011}}     \textcolor{keyword}{public} \textcolor{keyword}{static} \textcolor{keyword}{class }\mbox{\hyperlink{classautomeas__ui_1_1_m_w_m_1_1_model_1_1_launcher_1_1_a_m_dev_config}{AMDevConfig}}}
 \DoxyCodeLine{\Hypertarget{_config_8cs_source_l00012}00012     \{}
 \DoxyCodeLine{\Hypertarget{_config_8cs_source_l00013}00013         \textcolor{comment}{// Liczba stron, nagłówki}}
-\DoxyCodeLine{\Hypertarget{_config_8cs_source_l00014}\mbox{\hyperlink{classautomeas__ui_1_1_m_w_m_1_1_model_1_1_launcher_1_1_a_m_dev_config_a7f9eeec729f73b9e5c6a56be0aec5ecc}{00014}}         \textcolor{keyword}{public} \textcolor{keyword}{static} List<string> \mbox{\hyperlink{classautomeas__ui_1_1_m_w_m_1_1_model_1_1_launcher_1_1_a_m_dev_config_a7f9eeec729f73b9e5c6a56be0aec5ecc}{PageTitles}} = \textcolor{keyword}{new} List<string>}
+\DoxyCodeLine{\Hypertarget{_config_8cs_source_l00014}00014         \textcolor{keyword}{public} \textcolor{keyword}{static} List<string> PageTitles = \textcolor{keyword}{new} List<string>}
 \DoxyCodeLine{\Hypertarget{_config_8cs_source_l00015}00015         \{ \textcolor{comment}{// Nagłówki/tytuły View(Modeli) podległych Launcher\_MainViewModel}}
 \DoxyCodeLine{\Hypertarget{_config_8cs_source_l00016}00016             \textcolor{stringliteral}{"{}Katalog docelowy"{}},}
 \DoxyCodeLine{\Hypertarget{_config_8cs_source_l00017}00017             \textcolor{stringliteral}{"{}Nazwa i opis próby pomiarowej"{}},}
 \DoxyCodeLine{\Hypertarget{_config_8cs_source_l00018}00018             \textcolor{stringliteral}{"{}Konfiguracja próby"{}},}
 \DoxyCodeLine{\Hypertarget{_config_8cs_source_l00019}00019             \textcolor{stringliteral}{"{}Podsumowanie"{}}}
 \DoxyCodeLine{\Hypertarget{_config_8cs_source_l00020}00020         \};}
-\DoxyCodeLine{\Hypertarget{_config_8cs_source_l00021}\mbox{\hyperlink{classautomeas__ui_1_1_m_w_m_1_1_model_1_1_launcher_1_1_a_m_dev_config_a5e5836e5ccf31ebd819e7a890300568d}{00021}}         \textcolor{keyword}{public} \textcolor{keyword}{static} \textcolor{keywordtype}{int} \mbox{\hyperlink{classautomeas__ui_1_1_m_w_m_1_1_model_1_1_launcher_1_1_a_m_dev_config_a5e5836e5ccf31ebd819e7a890300568d}{NumberOfPages}} = \mbox{\hyperlink{classautomeas__ui_1_1_m_w_m_1_1_model_1_1_launcher_1_1_a_m_dev_config_a7f9eeec729f73b9e5c6a56be0aec5ecc}{PageTitles}}.Count();}
+\DoxyCodeLine{\Hypertarget{_config_8cs_source_l00021}00021         \textcolor{keyword}{public} \textcolor{keyword}{static} \textcolor{keywordtype}{int} NumberOfPages = PageTitles.Count();}
 \DoxyCodeLine{\Hypertarget{_config_8cs_source_l00022}00022         \textcolor{comment}{// Podpisy przy CheckBoxach}}
-\DoxyCodeLine{\Hypertarget{_config_8cs_source_l00023}\mbox{\hyperlink{classautomeas__ui_1_1_m_w_m_1_1_model_1_1_launcher_1_1_a_m_dev_config_a1c1e1abd824c3fd70163b7af0298058a}{00023}}         \textcolor{keyword}{public} \textcolor{keyword}{static} \textcolor{keywordtype}{string}[] \mbox{\hyperlink{classautomeas__ui_1_1_m_w_m_1_1_model_1_1_launcher_1_1_a_m_dev_config_a1c1e1abd824c3fd70163b7af0298058a}{CheckBoxText}} =}
+\DoxyCodeLine{\Hypertarget{_config_8cs_source_l00023}00023         \textcolor{keyword}{public} \textcolor{keyword}{static} \textcolor{keywordtype}{string}[] CheckBoxText =}
 \DoxyCodeLine{\Hypertarget{_config_8cs_source_l00024}00024         \{}
 \DoxyCodeLine{\Hypertarget{_config_8cs_source_l00025}00025             \textcolor{stringliteral}{"{}*.csv"{}},}
 \DoxyCodeLine{\Hypertarget{_config_8cs_source_l00026}00026             \textcolor{stringliteral}{"{}*.pdf (template required)"{}},}
@@ -32,7 +32,7 @@
 \DoxyCodeLine{\Hypertarget{_config_8cs_source_l00028}00028             \textcolor{stringliteral}{"{}*.xslx (template required)"{}},}
 \DoxyCodeLine{\Hypertarget{_config_8cs_source_l00029}00029             \textcolor{stringliteral}{"{}*.jpg (templates required)"{}}}
 \DoxyCodeLine{\Hypertarget{_config_8cs_source_l00030}00030         \};}
-\DoxyCodeLine{\Hypertarget{_config_8cs_source_l00031}\mbox{\hyperlink{classautomeas__ui_1_1_m_w_m_1_1_model_1_1_launcher_1_1_a_m_dev_config_a15d37e39be479151b2ca6226886a43fa}{00031}}         \textcolor{keyword}{public} \textcolor{keyword}{static} \textcolor{keywordtype}{string}[] \mbox{\hyperlink{classautomeas__ui_1_1_m_w_m_1_1_model_1_1_launcher_1_1_a_m_dev_config_a15d37e39be479151b2ca6226886a43fa}{CheckBoxText\_Alternative}} =}
+\DoxyCodeLine{\Hypertarget{_config_8cs_source_l00031}00031         \textcolor{keyword}{public} \textcolor{keyword}{static} \textcolor{keywordtype}{string}[] CheckBoxText\_Alternative =}
 \DoxyCodeLine{\Hypertarget{_config_8cs_source_l00032}00032         \{}
 \DoxyCodeLine{\Hypertarget{_config_8cs_source_l00033}00033             \textcolor{stringliteral}{"{}csv"{}},}
 \DoxyCodeLine{\Hypertarget{_config_8cs_source_l00034}00034             \textcolor{stringliteral}{"{}pdf"{}},}
@@ -41,7 +41,7 @@
 \DoxyCodeLine{\Hypertarget{_config_8cs_source_l00037}00037             \textcolor{stringliteral}{"{}jpg"{}}}
 \DoxyCodeLine{\Hypertarget{_config_8cs_source_l00038}00038         \};}
 \DoxyCodeLine{\Hypertarget{_config_8cs_source_l00039}00039         \textcolor{comment}{// LauncherSummaryViewModel}}
-\DoxyCodeLine{\Hypertarget{_config_8cs_source_l00040}\mbox{\hyperlink{classautomeas__ui_1_1_m_w_m_1_1_model_1_1_launcher_1_1_a_m_dev_config_ac1f9d69014b8e627669be7e176032384}{00040}}         \textcolor{keyword}{public} \textcolor{keyword}{static} List<string> \mbox{\hyperlink{classautomeas__ui_1_1_m_w_m_1_1_model_1_1_launcher_1_1_a_m_dev_config_ac1f9d69014b8e627669be7e176032384}{SummaryTitles}} = \textcolor{keyword}{new} List<string>}
+\DoxyCodeLine{\Hypertarget{_config_8cs_source_l00040}00040         \textcolor{keyword}{public} \textcolor{keyword}{static} List<string> SummaryTitles = \textcolor{keyword}{new} List<string>}
 \DoxyCodeLine{\Hypertarget{_config_8cs_source_l00041}00041         \{}
 \DoxyCodeLine{\Hypertarget{_config_8cs_source_l00042}00042             \textcolor{stringliteral}{"{}Nazwa próby:\(\backslash\)t\(\backslash\)t"{}},}
 \DoxyCodeLine{\Hypertarget{_config_8cs_source_l00043}00043             \textcolor{stringliteral}{"{}Katalog docelowy:\(\backslash\)t"{}},}

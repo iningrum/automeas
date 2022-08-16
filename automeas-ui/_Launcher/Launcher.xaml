@@ -80,7 +80,7 @@
                        VerticalAlignment="Center"
                        FontSize="44"
                        FontFamily="Verdana"
-                       Content="{Binding CurrentPageTitle.Value, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+                       Content="{Binding View.Title, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
                        Foreground="White"/>
             <Grid DockPanel.Dock="Right" Grid.Row="2" Grid.Column="1"
                   HorizontalAlignment="Center"
@@ -88,18 +88,18 @@
                 <ContentControl x:Name="Pages" Content="{Binding PageBarView}"/>
             </Grid>
             <Grid Grid.Row="1" Grid.Column="1">
-                <ContentControl Content="{Binding CurrentView.Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                <ContentControl Content="{Binding View.Current, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
                     <ContentControl.Style>
                         <Style TargetType="{x:Type ContentControl}">
                             <Setter Property="ContentTemplate" Value="{StaticResource View1Template}" />
                             <Style.Triggers>
-                                <DataTrigger Binding="{Binding CurrentPage.Value}" Value="1">
+                                <DataTrigger Binding="{Binding View.Page}" Value="1">
                                     <Setter Property="ContentTemplate" Value="{StaticResource View2Template}" />
                                 </DataTrigger>
-                                <DataTrigger Binding="{Binding CurrentPage.Value}" Value="2">
+                                <DataTrigger Binding="{Binding View.Page}" Value="2">
                                     <Setter Property="ContentTemplate" Value="{StaticResource View3Template}" />
                                 </DataTrigger>
-                                <DataTrigger Binding="{Binding CurrentPage.Value}" Value="3">
+                                <DataTrigger Binding="{Binding View.Page}" Value="3">
                                     <Setter Property="ContentTemplate" Value="{StaticResource View4Template}" />
                                 </DataTrigger>
                             </Style.Triggers>

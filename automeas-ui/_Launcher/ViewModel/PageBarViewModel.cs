@@ -55,7 +55,7 @@ namespace automeas_ui._Launcher.ViewModel
             {
                 for (int i = 0; i < Pages.Count(); i++)
                 {
-                    if (Pages.ElementAt(i).Value == true && master.CurrentPage.Value != i)
+                    if (Pages.ElementAt(i).Value == true && master.View.Page != i)
                     {
                         PageChanged?.Invoke(i);
                         return;

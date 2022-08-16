@@ -1,6 +1,8 @@
-﻿using automeas_ui._Launcher.Model;
+﻿using automeas_ui._Common;
+using automeas_ui._Launcher.Model;
 using automeas_ui.Core;
 using automeas_ui.MWM.Model.Launcher;
+using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using System;
 using System.Collections.Generic;
@@ -34,7 +36,7 @@ namespace automeas_ui._Launcher.ViewModel.Pages
         {
             { // load from Target
                 Target.Instance.PageChangedEvent += HandlePageChanged;
-                if (Target.Instance.Options == null || Target.Instance.Options.Count < AMDevConfig.CheckBoxText.Count())
+                if (Target.Instance.Options == null || Target.Instance.Options.Count < DevConfig.CheckBoxText.Count())
                 {
                     Target.Instance.Options = new List<bool>(AMDevConfig.CheckBoxText.Count());
                     Target.Instance.Options.Add(true);
@@ -46,7 +48,7 @@ namespace automeas_ui._Launcher.ViewModel.Pages
                 this.ChosenTargetPath = new ObservableType<string>(Target.Instance.Destination);
                 this.Options = new TrulyObservableCollection<ObservableType<CheckBox>>();
                 Options.Add(new ObservableType<CheckBox>(new CheckBox(AMDevConfig.CheckBoxText[0], true, false)));
-                for (int i = 1; i < AMDevConfig.CheckBoxText.Count(); i++)
+                for (int i = 1; i < DevConfig.CheckBoxText.Count(); i++)
                 {
                     Options.Add(new ObservableType<CheckBox>(new CheckBox(AMDevConfig.CheckBoxText[i], Target.Instance.Options[i])));
                 }

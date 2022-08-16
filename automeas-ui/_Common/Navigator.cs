@@ -16,22 +16,19 @@ namespace automeas_ui._Common
     /// <typeparam name="T"> Default type stored</typeparam>
     public sealed class Navigator<T>
     {
-        // singleton implementation - thread safe
-        private static readonly Lazy<Navigator<T>> lazy = new Lazy<Navigator<T>>(() => new Navigator<T>(typeof(T)));
-        public static Navigator<T> Instance { get { return lazy.Value; } }
         // ctor
         /// <summary>
         /// Default values
         /// </summary>
         /// <param name="t"> Default value of _previous and _current</param>
-        public Navigator(Type t)
+        public Navigator()
         {
-            _previous = t;
-            _current = t;
-            _reg = new();
+            _previous = typeof(T);
+            _current = typeof(T);
+            Reg = new();
         }
-        private Dictionary<string, Type> _reg;
-        private bool _locked = false;
+        public Dictionary<string, Type> Reg;
+        //private bool _locked = false;
         private Type _previous;
         private Type _current;
         // functions
@@ -59,7 +56,7 @@ namespace automeas_ui._Common
             else
             {
                 Type? getVal;
-                if (_reg.TryGetValue(id, out getVal))
+                if (Reg.TryGetValue(id, out getVal))
                 {
                     _previous = _current;
                     _current = getVal;
@@ -97,7 +94,7 @@ namespace automeas_ui._Common
             else
             {
                 Type? getVal;
-                if (_reg.TryGetValue(id, out getVal))
+                if (Reg.TryGetValue(id, out getVal))
                 {
                     _previous = _current;
                     _current = getVal;
@@ -110,14 +107,20 @@ namespace automeas_ui._Common
             }
             NotifyWindowChanged(_current);
         }
-        public void LoadRegister(Dictionary<string, Type> register)
+        /*public void LoadRegister(Dictionary<string, Type> register)
         {
             if(_locked == true) { return; }
             _locked = true;
             _reg = register;
-        }
+        }*/
         public Action<Type>? WindowChanged;
 
         private void NotifyWindowChanged(Type msg) => WindowChanged?.Invoke(msg);
+    }
+    /// <summary>
+    /// Master of Navigator[T]
+    /// </summary>
+    public  static partial class Navigator
+    {
     }
 }

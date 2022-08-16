@@ -1,8 +1,10 @@
-﻿using System;
+﻿using automeas_ui._Launcher.ViewModel.Pages;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace automeas_ui._Common
 {
@@ -60,5 +62,20 @@ namespace automeas_ui._Common
             "Szacowany Czas:\t\t"
         };
 
+    }
+    public static partial class Navigator
+    {
+        public static Navigator<Window> Launcher = new()
+        {
+            Reg = new()
+            {
+                {"0", typeof(Page1) },
+                {"1", typeof(NameDescriptionViewModel) },
+                {"2", typeof(UploadConfigFileViewModel) },
+                {"3", typeof(LauncherSummaryViewModel) }
+            }
+        };
+        //public static Navigator<object> Launcher = new();
+        //public static Navigator<object> MVG = new();
     }
 }

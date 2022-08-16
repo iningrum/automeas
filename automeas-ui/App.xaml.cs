@@ -1,10 +1,10 @@
 ﻿using automeas_ui.MVGenerator;
-using automeas_ui.MWM.Model.Launcher;
+using automeas_ui._Launcher.Model;
 using automeas_ui.MWM.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Windows;
-
+using llc = automeas_ui._Launcher.Launcher;
 namespace automeas_ui
 {
     /// <summary>
@@ -19,7 +19,7 @@ namespace automeas_ui
         private Window? mw;
         private void InitLauncher()
         {
-            Launcher launcher = new Launcher();
+            llc launcher = new();
             //var x = (Launcher_MainViewModel)launcher.DataContext;
             Navigator.Instance.WindowChanged += HandleWindowChanged;
             mw = launcher;
@@ -51,7 +51,7 @@ namespace automeas_ui
         }
         private void ReInitLauncher()
         {
-            mw = new Launcher();
+            mw = new llc();
             mw.Show();
             return;
         }

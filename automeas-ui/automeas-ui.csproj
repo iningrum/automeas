@@ -27,7 +27,7 @@
 		<!-- Work around https://github.com/dotnet/wpf/issues/6792 -->
 
 		<ItemGroup>
-			<FilteredAnalyzer Include="@(Analyzer->Distinct())" />
+			<FilteredAnalyzer Include="@(Analyzer-&gt;Distinct())" />
 			<Analyzer Remove="@(Analyzer)" />
 			<Analyzer Include="@(FilteredAnalyzer)" />
 		</ItemGroup>
@@ -37,6 +37,14 @@
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
       <SubType>Designer</SubType>
     </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="_Dashboard\Model\" />
+    <Folder Include="_Dashboard\ViewModel\" />
+    <Folder Include="_Dashboard\View\" />
+    <Folder Include="_MVG\Model\" />
+    <Folder Include="_MVG\ViewModel\" />
+    <Folder Include="_MVG\View\" />
   </ItemGroup>
 
 </Project>

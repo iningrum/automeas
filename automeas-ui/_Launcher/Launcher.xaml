@@ -1,0 +1,112 @@
+﻿<Window x:Class="automeas_ui._Launcher.Launcher"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:automeas_ui._Launcher"
+        xmlns:view="clr-namespace:automeas_ui._Launcher.View"
+        xmlns:page="clr-namespace:automeas_ui._Launcher.View.Pages"
+        xmlns:pagem="clr-namespace:automeas_ui._Launcher.ViewModel.Pages"
+        xmlns:viewm="clr-namespace:automeas_ui._Launcher.ViewModel"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="600" Width="920"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen"
+        Background="Transparent"
+        AllowsTransparency="True">
+    <Window.DataContext>
+        <viewm:Launcher_MainViewModel/>
+    </Window.DataContext>
+    <Window.Resources>
+        <DataTemplate x:Key="View1Template" DataType="{x:Type viewm:Launcher_MainViewModel}">
+            <page:Page1 />
+        </DataTemplate>
+
+        <DataTemplate x:Key="View2Template" DataType="{x:Type viewm:Launcher_MainViewModel}">
+            <page:Page2 />
+        </DataTemplate>
+        <DataTemplate x:Key="View3Template" DataType="{x:Type viewm:Launcher_MainViewModel}">
+            <page:Page3 />
+        </DataTemplate>
+        <DataTemplate x:Key="View4Template" DataType="{x:Type viewm:Launcher_MainViewModel}">
+            <page:Page4 />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewm:PageBarViewModel}">
+            <view:PageBarView/>
+        </DataTemplate>
+    </Window.Resources>
+    <Border Background="#272537"
+            CornerRadius="10">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.25*"/>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="0.25*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.45*"/>
+                <RowDefinition Height="3*"/>
+                <RowDefinition Height="0.25*"/>
+            </Grid.RowDefinitions>
+            <Button Grid.Row="0"
+                    Grid.Column="2"
+                    Width="50"
+                    Height="50"
+                    Content="❌"
+                    FontSize="32"
+                    Style="{StaticResource FOC_SquareButtonTheme}"
+                    Click="Button_Clicked"/>
+            <Button Grid.Row="1"
+                    Grid.Column="2"
+                    Content="&#9655;"
+                    Foreground="#323232"
+                    Background="Transparent"
+                    BorderThickness="0"
+                    FontSize="72" 
+                    Command="{Binding NextPageCommand}"/>
+            <Button Grid.Row="1"
+                    Grid.Column="0"
+                    Content="&#9665;"
+                    Foreground="#323232"
+                    Background="Transparent"
+                    BorderThickness="0"
+                    FontSize="72"
+                    x:Name="PageBarView"
+                    Command="{Binding PreviousPageCommand}"/>
+            <Label Grid.Row="0"
+                       Grid.Column="1"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       FontSize="44"
+                       FontFamily="Verdana"
+                       Content="{Binding CurrentPageTitle.Value, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+                       Foreground="White"/>
+            <Grid DockPanel.Dock="Right" Grid.Row="2" Grid.Column="1"
+                  HorizontalAlignment="Center"
+                  VerticalAlignment="Center">
+                <ContentControl x:Name="Pages" Content="{Binding PageBarView}"/>
+            </Grid>
+            <Grid Grid.Row="1" Grid.Column="1">
+                <ContentControl Content="{Binding CurrentView.Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                    <ContentControl.Style>
+                        <Style TargetType="{x:Type ContentControl}">
+                            <Setter Property="ContentTemplate" Value="{StaticResource View1Template}" />
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding CurrentPage.Value}" Value="1">
+                                    <Setter Property="ContentTemplate" Value="{StaticResource View2Template}" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding CurrentPage.Value}" Value="2">
+                                    <Setter Property="ContentTemplate" Value="{StaticResource View3Template}" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding CurrentPage.Value}" Value="3">
+                                    <Setter Property="ContentTemplate" Value="{StaticResource View4Template}" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </ContentControl.Style>
+                </ContentControl>
+            </Grid>
+        </Grid>
+    </Border>
+</Window>

@@ -1,0 +1,129 @@
+\hypertarget{_page1_8cs_source}{}\doxysection{Page1.\+cs}
+\label{_page1_8cs_source}\index{C:/Users/Admin/source/repos/automeas/automeas-\/ui/\_Launcher/ViewModel/Pages/Page1.cs@{C:/Users/Admin/source/repos/automeas/automeas-\/ui/\_Launcher/ViewModel/Pages/Page1.cs}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_page1_8cs_source_l00001}00001 \textcolor{keyword}{using }\mbox{\hyperlink{namespaceautomeas__ui_1_1___launcher_1_1_model}{automeas\_ui.\_Launcher.Model}};}
+\DoxyCodeLine{\Hypertarget{_page1_8cs_source_l00002}00002 \textcolor{keyword}{using }automeas\_ui.Core;}
+\DoxyCodeLine{\Hypertarget{_page1_8cs_source_l00003}00003 \textcolor{keyword}{using }automeas\_ui.MWM.Model.Launcher;}
+\DoxyCodeLine{\Hypertarget{_page1_8cs_source_l00004}00004 \textcolor{keyword}{using }CommunityToolkit.Mvvm.Input;}
+\DoxyCodeLine{\Hypertarget{_page1_8cs_source_l00005}00005 \textcolor{keyword}{using }System;}
+\DoxyCodeLine{\Hypertarget{_page1_8cs_source_l00006}00006 \textcolor{keyword}{using }System.Collections.Generic;}
+\DoxyCodeLine{\Hypertarget{_page1_8cs_source_l00007}00007 \textcolor{keyword}{using }System.ComponentModel;}
+\DoxyCodeLine{\Hypertarget{_page1_8cs_source_l00008}00008 \textcolor{keyword}{using }System.Linq;}
+\DoxyCodeLine{\Hypertarget{_page1_8cs_source_l00009}00009 \textcolor{keyword}{using }System.Runtime.CompilerServices;}
+\DoxyCodeLine{\Hypertarget{_page1_8cs_source_l00010}00010 \textcolor{keyword}{using }System.Text;}
+\DoxyCodeLine{\Hypertarget{_page1_8cs_source_l00011}00011 \textcolor{keyword}{using }System.Threading.Tasks;}
+\DoxyCodeLine{\Hypertarget{_page1_8cs_source_l00012}00012 \textcolor{keyword}{using }Target = \mbox{\hyperlink{namespaceautomeas__ui}{automeas\_ui}}.\mbox{\hyperlink{namespaceautomeas__ui_1_1___launcher}{\_Launcher}}.\mbox{\hyperlink{namespaceautomeas__ui_1_1___launcher_1_1_model}{Model}}.\mbox{\hyperlink{classautomeas__ui_1_1___launcher_1_1_model_1_1_target}{Target}};}
+\DoxyCodeLine{\Hypertarget{_page1_8cs_source_l00013}00013 }
+\DoxyCodeLine{\Hypertarget{_page1_8cs_source_l00014}00014 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespaceautomeas__ui_1_1___launcher_1_1_view_model_1_1_pages}{automeas\_ui.\_Launcher.ViewModel.Pages}}}
+\DoxyCodeLine{\Hypertarget{_page1_8cs_source_l00015}00015 \{}
+\DoxyCodeLine{\Hypertarget{_page1_8cs_source_l00016}\mbox{\hyperlink{classautomeas__ui_1_1___launcher_1_1_view_model_1_1_pages_1_1_check_box}{00016}}     \textcolor{keyword}{public} \textcolor{keyword}{class }\mbox{\hyperlink{classautomeas__ui_1_1___launcher_1_1_view_model_1_1_pages_1_1_check_box}{CheckBox}}}
+\DoxyCodeLine{\Hypertarget{_page1_8cs_source_l00017}00017     \{}
+\DoxyCodeLine{\Hypertarget{_page1_8cs_source_l00018}00018         \textcolor{keyword}{public} \mbox{\hyperlink{classautomeas__ui_1_1___launcher_1_1_view_model_1_1_pages_1_1_check_box}{CheckBox}}(\textcolor{keywordtype}{string} text = \textcolor{stringliteral}{"{}Sample text"{}}, \textcolor{keywordtype}{bool} IsActive = \textcolor{keyword}{false}, \textcolor{keywordtype}{bool} IsEditable = \textcolor{keyword}{true})}
+\DoxyCodeLine{\Hypertarget{_page1_8cs_source_l00019}00019         \{}
+\DoxyCodeLine{\Hypertarget{_page1_8cs_source_l00020}00020             Enabled = IsEditable;}
+\DoxyCodeLine{\Hypertarget{_page1_8cs_source_l00021}00021             Checked = IsActive;}
+\DoxyCodeLine{\Hypertarget{_page1_8cs_source_l00022}00022             Text = text;}
+\DoxyCodeLine{\Hypertarget{_page1_8cs_source_l00023}00023         \}}
+\DoxyCodeLine{\Hypertarget{_page1_8cs_source_l00024}00024         \textcolor{keyword}{public} \textcolor{keywordtype}{bool} Enabled \{ \textcolor{keyword}{get}; \textcolor{keyword}{set}; \}}
+\DoxyCodeLine{\Hypertarget{_page1_8cs_source_l00025}00025         \textcolor{keyword}{public} \textcolor{keywordtype}{bool} Checked \{ \textcolor{keyword}{get}; \textcolor{keyword}{set}; \}}
+\DoxyCodeLine{\Hypertarget{_page1_8cs_source_l00026}00026         \textcolor{keyword}{public} \textcolor{keywordtype}{string} Text \{ \textcolor{keyword}{get}; \textcolor{keyword}{set}; \}}
+\DoxyCodeLine{\Hypertarget{_page1_8cs_source_l00027}00027     \}}
+\DoxyCodeLine{\Hypertarget{_page1_8cs_source_l00028}\mbox{\hyperlink{classautomeas__ui_1_1___launcher_1_1_view_model_1_1_pages_1_1_page1}{00028}}     \textcolor{keyword}{public} \textcolor{keyword}{partial class }\mbox{\hyperlink{classautomeas__ui_1_1___launcher_1_1_view_model_1_1_pages_1_1_page1}{Page1}} : BaseViewModel, IBaseViewModel}
+\DoxyCodeLine{\Hypertarget{_page1_8cs_source_l00029}00029     \{}
+\DoxyCodeLine{\Hypertarget{_page1_8cs_source_l00030}00030         \textcolor{comment}{// internal interface}}
+\DoxyCodeLine{\Hypertarget{_page1_8cs_source_l00031}00031         \textcolor{keyword}{const} \textcolor{keywordtype}{int} ID = 0;}
+\DoxyCodeLine{\Hypertarget{_page1_8cs_source_l00032}00032         \textcolor{comment}{// ctor}}
+\DoxyCodeLine{\Hypertarget{_page1_8cs_source_l00033}00033         \textcolor{keyword}{public} \mbox{\hyperlink{classautomeas__ui_1_1___launcher_1_1_view_model_1_1_pages_1_1_page1}{Page1}}()}
+\DoxyCodeLine{\Hypertarget{_page1_8cs_source_l00034}00034         \{}
+\DoxyCodeLine{\Hypertarget{_page1_8cs_source_l00035}00035             \{ \textcolor{comment}{// load from Target}}
+\DoxyCodeLine{\Hypertarget{_page1_8cs_source_l00036}00036                 Target.Instance.PageChangedEvent += HandlePageChanged;}
+\DoxyCodeLine{\Hypertarget{_page1_8cs_source_l00037}00037                 \textcolor{keywordflow}{if} (Target.Instance.Options == \textcolor{keyword}{null} || Target.Instance.Options.Count < AMDevConfig.CheckBoxText.Count())}
+\DoxyCodeLine{\Hypertarget{_page1_8cs_source_l00038}00038                 \{}
+\DoxyCodeLine{\Hypertarget{_page1_8cs_source_l00039}00039                     Target.Instance.Options = \textcolor{keyword}{new} List<bool>(AMDevConfig.CheckBoxText.Count());}
+\DoxyCodeLine{\Hypertarget{_page1_8cs_source_l00040}00040                     Target.Instance.Options.Add(\textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{_page1_8cs_source_l00041}00041                     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 1; i < AMDevConfig.CheckBoxText.Count(); i++)}
+\DoxyCodeLine{\Hypertarget{_page1_8cs_source_l00042}00042                     \{}
+\DoxyCodeLine{\Hypertarget{_page1_8cs_source_l00043}00043                         Target.Instance.Options.Add(\textcolor{keyword}{false});}
+\DoxyCodeLine{\Hypertarget{_page1_8cs_source_l00044}00044                     \}}
+\DoxyCodeLine{\Hypertarget{_page1_8cs_source_l00045}00045                 \}}
+\DoxyCodeLine{\Hypertarget{_page1_8cs_source_l00046}00046                 this.ChosenTargetPath = \textcolor{keyword}{new} \mbox{\hyperlink{classautomeas__ui_1_1___launcher_1_1_model_1_1_observable_type}{ObservableType<string>}}(Target.Instance.Destination);}
+\DoxyCodeLine{\Hypertarget{_page1_8cs_source_l00047}00047                 this.Options = \textcolor{keyword}{new} TrulyObservableCollection<ObservableType<CheckBox>>();}
+\DoxyCodeLine{\Hypertarget{_page1_8cs_source_l00048}00048                 Options.Add(\textcolor{keyword}{new} \mbox{\hyperlink{classautomeas__ui_1_1___launcher_1_1_model_1_1_observable_type}{ObservableType<CheckBox>}}(\textcolor{keyword}{new} \mbox{\hyperlink{classautomeas__ui_1_1___launcher_1_1_view_model_1_1_pages_1_1_check_box}{CheckBox}}(AMDevConfig.CheckBoxText[0], \textcolor{keyword}{true}, \textcolor{keyword}{false})));}
+\DoxyCodeLine{\Hypertarget{_page1_8cs_source_l00049}00049                 \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 1; i < AMDevConfig.CheckBoxText.Count(); i++)}
+\DoxyCodeLine{\Hypertarget{_page1_8cs_source_l00050}00050                 \{}
+\DoxyCodeLine{\Hypertarget{_page1_8cs_source_l00051}00051                     Options.Add(\textcolor{keyword}{new} \mbox{\hyperlink{classautomeas__ui_1_1___launcher_1_1_model_1_1_observable_type}{ObservableType<CheckBox>}}(\textcolor{keyword}{new} \mbox{\hyperlink{classautomeas__ui_1_1___launcher_1_1_view_model_1_1_pages_1_1_check_box}{CheckBox}}(AMDevConfig.CheckBoxText[i], Target.Instance.Options[i])));}
+\DoxyCodeLine{\Hypertarget{_page1_8cs_source_l00052}00052                 \}}
+\DoxyCodeLine{\Hypertarget{_page1_8cs_source_l00053}00053 }
+\DoxyCodeLine{\Hypertarget{_page1_8cs_source_l00054}00054             \}}
+\DoxyCodeLine{\Hypertarget{_page1_8cs_source_l00055}00055 }
+\DoxyCodeLine{\Hypertarget{_page1_8cs_source_l00056}00056         \}}
+\DoxyCodeLine{\Hypertarget{_page1_8cs_source_l00057}00057         \textcolor{comment}{// attrs}}
+\DoxyCodeLine{\Hypertarget{_page1_8cs_source_l00058}00058         \textcolor{keyword}{public} \mbox{\hyperlink{classautomeas__ui_1_1___launcher_1_1_model_1_1_observable_type}{ObservableType<string>}} ChosenTargetPath \{ \textcolor{keyword}{get}; \textcolor{keyword}{set}; \}}
+\DoxyCodeLine{\Hypertarget{_page1_8cs_source_l00059}00059         \textcolor{keyword}{private} TrulyObservableCollection<ObservableType<CheckBox>> \_Options;}
+\DoxyCodeLine{\Hypertarget{_page1_8cs_source_l00060}00060         \textcolor{keyword}{public} TrulyObservableCollection<ObservableType<CheckBox>> Options}
+\DoxyCodeLine{\Hypertarget{_page1_8cs_source_l00061}00061         \{}
+\DoxyCodeLine{\Hypertarget{_page1_8cs_source_l00062}00062             \textcolor{keyword}{get} \{ \textcolor{keywordflow}{return} \_Options; \}}
+\DoxyCodeLine{\Hypertarget{_page1_8cs_source_l00063}00063             \textcolor{keyword}{set}}
+\DoxyCodeLine{\Hypertarget{_page1_8cs_source_l00064}00064             \{}
+\DoxyCodeLine{\Hypertarget{_page1_8cs_source_l00065}00065                 \textcolor{keywordflow}{if} (\_Options == value) \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{_page1_8cs_source_l00066}00066                 \_Options = value;}
+\DoxyCodeLine{\Hypertarget{_page1_8cs_source_l00067}00067                 NotifyPropertyChanged();}
+\DoxyCodeLine{\Hypertarget{_page1_8cs_source_l00068}00068                 NotifyOptionsChanged();}
+\DoxyCodeLine{\Hypertarget{_page1_8cs_source_l00069}00069             \}}
+\DoxyCodeLine{\Hypertarget{_page1_8cs_source_l00070}00070         \}}
+\DoxyCodeLine{\Hypertarget{_page1_8cs_source_l00071}00071         \textcolor{comment}{// events}}
+\DoxyCodeLine{\Hypertarget{_page1_8cs_source_l00072}00072         \textcolor{keyword}{public} \textcolor{keyword}{event} PropertyChangedEventHandler? PropertyChanged;}
+\DoxyCodeLine{\Hypertarget{_page1_8cs_source_l00073}00073         \textcolor{keyword}{public} \textcolor{keyword}{event} Action<string>? TargetDestinationChanged;}
+\DoxyCodeLine{\Hypertarget{_page1_8cs_source_l00074}00074         \textcolor{keyword}{public} \textcolor{keyword}{event} Action<List<bool>>? OptionsChanged;}
+\DoxyCodeLine{\Hypertarget{_page1_8cs_source_l00075}00075         \textcolor{keyword}{private} \textcolor{keywordtype}{void} NotifyPropertyChanged([CallerMemberName] \textcolor{keywordtype}{string} propertyName = \textcolor{keyword}{null}) => PropertyChanged?.Invoke(\textcolor{keyword}{this}, \textcolor{keyword}{new} PropertyChangedEventArgs(propertyName));}
+\DoxyCodeLine{\Hypertarget{_page1_8cs_source_l00076}00076         \textcolor{keyword}{private} \textcolor{keywordtype}{void} NotifyTargetDestinationChanged(\textcolor{keywordtype}{string} val) => TargetDestinationChanged?.Invoke(val);}
+\DoxyCodeLine{\Hypertarget{_page1_8cs_source_l00077}00077         \textcolor{keyword}{private} \textcolor{keywordtype}{void} NotifyOptionsChanged()}
+\DoxyCodeLine{\Hypertarget{_page1_8cs_source_l00078}00078         \{}
+\DoxyCodeLine{\Hypertarget{_page1_8cs_source_l00079}00079             List<bool> result = \textcolor{keyword}{new} List<bool>();}
+\DoxyCodeLine{\Hypertarget{_page1_8cs_source_l00080}00080             \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < Options.Count; i++)}
+\DoxyCodeLine{\Hypertarget{_page1_8cs_source_l00081}00081             \{}
+\DoxyCodeLine{\Hypertarget{_page1_8cs_source_l00082}00082                 result.Add(Options.ElementAt(i).Value.Checked);}
+\DoxyCodeLine{\Hypertarget{_page1_8cs_source_l00083}00083             \}}
+\DoxyCodeLine{\Hypertarget{_page1_8cs_source_l00084}00084             OptionsChanged?.Invoke(result);}
+\DoxyCodeLine{\Hypertarget{_page1_8cs_source_l00085}00085         \}}
+\DoxyCodeLine{\Hypertarget{_page1_8cs_source_l00086}00086         \textcolor{comment}{// functions}}
+\DoxyCodeLine{\Hypertarget{_page1_8cs_source_l00087}00087         [RelayCommand]}
+\DoxyCodeLine{\Hypertarget{_page1_8cs_source_l00088}00088         \textcolor{keywordtype}{void} ChooseFile()}
+\DoxyCodeLine{\Hypertarget{_page1_8cs_source_l00089}00089         \{}
+\DoxyCodeLine{\Hypertarget{_page1_8cs_source_l00090}00090             System.Windows.Forms.FolderBrowserDialog openFileDlg = \textcolor{keyword}{new} System.Windows.Forms.FolderBrowserDialog();}
+\DoxyCodeLine{\Hypertarget{_page1_8cs_source_l00091}00091             var result = openFileDlg.ShowDialog();}
+\DoxyCodeLine{\Hypertarget{_page1_8cs_source_l00092}00092             \textcolor{keywordflow}{if} (result.ToString() != \textcolor{keywordtype}{string}.Empty)}
+\DoxyCodeLine{\Hypertarget{_page1_8cs_source_l00093}00093             \{}
+\DoxyCodeLine{\Hypertarget{_page1_8cs_source_l00094}00094                 \textcolor{keywordtype}{string} src = openFileDlg.SelectedPath;}
+\DoxyCodeLine{\Hypertarget{_page1_8cs_source_l00095}00095                 \textcolor{keywordflow}{if} (src == \textcolor{keyword}{null} || src.Length == 0)}
+\DoxyCodeLine{\Hypertarget{_page1_8cs_source_l00096}00096                 \{}
+\DoxyCodeLine{\Hypertarget{_page1_8cs_source_l00097}00097                     \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{_page1_8cs_source_l00098}00098                 \}}
+\DoxyCodeLine{\Hypertarget{_page1_8cs_source_l00099}00099                 NotifyTargetDestinationChanged(src);}
+\DoxyCodeLine{\Hypertarget{_page1_8cs_source_l00100}00100                 \textcolor{keywordflow}{if} (src.Length > 25)}
+\DoxyCodeLine{\Hypertarget{_page1_8cs_source_l00101}00101                 \{}
+\DoxyCodeLine{\Hypertarget{_page1_8cs_source_l00102}00102                     src = src.Substring(0, 28);}
+\DoxyCodeLine{\Hypertarget{_page1_8cs_source_l00103}00103                 \}}
+\DoxyCodeLine{\Hypertarget{_page1_8cs_source_l00104}00104                 ChosenTargetPath.Value = \$\textcolor{stringliteral}{"{}\{src\}... "{}};}
+\DoxyCodeLine{\Hypertarget{_page1_8cs_source_l00105}00105             \}}
+\DoxyCodeLine{\Hypertarget{_page1_8cs_source_l00106}00106         \}}
+\DoxyCodeLine{\Hypertarget{_page1_8cs_source_l00107}00107 }
+\DoxyCodeLine{\Hypertarget{_page1_8cs_source_l00108}00108         \textcolor{keyword}{public} \textcolor{keywordtype}{void} HandlePageChanged(\textcolor{keywordtype}{int} msg)}
+\DoxyCodeLine{\Hypertarget{_page1_8cs_source_l00109}00109         \{}
+\DoxyCodeLine{\Hypertarget{_page1_8cs_source_l00110}00110             \textcolor{keywordflow}{if} (ID == msg)}
+\DoxyCodeLine{\Hypertarget{_page1_8cs_source_l00111}00111             \{}
+\DoxyCodeLine{\Hypertarget{_page1_8cs_source_l00112}00112                 Target.Instance.Destination = this.ChosenTargetPath.Value;}
+\DoxyCodeLine{\Hypertarget{_page1_8cs_source_l00113}00113                 List<bool> options = \textcolor{keyword}{new} List<bool>();}
+\DoxyCodeLine{\Hypertarget{_page1_8cs_source_l00114}00114                 \textcolor{keywordflow}{foreach} (var item \textcolor{keywordflow}{in} Options)}
+\DoxyCodeLine{\Hypertarget{_page1_8cs_source_l00115}00115                 \{}
+\DoxyCodeLine{\Hypertarget{_page1_8cs_source_l00116}00116                     options.Add(item.Value.Checked);}
+\DoxyCodeLine{\Hypertarget{_page1_8cs_source_l00117}00117                 \}}
+\DoxyCodeLine{\Hypertarget{_page1_8cs_source_l00118}00118                 Target.Instance.Options = options;}
+\DoxyCodeLine{\Hypertarget{_page1_8cs_source_l00119}00119             \}}
+\DoxyCodeLine{\Hypertarget{_page1_8cs_source_l00120}00120 }
+\DoxyCodeLine{\Hypertarget{_page1_8cs_source_l00121}00121         \}}
+\DoxyCodeLine{\Hypertarget{_page1_8cs_source_l00122}00122     \}}
+\DoxyCodeLine{\Hypertarget{_page1_8cs_source_l00123}00123 \}}
+
+\end{DoxyCode}

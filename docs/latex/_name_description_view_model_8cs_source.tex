@@ -1,0 +1,46 @@
+\hypertarget{_name_description_view_model_8cs_source}{}\doxysection{Name\+Description\+View\+Model.\+cs}
+\label{_name_description_view_model_8cs_source}\index{C:/Users/Admin/source/repos/automeas/automeas-\/ui/\_Launcher/ViewModel/Pages/NameDescriptionViewModel.cs@{C:/Users/Admin/source/repos/automeas/automeas-\/ui/\_Launcher/ViewModel/Pages/NameDescriptionViewModel.cs}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_name_description_view_model_8cs_source_l00001}00001 \textcolor{keyword}{using }\mbox{\hyperlink{namespaceautomeas__ui_1_1___launcher_1_1_model}{automeas\_ui.\_Launcher.Model}};}
+\DoxyCodeLine{\Hypertarget{_name_description_view_model_8cs_source_l00002}00002 \textcolor{keyword}{using }automeas\_ui.MWM.Model.Launcher;}
+\DoxyCodeLine{\Hypertarget{_name_description_view_model_8cs_source_l00003}00003 \textcolor{keyword}{using }System;}
+\DoxyCodeLine{\Hypertarget{_name_description_view_model_8cs_source_l00004}00004 \textcolor{keyword}{using }System.Collections.Generic;}
+\DoxyCodeLine{\Hypertarget{_name_description_view_model_8cs_source_l00005}00005 \textcolor{keyword}{using }System.Linq;}
+\DoxyCodeLine{\Hypertarget{_name_description_view_model_8cs_source_l00006}00006 \textcolor{keyword}{using }System.Text;}
+\DoxyCodeLine{\Hypertarget{_name_description_view_model_8cs_source_l00007}00007 \textcolor{keyword}{using }System.Threading.Tasks;}
+\DoxyCodeLine{\Hypertarget{_name_description_view_model_8cs_source_l00008}00008 \textcolor{keyword}{using }Target = \mbox{\hyperlink{namespaceautomeas__ui}{automeas\_ui}}.\mbox{\hyperlink{namespaceautomeas__ui_1_1___launcher}{\_Launcher}}.\mbox{\hyperlink{namespaceautomeas__ui_1_1___launcher_1_1_model}{Model}}.\mbox{\hyperlink{classautomeas__ui_1_1___launcher_1_1_model_1_1_target}{Target}};}
+\DoxyCodeLine{\Hypertarget{_name_description_view_model_8cs_source_l00009}00009 }
+\DoxyCodeLine{\Hypertarget{_name_description_view_model_8cs_source_l00010}00010 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespaceautomeas__ui_1_1___launcher_1_1_view_model_1_1_pages}{automeas\_ui.\_Launcher.ViewModel.Pages}}}
+\DoxyCodeLine{\Hypertarget{_name_description_view_model_8cs_source_l00011}00011 \{}
+\DoxyCodeLine{\Hypertarget{_name_description_view_model_8cs_source_l00012}\mbox{\hyperlink{classautomeas__ui_1_1___launcher_1_1_view_model_1_1_pages_1_1_name_description_view_model}{00012}}     \textcolor{keyword}{public} \textcolor{keyword}{class }\mbox{\hyperlink{classautomeas__ui_1_1___launcher_1_1_view_model_1_1_pages_1_1_name_description_view_model}{NameDescriptionViewModel}} : BaseViewModel, IBaseViewModel}
+\DoxyCodeLine{\Hypertarget{_name_description_view_model_8cs_source_l00013}00013     \{}
+\DoxyCodeLine{\Hypertarget{_name_description_view_model_8cs_source_l00014}00014         \textcolor{comment}{// ctor}}
+\DoxyCodeLine{\Hypertarget{_name_description_view_model_8cs_source_l00015}00015         \textcolor{keyword}{public} \mbox{\hyperlink{classautomeas__ui_1_1___launcher_1_1_view_model_1_1_pages_1_1_name_description_view_model}{NameDescriptionViewModel}}()}
+\DoxyCodeLine{\Hypertarget{_name_description_view_model_8cs_source_l00016}00016         \{}
+\DoxyCodeLine{\Hypertarget{_name_description_view_model_8cs_source_l00017}00017             \{ \textcolor{comment}{// bind to target}}
+\DoxyCodeLine{\Hypertarget{_name_description_view_model_8cs_source_l00018}00018                 Target.Instance.PageChangedEvent += HandlePageChanged;}
+\DoxyCodeLine{\Hypertarget{_name_description_view_model_8cs_source_l00019}00019                 this.Name = \textcolor{keyword}{new} \mbox{\hyperlink{classautomeas__ui_1_1___launcher_1_1_model_1_1_observable_type}{ObservableType<string>}}(Target.Instance.Name);}
+\DoxyCodeLine{\Hypertarget{_name_description_view_model_8cs_source_l00020}00020                 this.Description = \textcolor{keyword}{new} \mbox{\hyperlink{classautomeas__ui_1_1___launcher_1_1_model_1_1_observable_type}{ObservableType<string>}}(Target.Instance.Description);}
+\DoxyCodeLine{\Hypertarget{_name_description_view_model_8cs_source_l00021}00021             \}}
+\DoxyCodeLine{\Hypertarget{_name_description_view_model_8cs_source_l00022}00022         \}}
+\DoxyCodeLine{\Hypertarget{_name_description_view_model_8cs_source_l00023}00023         \textcolor{comment}{// attr}}
+\DoxyCodeLine{\Hypertarget{_name_description_view_model_8cs_source_l00024}00024         \textcolor{keyword}{private} \textcolor{keyword}{const} \textcolor{keywordtype}{int} ID = 1;}
+\DoxyCodeLine{\Hypertarget{_name_description_view_model_8cs_source_l00025}00025         \textcolor{comment}{// IBaseViewModel}}
+\DoxyCodeLine{\Hypertarget{_name_description_view_model_8cs_source_l00026}00026         \textcolor{keyword}{public} \textcolor{keywordtype}{void} HandlePageChanged(\textcolor{keywordtype}{int} msg)}
+\DoxyCodeLine{\Hypertarget{_name_description_view_model_8cs_source_l00027}00027         \{}
+\DoxyCodeLine{\Hypertarget{_name_description_view_model_8cs_source_l00028}00028             \textcolor{keywordflow}{if} (msg != ID)}
+\DoxyCodeLine{\Hypertarget{_name_description_view_model_8cs_source_l00029}00029                 \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{_name_description_view_model_8cs_source_l00030}00030             \textcolor{keywordflow}{if} (this.Name.Value != \textcolor{keyword}{null})}
+\DoxyCodeLine{\Hypertarget{_name_description_view_model_8cs_source_l00031}00031                 Target.Instance.Name = this.Name.Value;}
+\DoxyCodeLine{\Hypertarget{_name_description_view_model_8cs_source_l00032}00032             \textcolor{keywordflow}{if} (this.Description.Value != \textcolor{keyword}{null})}
+\DoxyCodeLine{\Hypertarget{_name_description_view_model_8cs_source_l00033}00033                 Target.Instance.Description = this.Description.Value;}
+\DoxyCodeLine{\Hypertarget{_name_description_view_model_8cs_source_l00034}00034         \}}
+\DoxyCodeLine{\Hypertarget{_name_description_view_model_8cs_source_l00035}00035 }
+\DoxyCodeLine{\Hypertarget{_name_description_view_model_8cs_source_l00036}00036         \textcolor{comment}{// attr}}
+\DoxyCodeLine{\Hypertarget{_name_description_view_model_8cs_source_l00037}00037         \textcolor{keyword}{public} \mbox{\hyperlink{classautomeas__ui_1_1___launcher_1_1_model_1_1_observable_type}{ObservableType<string>}} Name \{ \textcolor{keyword}{get}; \textcolor{keyword}{set}; \}}
+\DoxyCodeLine{\Hypertarget{_name_description_view_model_8cs_source_l00038}00038         \textcolor{keyword}{public} \mbox{\hyperlink{classautomeas__ui_1_1___launcher_1_1_model_1_1_observable_type}{ObservableType<string>}} Description \{ \textcolor{keyword}{get}; \textcolor{keyword}{set}; \}}
+\DoxyCodeLine{\Hypertarget{_name_description_view_model_8cs_source_l00039}00039     \}}
+\DoxyCodeLine{\Hypertarget{_name_description_view_model_8cs_source_l00040}00040 \}}
+
+\end{DoxyCode}

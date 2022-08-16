@@ -1,0 +1,76 @@
+\hypertarget{_launcher_summary_view_model_8cs_source}{}\doxysection{Launcher\+Summary\+View\+Model.\+cs}
+\label{_launcher_summary_view_model_8cs_source}\index{C:/Users/Admin/source/repos/automeas/automeas-\/ui/\_Launcher/ViewModel/Pages/LauncherSummaryViewModel.cs@{C:/Users/Admin/source/repos/automeas/automeas-\/ui/\_Launcher/ViewModel/Pages/LauncherSummaryViewModel.cs}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_launcher_summary_view_model_8cs_source_l00001}00001 \textcolor{keyword}{using }\mbox{\hyperlink{namespaceautomeas__ui_1_1___launcher_1_1_model}{automeas\_ui.\_Launcher.Model}};}
+\DoxyCodeLine{\Hypertarget{_launcher_summary_view_model_8cs_source_l00002}00002 \textcolor{keyword}{using }automeas\_ui.Core;}
+\DoxyCodeLine{\Hypertarget{_launcher_summary_view_model_8cs_source_l00003}00003 \textcolor{keyword}{using }automeas\_ui.MWM.Model.Launcher;}
+\DoxyCodeLine{\Hypertarget{_launcher_summary_view_model_8cs_source_l00004}00004 \textcolor{keyword}{using }CommunityToolkit.Mvvm.Input;}
+\DoxyCodeLine{\Hypertarget{_launcher_summary_view_model_8cs_source_l00005}00005 \textcolor{keyword}{using }System;}
+\DoxyCodeLine{\Hypertarget{_launcher_summary_view_model_8cs_source_l00006}00006 \textcolor{keyword}{using }System.Collections.Generic;}
+\DoxyCodeLine{\Hypertarget{_launcher_summary_view_model_8cs_source_l00007}00007 \textcolor{keyword}{using }System.Collections.ObjectModel;}
+\DoxyCodeLine{\Hypertarget{_launcher_summary_view_model_8cs_source_l00008}00008 \textcolor{keyword}{using }System.Linq;}
+\DoxyCodeLine{\Hypertarget{_launcher_summary_view_model_8cs_source_l00009}00009 \textcolor{keyword}{using }System.Text;}
+\DoxyCodeLine{\Hypertarget{_launcher_summary_view_model_8cs_source_l00010}00010 \textcolor{keyword}{using }System.Threading.Tasks;}
+\DoxyCodeLine{\Hypertarget{_launcher_summary_view_model_8cs_source_l00011}00011 \textcolor{keyword}{using }Navigator = \mbox{\hyperlink{namespaceautomeas__ui}{automeas\_ui}}.\mbox{\hyperlink{namespaceautomeas__ui_1_1___launcher}{\_Launcher}}.\mbox{\hyperlink{namespaceautomeas__ui_1_1___launcher_1_1_model}{Model}}.\mbox{\hyperlink{classautomeas__ui_1_1___launcher_1_1_model_1_1_navigator}{Navigator}};}
+\DoxyCodeLine{\Hypertarget{_launcher_summary_view_model_8cs_source_l00012}00012 \textcolor{keyword}{using }Target = \mbox{\hyperlink{namespaceautomeas__ui}{automeas\_ui}}.\mbox{\hyperlink{namespaceautomeas__ui_1_1___launcher}{\_Launcher}}.\mbox{\hyperlink{namespaceautomeas__ui_1_1___launcher_1_1_model}{Model}}.\mbox{\hyperlink{classautomeas__ui_1_1___launcher_1_1_model_1_1_target}{Target}};}
+\DoxyCodeLine{\Hypertarget{_launcher_summary_view_model_8cs_source_l00013}00013 }
+\DoxyCodeLine{\Hypertarget{_launcher_summary_view_model_8cs_source_l00014}\mbox{\hyperlink{namespaceautomeas__ui_1_1___launcher_1_1_view_model_1_1_pages}{00014}} \textcolor{keyword}{namespace }\mbox{\hyperlink{namespaceautomeas__ui_1_1___launcher_1_1_view_model_1_1_pages}{automeas\_ui.\_Launcher.ViewModel.Pages}}}
+\DoxyCodeLine{\Hypertarget{_launcher_summary_view_model_8cs_source_l00015}00015 \{}
+\DoxyCodeLine{\Hypertarget{_launcher_summary_view_model_8cs_source_l00016}\mbox{\hyperlink{classautomeas__ui_1_1___launcher_1_1_view_model_1_1_pages_1_1_summary}{00016}}     \textcolor{keyword}{public} \textcolor{keyword}{class }\mbox{\hyperlink{classautomeas__ui_1_1___launcher_1_1_view_model_1_1_pages_1_1_summary}{Summary}}}
+\DoxyCodeLine{\Hypertarget{_launcher_summary_view_model_8cs_source_l00017}00017     \{}
+\DoxyCodeLine{\Hypertarget{_launcher_summary_view_model_8cs_source_l00018}00018         \textcolor{keyword}{public} \mbox{\hyperlink{classautomeas__ui_1_1___launcher_1_1_view_model_1_1_pages_1_1_summary}{Summary}}(\textcolor{keywordtype}{string} name)}
+\DoxyCodeLine{\Hypertarget{_launcher_summary_view_model_8cs_source_l00019}00019         \{}
+\DoxyCodeLine{\Hypertarget{_launcher_summary_view_model_8cs_source_l00020}00020             Name = name;}
+\DoxyCodeLine{\Hypertarget{_launcher_summary_view_model_8cs_source_l00021}00021         \}}
+\DoxyCodeLine{\Hypertarget{_launcher_summary_view_model_8cs_source_l00022}00022         \textcolor{keyword}{public} \textcolor{keywordtype}{string}? Name \{ \textcolor{keyword}{get}; \textcolor{keyword}{set}; \}}
+\DoxyCodeLine{\Hypertarget{_launcher_summary_view_model_8cs_source_l00023}00023         \textcolor{keyword}{public} \textcolor{keywordtype}{string}? Description \{ \textcolor{keyword}{get}; \textcolor{keyword}{set}; \}}
+\DoxyCodeLine{\Hypertarget{_launcher_summary_view_model_8cs_source_l00024}00024         \textcolor{keyword}{public} \textcolor{keywordtype}{string}? Color \{ \textcolor{keyword}{get}; \textcolor{keyword}{set}; \}}
+\DoxyCodeLine{\Hypertarget{_launcher_summary_view_model_8cs_source_l00025}00025     \}}
+\DoxyCodeLine{\Hypertarget{_launcher_summary_view_model_8cs_source_l00026}\mbox{\hyperlink{classautomeas__ui_1_1___launcher_1_1_view_model_1_1_pages_1_1_launcher_summary_view_model}{00026}}     \textcolor{keyword}{public} \textcolor{keyword}{partial class }\mbox{\hyperlink{classautomeas__ui_1_1___launcher_1_1_view_model_1_1_pages_1_1_launcher_summary_view_model}{LauncherSummaryViewModel}} : BaseViewModel}
+\DoxyCodeLine{\Hypertarget{_launcher_summary_view_model_8cs_source_l00027}00027     \{}
+\DoxyCodeLine{\Hypertarget{_launcher_summary_view_model_8cs_source_l00028}00028         \textcolor{comment}{// internal config}}
+\DoxyCodeLine{\Hypertarget{_launcher_summary_view_model_8cs_source_l00029}00029         \textcolor{comment}{// ctor}}
+\DoxyCodeLine{\Hypertarget{_launcher_summary_view_model_8cs_source_l00030}00030         \textcolor{keyword}{public} \mbox{\hyperlink{classautomeas__ui_1_1___launcher_1_1_view_model_1_1_pages_1_1_launcher_summary_view_model}{LauncherSummaryViewModel}}()}
+\DoxyCodeLine{\Hypertarget{_launcher_summary_view_model_8cs_source_l00031}00031         \{}
+\DoxyCodeLine{\Hypertarget{_launcher_summary_view_model_8cs_source_l00032}00032             ChosenOptions = \textcolor{keyword}{new} TrulyObservableCollection<ObservableType<Summary>>();}
+\DoxyCodeLine{\Hypertarget{_launcher_summary_view_model_8cs_source_l00033}00033             \textcolor{keywordflow}{foreach} (var item \textcolor{keywordflow}{in} AMDevConfig.SummaryTitles)}
+\DoxyCodeLine{\Hypertarget{_launcher_summary_view_model_8cs_source_l00034}00034             \{}
+\DoxyCodeLine{\Hypertarget{_launcher_summary_view_model_8cs_source_l00035}00035                 ChosenOptions.Add(\textcolor{keyword}{new} \mbox{\hyperlink{classautomeas__ui_1_1___launcher_1_1_model_1_1_observable_type}{ObservableType<Summary>}}(\textcolor{keyword}{new} \mbox{\hyperlink{classautomeas__ui_1_1___launcher_1_1_view_model_1_1_pages_1_1_summary}{Summary}}(item)));}
+\DoxyCodeLine{\Hypertarget{_launcher_summary_view_model_8cs_source_l00036}00036             \}}
+\DoxyCodeLine{\Hypertarget{_launcher_summary_view_model_8cs_source_l00037}00037             ChosenOptions[0].Value.Description = Target.Instance.Name;}
+\DoxyCodeLine{\Hypertarget{_launcher_summary_view_model_8cs_source_l00038}00038             ChosenOptions[1].Value.Description = Target.Instance.Destination;}
+\DoxyCodeLine{\Hypertarget{_launcher_summary_view_model_8cs_source_l00039}00039             ChosenOptions[2].Value.Description = GetCheckBoxString();}
+\DoxyCodeLine{\Hypertarget{_launcher_summary_view_model_8cs_source_l00040}00040             ChosenOptions[3].Value.Description = Target.Instance.ConfigFileName;}
+\DoxyCodeLine{\Hypertarget{_launcher_summary_view_model_8cs_source_l00041}00041             ChosenOptions[4].Value.Description = Target.Instance.NumberOfMoves.ToString();}
+\DoxyCodeLine{\Hypertarget{_launcher_summary_view_model_8cs_source_l00042}00042         \}}
+\DoxyCodeLine{\Hypertarget{_launcher_summary_view_model_8cs_source_l00043}00043         \textcolor{comment}{// attr}}
+\DoxyCodeLine{\Hypertarget{_launcher_summary_view_model_8cs_source_l00044}00044         \textcolor{keyword}{public} TrulyObservableCollection<ObservableType<Summary>> ChosenOptions \{ \textcolor{keyword}{get}; \textcolor{keyword}{set}; \}}
+\DoxyCodeLine{\Hypertarget{_launcher_summary_view_model_8cs_source_l00045}00045 }
+\DoxyCodeLine{\Hypertarget{_launcher_summary_view_model_8cs_source_l00046}00046         \textcolor{comment}{// func}}
+\DoxyCodeLine{\Hypertarget{_launcher_summary_view_model_8cs_source_l00047}00047         \textcolor{keyword}{private} \textcolor{keywordtype}{string} GetCheckBoxString()}
+\DoxyCodeLine{\Hypertarget{_launcher_summary_view_model_8cs_source_l00048}00048         \{}
+\DoxyCodeLine{\Hypertarget{_launcher_summary_view_model_8cs_source_l00049}00049             \textcolor{keywordtype}{string} result = \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{\Hypertarget{_launcher_summary_view_model_8cs_source_l00050}00050             \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < Target.Instance.Options.Count(); i++)}
+\DoxyCodeLine{\Hypertarget{_launcher_summary_view_model_8cs_source_l00051}00051             \{}
+\DoxyCodeLine{\Hypertarget{_launcher_summary_view_model_8cs_source_l00052}00052                 \textcolor{keywordflow}{if} (Target.Instance.Options[i] == \textcolor{keyword}{true})}
+\DoxyCodeLine{\Hypertarget{_launcher_summary_view_model_8cs_source_l00053}00053                 \{}
+\DoxyCodeLine{\Hypertarget{_launcher_summary_view_model_8cs_source_l00054}00054                     result += \$\textcolor{stringliteral}{"{}\{AMDevConfig.CheckBoxText\_Alternative[i]\},  "{}};}
+\DoxyCodeLine{\Hypertarget{_launcher_summary_view_model_8cs_source_l00055}00055                 \}}
+\DoxyCodeLine{\Hypertarget{_launcher_summary_view_model_8cs_source_l00056}00056 }
+\DoxyCodeLine{\Hypertarget{_launcher_summary_view_model_8cs_source_l00057}00057             \}}
+\DoxyCodeLine{\Hypertarget{_launcher_summary_view_model_8cs_source_l00058}00058             \textcolor{keywordflow}{if} (result.Length > 2)}
+\DoxyCodeLine{\Hypertarget{_launcher_summary_view_model_8cs_source_l00059}00059                 result = result.Substring(0, result.Length -\/ \textcolor{stringliteral}{"{},  "{}}.Length);}
+\DoxyCodeLine{\Hypertarget{_launcher_summary_view_model_8cs_source_l00060}00060             \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{\Hypertarget{_launcher_summary_view_model_8cs_source_l00061}00061         \}}
+\DoxyCodeLine{\Hypertarget{_launcher_summary_view_model_8cs_source_l00062}00062         \textcolor{comment}{// functions}}
+\DoxyCodeLine{\Hypertarget{_launcher_summary_view_model_8cs_source_l00063}00063         [RelayCommand]}
+\DoxyCodeLine{\Hypertarget{_launcher_summary_view_model_8cs_source_l00064}00064         \textcolor{keywordtype}{void} SwitchToDashboard()}
+\DoxyCodeLine{\Hypertarget{_launcher_summary_view_model_8cs_source_l00065}00065         \{}
+\DoxyCodeLine{\Hypertarget{_launcher_summary_view_model_8cs_source_l00066}00066             \textcolor{comment}{//Target.Instance.NotifyChangeWindowToDashboard();}}
+\DoxyCodeLine{\Hypertarget{_launcher_summary_view_model_8cs_source_l00067}00067             Navigator.Instance.ChangeWindow(\textcolor{stringliteral}{"{}dashboard"{}});}
+\DoxyCodeLine{\Hypertarget{_launcher_summary_view_model_8cs_source_l00068}00068         \}}
+\DoxyCodeLine{\Hypertarget{_launcher_summary_view_model_8cs_source_l00069}00069     \}}
+\DoxyCodeLine{\Hypertarget{_launcher_summary_view_model_8cs_source_l00070}00070 \}}
+
+\end{DoxyCode}

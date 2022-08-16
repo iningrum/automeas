@@ -1,0 +1,42 @@
+\hypertarget{_observable_type_8cs_source}{}\doxysection{Observable\+Type.\+cs}
+\label{_observable_type_8cs_source}\index{C:/Users/Admin/source/repos/automeas/automeas-\/ui/\_Launcher/Model/ObservableType.cs@{C:/Users/Admin/source/repos/automeas/automeas-\/ui/\_Launcher/Model/ObservableType.cs}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_observable_type_8cs_source_l00001}00001 \textcolor{keyword}{using }System;}
+\DoxyCodeLine{\Hypertarget{_observable_type_8cs_source_l00002}00002 \textcolor{keyword}{using }System.Collections.Generic;}
+\DoxyCodeLine{\Hypertarget{_observable_type_8cs_source_l00003}00003 \textcolor{keyword}{using }System.ComponentModel;}
+\DoxyCodeLine{\Hypertarget{_observable_type_8cs_source_l00004}00004 \textcolor{keyword}{using }System.Linq;}
+\DoxyCodeLine{\Hypertarget{_observable_type_8cs_source_l00005}00005 \textcolor{keyword}{using }System.Text;}
+\DoxyCodeLine{\Hypertarget{_observable_type_8cs_source_l00006}00006 \textcolor{keyword}{using }System.Threading.Tasks;}
+\DoxyCodeLine{\Hypertarget{_observable_type_8cs_source_l00007}00007 }
+\DoxyCodeLine{\Hypertarget{_observable_type_8cs_source_l00008}00008 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespaceautomeas__ui_1_1___launcher_1_1_model}{automeas\_ui.\_Launcher.Model}}}
+\DoxyCodeLine{\Hypertarget{_observable_type_8cs_source_l00009}00009 \{}
+\DoxyCodeLine{\Hypertarget{_observable_type_8cs_source_l00010}\mbox{\hyperlink{classautomeas__ui_1_1___launcher_1_1_model_1_1_observable_type}{00010}}     \textcolor{keyword}{public} \textcolor{keyword}{class }\mbox{\hyperlink{classautomeas__ui_1_1___launcher_1_1_model_1_1_observable_type}{ObservableType}}<T> : INotifyPropertyChanged}
+\DoxyCodeLine{\Hypertarget{_observable_type_8cs_source_l00011}00011     \{}
+\DoxyCodeLine{\Hypertarget{_observable_type_8cs_source_l00012}00012         \textcolor{keyword}{public} \mbox{\hyperlink{classautomeas__ui_1_1___launcher_1_1_model_1_1_observable_type}{ObservableType}}(T? val)}
+\DoxyCodeLine{\Hypertarget{_observable_type_8cs_source_l00013}00013         \{}
+\DoxyCodeLine{\Hypertarget{_observable_type_8cs_source_l00014}00014             Value = val;}
+\DoxyCodeLine{\Hypertarget{_observable_type_8cs_source_l00015}00015         \}}
+\DoxyCodeLine{\Hypertarget{_observable_type_8cs_source_l00016}00016         \textcolor{comment}{// Interface implementation}}
+\DoxyCodeLine{\Hypertarget{_observable_type_8cs_source_l00017}00017         \textcolor{keyword}{public} \textcolor{keyword}{event} PropertyChangedEventHandler? PropertyChanged;}
+\DoxyCodeLine{\Hypertarget{_observable_type_8cs_source_l00018}00018         \textcolor{keyword}{private} \textcolor{keywordtype}{void} OnPropertyChanged(\textcolor{keywordtype}{string} propertyName)}
+\DoxyCodeLine{\Hypertarget{_observable_type_8cs_source_l00019}00019         \{}
+\DoxyCodeLine{\Hypertarget{_observable_type_8cs_source_l00020}00020             var handler = PropertyChanged;}
+\DoxyCodeLine{\Hypertarget{_observable_type_8cs_source_l00021}00021             \textcolor{keywordflow}{if} (handler != \textcolor{keyword}{null})}
+\DoxyCodeLine{\Hypertarget{_observable_type_8cs_source_l00022}00022                 handler(\textcolor{keyword}{this}, \textcolor{keyword}{new} PropertyChangedEventArgs(propertyName));}
+\DoxyCodeLine{\Hypertarget{_observable_type_8cs_source_l00023}00023         \}}
+\DoxyCodeLine{\Hypertarget{_observable_type_8cs_source_l00024}00024         \textcolor{comment}{// Values}}
+\DoxyCodeLine{\Hypertarget{_observable_type_8cs_source_l00025}00025         \textcolor{keyword}{private} T? \_value;}
+\DoxyCodeLine{\Hypertarget{_observable_type_8cs_source_l00026}00026         \textcolor{keyword}{public} T? Value}
+\DoxyCodeLine{\Hypertarget{_observable_type_8cs_source_l00027}00027         \{}
+\DoxyCodeLine{\Hypertarget{_observable_type_8cs_source_l00028}00028             \textcolor{keyword}{get} \{ \textcolor{keywordflow}{return} \_value; \}}
+\DoxyCodeLine{\Hypertarget{_observable_type_8cs_source_l00029}00029             \textcolor{keyword}{set}}
+\DoxyCodeLine{\Hypertarget{_observable_type_8cs_source_l00030}00030             \{}
+\DoxyCodeLine{\Hypertarget{_observable_type_8cs_source_l00031}00031                 \_value = value;}
+\DoxyCodeLine{\Hypertarget{_observable_type_8cs_source_l00032}00032                 OnPropertyChanged(\textcolor{stringliteral}{"{}Value"{}});}
+\DoxyCodeLine{\Hypertarget{_observable_type_8cs_source_l00033}00033             \}}
+\DoxyCodeLine{\Hypertarget{_observable_type_8cs_source_l00034}00034         \}}
+\DoxyCodeLine{\Hypertarget{_observable_type_8cs_source_l00035}00035     \}}
+\DoxyCodeLine{\Hypertarget{_observable_type_8cs_source_l00036}00036 \}}
+
+\end{DoxyCode}

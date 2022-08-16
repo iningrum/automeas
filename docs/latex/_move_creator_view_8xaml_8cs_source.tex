@@ -1,0 +1,129 @@
+\hypertarget{_move_creator_view_8xaml_8cs_source}{}\doxysection{Move\+Creator\+View.\+xaml.\+cs}
+\label{_move_creator_view_8xaml_8cs_source}\index{C:/Users/Admin/source/repos/automeas/automeas-\/ui/MVGenerator/MVVM/View/MoveCreatorView.xaml.cs@{C:/Users/Admin/source/repos/automeas/automeas-\/ui/MVGenerator/MVVM/View/MoveCreatorView.xaml.cs}}
+\mbox{\hyperlink{_move_creator_view_8xaml_8cs}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_move_creator_view_8xaml_8cs_source_l00001}00001 \textcolor{keyword}{using }LiveChartsCore.Defaults;}
+\DoxyCodeLine{\Hypertarget{_move_creator_view_8xaml_8cs_source_l00002}00002 \textcolor{keyword}{using }LiveChartsCore.Drawing;}
+\DoxyCodeLine{\Hypertarget{_move_creator_view_8xaml_8cs_source_l00003}00003 \textcolor{keyword}{using }System;}
+\DoxyCodeLine{\Hypertarget{_move_creator_view_8xaml_8cs_source_l00004}00004 \textcolor{keyword}{using }System.Collections.Generic;}
+\DoxyCodeLine{\Hypertarget{_move_creator_view_8xaml_8cs_source_l00005}00005 \textcolor{keyword}{using }System.Linq;}
+\DoxyCodeLine{\Hypertarget{_move_creator_view_8xaml_8cs_source_l00006}00006 \textcolor{keyword}{using }System.Text;}
+\DoxyCodeLine{\Hypertarget{_move_creator_view_8xaml_8cs_source_l00007}00007 \textcolor{keyword}{using }System.Threading.Tasks;}
+\DoxyCodeLine{\Hypertarget{_move_creator_view_8xaml_8cs_source_l00008}00008 \textcolor{keyword}{using }System.Windows;}
+\DoxyCodeLine{\Hypertarget{_move_creator_view_8xaml_8cs_source_l00009}00009 \textcolor{keyword}{using }System.Windows.Controls;}
+\DoxyCodeLine{\Hypertarget{_move_creator_view_8xaml_8cs_source_l00010}00010 \textcolor{keyword}{using }System.Windows.Data;}
+\DoxyCodeLine{\Hypertarget{_move_creator_view_8xaml_8cs_source_l00011}00011 \textcolor{keyword}{using }System.Windows.Documents;}
+\DoxyCodeLine{\Hypertarget{_move_creator_view_8xaml_8cs_source_l00012}00012 \textcolor{keyword}{using }System.Windows.Input;}
+\DoxyCodeLine{\Hypertarget{_move_creator_view_8xaml_8cs_source_l00013}00013 \textcolor{keyword}{using }System.Windows.Media;}
+\DoxyCodeLine{\Hypertarget{_move_creator_view_8xaml_8cs_source_l00014}00014 \textcolor{keyword}{using }System.Windows.Media.Imaging;}
+\DoxyCodeLine{\Hypertarget{_move_creator_view_8xaml_8cs_source_l00015}00015 \textcolor{keyword}{using }System.Windows.Navigation;}
+\DoxyCodeLine{\Hypertarget{_move_creator_view_8xaml_8cs_source_l00016}00016 \textcolor{keyword}{using }System.Windows.Shapes;}
+\DoxyCodeLine{\Hypertarget{_move_creator_view_8xaml_8cs_source_l00017}00017 \textcolor{keyword}{using }LiveChartsCore.Defaults;}
+\DoxyCodeLine{\Hypertarget{_move_creator_view_8xaml_8cs_source_l00018}00018 \textcolor{keyword}{using }LiveChartsCore.Drawing;}
+\DoxyCodeLine{\Hypertarget{_move_creator_view_8xaml_8cs_source_l00019}00019 \textcolor{keyword}{using }LiveChartsCore.SkiaSharpView.WPF;}
+\DoxyCodeLine{\Hypertarget{_move_creator_view_8xaml_8cs_source_l00020}00020 \textcolor{keyword}{using }\mbox{\hyperlink{namespaceautomeas__ui_1_1_m_v_generator_1_1_m_v_v_m_1_1_view_model}{automeas\_ui.MVGenerator.MVVM.ViewModel}};}
+\DoxyCodeLine{\Hypertarget{_move_creator_view_8xaml_8cs_source_l00021}00021 \textcolor{keyword}{using }\mbox{\hyperlink{namespaceautomeas__ui_1_1_m_v_generator_1_1_m_v_v_m_1_1_model}{automeas\_ui.MVGenerator.MVVM.Model}};}
+\DoxyCodeLine{\Hypertarget{_move_creator_view_8xaml_8cs_source_l00022}00022 \textcolor{keyword}{using }LiveChartsCore;}
+\DoxyCodeLine{\Hypertarget{_move_creator_view_8xaml_8cs_source_l00023}00023 \textcolor{keyword}{using }LiveChartsCore.SkiaSharpView;}
+\DoxyCodeLine{\Hypertarget{_move_creator_view_8xaml_8cs_source_l00024}00024 \textcolor{keyword}{using }System.Windows.Markup;}
+\DoxyCodeLine{\Hypertarget{_move_creator_view_8xaml_8cs_source_l00025}00025 \textcolor{keyword}{using }CommunityToolkit.Mvvm.Input;}
+\DoxyCodeLine{\Hypertarget{_move_creator_view_8xaml_8cs_source_l00026}00026 \textcolor{keyword}{using }\mbox{\hyperlink{namespaceautomeas__ui_1_1_m_w_m_1_1_model_1_1_launcher}{automeas\_ui.MWM.Model.Launcher}};}
+\DoxyCodeLine{\Hypertarget{_move_creator_view_8xaml_8cs_source_l00027}00027 }
+\DoxyCodeLine{\Hypertarget{_move_creator_view_8xaml_8cs_source_l00028}00028 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespaceautomeas__ui_1_1_m_v_generator_1_1_m_v_v_m_1_1_view}{automeas\_ui.MVGenerator.MVVM.View}}}
+\DoxyCodeLine{\Hypertarget{_move_creator_view_8xaml_8cs_source_l00029}00029 \{}
+\DoxyCodeLine{\Hypertarget{_move_creator_view_8xaml_8cs_source_l00033}\mbox{\hyperlink{classautomeas__ui_1_1_m_v_generator_1_1_m_v_v_m_1_1_view_1_1_move_creator_view}{00033}}     \textcolor{keyword}{public} \textcolor{keyword}{partial class }\mbox{\hyperlink{classautomeas__ui_1_1_m_v_generator_1_1_m_v_v_m_1_1_view_1_1_move_creator_view}{MoveCreatorView}} : UserControl}
+\DoxyCodeLine{\Hypertarget{_move_creator_view_8xaml_8cs_source_l00034}00034     \{}
+\DoxyCodeLine{\Hypertarget{_move_creator_view_8xaml_8cs_source_l00035}\mbox{\hyperlink{classautomeas__ui_1_1_m_v_generator_1_1_m_v_v_m_1_1_view_1_1_move_creator_view_a32e30de5245ac70378dd7a402fa2bbd3}{00035}}         \textcolor{keyword}{public} \mbox{\hyperlink{classautomeas__ui_1_1_m_v_generator_1_1_m_v_v_m_1_1_view_1_1_move_creator_view_a32e30de5245ac70378dd7a402fa2bbd3}{MoveCreatorView}}()}
+\DoxyCodeLine{\Hypertarget{_move_creator_view_8xaml_8cs_source_l00036}00036         \{}
+\DoxyCodeLine{\Hypertarget{_move_creator_view_8xaml_8cs_source_l00037}00037             \mbox{\hyperlink{classautomeas__ui_1_1_m_v_generator_1_1_m_v_v_m_1_1_view_1_1_move_creator_view_af48f27f090f61912737394e5f557e829}{InitializeComponent}}();}
+\DoxyCodeLine{\Hypertarget{_move_creator_view_8xaml_8cs_source_l00038}00038         \}}
+\DoxyCodeLine{\Hypertarget{_move_creator_view_8xaml_8cs_source_l00039}00039 }
+\DoxyCodeLine{\Hypertarget{_move_creator_view_8xaml_8cs_source_l00040}\mbox{\hyperlink{classautomeas__ui_1_1_m_v_generator_1_1_m_v_v_m_1_1_view_1_1_move_creator_view_a69f7d50c46c4c6f6773c3d3851cf5671}{00040}}         \textcolor{keyword}{private} \textcolor{keywordtype}{void} \mbox{\hyperlink{classautomeas__ui_1_1_m_v_generator_1_1_m_v_v_m_1_1_view_1_1_move_creator_view_a69f7d50c46c4c6f6773c3d3851cf5671}{Chart\_MouseDown}}(\textcolor{keywordtype}{object} sender, System.Windows.Input.MouseButtonEventArgs e)}
+\DoxyCodeLine{\Hypertarget{_move_creator_view_8xaml_8cs_source_l00041}00041         \{}
+\DoxyCodeLine{\Hypertarget{_move_creator_view_8xaml_8cs_source_l00042}00042             var chart = (CartesianChart)FindName(\textcolor{stringliteral}{"{}chart"{}});}
+\DoxyCodeLine{\Hypertarget{_move_creator_view_8xaml_8cs_source_l00043}00043             var viewModel = (MoveCreatorViewModel)DataContext;}
+\DoxyCodeLine{\Hypertarget{_move_creator_view_8xaml_8cs_source_l00044}00044 }
+\DoxyCodeLine{\Hypertarget{_move_creator_view_8xaml_8cs_source_l00045}00045             \textcolor{comment}{// gets the point in the UI coordinates.}}
+\DoxyCodeLine{\Hypertarget{_move_creator_view_8xaml_8cs_source_l00046}00046             var p = e.GetPosition(chart);}
+\DoxyCodeLine{\Hypertarget{_move_creator_view_8xaml_8cs_source_l00047}00047 }
+\DoxyCodeLine{\Hypertarget{_move_creator_view_8xaml_8cs_source_l00048}00048             \textcolor{comment}{// scales the UI coordinates to the corresponding data in the chart.}}
+\DoxyCodeLine{\Hypertarget{_move_creator_view_8xaml_8cs_source_l00049}00049             \textcolor{comment}{// ScaleUIPoint returns an array of double}}
+\DoxyCodeLine{\Hypertarget{_move_creator_view_8xaml_8cs_source_l00050}00050             var scaledPoint = chart.ScaleUIPoint(\textcolor{keyword}{new} LvcPoint((\textcolor{keywordtype}{float})p.X, (float)p.Y));}
+\DoxyCodeLine{\Hypertarget{_move_creator_view_8xaml_8cs_source_l00051}00051             \textcolor{comment}{// where the X coordinate is in the first position}}
+\DoxyCodeLine{\Hypertarget{_move_creator_view_8xaml_8cs_source_l00052}00052             var x = scaledPoint[0];}
+\DoxyCodeLine{\Hypertarget{_move_creator_view_8xaml_8cs_source_l00053}00053             \textcolor{comment}{// and the Y coordinate in the second position}}
+\DoxyCodeLine{\Hypertarget{_move_creator_view_8xaml_8cs_source_l00054}00054             var y = scaledPoint[1];}
+\DoxyCodeLine{\Hypertarget{_move_creator_view_8xaml_8cs_source_l00055}00055             y = StepperMotorDriver.Instance.QuantitizeVelocity(y);}
+\DoxyCodeLine{\Hypertarget{_move_creator_view_8xaml_8cs_source_l00056}00056             \textcolor{keywordflow}{if} (MVGTarget.Instance.\_creator\_EditMode == \textcolor{keyword}{false})}
+\DoxyCodeLine{\Hypertarget{_move_creator_view_8xaml_8cs_source_l00057}00057             \{}
+\DoxyCodeLine{\Hypertarget{_move_creator_view_8xaml_8cs_source_l00058}00058                 \textcolor{keywordtype}{double}? last\_x = viewModel.Data.Last().X;}
+\DoxyCodeLine{\Hypertarget{_move_creator_view_8xaml_8cs_source_l00059}00059                 \textcolor{keywordflow}{if} (last\_x != \textcolor{keyword}{null})}
+\DoxyCodeLine{\Hypertarget{_move_creator_view_8xaml_8cs_source_l00060}00060                 \{}
+\DoxyCodeLine{\Hypertarget{_move_creator_view_8xaml_8cs_source_l00061}00061                     \textcolor{keywordflow}{if} (x <= last\_x || Math.Abs(x -\/ (\textcolor{keywordtype}{double})last\_x) <= StepperMotorDriver.Instance.SmallestDelay)}
+\DoxyCodeLine{\Hypertarget{_move_creator_view_8xaml_8cs_source_l00062}00062                     \{}
+\DoxyCodeLine{\Hypertarget{_move_creator_view_8xaml_8cs_source_l00063}00063                         x = (double)last\_x;}
+\DoxyCodeLine{\Hypertarget{_move_creator_view_8xaml_8cs_source_l00064}00064                         x += StepperMotorDriver.Instance.SmallestDelay;}
+\DoxyCodeLine{\Hypertarget{_move_creator_view_8xaml_8cs_source_l00065}00065                     \}}
+\DoxyCodeLine{\Hypertarget{_move_creator_view_8xaml_8cs_source_l00066}00066                 \}}
+\DoxyCodeLine{\Hypertarget{_move_creator_view_8xaml_8cs_source_l00067}00067 }
+\DoxyCodeLine{\Hypertarget{_move_creator_view_8xaml_8cs_source_l00068}00068                 \textcolor{comment}{// finally add the new point to the data in our chart.}}
+\DoxyCodeLine{\Hypertarget{_move_creator_view_8xaml_8cs_source_l00069}00069                 var ClickedPoint = \textcolor{keyword}{new} ObservablePoint(x, y);}
+\DoxyCodeLine{\Hypertarget{_move_creator_view_8xaml_8cs_source_l00070}00070                 viewModel.Data.Add(ClickedPoint);}
+\DoxyCodeLine{\Hypertarget{_move_creator_view_8xaml_8cs_source_l00071}00071                 MVGTarget.Instance.NotifyDataModified(\textcolor{stringliteral}{"{}+"{}}, ClickedPoint);}
+\DoxyCodeLine{\Hypertarget{_move_creator_view_8xaml_8cs_source_l00072}00072                 MVGTarget.Instance.CurrentMove.X.Max = x;}
+\DoxyCodeLine{\Hypertarget{_move_creator_view_8xaml_8cs_source_l00073}00073                 MVGTarget.Instance.NotifyFocusChanged(\textcolor{keyword}{new} ObservablePoint(x-\/2,x+5));}
+\DoxyCodeLine{\Hypertarget{_move_creator_view_8xaml_8cs_source_l00074}00074             \}}
+\DoxyCodeLine{\Hypertarget{_move_creator_view_8xaml_8cs_source_l00075}00075             \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{_move_creator_view_8xaml_8cs_source_l00076}00076             \{}
+\DoxyCodeLine{\Hypertarget{_move_creator_view_8xaml_8cs_source_l00077}00077                 \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i = 0; i < viewModel.Data.Count; i++)}
+\DoxyCodeLine{\Hypertarget{_move_creator_view_8xaml_8cs_source_l00078}00078                 \{}
+\DoxyCodeLine{\Hypertarget{_move_creator_view_8xaml_8cs_source_l00079}00079                     \textcolor{keywordflow}{if} (viewModel.Data[i].X > x)}
+\DoxyCodeLine{\Hypertarget{_move_creator_view_8xaml_8cs_source_l00080}00080                     \{}
+\DoxyCodeLine{\Hypertarget{_move_creator_view_8xaml_8cs_source_l00081}00081                         \textcolor{keywordflow}{if} ( i>0)}
+\DoxyCodeLine{\Hypertarget{_move_creator_view_8xaml_8cs_source_l00082}00082                         \{}
+\DoxyCodeLine{\Hypertarget{_move_creator_view_8xaml_8cs_source_l00083}00083                             \textcolor{keywordflow}{if} ((x -\/ (\textcolor{keywordtype}{double})viewModel.Data[i -\/ 1].X) < ((\textcolor{keywordtype}{double})viewModel.Data[i].X -\/ x) \&\& i>1)}
+\DoxyCodeLine{\Hypertarget{_move_creator_view_8xaml_8cs_source_l00084}00084                             \{}
+\DoxyCodeLine{\Hypertarget{_move_creator_view_8xaml_8cs_source_l00085}00085                                 viewModel.Data[i -\/ 1].X = x;}
+\DoxyCodeLine{\Hypertarget{_move_creator_view_8xaml_8cs_source_l00086}00086                                 viewModel.Data[i-\/1].Y = y;}
+\DoxyCodeLine{\Hypertarget{_move_creator_view_8xaml_8cs_source_l00087}00087                             \}}
+\DoxyCodeLine{\Hypertarget{_move_creator_view_8xaml_8cs_source_l00088}00088                             \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{_move_creator_view_8xaml_8cs_source_l00089}00089                             \{}
+\DoxyCodeLine{\Hypertarget{_move_creator_view_8xaml_8cs_source_l00090}00090                                 viewModel.Data[i].X = x;}
+\DoxyCodeLine{\Hypertarget{_move_creator_view_8xaml_8cs_source_l00091}00091                                 viewModel.Data[i].Y = y;}
+\DoxyCodeLine{\Hypertarget{_move_creator_view_8xaml_8cs_source_l00092}00092                             \}}
+\DoxyCodeLine{\Hypertarget{_move_creator_view_8xaml_8cs_source_l00093}00093                         \}}
+\DoxyCodeLine{\Hypertarget{_move_creator_view_8xaml_8cs_source_l00094}00094                         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_move_creator_view_8xaml_8cs_source_l00095}00095                     \}}
+\DoxyCodeLine{\Hypertarget{_move_creator_view_8xaml_8cs_source_l00096}00096                     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (i == viewModel.Data.Count -\/ 1)}
+\DoxyCodeLine{\Hypertarget{_move_creator_view_8xaml_8cs_source_l00097}00097                     \{}
+\DoxyCodeLine{\Hypertarget{_move_creator_view_8xaml_8cs_source_l00098}00098                         viewModel.Data[i].X = x;}
+\DoxyCodeLine{\Hypertarget{_move_creator_view_8xaml_8cs_source_l00099}00099                         viewModel.Data[i].Y = y;}
+\DoxyCodeLine{\Hypertarget{_move_creator_view_8xaml_8cs_source_l00100}00100                     \}}
+\DoxyCodeLine{\Hypertarget{_move_creator_view_8xaml_8cs_source_l00101}00101                 \}}
+\DoxyCodeLine{\Hypertarget{_move_creator_view_8xaml_8cs_source_l00102}00102             \}}
+\DoxyCodeLine{\Hypertarget{_move_creator_view_8xaml_8cs_source_l00103}00103 }
+\DoxyCodeLine{\Hypertarget{_move_creator_view_8xaml_8cs_source_l00104}00104         \}}
+\DoxyCodeLine{\Hypertarget{_move_creator_view_8xaml_8cs_source_l00105}\mbox{\hyperlink{classautomeas__ui_1_1_m_v_generator_1_1_m_v_v_m_1_1_view_1_1_move_creator_view_a403289f9cc2ccf90dea171ff984b4555}{00105}}         \textcolor{keyword}{private} \textcolor{keywordtype}{void} \mbox{\hyperlink{classautomeas__ui_1_1_m_v_generator_1_1_m_v_v_m_1_1_view_1_1_move_creator_view_a403289f9cc2ccf90dea171ff984b4555}{SaveButton\_Click}}(\textcolor{keywordtype}{object} sender, RoutedEventArgs e)}
+\DoxyCodeLine{\Hypertarget{_move_creator_view_8xaml_8cs_source_l00106}00106         \{}
+\DoxyCodeLine{\Hypertarget{_move_creator_view_8xaml_8cs_source_l00107}00107             MVGTarget.Instance.NotifySave();}
+\DoxyCodeLine{\Hypertarget{_move_creator_view_8xaml_8cs_source_l00108}00108             \{ \textcolor{comment}{// load new move}}
+\DoxyCodeLine{\Hypertarget{_move_creator_view_8xaml_8cs_source_l00109}00109                 var viewModel = (MoveCreatorViewModel)DataContext;}
+\DoxyCodeLine{\Hypertarget{_move_creator_view_8xaml_8cs_source_l00110}00110                 \textcolor{keywordflow}{if} (MVGTarget.Instance.CurrentMove.id == -\/1)}
+\DoxyCodeLine{\Hypertarget{_move_creator_view_8xaml_8cs_source_l00111}00111                 \{}
+\DoxyCodeLine{\Hypertarget{_move_creator_view_8xaml_8cs_source_l00112}00112                     \textcolor{keywordflow}{if} (viewModel.\_push == \textcolor{keyword}{true})}
+\DoxyCodeLine{\Hypertarget{_move_creator_view_8xaml_8cs_source_l00113}00113                     \{}
+\DoxyCodeLine{\Hypertarget{_move_creator_view_8xaml_8cs_source_l00114}00114                         MVGTarget.Instance.CurrentMove.id = 0;}
+\DoxyCodeLine{\Hypertarget{_move_creator_view_8xaml_8cs_source_l00115}00115                     \}}
+\DoxyCodeLine{\Hypertarget{_move_creator_view_8xaml_8cs_source_l00116}00116                     \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{_move_creator_view_8xaml_8cs_source_l00117}00117                     \{}
+\DoxyCodeLine{\Hypertarget{_move_creator_view_8xaml_8cs_source_l00118}00118                         MVGTarget.Instance.CurrentMove.id = 1;}
+\DoxyCodeLine{\Hypertarget{_move_creator_view_8xaml_8cs_source_l00119}00119                     \}}
+\DoxyCodeLine{\Hypertarget{_move_creator_view_8xaml_8cs_source_l00120}00120                 \}}
+\DoxyCodeLine{\Hypertarget{_move_creator_view_8xaml_8cs_source_l00121}00121                 MVGTarget.Instance.SaveCurrentMove();}
+\DoxyCodeLine{\Hypertarget{_move_creator_view_8xaml_8cs_source_l00122}00122             \}}
+\DoxyCodeLine{\Hypertarget{_move_creator_view_8xaml_8cs_source_l00123}00123             MVGTarget.Instance.NotifyViewNavigate(\textcolor{stringliteral}{"{}main"{}});}
+\DoxyCodeLine{\Hypertarget{_move_creator_view_8xaml_8cs_source_l00124}00124         \}}
+\DoxyCodeLine{\Hypertarget{_move_creator_view_8xaml_8cs_source_l00125}00125     \}}
+\DoxyCodeLine{\Hypertarget{_move_creator_view_8xaml_8cs_source_l00126}00126 \}}
+
+\end{DoxyCode}

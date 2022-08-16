@@ -1,0 +1,89 @@
+\hypertarget{_m_v_g_8g_8cs_source}{}\doxysection{MVG.\+g.\+cs}
+\label{_m_v_g_8g_8cs_source}\index{C:/Users/Admin/source/repos/automeas/automeas-\/ui/obj/Debug/net6.0-\/windows/MVGenerator/MVG.g.cs@{C:/Users/Admin/source/repos/automeas/automeas-\/ui/obj/Debug/net6.0-\/windows/MVGenerator/MVG.g.cs}}
+\mbox{\hyperlink{_m_v_g_8g_8cs}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_m_v_g_8g_8cs_source_l00001}00001 \textcolor{preprocessor}{\#pragma checksum "{}..\(\backslash\)..\(\backslash\)..\(\backslash\)..\(\backslash\)MVGenerator\(\backslash\)MVG.xaml"{}} "{}\{ff1816ec-\/aa5e-\/4d10-\/87f7-\/6f4963833460\}"{} "{}BE85D206C667B744F12B95D0E09648E3E17D2A4D"{}}
+\DoxyCodeLine{\Hypertarget{_m_v_g_8g_8cs_source_l00002}00002 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{_m_v_g_8g_8cs_source_l00003}00003 \textcolor{comment}{// <auto-\/generated>}}
+\DoxyCodeLine{\Hypertarget{_m_v_g_8g_8cs_source_l00004}00004 \textcolor{comment}{//     Ten kod został wygenerowany przez narzędzie.}}
+\DoxyCodeLine{\Hypertarget{_m_v_g_8g_8cs_source_l00005}00005 \textcolor{comment}{//     Wersja wykonawcza:4.0.30319.42000}}
+\DoxyCodeLine{\Hypertarget{_m_v_g_8g_8cs_source_l00006}00006 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_m_v_g_8g_8cs_source_l00007}00007 \textcolor{comment}{//     Zmiany w tym pliku mogą spowodować nieprawidłowe zachowanie i zostaną utracone, jeśli}}
+\DoxyCodeLine{\Hypertarget{_m_v_g_8g_8cs_source_l00008}00008 \textcolor{comment}{//     kod zostanie ponownie wygenerowany.}}
+\DoxyCodeLine{\Hypertarget{_m_v_g_8g_8cs_source_l00009}00009 \textcolor{comment}{// </auto-\/generated>}}
+\DoxyCodeLine{\Hypertarget{_m_v_g_8g_8cs_source_l00010}00010 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{_m_v_g_8g_8cs_source_l00011}00011 }
+\DoxyCodeLine{\Hypertarget{_m_v_g_8g_8cs_source_l00012}00012 \textcolor{keyword}{using }System;}
+\DoxyCodeLine{\Hypertarget{_m_v_g_8g_8cs_source_l00013}00013 \textcolor{keyword}{using }System.Diagnostics;}
+\DoxyCodeLine{\Hypertarget{_m_v_g_8g_8cs_source_l00014}00014 \textcolor{keyword}{using }System.Windows;}
+\DoxyCodeLine{\Hypertarget{_m_v_g_8g_8cs_source_l00015}00015 \textcolor{keyword}{using }System.Windows.Automation;}
+\DoxyCodeLine{\Hypertarget{_m_v_g_8g_8cs_source_l00016}00016 \textcolor{keyword}{using }System.Windows.Controls;}
+\DoxyCodeLine{\Hypertarget{_m_v_g_8g_8cs_source_l00017}00017 \textcolor{keyword}{using }System.Windows.Controls.Primitives;}
+\DoxyCodeLine{\Hypertarget{_m_v_g_8g_8cs_source_l00018}00018 \textcolor{keyword}{using }System.Windows.Controls.Ribbon;}
+\DoxyCodeLine{\Hypertarget{_m_v_g_8g_8cs_source_l00019}00019 \textcolor{keyword}{using }System.Windows.Data;}
+\DoxyCodeLine{\Hypertarget{_m_v_g_8g_8cs_source_l00020}00020 \textcolor{keyword}{using }System.Windows.Documents;}
+\DoxyCodeLine{\Hypertarget{_m_v_g_8g_8cs_source_l00021}00021 \textcolor{keyword}{using }System.Windows.Ink;}
+\DoxyCodeLine{\Hypertarget{_m_v_g_8g_8cs_source_l00022}00022 \textcolor{keyword}{using }System.Windows.Input;}
+\DoxyCodeLine{\Hypertarget{_m_v_g_8g_8cs_source_l00023}00023 \textcolor{keyword}{using }System.Windows.Markup;}
+\DoxyCodeLine{\Hypertarget{_m_v_g_8g_8cs_source_l00024}00024 \textcolor{keyword}{using }System.Windows.Media;}
+\DoxyCodeLine{\Hypertarget{_m_v_g_8g_8cs_source_l00025}00025 \textcolor{keyword}{using }System.Windows.Media.Animation;}
+\DoxyCodeLine{\Hypertarget{_m_v_g_8g_8cs_source_l00026}00026 \textcolor{keyword}{using }System.Windows.Media.Effects;}
+\DoxyCodeLine{\Hypertarget{_m_v_g_8g_8cs_source_l00027}00027 \textcolor{keyword}{using }System.Windows.Media.Imaging;}
+\DoxyCodeLine{\Hypertarget{_m_v_g_8g_8cs_source_l00028}00028 \textcolor{keyword}{using }System.Windows.Media.Media3D;}
+\DoxyCodeLine{\Hypertarget{_m_v_g_8g_8cs_source_l00029}00029 \textcolor{keyword}{using }System.Windows.Media.TextFormatting;}
+\DoxyCodeLine{\Hypertarget{_m_v_g_8g_8cs_source_l00030}00030 \textcolor{keyword}{using }System.Windows.Navigation;}
+\DoxyCodeLine{\Hypertarget{_m_v_g_8g_8cs_source_l00031}00031 \textcolor{keyword}{using }System.Windows.Shapes;}
+\DoxyCodeLine{\Hypertarget{_m_v_g_8g_8cs_source_l00032}00032 \textcolor{keyword}{using }System.Windows.Shell;}
+\DoxyCodeLine{\Hypertarget{_m_v_g_8g_8cs_source_l00033}00033 \textcolor{keyword}{using }\mbox{\hyperlink{namespaceautomeas__ui_1_1_m_v_generator}{automeas\_ui.MVGenerator}};}
+\DoxyCodeLine{\Hypertarget{_m_v_g_8g_8cs_source_l00034}00034 \textcolor{keyword}{using }\mbox{\hyperlink{namespaceautomeas__ui_1_1_m_v_generator_1_1_m_v_v_m_1_1_view}{automeas\_ui.MVGenerator.MVVM.View}};}
+\DoxyCodeLine{\Hypertarget{_m_v_g_8g_8cs_source_l00035}00035 \textcolor{keyword}{using }\mbox{\hyperlink{namespaceautomeas__ui_1_1_m_v_generator_1_1_m_v_v_m_1_1_view_model}{automeas\_ui.MVGenerator.MVVM.ViewModel}};}
+\DoxyCodeLine{\Hypertarget{_m_v_g_8g_8cs_source_l00036}00036 }
+\DoxyCodeLine{\Hypertarget{_m_v_g_8g_8cs_source_l00037}00037 }
+\DoxyCodeLine{\Hypertarget{_m_v_g_8g_8cs_source_l00038}00038 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespaceautomeas__ui_1_1_m_v_generator}{automeas\_ui.MVGenerator}} \{}
+\DoxyCodeLine{\Hypertarget{_m_v_g_8g_8cs_source_l00039}00039     }
+\DoxyCodeLine{\Hypertarget{_m_v_g_8g_8cs_source_l00040}00040     }
+\DoxyCodeLine{\Hypertarget{_m_v_g_8g_8cs_source_l00044}00044     \textcolor{keyword}{public} \textcolor{keyword}{partial class }\mbox{\hyperlink{classautomeas__ui_1_1_m_v_generator_1_1_m_v_g}{MVG}} : System.Windows.Window, System.Windows.Markup.IComponentConnector \{}
+\DoxyCodeLine{\Hypertarget{_m_v_g_8g_8cs_source_l00045}00045         }
+\DoxyCodeLine{\Hypertarget{_m_v_g_8g_8cs_source_l00046}\mbox{\hyperlink{classautomeas__ui_1_1_m_v_generator_1_1_m_v_g_a6292359a6563eb5bd1a2ae3f063b4889}{00046}}         \textcolor{keyword}{private} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classautomeas__ui_1_1_m_v_generator_1_1_m_v_g_a6292359a6563eb5bd1a2ae3f063b4889}{\_contentLoaded}};}
+\DoxyCodeLine{\Hypertarget{_m_v_g_8g_8cs_source_l00047}00047         }
+\DoxyCodeLine{\Hypertarget{_m_v_g_8g_8cs_source_l00051}00051         [System.Diagnostics.DebuggerNonUserCodeAttribute()]}
+\DoxyCodeLine{\Hypertarget{_m_v_g_8g_8cs_source_l00052}00052         [System.CodeDom.Compiler.GeneratedCodeAttribute(\textcolor{stringliteral}{"{}PresentationBuildTasks"{}}, \textcolor{stringliteral}{"{}6.0.8.0"{}})]}
+\DoxyCodeLine{\Hypertarget{_m_v_g_8g_8cs_source_l00053}\mbox{\hyperlink{classautomeas__ui_1_1_m_v_generator_1_1_m_v_g_a10d0384b900b3acc47c8e0d79b880559}{00053}}         \textcolor{keyword}{public} \textcolor{keywordtype}{void} \mbox{\hyperlink{classautomeas__ui_1_1_m_v_generator_1_1_m_v_g_a10d0384b900b3acc47c8e0d79b880559}{InitializeComponent}}() \{}
+\DoxyCodeLine{\Hypertarget{_m_v_g_8g_8cs_source_l00054}00054             \textcolor{keywordflow}{if} (\mbox{\hyperlink{classautomeas__ui_1_1_m_v_generator_1_1_m_v_g_a6292359a6563eb5bd1a2ae3f063b4889}{\_contentLoaded}}) \{}
+\DoxyCodeLine{\Hypertarget{_m_v_g_8g_8cs_source_l00055}00055                 \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{_m_v_g_8g_8cs_source_l00056}00056             \}}
+\DoxyCodeLine{\Hypertarget{_m_v_g_8g_8cs_source_l00057}00057             \mbox{\hyperlink{classautomeas__ui_1_1_m_v_generator_1_1_m_v_g_a6292359a6563eb5bd1a2ae3f063b4889}{\_contentLoaded}} = \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{_m_v_g_8g_8cs_source_l00058}00058             System.Uri resourceLocater = \textcolor{keyword}{new} System.Uri(\textcolor{stringliteral}{"{}/automeas-\/ui;component/mvgenerator/mvg.xaml"{}}, System.UriKind.Relative);}
+\DoxyCodeLine{\Hypertarget{_m_v_g_8g_8cs_source_l00059}00059             }
+\DoxyCodeLine{\Hypertarget{_m_v_g_8g_8cs_source_l00060}00060 \textcolor{preprocessor}{            \#line 1 "{}..\(\backslash\)..\(\backslash\)..\(\backslash\)..\(\backslash\)MVGenerator\(\backslash\)MVG.xaml"{}}}
+\DoxyCodeLine{\Hypertarget{_m_v_g_8g_8cs_source_l00061}00061             System.Windows.Application.LoadComponent(\textcolor{keyword}{this}, resourceLocater);}
+\DoxyCodeLine{\Hypertarget{_m_v_g_8g_8cs_source_l00062}00062             }
+\DoxyCodeLine{\Hypertarget{_m_v_g_8g_8cs_source_l00063}00063 \textcolor{preprocessor}{            \#line default}}
+\DoxyCodeLine{\Hypertarget{_m_v_g_8g_8cs_source_l00064}00064 \textcolor{preprocessor}{            \#line hidden}}
+\DoxyCodeLine{\Hypertarget{_m_v_g_8g_8cs_source_l00065}00065         \}}
+\DoxyCodeLine{\Hypertarget{_m_v_g_8g_8cs_source_l00066}00066         }
+\DoxyCodeLine{\Hypertarget{_m_v_g_8g_8cs_source_l00067}00067         [System.Diagnostics.DebuggerNonUserCodeAttribute()]}
+\DoxyCodeLine{\Hypertarget{_m_v_g_8g_8cs_source_l00068}00068         [System.CodeDom.Compiler.GeneratedCodeAttribute(\textcolor{stringliteral}{"{}PresentationBuildTasks"{}}, \textcolor{stringliteral}{"{}6.0.8.0"{}})]}
+\DoxyCodeLine{\Hypertarget{_m_v_g_8g_8cs_source_l00069}00069         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]}
+\DoxyCodeLine{\Hypertarget{_m_v_g_8g_8cs_source_l00070}00070         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute(\textcolor{stringliteral}{"{}Microsoft.Design"{}}, \textcolor{stringliteral}{"{}CA1033:InterfaceMethodsShouldBeCallableByChildTypes"{}})]}
+\DoxyCodeLine{\Hypertarget{_m_v_g_8g_8cs_source_l00071}00071         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute(\textcolor{stringliteral}{"{}Microsoft.Maintainability"{}}, \textcolor{stringliteral}{"{}CA1502:AvoidExcessiveComplexity"{}})]}
+\DoxyCodeLine{\Hypertarget{_m_v_g_8g_8cs_source_l00072}00072         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute(\textcolor{stringliteral}{"{}Microsoft.Performance"{}}, \textcolor{stringliteral}{"{}CA1800:DoNotCastUnnecessarily"{}})]}
+\DoxyCodeLine{\Hypertarget{_m_v_g_8g_8cs_source_l00073}\mbox{\hyperlink{classautomeas__ui_1_1_m_v_generator_1_1_m_v_g_a158b93ca02b9dc320f568d8506fa3c8c}{00073}}         \textcolor{keywordtype}{void} System.Windows.Markup.IComponentConnector.Connect(\textcolor{keywordtype}{int} connectionId, \textcolor{keywordtype}{object} target) \{}
+\DoxyCodeLine{\Hypertarget{_m_v_g_8g_8cs_source_l00074}00074             \textcolor{keywordflow}{switch} (connectionId)}
+\DoxyCodeLine{\Hypertarget{_m_v_g_8g_8cs_source_l00075}00075             \{}
+\DoxyCodeLine{\Hypertarget{_m_v_g_8g_8cs_source_l00076}00076             \textcolor{keywordflow}{case} 1:}
+\DoxyCodeLine{\Hypertarget{_m_v_g_8g_8cs_source_l00077}00077             }
+\DoxyCodeLine{\Hypertarget{_m_v_g_8g_8cs_source_l00078}00078 \textcolor{preprocessor}{            \#line 58 "{}..\(\backslash\)..\(\backslash\)..\(\backslash\)..\(\backslash\)MVGenerator\(\backslash\)MVG.xaml"{}}}
+\DoxyCodeLine{\Hypertarget{_m_v_g_8g_8cs_source_l00079}00079             ((System.Windows.Controls.Button)(target)).Click += \textcolor{keyword}{new} System.Windows.RoutedEventHandler(\textcolor{keyword}{this}.Button\_Click);}
+\DoxyCodeLine{\Hypertarget{_m_v_g_8g_8cs_source_l00080}00080             }
+\DoxyCodeLine{\Hypertarget{_m_v_g_8g_8cs_source_l00081}00081 \textcolor{preprocessor}{            \#line default}}
+\DoxyCodeLine{\Hypertarget{_m_v_g_8g_8cs_source_l00082}00082 \textcolor{preprocessor}{            \#line hidden}}
+\DoxyCodeLine{\Hypertarget{_m_v_g_8g_8cs_source_l00083}00083             \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{_m_v_g_8g_8cs_source_l00084}00084             \}}
+\DoxyCodeLine{\Hypertarget{_m_v_g_8g_8cs_source_l00085}00085             this.\_contentLoaded = \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{_m_v_g_8g_8cs_source_l00086}00086         \}}
+\DoxyCodeLine{\Hypertarget{_m_v_g_8g_8cs_source_l00087}00087     \}}
+\DoxyCodeLine{\Hypertarget{_m_v_g_8g_8cs_source_l00088}00088 \}}
+\DoxyCodeLine{\Hypertarget{_m_v_g_8g_8cs_source_l00089}00089 }
+
+\end{DoxyCode}

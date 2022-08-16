@@ -1,0 +1,72 @@
+\hypertarget{___launcher_2_model_2_target_8cs_source}{}\doxysection{Target.\+cs}
+\label{___launcher_2_model_2_target_8cs_source}\index{C:/Users/Admin/source/repos/automeas/automeas-\/ui/\_Launcher/Model/Target.cs@{C:/Users/Admin/source/repos/automeas/automeas-\/ui/\_Launcher/Model/Target.cs}}
+\mbox{\hyperlink{___launcher_2_model_2_target_8cs}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{___launcher_2_model_2_target_8cs_source_l00001}00001 \textcolor{keyword}{using }\mbox{\hyperlink{namespaceautomeas__ui_1_1___launcher_1_1_view_model}{automeas\_ui.\_Launcher.ViewModel}};}
+\DoxyCodeLine{\Hypertarget{___launcher_2_model_2_target_8cs_source_l00002}00002 \textcolor{keyword}{using }System;}
+\DoxyCodeLine{\Hypertarget{___launcher_2_model_2_target_8cs_source_l00003}00003 \textcolor{keyword}{using }System.Collections.Generic;}
+\DoxyCodeLine{\Hypertarget{___launcher_2_model_2_target_8cs_source_l00004}00004 \textcolor{keyword}{using }System.Linq;}
+\DoxyCodeLine{\Hypertarget{___launcher_2_model_2_target_8cs_source_l00005}00005 \textcolor{keyword}{using }System.Text;}
+\DoxyCodeLine{\Hypertarget{___launcher_2_model_2_target_8cs_source_l00006}00006 \textcolor{keyword}{using }System.Threading.Tasks;}
+\DoxyCodeLine{\Hypertarget{___launcher_2_model_2_target_8cs_source_l00007}00007 }
+\DoxyCodeLine{\Hypertarget{___launcher_2_model_2_target_8cs_source_l00008}00008 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespaceautomeas__ui_1_1___launcher_1_1_model}{automeas\_ui.\_Launcher.Model}}}
+\DoxyCodeLine{\Hypertarget{___launcher_2_model_2_target_8cs_source_l00009}00009 \{}
+\DoxyCodeLine{\Hypertarget{___launcher_2_model_2_target_8cs_source_l00010}00010     \textcolor{keyword}{internal} sealed \textcolor{keyword}{class }\mbox{\hyperlink{___launcher_2_view_model_2_launcher___main_view_model_8cs_a0f0638c5031ad476adf34946e611c617}{Target}}}
+\DoxyCodeLine{\Hypertarget{___launcher_2_model_2_target_8cs_source_l00011}00011     \{}
+\DoxyCodeLine{\Hypertarget{___launcher_2_model_2_target_8cs_source_l00012}00012         \textcolor{comment}{// singleton implementation -\/ thread safe}}
+\DoxyCodeLine{\Hypertarget{___launcher_2_model_2_target_8cs_source_l00013}00013         \textcolor{keyword}{private} \textcolor{keyword}{static} readonly Lazy<Target> lazy = \textcolor{keyword}{new} Lazy<Target>(() => \textcolor{keyword}{new} \mbox{\hyperlink{___launcher_2_view_model_2_launcher___main_view_model_8cs_a0f0638c5031ad476adf34946e611c617}{Target}}());}
+\DoxyCodeLine{\Hypertarget{___launcher_2_model_2_target_8cs_source_l00014}00014         \textcolor{keyword}{public} \textcolor{keyword}{static} \mbox{\hyperlink{___launcher_2_view_model_2_launcher___main_view_model_8cs_a0f0638c5031ad476adf34946e611c617}{Target}} Instance \{ \textcolor{keyword}{get} \{ \textcolor{keywordflow}{return} lazy.Value; \} \}}
+\DoxyCodeLine{\Hypertarget{___launcher_2_model_2_target_8cs_source_l00015}00015         \textcolor{comment}{// ctor}}
+\DoxyCodeLine{\Hypertarget{___launcher_2_model_2_target_8cs_source_l00016}00016         \textcolor{keyword}{private} \mbox{\hyperlink{___launcher_2_view_model_2_launcher___main_view_model_8cs_a0f0638c5031ad476adf34946e611c617}{Target}}()}
+\DoxyCodeLine{\Hypertarget{___launcher_2_model_2_target_8cs_source_l00017}00017         \{}
+\DoxyCodeLine{\Hypertarget{___launcher_2_model_2_target_8cs_source_l00018}00018             ConfigFilePath = \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{\Hypertarget{___launcher_2_model_2_target_8cs_source_l00019}00019             ConfigFileName = \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{\Hypertarget{___launcher_2_model_2_target_8cs_source_l00020}00020             Destination = \textcolor{stringliteral}{"{}File Path     📁  "{}};}
+\DoxyCodeLine{\Hypertarget{___launcher_2_model_2_target_8cs_source_l00021}00021             Name = \textcolor{stringliteral}{"{}Sample name"{}};}
+\DoxyCodeLine{\Hypertarget{___launcher_2_model_2_target_8cs_source_l00022}00022             Description = \textcolor{stringliteral}{"{}Sample description"{}};}
+\DoxyCodeLine{\Hypertarget{___launcher_2_model_2_target_8cs_source_l00023}00023             NumberOfMoves = 1;}
+\DoxyCodeLine{\Hypertarget{___launcher_2_model_2_target_8cs_source_l00024}00024         \}}
+\DoxyCodeLine{\Hypertarget{___launcher_2_model_2_target_8cs_source_l00025}00025         \textcolor{comment}{// events}}
+\DoxyCodeLine{\Hypertarget{___launcher_2_model_2_target_8cs_source_l00026}00026 }
+\DoxyCodeLine{\Hypertarget{___launcher_2_model_2_target_8cs_source_l00027}00027         \textcolor{keyword}{public} \textcolor{keyword}{event} Action<int>? PageChangedEvent;}
+\DoxyCodeLine{\Hypertarget{___launcher_2_model_2_target_8cs_source_l00028}00028         \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{___launcher_2_model_2_target_8cs_source_l00029}00029 \textcolor{comment}{         * Launcher\_MainViewModel.PageNoLonger Relevant  -\/>}}
+\DoxyCodeLine{\Hypertarget{___launcher_2_model_2_target_8cs_source_l00030}00030 \textcolor{comment}{         * -\/> this.PageChangedEvent -\/> all pages}}
+\DoxyCodeLine{\Hypertarget{___launcher_2_model_2_target_8cs_source_l00031}00031 \textcolor{comment}{         * -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{___launcher_2_model_2_target_8cs_source_l00032}00032 \textcolor{comment}{         * It prompts old view to upload all user data that it's got}}
+\DoxyCodeLine{\Hypertarget{___launcher_2_model_2_target_8cs_source_l00033}00033 \textcolor{comment}{         * into Target}}
+\DoxyCodeLine{\Hypertarget{___launcher_2_model_2_target_8cs_source_l00034}00034 \textcolor{comment}{         */}}
+\DoxyCodeLine{\Hypertarget{___launcher_2_model_2_target_8cs_source_l00035}00035         \textcolor{keyword}{public} \textcolor{keyword}{event} Action<List<string>>? ChangeWindowToDashboard;}
+\DoxyCodeLine{\Hypertarget{___launcher_2_model_2_target_8cs_source_l00036}00036         \textcolor{keyword}{public} \textcolor{keyword}{event} Action ChangeWindowToMVG;}
+\DoxyCodeLine{\Hypertarget{___launcher_2_model_2_target_8cs_source_l00037}00037         \textcolor{keyword}{public} \textcolor{keyword}{event} Action ChangeMVGToLauncher;}
+\DoxyCodeLine{\Hypertarget{___launcher_2_model_2_target_8cs_source_l00038}00038         \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{___launcher_2_model_2_target_8cs_source_l00039}00039 \textcolor{comment}{         *  LauncherSummaryViewModel.SwitchToDashboard() -\/>}}
+\DoxyCodeLine{\Hypertarget{___launcher_2_model_2_target_8cs_source_l00040}00040 \textcolor{comment}{         *  -\/> this.ChangeWindowToDashboard -\/> App.HandleWindowToDashboard()}}
+\DoxyCodeLine{\Hypertarget{___launcher_2_model_2_target_8cs_source_l00041}00041 \textcolor{comment}{         *  -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{___launcher_2_model_2_target_8cs_source_l00042}00042 \textcolor{comment}{         *  Used solely to close Launcher and open Dashboard}}
+\DoxyCodeLine{\Hypertarget{___launcher_2_model_2_target_8cs_source_l00043}00043 \textcolor{comment}{         */}}
+\DoxyCodeLine{\Hypertarget{___launcher_2_model_2_target_8cs_source_l00044}00044         \textcolor{comment}{// senders}}
+\DoxyCodeLine{\Hypertarget{___launcher_2_model_2_target_8cs_source_l00045}00045         \textcolor{keyword}{private} \textcolor{keywordtype}{void} NotifyPageChanged(\textcolor{keywordtype}{int} msg) => PageChangedEvent?.Invoke(msg);}
+\DoxyCodeLine{\Hypertarget{___launcher_2_model_2_target_8cs_source_l00046}00046         \textcolor{comment}{// handlers}}
+\DoxyCodeLine{\Hypertarget{___launcher_2_model_2_target_8cs_source_l00047}00047         \textcolor{comment}{// attr}}
+\DoxyCodeLine{\Hypertarget{___launcher_2_model_2_target_8cs_source_l00048}00048         \textcolor{keyword}{private} \mbox{\hyperlink{classautomeas__ui_1_1___launcher_1_1_view_model_1_1_launcher___main_view_model}{Launcher\_MainViewModel}} \_master;}
+\DoxyCodeLine{\Hypertarget{___launcher_2_model_2_target_8cs_source_l00049}00049         \textcolor{keyword}{public} \textcolor{keywordtype}{void} Launcher\_MainViewModel\_SetMaster(\mbox{\hyperlink{classautomeas__ui_1_1___launcher_1_1_view_model_1_1_launcher___main_view_model}{Launcher\_MainViewModel}} master)}
+\DoxyCodeLine{\Hypertarget{___launcher_2_model_2_target_8cs_source_l00050}00050         \{}
+\DoxyCodeLine{\Hypertarget{___launcher_2_model_2_target_8cs_source_l00051}00051             \_master = master;}
+\DoxyCodeLine{\Hypertarget{___launcher_2_model_2_target_8cs_source_l00052}00052             master.PageNoLongerRelevant += NotifyPageChanged;}
+\DoxyCodeLine{\Hypertarget{___launcher_2_model_2_target_8cs_source_l00053}00053             \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{___launcher_2_model_2_target_8cs_source_l00054}00054         \}}
+\DoxyCodeLine{\Hypertarget{___launcher_2_model_2_target_8cs_source_l00055}00055         \textcolor{keyword}{public} \textcolor{keywordtype}{string} Destination;}
+\DoxyCodeLine{\Hypertarget{___launcher_2_model_2_target_8cs_source_l00056}00056         \textcolor{keyword}{public} \textcolor{keywordtype}{string} Name;}
+\DoxyCodeLine{\Hypertarget{___launcher_2_model_2_target_8cs_source_l00057}00057         \textcolor{keyword}{public} \textcolor{keywordtype}{string} Description;}
+\DoxyCodeLine{\Hypertarget{___launcher_2_model_2_target_8cs_source_l00058}00058         \textcolor{keyword}{public} \textcolor{keywordtype}{string} ConfigFilePath;}
+\DoxyCodeLine{\Hypertarget{___launcher_2_model_2_target_8cs_source_l00059}00059         \textcolor{keyword}{public} \textcolor{keywordtype}{string} ConfigFileName;}
+\DoxyCodeLine{\Hypertarget{___launcher_2_model_2_target_8cs_source_l00060}00060         \textcolor{keyword}{public} \textcolor{keywordtype}{int} NumberOfMoves;}
+\DoxyCodeLine{\Hypertarget{___launcher_2_model_2_target_8cs_source_l00061}00061         \textcolor{keyword}{public} List<bool> Options;}
+\DoxyCodeLine{\Hypertarget{___launcher_2_model_2_target_8cs_source_l00062}00062         \textcolor{keyword}{public} \textcolor{keywordtype}{void} NotifyChangeWindowToDashboard() => ChangeWindowToDashboard?.Invoke(\textcolor{keyword}{new} List<string>());}
+\DoxyCodeLine{\Hypertarget{___launcher_2_model_2_target_8cs_source_l00063}00063         \textcolor{keyword}{public} \textcolor{keywordtype}{void} NotifyChangeWindowToMVG() => ChangeWindowToMVG?.Invoke();}
+\DoxyCodeLine{\Hypertarget{___launcher_2_model_2_target_8cs_source_l00064}00064         \textcolor{keyword}{public} \textcolor{keywordtype}{void} NotifyChangeMVGToLauncher() => ChangeMVGToLauncher?.Invoke();}
+\DoxyCodeLine{\Hypertarget{___launcher_2_model_2_target_8cs_source_l00065}00065     \}}
+\DoxyCodeLine{\Hypertarget{___launcher_2_model_2_target_8cs_source_l00066}00066 \}}
+
+\end{DoxyCode}

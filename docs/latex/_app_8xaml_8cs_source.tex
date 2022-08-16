@@ -1,0 +1,87 @@
+\hypertarget{_app_8xaml_8cs_source}{}\doxysection{App.\+xaml.\+cs}
+\label{_app_8xaml_8cs_source}\index{C:/Users/Admin/source/repos/automeas/automeas-\/ui/App.xaml.cs@{C:/Users/Admin/source/repos/automeas/automeas-\/ui/App.xaml.cs}}
+\mbox{\hyperlink{_app_8xaml_8cs}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_app_8xaml_8cs_source_l00001}00001 \textcolor{keyword}{using }\mbox{\hyperlink{namespaceautomeas__ui_1_1_m_v_generator}{automeas\_ui.MVGenerator}};}
+\DoxyCodeLine{\Hypertarget{_app_8xaml_8cs_source_l00002}00002 \textcolor{keyword}{using }\mbox{\hyperlink{namespaceautomeas__ui_1_1___launcher_1_1_model}{automeas\_ui.\_Launcher.Model}};}
+\DoxyCodeLine{\Hypertarget{_app_8xaml_8cs_source_l00003}00003 \textcolor{keyword}{using }\mbox{\hyperlink{namespaceautomeas__ui_1_1_m_w_m_1_1_view_model}{automeas\_ui.MWM.ViewModel}};}
+\DoxyCodeLine{\Hypertarget{_app_8xaml_8cs_source_l00004}00004 \textcolor{keyword}{using }System;}
+\DoxyCodeLine{\Hypertarget{_app_8xaml_8cs_source_l00005}00005 \textcolor{keyword}{using }System.Collections.Generic;}
+\DoxyCodeLine{\Hypertarget{_app_8xaml_8cs_source_l00006}00006 \textcolor{keyword}{using }System.Windows;}
+\DoxyCodeLine{\Hypertarget{_app_8xaml_8cs_source_l00007}\mbox{\hyperlink{_app_8xaml_8cs_a820f181175cc27ed74177b854b06d644}{00007}} \textcolor{keyword}{using }\mbox{\hyperlink{_app_8xaml_8cs_a820f181175cc27ed74177b854b06d644}{llc}} = \mbox{\hyperlink{namespaceautomeas__ui}{automeas\_ui}}.\mbox{\hyperlink{namespaceautomeas__ui_1_1___launcher}{\_Launcher}}.\mbox{\hyperlink{classautomeas__ui_1_1___launcher_1_1_launcher}{Launcher}};}
+\DoxyCodeLine{\Hypertarget{_app_8xaml_8cs_source_l00008}00008 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespaceautomeas__ui}{automeas\_ui}}}
+\DoxyCodeLine{\Hypertarget{_app_8xaml_8cs_source_l00009}00009 \{}
+\DoxyCodeLine{\Hypertarget{_app_8xaml_8cs_source_l00013}\mbox{\hyperlink{classautomeas__ui_1_1_app}{00013}}     \textcolor{keyword}{public} \textcolor{keyword}{partial class }\mbox{\hyperlink{classautomeas__ui_1_1_app}{App}} : Application}
+\DoxyCodeLine{\Hypertarget{_app_8xaml_8cs_source_l00014}00014     \{}
+\DoxyCodeLine{\Hypertarget{_app_8xaml_8cs_source_l00015}\mbox{\hyperlink{classautomeas__ui_1_1_app_a173dcfb9061f62ff831a15ccd21e9e22}{00015}}         \textcolor{keyword}{protected} \textcolor{keyword}{override} \textcolor{keywordtype}{void} \mbox{\hyperlink{classautomeas__ui_1_1_app_a173dcfb9061f62ff831a15ccd21e9e22}{OnStartup}}(StartupEventArgs e)}
+\DoxyCodeLine{\Hypertarget{_app_8xaml_8cs_source_l00016}00016         \{}
+\DoxyCodeLine{\Hypertarget{_app_8xaml_8cs_source_l00017}00017             \mbox{\hyperlink{classautomeas__ui_1_1_app_a32c5ef90d4b56b791048a1213dd95928}{InitLauncher}}();}
+\DoxyCodeLine{\Hypertarget{_app_8xaml_8cs_source_l00018}00018         \}}
+\DoxyCodeLine{\Hypertarget{_app_8xaml_8cs_source_l00019}\mbox{\hyperlink{classautomeas__ui_1_1_app_a8f1fd0d6512c2473e3850a2a57c938ac}{00019}}         \textcolor{keyword}{private} Window? \mbox{\hyperlink{classautomeas__ui_1_1_app_a8f1fd0d6512c2473e3850a2a57c938ac}{mw}};}
+\DoxyCodeLine{\Hypertarget{_app_8xaml_8cs_source_l00020}\mbox{\hyperlink{classautomeas__ui_1_1_app_a32c5ef90d4b56b791048a1213dd95928}{00020}}         \textcolor{keyword}{private} \textcolor{keywordtype}{void} \mbox{\hyperlink{classautomeas__ui_1_1_app_a32c5ef90d4b56b791048a1213dd95928}{InitLauncher}}()}
+\DoxyCodeLine{\Hypertarget{_app_8xaml_8cs_source_l00021}00021         \{}
+\DoxyCodeLine{\Hypertarget{_app_8xaml_8cs_source_l00022}00022             \mbox{\hyperlink{_app_8xaml_8cs_a820f181175cc27ed74177b854b06d644}{llc}} launcher = \textcolor{keyword}{new}();}
+\DoxyCodeLine{\Hypertarget{_app_8xaml_8cs_source_l00023}00023             \textcolor{comment}{//var x = (Launcher\_MainViewModel)launcher.DataContext;}}
+\DoxyCodeLine{\Hypertarget{_app_8xaml_8cs_source_l00024}00024             Navigator.Instance.WindowChanged += \mbox{\hyperlink{classautomeas__ui_1_1_app_a1234624a1a1fbcb74e6db53492a02b2a}{HandleWindowChanged}};}
+\DoxyCodeLine{\Hypertarget{_app_8xaml_8cs_source_l00025}00025             \mbox{\hyperlink{classautomeas__ui_1_1_app_a8f1fd0d6512c2473e3850a2a57c938ac}{mw}} = launcher;}
+\DoxyCodeLine{\Hypertarget{_app_8xaml_8cs_source_l00026}00026             \mbox{\hyperlink{classautomeas__ui_1_1_app_a8f1fd0d6512c2473e3850a2a57c938ac}{mw}}.Show();}
+\DoxyCodeLine{\Hypertarget{_app_8xaml_8cs_source_l00027}00027             \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{_app_8xaml_8cs_source_l00028}00028         \}}
+\DoxyCodeLine{\Hypertarget{_app_8xaml_8cs_source_l00029}\mbox{\hyperlink{classautomeas__ui_1_1_app_abe1ede637461994266bae2a2ab66489a}{00029}}         \textcolor{keyword}{private} \textcolor{keywordtype}{void} \mbox{\hyperlink{classautomeas__ui_1_1_app_abe1ede637461994266bae2a2ab66489a}{InitAnyWindow}}(Type T)}
+\DoxyCodeLine{\Hypertarget{_app_8xaml_8cs_source_l00030}00030         \{}
+\DoxyCodeLine{\Hypertarget{_app_8xaml_8cs_source_l00031}00031             \mbox{\hyperlink{classautomeas__ui_1_1_app_a8f1fd0d6512c2473e3850a2a57c938ac}{mw}} = (Window?)Activator.CreateInstance(T);}
+\DoxyCodeLine{\Hypertarget{_app_8xaml_8cs_source_l00032}00032             \textcolor{keywordflow}{if} (\mbox{\hyperlink{classautomeas__ui_1_1_app_a8f1fd0d6512c2473e3850a2a57c938ac}{mw}} == \textcolor{keyword}{null})}
+\DoxyCodeLine{\Hypertarget{_app_8xaml_8cs_source_l00033}00033             \{}
+\DoxyCodeLine{\Hypertarget{_app_8xaml_8cs_source_l00034}00034                 \textcolor{keywordflow}{throw} \textcolor{keyword}{new} Exception(\textcolor{stringliteral}{"{}It should not even be possible for app.mw to be null"{}});}
+\DoxyCodeLine{\Hypertarget{_app_8xaml_8cs_source_l00035}00035             \}}
+\DoxyCodeLine{\Hypertarget{_app_8xaml_8cs_source_l00036}00036             \mbox{\hyperlink{classautomeas__ui_1_1_app_a8f1fd0d6512c2473e3850a2a57c938ac}{mw}}.Show();}
+\DoxyCodeLine{\Hypertarget{_app_8xaml_8cs_source_l00037}00037         \}}
+\DoxyCodeLine{\Hypertarget{_app_8xaml_8cs_source_l00038}\mbox{\hyperlink{classautomeas__ui_1_1_app_abbe0ae5bda516190baca689ce575200b}{00038}}         \textcolor{keyword}{private} \textcolor{keywordtype}{void} \mbox{\hyperlink{classautomeas__ui_1_1_app_abbe0ae5bda516190baca689ce575200b}{InitDashboard}}()}
+\DoxyCodeLine{\Hypertarget{_app_8xaml_8cs_source_l00039}00039         \{}
+\DoxyCodeLine{\Hypertarget{_app_8xaml_8cs_source_l00040}00040             \mbox{\hyperlink{classautomeas__ui_1_1_dashboard}{Dashboard}} dashboard = \textcolor{keyword}{new} \mbox{\hyperlink{classautomeas__ui_1_1_dashboard}{Dashboard}}();}
+\DoxyCodeLine{\Hypertarget{_app_8xaml_8cs_source_l00041}00041             \mbox{\hyperlink{classautomeas__ui_1_1_app_a8f1fd0d6512c2473e3850a2a57c938ac}{mw}} = dashboard;}
+\DoxyCodeLine{\Hypertarget{_app_8xaml_8cs_source_l00042}00042             \mbox{\hyperlink{classautomeas__ui_1_1_app_a8f1fd0d6512c2473e3850a2a57c938ac}{mw}}.Show();}
+\DoxyCodeLine{\Hypertarget{_app_8xaml_8cs_source_l00043}00043             \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{_app_8xaml_8cs_source_l00044}00044         \}}
+\DoxyCodeLine{\Hypertarget{_app_8xaml_8cs_source_l00045}\mbox{\hyperlink{classautomeas__ui_1_1_app_aa13096fc065aff61b75435d5803df53a}{00045}}         \textcolor{keyword}{private} \textcolor{keywordtype}{void} \mbox{\hyperlink{classautomeas__ui_1_1_app_aa13096fc065aff61b75435d5803df53a}{InitMVG}}()}
+\DoxyCodeLine{\Hypertarget{_app_8xaml_8cs_source_l00046}00046         \{}
+\DoxyCodeLine{\Hypertarget{_app_8xaml_8cs_source_l00047}00047             \mbox{\hyperlink{classautomeas__ui_1_1_m_v_generator_1_1_m_v_g}{MVG}} MoVeGenerator = \textcolor{keyword}{new} \mbox{\hyperlink{classautomeas__ui_1_1_m_v_generator_1_1_m_v_g}{MVG}}();}
+\DoxyCodeLine{\Hypertarget{_app_8xaml_8cs_source_l00048}00048             \mbox{\hyperlink{classautomeas__ui_1_1_app_a8f1fd0d6512c2473e3850a2a57c938ac}{mw}} = MoVeGenerator;}
+\DoxyCodeLine{\Hypertarget{_app_8xaml_8cs_source_l00049}00049             \mbox{\hyperlink{classautomeas__ui_1_1_app_a8f1fd0d6512c2473e3850a2a57c938ac}{mw}}.Show();}
+\DoxyCodeLine{\Hypertarget{_app_8xaml_8cs_source_l00050}00050             \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{_app_8xaml_8cs_source_l00051}00051         \}}
+\DoxyCodeLine{\Hypertarget{_app_8xaml_8cs_source_l00052}\mbox{\hyperlink{classautomeas__ui_1_1_app_aa198c64138480f18956a9c9472058a6d}{00052}}         \textcolor{keyword}{private} \textcolor{keywordtype}{void} \mbox{\hyperlink{classautomeas__ui_1_1_app_aa198c64138480f18956a9c9472058a6d}{ReInitLauncher}}()}
+\DoxyCodeLine{\Hypertarget{_app_8xaml_8cs_source_l00053}00053         \{}
+\DoxyCodeLine{\Hypertarget{_app_8xaml_8cs_source_l00054}00054             \mbox{\hyperlink{classautomeas__ui_1_1_app_a8f1fd0d6512c2473e3850a2a57c938ac}{mw}} = \textcolor{keyword}{new} \mbox{\hyperlink{_app_8xaml_8cs_a820f181175cc27ed74177b854b06d644}{llc}}();}
+\DoxyCodeLine{\Hypertarget{_app_8xaml_8cs_source_l00055}00055             \mbox{\hyperlink{classautomeas__ui_1_1_app_a8f1fd0d6512c2473e3850a2a57c938ac}{mw}}.Show();}
+\DoxyCodeLine{\Hypertarget{_app_8xaml_8cs_source_l00056}00056             \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{_app_8xaml_8cs_source_l00057}00057         \}}
+\DoxyCodeLine{\Hypertarget{_app_8xaml_8cs_source_l00058}\mbox{\hyperlink{classautomeas__ui_1_1_app_af6abea7ede1228a6556a4244fc45333a}{00058}}         \textcolor{keyword}{private} \textcolor{keywordtype}{void} \mbox{\hyperlink{classautomeas__ui_1_1_app_af6abea7ede1228a6556a4244fc45333a}{Switch}}(Action initializer)}
+\DoxyCodeLine{\Hypertarget{_app_8xaml_8cs_source_l00059}00059         \{}
+\DoxyCodeLine{\Hypertarget{_app_8xaml_8cs_source_l00060}00060             Window toBeClosed = \mbox{\hyperlink{classautomeas__ui_1_1_app_a8f1fd0d6512c2473e3850a2a57c938ac}{mw}};}
+\DoxyCodeLine{\Hypertarget{_app_8xaml_8cs_source_l00061}00061             initializer();}
+\DoxyCodeLine{\Hypertarget{_app_8xaml_8cs_source_l00062}00062             toBeClosed.Close();}
+\DoxyCodeLine{\Hypertarget{_app_8xaml_8cs_source_l00063}00063         \}}
+\DoxyCodeLine{\Hypertarget{_app_8xaml_8cs_source_l00064}\mbox{\hyperlink{classautomeas__ui_1_1_app_a55a6803a0d741d0c97e74ece1befe720}{00064}}         \textcolor{keyword}{private} \textcolor{keywordtype}{void} \mbox{\hyperlink{classautomeas__ui_1_1_app_a55a6803a0d741d0c97e74ece1befe720}{SwitchAnyWindow}}(Type window)}
+\DoxyCodeLine{\Hypertarget{_app_8xaml_8cs_source_l00065}00065         \{}
+\DoxyCodeLine{\Hypertarget{_app_8xaml_8cs_source_l00066}00066             Window toBeClosed = \mbox{\hyperlink{classautomeas__ui_1_1_app_a8f1fd0d6512c2473e3850a2a57c938ac}{mw}};}
+\DoxyCodeLine{\Hypertarget{_app_8xaml_8cs_source_l00067}00067             \mbox{\hyperlink{classautomeas__ui_1_1_app_abe1ede637461994266bae2a2ab66489a}{InitAnyWindow}}(window);}
+\DoxyCodeLine{\Hypertarget{_app_8xaml_8cs_source_l00068}00068             toBeClosed.Close();}
+\DoxyCodeLine{\Hypertarget{_app_8xaml_8cs_source_l00069}00069         \}}
+\DoxyCodeLine{\Hypertarget{_app_8xaml_8cs_source_l00070}\mbox{\hyperlink{classautomeas__ui_1_1_app_abc95b1ca4d5fe4238184ea970648df4e}{00070}}         \textcolor{keyword}{public} \textcolor{keywordtype}{void} \mbox{\hyperlink{classautomeas__ui_1_1_app_abc95b1ca4d5fe4238184ea970648df4e}{HandleWindowToDashboard}}(List<string> msg)}
+\DoxyCodeLine{\Hypertarget{_app_8xaml_8cs_source_l00071}00071         \{}
+\DoxyCodeLine{\Hypertarget{_app_8xaml_8cs_source_l00072}00072             \mbox{\hyperlink{classautomeas__ui_1_1_app_af6abea7ede1228a6556a4244fc45333a}{Switch}}(\mbox{\hyperlink{classautomeas__ui_1_1_app_abbe0ae5bda516190baca689ce575200b}{InitDashboard}});}
+\DoxyCodeLine{\Hypertarget{_app_8xaml_8cs_source_l00073}00073         \}}
+\DoxyCodeLine{\Hypertarget{_app_8xaml_8cs_source_l00074}\mbox{\hyperlink{classautomeas__ui_1_1_app_af610c3d294d3d4661fd537ab6453a10f}{00074}}         \textcolor{keyword}{public} \textcolor{keywordtype}{void} \mbox{\hyperlink{classautomeas__ui_1_1_app_af610c3d294d3d4661fd537ab6453a10f}{HandleUnsavedMVG}}()}
+\DoxyCodeLine{\Hypertarget{_app_8xaml_8cs_source_l00075}00075         \{}
+\DoxyCodeLine{\Hypertarget{_app_8xaml_8cs_source_l00076}00076             \mbox{\hyperlink{classautomeas__ui_1_1_app_af6abea7ede1228a6556a4244fc45333a}{Switch}}(\mbox{\hyperlink{classautomeas__ui_1_1_app_aa198c64138480f18956a9c9472058a6d}{ReInitLauncher}});}
+\DoxyCodeLine{\Hypertarget{_app_8xaml_8cs_source_l00077}00077         \}}
+\DoxyCodeLine{\Hypertarget{_app_8xaml_8cs_source_l00078}\mbox{\hyperlink{classautomeas__ui_1_1_app_af8b54712f232572ea455159036293fd2}{00078}}         \textcolor{keyword}{public} \textcolor{keywordtype}{void} \mbox{\hyperlink{classautomeas__ui_1_1_app_af8b54712f232572ea455159036293fd2}{HandleWindowToMVG}}()}
+\DoxyCodeLine{\Hypertarget{_app_8xaml_8cs_source_l00079}00079         \{}
+\DoxyCodeLine{\Hypertarget{_app_8xaml_8cs_source_l00080}00080             \mbox{\hyperlink{classautomeas__ui_1_1_app_af6abea7ede1228a6556a4244fc45333a}{Switch}}(\mbox{\hyperlink{classautomeas__ui_1_1_app_aa13096fc065aff61b75435d5803df53a}{InitMVG}});}
+\DoxyCodeLine{\Hypertarget{_app_8xaml_8cs_source_l00081}00081         \}}
+\DoxyCodeLine{\Hypertarget{_app_8xaml_8cs_source_l00082}\mbox{\hyperlink{classautomeas__ui_1_1_app_a1234624a1a1fbcb74e6db53492a02b2a}{00082}}         \textcolor{keyword}{public} \textcolor{keywordtype}{void} \mbox{\hyperlink{classautomeas__ui_1_1_app_a1234624a1a1fbcb74e6db53492a02b2a}{HandleWindowChanged}}(Type msg) => \mbox{\hyperlink{classautomeas__ui_1_1_app_a55a6803a0d741d0c97e74ece1befe720}{SwitchAnyWindow}}(msg);}
+\DoxyCodeLine{\Hypertarget{_app_8xaml_8cs_source_l00083}00083     \}}
+\DoxyCodeLine{\Hypertarget{_app_8xaml_8cs_source_l00084}00084 \}}
+
+\end{DoxyCode}

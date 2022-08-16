@@ -1,0 +1,71 @@
+\hypertarget{_upload_config_file_view_model_8cs_source}{}\doxysection{Upload\+Config\+File\+View\+Model.\+cs}
+\label{_upload_config_file_view_model_8cs_source}\index{C:/Users/Admin/source/repos/automeas/automeas-\/ui/\_Launcher/ViewModel/Pages/UploadConfigFileViewModel.cs@{C:/Users/Admin/source/repos/automeas/automeas-\/ui/\_Launcher/ViewModel/Pages/UploadConfigFileViewModel.cs}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_upload_config_file_view_model_8cs_source_l00001}00001 \textcolor{keyword}{using }\mbox{\hyperlink{namespaceautomeas__ui_1_1___launcher_1_1_model}{automeas\_ui.\_Launcher.Model}};}
+\DoxyCodeLine{\Hypertarget{_upload_config_file_view_model_8cs_source_l00002}00002 \textcolor{keyword}{using }automeas\_ui.MWM.Model.Launcher;}
+\DoxyCodeLine{\Hypertarget{_upload_config_file_view_model_8cs_source_l00003}00003 \textcolor{keyword}{using }CommunityToolkit.Mvvm.Input;}
+\DoxyCodeLine{\Hypertarget{_upload_config_file_view_model_8cs_source_l00004}00004 \textcolor{keyword}{using }System;}
+\DoxyCodeLine{\Hypertarget{_upload_config_file_view_model_8cs_source_l00005}00005 \textcolor{keyword}{using }System.Collections.Generic;}
+\DoxyCodeLine{\Hypertarget{_upload_config_file_view_model_8cs_source_l00006}00006 \textcolor{keyword}{using }System.Linq;}
+\DoxyCodeLine{\Hypertarget{_upload_config_file_view_model_8cs_source_l00007}00007 \textcolor{keyword}{using }System.Text;}
+\DoxyCodeLine{\Hypertarget{_upload_config_file_view_model_8cs_source_l00008}00008 \textcolor{keyword}{using }System.Threading.Tasks;}
+\DoxyCodeLine{\Hypertarget{_upload_config_file_view_model_8cs_source_l00009}00009 \textcolor{keyword}{using }Navigator = \mbox{\hyperlink{namespaceautomeas__ui}{automeas\_ui}}.\mbox{\hyperlink{namespaceautomeas__ui_1_1___launcher}{\_Launcher}}.\mbox{\hyperlink{namespaceautomeas__ui_1_1___launcher_1_1_model}{Model}}.\mbox{\hyperlink{classautomeas__ui_1_1___launcher_1_1_model_1_1_navigator}{Navigator}};}
+\DoxyCodeLine{\Hypertarget{_upload_config_file_view_model_8cs_source_l00010}00010 \textcolor{keyword}{using }Target = \mbox{\hyperlink{namespaceautomeas__ui}{automeas\_ui}}.\mbox{\hyperlink{namespaceautomeas__ui_1_1___launcher}{\_Launcher}}.\mbox{\hyperlink{namespaceautomeas__ui_1_1___launcher_1_1_model}{Model}}.\mbox{\hyperlink{classautomeas__ui_1_1___launcher_1_1_model_1_1_target}{Target}};}
+\DoxyCodeLine{\Hypertarget{_upload_config_file_view_model_8cs_source_l00011}00011 }
+\DoxyCodeLine{\Hypertarget{_upload_config_file_view_model_8cs_source_l00012}00012 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespaceautomeas__ui_1_1___launcher_1_1_view_model_1_1_pages}{automeas\_ui.\_Launcher.ViewModel.Pages}}}
+\DoxyCodeLine{\Hypertarget{_upload_config_file_view_model_8cs_source_l00013}00013 \{}
+\DoxyCodeLine{\Hypertarget{_upload_config_file_view_model_8cs_source_l00014}\mbox{\hyperlink{classautomeas__ui_1_1___launcher_1_1_view_model_1_1_pages_1_1_upload_config_file_view_model}{00014}}     \textcolor{keyword}{public} \textcolor{keyword}{partial class }\mbox{\hyperlink{classautomeas__ui_1_1___launcher_1_1_view_model_1_1_pages_1_1_upload_config_file_view_model}{UploadConfigFileViewModel}} : BaseViewModel, IBaseViewModel}
+\DoxyCodeLine{\Hypertarget{_upload_config_file_view_model_8cs_source_l00015}00015     \{}
+\DoxyCodeLine{\Hypertarget{_upload_config_file_view_model_8cs_source_l00016}00016         \textcolor{comment}{// ctor}}
+\DoxyCodeLine{\Hypertarget{_upload_config_file_view_model_8cs_source_l00017}00017         \textcolor{keyword}{public} \mbox{\hyperlink{classautomeas__ui_1_1___launcher_1_1_view_model_1_1_pages_1_1_upload_config_file_view_model}{UploadConfigFileViewModel}}()}
+\DoxyCodeLine{\Hypertarget{_upload_config_file_view_model_8cs_source_l00018}00018         \{}
+\DoxyCodeLine{\Hypertarget{_upload_config_file_view_model_8cs_source_l00019}00019             \{ \textcolor{comment}{// load Target}}
+\DoxyCodeLine{\Hypertarget{_upload_config_file_view_model_8cs_source_l00020}00020                 Target.Instance.PageChangedEvent += HandlePageChanged;}
+\DoxyCodeLine{\Hypertarget{_upload_config_file_view_model_8cs_source_l00021}00021                 NOfRepeatsInt = \textcolor{keyword}{new} \mbox{\hyperlink{classautomeas__ui_1_1___launcher_1_1_model_1_1_observable_type}{ObservableType<int>}}(Target.Instance.NumberOfMoves);}
+\DoxyCodeLine{\Hypertarget{_upload_config_file_view_model_8cs_source_l00022}00022             \}}
+\DoxyCodeLine{\Hypertarget{_upload_config_file_view_model_8cs_source_l00023}00023             NOfRepeatsFontSize = \textcolor{keyword}{new} \mbox{\hyperlink{classautomeas__ui_1_1___launcher_1_1_model_1_1_observable_type}{ObservableType<int>}}(32);}
+\DoxyCodeLine{\Hypertarget{_upload_config_file_view_model_8cs_source_l00024}00024             NOfRepeatsInt = \textcolor{keyword}{new} \mbox{\hyperlink{classautomeas__ui_1_1___launcher_1_1_model_1_1_observable_type}{ObservableType<int>}}(1);}
+\DoxyCodeLine{\Hypertarget{_upload_config_file_view_model_8cs_source_l00025}00025         \}}
+\DoxyCodeLine{\Hypertarget{_upload_config_file_view_model_8cs_source_l00026}00026         \textcolor{comment}{// attr}}
+\DoxyCodeLine{\Hypertarget{_upload_config_file_view_model_8cs_source_l00027}00027         \textcolor{keyword}{private} \textcolor{keywordtype}{int} ID = 2;}
+\DoxyCodeLine{\Hypertarget{_upload_config_file_view_model_8cs_source_l00028}00028         \textcolor{keyword}{public} \mbox{\hyperlink{classautomeas__ui_1_1___launcher_1_1_model_1_1_observable_type}{ObservableType<int>}} NOfRepeatsFontSize \{ \textcolor{keyword}{get}; \textcolor{keyword}{set}; \}}
+\DoxyCodeLine{\Hypertarget{_upload_config_file_view_model_8cs_source_l00029}00029         \textcolor{keyword}{public} \mbox{\hyperlink{classautomeas__ui_1_1___launcher_1_1_model_1_1_observable_type}{ObservableType<int>}} NOfRepeatsInt \{ \textcolor{keyword}{get}; \textcolor{keyword}{set}; \}}
+\DoxyCodeLine{\Hypertarget{_upload_config_file_view_model_8cs_source_l00030}00030 }
+\DoxyCodeLine{\Hypertarget{_upload_config_file_view_model_8cs_source_l00031}00031         \textcolor{keyword}{public} \textcolor{keywordtype}{void} HandlePageChanged(\textcolor{keywordtype}{int} msg)}
+\DoxyCodeLine{\Hypertarget{_upload_config_file_view_model_8cs_source_l00032}00032         \{}
+\DoxyCodeLine{\Hypertarget{_upload_config_file_view_model_8cs_source_l00033}00033             \textcolor{keywordflow}{if} (msg != ID)}
+\DoxyCodeLine{\Hypertarget{_upload_config_file_view_model_8cs_source_l00034}00034                 \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{_upload_config_file_view_model_8cs_source_l00035}00035             Target.Instance.NumberOfMoves = NOfRepeatsInt.Value;}
+\DoxyCodeLine{\Hypertarget{_upload_config_file_view_model_8cs_source_l00036}00036         \}}
+\DoxyCodeLine{\Hypertarget{_upload_config_file_view_model_8cs_source_l00037}00037         \textcolor{comment}{// handle drag\&drop}}
+\DoxyCodeLine{\Hypertarget{_upload_config_file_view_model_8cs_source_l00038}00038         \textcolor{keyword}{public} \textcolor{keywordtype}{void} DragDropFile(\textcolor{keywordtype}{string} filename, \textcolor{keywordtype}{string} path)}
+\DoxyCodeLine{\Hypertarget{_upload_config_file_view_model_8cs_source_l00039}00039         \{}
+\DoxyCodeLine{\Hypertarget{_upload_config_file_view_model_8cs_source_l00040}00040             Target.Instance.ConfigFileName = filename;}
+\DoxyCodeLine{\Hypertarget{_upload_config_file_view_model_8cs_source_l00041}00041             Target.Instance.ConfigFilePath = path;}
+\DoxyCodeLine{\Hypertarget{_upload_config_file_view_model_8cs_source_l00042}00042             \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{_upload_config_file_view_model_8cs_source_l00043}00043         \}}
+\DoxyCodeLine{\Hypertarget{_upload_config_file_view_model_8cs_source_l00044}00044         \textcolor{comment}{// icommand}}
+\DoxyCodeLine{\Hypertarget{_upload_config_file_view_model_8cs_source_l00045}00045         [RelayCommand]}
+\DoxyCodeLine{\Hypertarget{_upload_config_file_view_model_8cs_source_l00046}00046         \textcolor{keywordtype}{void} ChooseFile()}
+\DoxyCodeLine{\Hypertarget{_upload_config_file_view_model_8cs_source_l00047}00047         \{}
+\DoxyCodeLine{\Hypertarget{_upload_config_file_view_model_8cs_source_l00048}00048             System.Windows.Forms.FolderBrowserDialog openFileDlg = \textcolor{keyword}{new} System.Windows.Forms.FolderBrowserDialog();}
+\DoxyCodeLine{\Hypertarget{_upload_config_file_view_model_8cs_source_l00049}00049             var result = openFileDlg.ShowDialog();}
+\DoxyCodeLine{\Hypertarget{_upload_config_file_view_model_8cs_source_l00050}00050             \textcolor{keywordflow}{if} (result.ToString() != \textcolor{keywordtype}{string}.Empty)}
+\DoxyCodeLine{\Hypertarget{_upload_config_file_view_model_8cs_source_l00051}00051             \{}
+\DoxyCodeLine{\Hypertarget{_upload_config_file_view_model_8cs_source_l00052}00052                 \textcolor{keywordtype}{string} src = openFileDlg.SelectedPath;}
+\DoxyCodeLine{\Hypertarget{_upload_config_file_view_model_8cs_source_l00053}00053                 \textcolor{keywordflow}{if} (src == \textcolor{keyword}{null} || src.Length == 0)}
+\DoxyCodeLine{\Hypertarget{_upload_config_file_view_model_8cs_source_l00054}00054                 \{}
+\DoxyCodeLine{\Hypertarget{_upload_config_file_view_model_8cs_source_l00055}00055                     \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{_upload_config_file_view_model_8cs_source_l00056}00056                 \}}
+\DoxyCodeLine{\Hypertarget{_upload_config_file_view_model_8cs_source_l00057}00057                 Target.Instance.ConfigFileName = System.IO.Path.GetFileName(src);}
+\DoxyCodeLine{\Hypertarget{_upload_config_file_view_model_8cs_source_l00058}00058                 Target.Instance.ConfigFilePath = src;}
+\DoxyCodeLine{\Hypertarget{_upload_config_file_view_model_8cs_source_l00059}00059             \}}
+\DoxyCodeLine{\Hypertarget{_upload_config_file_view_model_8cs_source_l00060}00060         \}}
+\DoxyCodeLine{\Hypertarget{_upload_config_file_view_model_8cs_source_l00061}00061         [RelayCommand]}
+\DoxyCodeLine{\Hypertarget{_upload_config_file_view_model_8cs_source_l00062}00062         \textcolor{keywordtype}{void} OpenMVG() => Navigator.Instance.ChangeWindow(\textcolor{stringliteral}{"{}mvg"{}});}
+\DoxyCodeLine{\Hypertarget{_upload_config_file_view_model_8cs_source_l00063}00063         \textcolor{keyword}{public} \textcolor{keywordtype}{void} RefreshIntegerUpDown(\textcolor{keywordtype}{int} msg) => Target.Instance.NumberOfMoves = msg;}
+\DoxyCodeLine{\Hypertarget{_upload_config_file_view_model_8cs_source_l00064}00064     \}}
+\DoxyCodeLine{\Hypertarget{_upload_config_file_view_model_8cs_source_l00065}00065 \}}
+
+\end{DoxyCode}

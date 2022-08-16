@@ -1,0 +1,66 @@
+\hypertarget{_navigator_8cs_source}{}\doxysection{Navigator.\+cs}
+\label{_navigator_8cs_source}\index{C:/Users/Admin/source/repos/automeas/automeas-\/ui/\_Launcher/Model/Navigator.cs@{C:/Users/Admin/source/repos/automeas/automeas-\/ui/\_Launcher/Model/Navigator.cs}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_navigator_8cs_source_l00001}00001 \textcolor{keyword}{using }automeas\_ui.MVGenerator;}
+\DoxyCodeLine{\Hypertarget{_navigator_8cs_source_l00002}00002 \textcolor{keyword}{using }System;}
+\DoxyCodeLine{\Hypertarget{_navigator_8cs_source_l00003}00003 \textcolor{keyword}{using }System.Collections.Generic;}
+\DoxyCodeLine{\Hypertarget{_navigator_8cs_source_l00004}00004 \textcolor{keyword}{using }System.Linq;}
+\DoxyCodeLine{\Hypertarget{_navigator_8cs_source_l00005}00005 \textcolor{keyword}{using }System.Text;}
+\DoxyCodeLine{\Hypertarget{_navigator_8cs_source_l00006}00006 \textcolor{keyword}{using }System.Threading.Tasks;}
+\DoxyCodeLine{\Hypertarget{_navigator_8cs_source_l00007}00007 }
+\DoxyCodeLine{\Hypertarget{_navigator_8cs_source_l00008}\mbox{\hyperlink{namespaceautomeas__ui_1_1___launcher_1_1_model}{00008}} \textcolor{keyword}{namespace }\mbox{\hyperlink{namespaceautomeas__ui_1_1___launcher_1_1_model}{automeas\_ui.\_Launcher.Model}}}
+\DoxyCodeLine{\Hypertarget{_navigator_8cs_source_l00009}00009 \{}
+\DoxyCodeLine{\Hypertarget{_navigator_8cs_source_l00010}00010     \textcolor{keyword}{internal} sealed \textcolor{keyword}{class }Navigator}
+\DoxyCodeLine{\Hypertarget{_navigator_8cs_source_l00011}00011     \{}
+\DoxyCodeLine{\Hypertarget{_navigator_8cs_source_l00012}00012         \textcolor{comment}{// singleton implementation -\/ thread safe}}
+\DoxyCodeLine{\Hypertarget{_navigator_8cs_source_l00013}00013         \textcolor{keyword}{private} \textcolor{keyword}{static} readonly Lazy<Navigator> lazy = \textcolor{keyword}{new} Lazy<Navigator>(() => \textcolor{keyword}{new} Navigator(typeof(\mbox{\hyperlink{namespaceautomeas__ui}{automeas\_ui}}.Launcher)));}
+\DoxyCodeLine{\Hypertarget{_navigator_8cs_source_l00014}00014         \textcolor{keyword}{public} \textcolor{keyword}{static} Navigator Instance \{ \textcolor{keyword}{get} \{ \textcolor{keywordflow}{return} lazy.Value; \} \}}
+\DoxyCodeLine{\Hypertarget{_navigator_8cs_source_l00015}00015         \textcolor{comment}{// ctor}}
+\DoxyCodeLine{\Hypertarget{_navigator_8cs_source_l00016}00016         \textcolor{keyword}{private} Navigator(Type t)}
+\DoxyCodeLine{\Hypertarget{_navigator_8cs_source_l00017}00017         \{}
+\DoxyCodeLine{\Hypertarget{_navigator_8cs_source_l00018}00018             \_previousWindow = t;}
+\DoxyCodeLine{\Hypertarget{_navigator_8cs_source_l00019}00019             \_currentWindow = t;}
+\DoxyCodeLine{\Hypertarget{_navigator_8cs_source_l00020}00020         \}}
+\DoxyCodeLine{\Hypertarget{_navigator_8cs_source_l00021}00021         \textcolor{comment}{// attr}}
+\DoxyCodeLine{\Hypertarget{_navigator_8cs_source_l00022}00022         \textcolor{keyword}{public} readonly Dictionary<string, Type> RegInit = \textcolor{keyword}{new} Dictionary<string, Type>()}
+\DoxyCodeLine{\Hypertarget{_navigator_8cs_source_l00023}00023         \{}
+\DoxyCodeLine{\Hypertarget{_navigator_8cs_source_l00024}00024             \{\textcolor{stringliteral}{"{}mvg"{}}, typeof(MVG) \},}
+\DoxyCodeLine{\Hypertarget{_navigator_8cs_source_l00025}00025             \{\textcolor{stringliteral}{"{}launcher"{}}, typeof(\mbox{\hyperlink{namespaceautomeas__ui}{automeas\_ui}}.Launcher) \},}
+\DoxyCodeLine{\Hypertarget{_navigator_8cs_source_l00026}00026             \{\textcolor{stringliteral}{"{}dashboard"{}}, typeof(Dashboard) \}}
+\DoxyCodeLine{\Hypertarget{_navigator_8cs_source_l00027}00027         \};}
+\DoxyCodeLine{\Hypertarget{_navigator_8cs_source_l00028}00028         \textcolor{keyword}{private} Type \_currentWindow;}
+\DoxyCodeLine{\Hypertarget{_navigator_8cs_source_l00029}00029         \textcolor{keyword}{private} Type \_previousWindow;}
+\DoxyCodeLine{\Hypertarget{_navigator_8cs_source_l00030}00030         \textcolor{keyword}{public} \textcolor{keywordtype}{void} ChangeWindow(\textcolor{keywordtype}{string} \textcolor{keywordtype}{id})}
+\DoxyCodeLine{\Hypertarget{_navigator_8cs_source_l00031}00031         \{}
+\DoxyCodeLine{\Hypertarget{_navigator_8cs_source_l00032}00032             \textcolor{keywordflow}{if} (\textcolor{keywordtype}{id} == \textcolor{stringliteral}{"{}\(\backslash\)r"{}})}
+\DoxyCodeLine{\Hypertarget{_navigator_8cs_source_l00033}00033             \{}
+\DoxyCodeLine{\Hypertarget{_navigator_8cs_source_l00034}00034                 \_currentWindow = \_previousWindow;}
+\DoxyCodeLine{\Hypertarget{_navigator_8cs_source_l00035}00035             \}}
+\DoxyCodeLine{\Hypertarget{_navigator_8cs_source_l00036}00036             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (\textcolor{keywordtype}{id} == \textcolor{stringliteral}{"{}\(\backslash\)0"{}})}
+\DoxyCodeLine{\Hypertarget{_navigator_8cs_source_l00037}00037             \{}
+\DoxyCodeLine{\Hypertarget{_navigator_8cs_source_l00038}00038                 System.Windows.Application.Current.Shutdown();}
+\DoxyCodeLine{\Hypertarget{_navigator_8cs_source_l00039}00039             \}}
+\DoxyCodeLine{\Hypertarget{_navigator_8cs_source_l00040}00040             \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{_navigator_8cs_source_l00041}00041             \{}
+\DoxyCodeLine{\Hypertarget{_navigator_8cs_source_l00042}00042                 Type? getVal;}
+\DoxyCodeLine{\Hypertarget{_navigator_8cs_source_l00043}00043                 \textcolor{keywordflow}{if} (RegInit.TryGetValue(\textcolor{keywordtype}{id}, out getVal))}
+\DoxyCodeLine{\Hypertarget{_navigator_8cs_source_l00044}00044                 \{}
+\DoxyCodeLine{\Hypertarget{_navigator_8cs_source_l00045}00045                     \_previousWindow = \_currentWindow;}
+\DoxyCodeLine{\Hypertarget{_navigator_8cs_source_l00046}00046                     \_currentWindow = getVal;}
+\DoxyCodeLine{\Hypertarget{_navigator_8cs_source_l00047}00047 }
+\DoxyCodeLine{\Hypertarget{_navigator_8cs_source_l00048}00048                 \}}
+\DoxyCodeLine{\Hypertarget{_navigator_8cs_source_l00049}00049                 \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{_navigator_8cs_source_l00050}00050                 \{}
+\DoxyCodeLine{\Hypertarget{_navigator_8cs_source_l00051}00051                     \textcolor{keywordflow}{throw} \textcolor{keyword}{new} InvalidOperationException(\textcolor{stringliteral}{"{}Window id not in register"{}});}
+\DoxyCodeLine{\Hypertarget{_navigator_8cs_source_l00052}00052                 \}}
+\DoxyCodeLine{\Hypertarget{_navigator_8cs_source_l00053}00053             \}}
+\DoxyCodeLine{\Hypertarget{_navigator_8cs_source_l00054}00054             NotifyWindowChanged(\_currentWindow);}
+\DoxyCodeLine{\Hypertarget{_navigator_8cs_source_l00055}00055         \}}
+\DoxyCodeLine{\Hypertarget{_navigator_8cs_source_l00056}00056         \textcolor{comment}{// events}}
+\DoxyCodeLine{\Hypertarget{_navigator_8cs_source_l00057}00057         \textcolor{keyword}{public} Action<Type> WindowChanged;}
+\DoxyCodeLine{\Hypertarget{_navigator_8cs_source_l00058}00058         \textcolor{keyword}{private} \textcolor{keywordtype}{void} NotifyWindowChanged(Type msg) => WindowChanged?.Invoke(msg);}
+\DoxyCodeLine{\Hypertarget{_navigator_8cs_source_l00059}00059     \}}
+\DoxyCodeLine{\Hypertarget{_navigator_8cs_source_l00060}00060 \}}
+
+\end{DoxyCode}

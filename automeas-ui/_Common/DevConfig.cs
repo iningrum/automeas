@@ -6,9 +6,14 @@ using System.Threading.Tasks;
 
 namespace automeas_ui._Common
 {
+    /// <summary>
+    /// Class <c> DevConfig </c> is used for internal configuration of databound xaml elements.
+    /// </summary>
     internal partial class DevConfig
     { // Launcher
-        // Liczba stron, nagłówki
+        /// <summary>
+        /// Titles of pages displayed by <c> Launcher </c>
+        /// </summary>
         public static List<string> PageTitles = new List<string>
         { // Nagłówki/tytuły View(Modeli) podległych Launcher_MainViewModel
             "Katalog docelowy",
@@ -16,8 +21,13 @@ namespace automeas_ui._Common
             "Konfiguracja próby",
             "Podsumowanie"
         };
+        /// <summary>
+        /// An alias for <c>PageTitles.Count()</c>
+        /// </summary>
         public static int NumberOfPages = PageTitles.Count();
-        // Podpisy przy CheckBoxach
+        /// <summary>
+        /// Checkbox titles for <c>Page1</c> of <c>Launcher</c>
+        /// </summary>
         public static string[] CheckBoxText =
         {
             "*.csv",
@@ -26,6 +36,9 @@ namespace automeas_ui._Common
             "*.xslx (template required)",
             "*.jpg (templates required)"
         };
+        /// <summary>
+        /// Alternative checkbox titles for <c>Page4</c> of <c>Launcher</c>
+        /// </summary>
         public static string[] CheckBoxText_Alternative =
         {
             "csv",
@@ -34,7 +47,9 @@ namespace automeas_ui._Common
             "xslx",
             "jpg"
         };
-        // LauncherSummaryViewModel
+        /// <summary>
+        /// Labels used for <c>Page4</c> of <c>Launcher</c>
+        /// </summary>
         public static List<string> SummaryTitles = new List<string>
         {
             "Nazwa próby:\t\t",

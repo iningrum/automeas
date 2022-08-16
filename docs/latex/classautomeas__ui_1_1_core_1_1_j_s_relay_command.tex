@@ -1,0 +1,150 @@
+\hypertarget{classautomeas__ui_1_1_core_1_1_j_s_relay_command}{}\doxysection{automeas\+\_\+ui.\+Core.\+JSRelay\+Command Class Reference}
+\label{classautomeas__ui_1_1_core_1_1_j_s_relay_command}\index{automeas\_ui.Core.JSRelayCommand@{automeas\_ui.Core.JSRelayCommand}}
+
+
+A command whose sole purpose is to relay its functionality to other objects by invoking delegates. The default return value for the Can\+Execute method is \textquotesingle{}true\textquotesingle{}.  
+
+
+Inheritance diagram for automeas\+\_\+ui.\+Core.\+JSRelay\+Command\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classautomeas__ui_1_1_core_1_1_j_s_relay_command}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classautomeas__ui_1_1_core_1_1_j_s_relay_command_a21a781a873a8e85bc9fd3a3463fcf595}{JSRelay\+Command}} (Action$<$ object $>$ execute)
+\begin{DoxyCompactList}\small\item\em Creates a new command that can always execute. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classautomeas__ui_1_1_core_1_1_j_s_relay_command_af5e5351471072a19a50806b1ac384d9a}{JSRelay\+Command}} (Action$<$ object $>$ execute, Predicate$<$ object $>$ can\+Execute)
+\begin{DoxyCompactList}\small\item\em Creates a new command. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classautomeas__ui_1_1_core_1_1_j_s_relay_command_aeec804b131f2c17864a2c1852eb85011}{Can\+Execute}} (object parameters)
+\item 
+void \mbox{\hyperlink{classautomeas__ui_1_1_core_1_1_j_s_relay_command_ad63ceab862aa85e89d42715f58b87de3}{Execute}} (object parameters)
+\end{DoxyCompactItemize}
+\doxysubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+Event\+Handler \mbox{\hyperlink{classautomeas__ui_1_1_core_1_1_j_s_relay_command_ac2b2b15fa99f084f96a32c0101f677e3}{Can\+Execute\+Changed}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+readonly Action$<$ object $>$ \mbox{\hyperlink{classautomeas__ui_1_1_core_1_1_j_s_relay_command_a5d3ed379a6d23253773167ee75496c1e}{\+\_\+execute}}
+\item 
+readonly Predicate$<$ object $>$ \mbox{\hyperlink{classautomeas__ui_1_1_core_1_1_j_s_relay_command_a91aaaba6c017a63ee1b95cb3e047c86b}{\+\_\+can\+Execute}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A command whose sole purpose is to relay its functionality to other objects by invoking delegates. The default return value for the Can\+Execute method is \textquotesingle{}true\textquotesingle{}. 
+
+Definition at line \mbox{\hyperlink{_john_smith___relay_command_8cs_source_l00018}{18}} of file \mbox{\hyperlink{_john_smith___relay_command_8cs_source}{John\+Smith\+\_\+\+Relay\+Command.\+cs}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classautomeas__ui_1_1_core_1_1_j_s_relay_command_a21a781a873a8e85bc9fd3a3463fcf595}\label{classautomeas__ui_1_1_core_1_1_j_s_relay_command_a21a781a873a8e85bc9fd3a3463fcf595}} 
+\index{automeas\_ui.Core.JSRelayCommand@{automeas\_ui.Core.JSRelayCommand}!JSRelayCommand@{JSRelayCommand}}
+\index{JSRelayCommand@{JSRelayCommand}!automeas\_ui.Core.JSRelayCommand@{automeas\_ui.Core.JSRelayCommand}}
+\doxysubsubsection{\texorpdfstring{JSRelayCommand()}{JSRelayCommand()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily automeas\+\_\+ui.\+Core.\+JSRelay\+Command.\+JSRelay\+Command (\begin{DoxyParamCaption}\item[{Action$<$ object $>$}]{execute }\end{DoxyParamCaption})}
+
+
+
+Creates a new command that can always execute. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em execute} & The execution logic.\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_john_smith___relay_command_8cs_source_l00033}{33}} of file \mbox{\hyperlink{_john_smith___relay_command_8cs_source}{John\+Smith\+\_\+\+Relay\+Command.\+cs}}.
+
+\mbox{\Hypertarget{classautomeas__ui_1_1_core_1_1_j_s_relay_command_af5e5351471072a19a50806b1ac384d9a}\label{classautomeas__ui_1_1_core_1_1_j_s_relay_command_af5e5351471072a19a50806b1ac384d9a}} 
+\index{automeas\_ui.Core.JSRelayCommand@{automeas\_ui.Core.JSRelayCommand}!JSRelayCommand@{JSRelayCommand}}
+\index{JSRelayCommand@{JSRelayCommand}!automeas\_ui.Core.JSRelayCommand@{automeas\_ui.Core.JSRelayCommand}}
+\doxysubsubsection{\texorpdfstring{JSRelayCommand()}{JSRelayCommand()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily automeas\+\_\+ui.\+Core.\+JSRelay\+Command.\+JSRelay\+Command (\begin{DoxyParamCaption}\item[{Action$<$ object $>$}]{execute,  }\item[{Predicate$<$ object $>$}]{can\+Execute }\end{DoxyParamCaption})}
+
+
+
+Creates a new command. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em execute} & The execution logic.\\
+\hline
+{\em can\+Execute} & The execution status logic.\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_john_smith___relay_command_8cs_source_l00043}{43}} of file \mbox{\hyperlink{_john_smith___relay_command_8cs_source}{John\+Smith\+\_\+\+Relay\+Command.\+cs}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classautomeas__ui_1_1_core_1_1_j_s_relay_command_aeec804b131f2c17864a2c1852eb85011}\label{classautomeas__ui_1_1_core_1_1_j_s_relay_command_aeec804b131f2c17864a2c1852eb85011}} 
+\index{automeas\_ui.Core.JSRelayCommand@{automeas\_ui.Core.JSRelayCommand}!CanExecute@{CanExecute}}
+\index{CanExecute@{CanExecute}!automeas\_ui.Core.JSRelayCommand@{automeas\_ui.Core.JSRelayCommand}}
+\doxysubsubsection{\texorpdfstring{CanExecute()}{CanExecute()}}
+{\footnotesize\ttfamily bool automeas\+\_\+ui.\+Core.\+JSRelay\+Command.\+Can\+Execute (\begin{DoxyParamCaption}\item[{object}]{parameters }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_john_smith___relay_command_8cs_source_l00057}{57}} of file \mbox{\hyperlink{_john_smith___relay_command_8cs_source}{John\+Smith\+\_\+\+Relay\+Command.\+cs}}.
+
+\mbox{\Hypertarget{classautomeas__ui_1_1_core_1_1_j_s_relay_command_ad63ceab862aa85e89d42715f58b87de3}\label{classautomeas__ui_1_1_core_1_1_j_s_relay_command_ad63ceab862aa85e89d42715f58b87de3}} 
+\index{automeas\_ui.Core.JSRelayCommand@{automeas\_ui.Core.JSRelayCommand}!Execute@{Execute}}
+\index{Execute@{Execute}!automeas\_ui.Core.JSRelayCommand@{automeas\_ui.Core.JSRelayCommand}}
+\doxysubsubsection{\texorpdfstring{Execute()}{Execute()}}
+{\footnotesize\ttfamily void automeas\+\_\+ui.\+Core.\+JSRelay\+Command.\+Execute (\begin{DoxyParamCaption}\item[{object}]{parameters }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_john_smith___relay_command_8cs_source_l00068}{68}} of file \mbox{\hyperlink{_john_smith___relay_command_8cs_source}{John\+Smith\+\_\+\+Relay\+Command.\+cs}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classautomeas__ui_1_1_core_1_1_j_s_relay_command_a91aaaba6c017a63ee1b95cb3e047c86b}\label{classautomeas__ui_1_1_core_1_1_j_s_relay_command_a91aaaba6c017a63ee1b95cb3e047c86b}} 
+\index{automeas\_ui.Core.JSRelayCommand@{automeas\_ui.Core.JSRelayCommand}!\_canExecute@{\_canExecute}}
+\index{\_canExecute@{\_canExecute}!automeas\_ui.Core.JSRelayCommand@{automeas\_ui.Core.JSRelayCommand}}
+\doxysubsubsection{\texorpdfstring{\_canExecute}{\_canExecute}}
+{\footnotesize\ttfamily readonly Predicate$<$object$>$ automeas\+\_\+ui.\+Core.\+JSRelay\+Command.\+\_\+can\+Execute\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_john_smith___relay_command_8cs_source_l00023}{23}} of file \mbox{\hyperlink{_john_smith___relay_command_8cs_source}{John\+Smith\+\_\+\+Relay\+Command.\+cs}}.
+
+\mbox{\Hypertarget{classautomeas__ui_1_1_core_1_1_j_s_relay_command_a5d3ed379a6d23253773167ee75496c1e}\label{classautomeas__ui_1_1_core_1_1_j_s_relay_command_a5d3ed379a6d23253773167ee75496c1e}} 
+\index{automeas\_ui.Core.JSRelayCommand@{automeas\_ui.Core.JSRelayCommand}!\_execute@{\_execute}}
+\index{\_execute@{\_execute}!automeas\_ui.Core.JSRelayCommand@{automeas\_ui.Core.JSRelayCommand}}
+\doxysubsubsection{\texorpdfstring{\_execute}{\_execute}}
+{\footnotesize\ttfamily readonly Action$<$object$>$ automeas\+\_\+ui.\+Core.\+JSRelay\+Command.\+\_\+execute\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_john_smith___relay_command_8cs_source_l00022}{22}} of file \mbox{\hyperlink{_john_smith___relay_command_8cs_source}{John\+Smith\+\_\+\+Relay\+Command.\+cs}}.
+
+
+
+\doxysubsection{Property Documentation}
+\mbox{\Hypertarget{classautomeas__ui_1_1_core_1_1_j_s_relay_command_ac2b2b15fa99f084f96a32c0101f677e3}\label{classautomeas__ui_1_1_core_1_1_j_s_relay_command_ac2b2b15fa99f084f96a32c0101f677e3}} 
+\index{automeas\_ui.Core.JSRelayCommand@{automeas\_ui.Core.JSRelayCommand}!CanExecuteChanged@{CanExecuteChanged}}
+\index{CanExecuteChanged@{CanExecuteChanged}!automeas\_ui.Core.JSRelayCommand@{automeas\_ui.Core.JSRelayCommand}}
+\doxysubsubsection{\texorpdfstring{CanExecuteChanged}{CanExecuteChanged}}
+{\footnotesize\ttfamily Event\+Handler automeas\+\_\+ui.\+Core.\+JSRelay\+Command.\+Can\+Execute\+Changed\hspace{0.3cm}{\ttfamily [add]}, {\ttfamily [remove]}}
+
+
+
+Definition at line \mbox{\hyperlink{_john_smith___relay_command_8cs_source_l00062}{62}} of file \mbox{\hyperlink{_john_smith___relay_command_8cs_source}{John\+Smith\+\_\+\+Relay\+Command.\+cs}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Admin/source/repos/automeas/automeas-\/ui/\+Core/\mbox{\hyperlink{_john_smith___relay_command_8cs}{John\+Smith\+\_\+\+Relay\+Command.\+cs}}\end{DoxyCompactItemize}

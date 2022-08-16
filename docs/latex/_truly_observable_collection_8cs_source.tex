@@ -1,0 +1,65 @@
+\hypertarget{_truly_observable_collection_8cs_source}{}\doxysection{Truly\+Observable\+Collection.\+cs}
+\label{_truly_observable_collection_8cs_source}\index{C:/Users/Admin/source/repos/automeas/automeas-\/ui/Core/TrulyObservableCollection.cs@{C:/Users/Admin/source/repos/automeas/automeas-\/ui/Core/TrulyObservableCollection.cs}}
+\mbox{\hyperlink{_truly_observable_collection_8cs}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_truly_observable_collection_8cs_source_l00001}00001 \textcolor{keyword}{using }System.Collections.Generic;}
+\DoxyCodeLine{\Hypertarget{_truly_observable_collection_8cs_source_l00002}00002 \textcolor{keyword}{using }System.Collections.ObjectModel;}
+\DoxyCodeLine{\Hypertarget{_truly_observable_collection_8cs_source_l00003}00003 \textcolor{keyword}{using }System.Collections.Specialized;}
+\DoxyCodeLine{\Hypertarget{_truly_observable_collection_8cs_source_l00004}00004 \textcolor{keyword}{using }System.ComponentModel;}
+\DoxyCodeLine{\Hypertarget{_truly_observable_collection_8cs_source_l00005}00005 \textcolor{keyword}{using }System.Reflection;}
+\DoxyCodeLine{\Hypertarget{_truly_observable_collection_8cs_source_l00006}00006 \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{_truly_observable_collection_8cs_source_l00007}00007 \textcolor{comment}{         * ObservableCollection<T>... but better}}
+\DoxyCodeLine{\Hypertarget{_truly_observable_collection_8cs_source_l00008}00008 \textcolor{comment}{         * Another piece of code straight from StackOverflow}}
+\DoxyCodeLine{\Hypertarget{_truly_observable_collection_8cs_source_l00009}00009 \textcolor{comment}{         * -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{_truly_observable_collection_8cs_source_l00010}00010 \textcolor{comment}{         */}}
+\DoxyCodeLine{\Hypertarget{_truly_observable_collection_8cs_source_l00011}00011 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespaceautomeas__ui_1_1_core}{automeas\_ui.Core}}}
+\DoxyCodeLine{\Hypertarget{_truly_observable_collection_8cs_source_l00012}00012 \{}
+\DoxyCodeLine{\Hypertarget{_truly_observable_collection_8cs_source_l00013}00013     \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{_truly_observable_collection_8cs_source_l00014}00014 \textcolor{comment}{ * Original Class by Simon @StackOverflow http://stackoverflow.com/a/5256827/3766034}}
+\DoxyCodeLine{\Hypertarget{_truly_observable_collection_8cs_source_l00015}00015 \textcolor{comment}{ * Removal of the INPC-\/Constraint by Jirajha @StackOverflow }}
+\DoxyCodeLine{\Hypertarget{_truly_observable_collection_8cs_source_l00016}00016 \textcolor{comment}{ * according to to suggestion of nikeee @StackOverflow http://stackoverflow.com/a/10718451/3766034}}
+\DoxyCodeLine{\Hypertarget{_truly_observable_collection_8cs_source_l00017}00017 \textcolor{comment}{ */}}
+\DoxyCodeLine{\Hypertarget{_truly_observable_collection_8cs_source_l00018}\mbox{\hyperlink{classautomeas__ui_1_1_core_1_1_truly_observable_collection}{00018}}     \textcolor{keyword}{public} sealed \textcolor{keyword}{class }\mbox{\hyperlink{classautomeas__ui_1_1_core_1_1_truly_observable_collection}{TrulyObservableCollection}}<T> : ObservableCollection<T>}
+\DoxyCodeLine{\Hypertarget{_truly_observable_collection_8cs_source_l00019}00019     \{}
+\DoxyCodeLine{\Hypertarget{_truly_observable_collection_8cs_source_l00020}\mbox{\hyperlink{classautomeas__ui_1_1_core_1_1_truly_observable_collection_a0fda0377ab5d930945869517f454559a}{00020}}         \textcolor{keyword}{private} readonly \textcolor{keywordtype}{bool} \mbox{\hyperlink{classautomeas__ui_1_1_core_1_1_truly_observable_collection_a0fda0377ab5d930945869517f454559a}{\_inpcHookup}};}
+\DoxyCodeLine{\Hypertarget{_truly_observable_collection_8cs_source_l00021}\mbox{\hyperlink{classautomeas__ui_1_1_core_1_1_truly_observable_collection_ac3e58af9b26f50c1a1b8918eb3d74e4e}{00021}}         \textcolor{keyword}{public} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classautomeas__ui_1_1_core_1_1_truly_observable_collection_ac3e58af9b26f50c1a1b8918eb3d74e4e}{NotifyPropertyChangedHookup}} => \mbox{\hyperlink{classautomeas__ui_1_1_core_1_1_truly_observable_collection_a0fda0377ab5d930945869517f454559a}{\_inpcHookup}};}
+\DoxyCodeLine{\Hypertarget{_truly_observable_collection_8cs_source_l00022}00022 }
+\DoxyCodeLine{\Hypertarget{_truly_observable_collection_8cs_source_l00023}\mbox{\hyperlink{classautomeas__ui_1_1_core_1_1_truly_observable_collection_a87d7053e648810a1c323655a72de96dd}{00023}}         \textcolor{keyword}{public} \mbox{\hyperlink{classautomeas__ui_1_1_core_1_1_truly_observable_collection_a87d7053e648810a1c323655a72de96dd}{TrulyObservableCollection}}()}
+\DoxyCodeLine{\Hypertarget{_truly_observable_collection_8cs_source_l00024}00024         \{}
+\DoxyCodeLine{\Hypertarget{_truly_observable_collection_8cs_source_l00025}00025             CollectionChanged += \mbox{\hyperlink{classautomeas__ui_1_1_core_1_1_truly_observable_collection_af370eb423cd26b6f86631ec1e31ec6e6}{TrulyObservableCollectionChanged}};}
+\DoxyCodeLine{\Hypertarget{_truly_observable_collection_8cs_source_l00026}00026             \mbox{\hyperlink{classautomeas__ui_1_1_core_1_1_truly_observable_collection_a0fda0377ab5d930945869517f454559a}{\_inpcHookup}} = typeof(INotifyPropertyChanged).GetTypeInfo().IsAssignableFrom(typeof(T));}
+\DoxyCodeLine{\Hypertarget{_truly_observable_collection_8cs_source_l00027}00027         \}}
+\DoxyCodeLine{\Hypertarget{_truly_observable_collection_8cs_source_l00028}\mbox{\hyperlink{classautomeas__ui_1_1_core_1_1_truly_observable_collection_a7e0affe30000cd146ae6eaecf38d78e5}{00028}}         \textcolor{keyword}{public} \mbox{\hyperlink{classautomeas__ui_1_1_core_1_1_truly_observable_collection_a7e0affe30000cd146ae6eaecf38d78e5}{TrulyObservableCollection}}(IEnumerable<T> items) : this()}
+\DoxyCodeLine{\Hypertarget{_truly_observable_collection_8cs_source_l00029}00029         \{}
+\DoxyCodeLine{\Hypertarget{_truly_observable_collection_8cs_source_l00030}00030             \textcolor{keywordflow}{foreach} (var item \textcolor{keywordflow}{in} items)}
+\DoxyCodeLine{\Hypertarget{_truly_observable_collection_8cs_source_l00031}00031             \{}
+\DoxyCodeLine{\Hypertarget{_truly_observable_collection_8cs_source_l00032}00032                 this.Add(item);}
+\DoxyCodeLine{\Hypertarget{_truly_observable_collection_8cs_source_l00033}00033             \}}
+\DoxyCodeLine{\Hypertarget{_truly_observable_collection_8cs_source_l00034}00034         \}}
+\DoxyCodeLine{\Hypertarget{_truly_observable_collection_8cs_source_l00035}00035 }
+\DoxyCodeLine{\Hypertarget{_truly_observable_collection_8cs_source_l00036}\mbox{\hyperlink{classautomeas__ui_1_1_core_1_1_truly_observable_collection_af370eb423cd26b6f86631ec1e31ec6e6}{00036}}         \textcolor{keyword}{private} \textcolor{keywordtype}{void} \mbox{\hyperlink{classautomeas__ui_1_1_core_1_1_truly_observable_collection_af370eb423cd26b6f86631ec1e31ec6e6}{TrulyObservableCollectionChanged}}(\textcolor{keywordtype}{object} sender, NotifyCollectionChangedEventArgs e)}
+\DoxyCodeLine{\Hypertarget{_truly_observable_collection_8cs_source_l00037}00037         \{}
+\DoxyCodeLine{\Hypertarget{_truly_observable_collection_8cs_source_l00038}00038             \textcolor{keywordflow}{if} (\mbox{\hyperlink{classautomeas__ui_1_1_core_1_1_truly_observable_collection_ac3e58af9b26f50c1a1b8918eb3d74e4e}{NotifyPropertyChangedHookup}} \&\& e.NewItems != \textcolor{keyword}{null} \&\& e.NewItems.Count > 0)}
+\DoxyCodeLine{\Hypertarget{_truly_observable_collection_8cs_source_l00039}00039             \{}
+\DoxyCodeLine{\Hypertarget{_truly_observable_collection_8cs_source_l00040}00040                 \textcolor{keywordflow}{foreach} (INotifyPropertyChanged item \textcolor{keywordflow}{in} e.NewItems)}
+\DoxyCodeLine{\Hypertarget{_truly_observable_collection_8cs_source_l00041}00041                 \{}
+\DoxyCodeLine{\Hypertarget{_truly_observable_collection_8cs_source_l00042}00042                     item.PropertyChanged += \mbox{\hyperlink{classautomeas__ui_1_1_core_1_1_truly_observable_collection_a94d26245b4eb63495a194651748ad8e6}{ItemPropertyChanged}};}
+\DoxyCodeLine{\Hypertarget{_truly_observable_collection_8cs_source_l00043}00043                 \}}
+\DoxyCodeLine{\Hypertarget{_truly_observable_collection_8cs_source_l00044}00044             \}}
+\DoxyCodeLine{\Hypertarget{_truly_observable_collection_8cs_source_l00045}00045             \textcolor{keywordflow}{if} (\mbox{\hyperlink{classautomeas__ui_1_1_core_1_1_truly_observable_collection_ac3e58af9b26f50c1a1b8918eb3d74e4e}{NotifyPropertyChangedHookup}} \&\& e.OldItems != \textcolor{keyword}{null} \&\& e.OldItems.Count > 0)}
+\DoxyCodeLine{\Hypertarget{_truly_observable_collection_8cs_source_l00046}00046             \{}
+\DoxyCodeLine{\Hypertarget{_truly_observable_collection_8cs_source_l00047}00047                 \textcolor{keywordflow}{foreach} (INotifyPropertyChanged item \textcolor{keywordflow}{in} e.OldItems)}
+\DoxyCodeLine{\Hypertarget{_truly_observable_collection_8cs_source_l00048}00048                 \{}
+\DoxyCodeLine{\Hypertarget{_truly_observable_collection_8cs_source_l00049}00049                     item.PropertyChanged -\/= \mbox{\hyperlink{classautomeas__ui_1_1_core_1_1_truly_observable_collection_a94d26245b4eb63495a194651748ad8e6}{ItemPropertyChanged}};}
+\DoxyCodeLine{\Hypertarget{_truly_observable_collection_8cs_source_l00050}00050                 \}}
+\DoxyCodeLine{\Hypertarget{_truly_observable_collection_8cs_source_l00051}00051             \}}
+\DoxyCodeLine{\Hypertarget{_truly_observable_collection_8cs_source_l00052}00052         \}}
+\DoxyCodeLine{\Hypertarget{_truly_observable_collection_8cs_source_l00053}\mbox{\hyperlink{classautomeas__ui_1_1_core_1_1_truly_observable_collection_a94d26245b4eb63495a194651748ad8e6}{00053}}         \textcolor{keyword}{private} \textcolor{keywordtype}{void} \mbox{\hyperlink{classautomeas__ui_1_1_core_1_1_truly_observable_collection_a94d26245b4eb63495a194651748ad8e6}{ItemPropertyChanged}}(\textcolor{keywordtype}{object} sender, PropertyChangedEventArgs e)}
+\DoxyCodeLine{\Hypertarget{_truly_observable_collection_8cs_source_l00054}00054         \{}
+\DoxyCodeLine{\Hypertarget{_truly_observable_collection_8cs_source_l00055}00055             var args = \textcolor{keyword}{new} NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Replace, sender, sender, IndexOf((T)sender));}
+\DoxyCodeLine{\Hypertarget{_truly_observable_collection_8cs_source_l00056}00056             OnCollectionChanged(args);}
+\DoxyCodeLine{\Hypertarget{_truly_observable_collection_8cs_source_l00057}00057         \}}
+\DoxyCodeLine{\Hypertarget{_truly_observable_collection_8cs_source_l00058}00058     \}}
+\DoxyCodeLine{\Hypertarget{_truly_observable_collection_8cs_source_l00059}00059 \}}
+
+\end{DoxyCode}

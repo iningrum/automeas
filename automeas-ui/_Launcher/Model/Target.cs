@@ -7,12 +7,19 @@ using System.Threading.Tasks;
 
 namespace automeas_ui._Launcher.Model
 {
-    internal sealed class Target
+    /// <summary>
+    /// Singleton <c>Target</c> serves as communication layer between different view models belonging to <c>Launcher</c>
+    /// page view models load and store data in this class.
+    /// </summary>
+    public sealed class Target
     {
         // singleton implementation - thread safe
         private static readonly Lazy<Target> lazy = new Lazy<Target>(() => new Target());
         public static Target Instance { get { return lazy.Value; } }
         // ctor
+        /// <summary>
+        /// Default values.
+        /// </summary>
         private Target()
         {
             ConfigFilePath = "";
@@ -23,7 +30,9 @@ namespace automeas_ui._Launcher.Model
             NumberOfMoves = 1;
         }
         // events
-
+        /// <summary>
+        /// [Obsolete] Prompts old view to uppload all collected input
+        /// </summary>
         public event Action<int>? PageChangedEvent;
         /*
          * Launcher_MainViewModel.PageNoLonger Relevant  ->
@@ -32,8 +41,17 @@ namespace automeas_ui._Launcher.Model
          * It prompts old view to upload all user data that it's got
          * into Target
          */
+        /// <summary>
+        /// [Obsolete] Tells App that window should be changed from Launcher to Dashboard
+        /// </summary>
         public event Action<List<string>>? ChangeWindowToDashboard;
+        /// <summary>
+        /// [Obsolete] Tells App that window should be changed to MVG
+        /// </summary>
         public event Action ChangeWindowToMVG;
+        /// <summary>
+        /// [Obsolete] Tells App that window should be changed to Launcher
+        /// </summary>
         public event Action ChangeMVGToLauncher;
         /*
          *  LauncherSummaryViewModel.SwitchToDashboard() ->

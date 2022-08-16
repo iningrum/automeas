@@ -1,4 +1,7 @@
 var searchData=
 [
-  ['numberofpages_0',['NumberOfPages',['../classautomeas__ui_1_1___common_1_1_dev_config.html#a0fa44e70f19a40bd4d55376344ab51c8',1,'automeas_ui::_Common::DevConfig']]]
+  ['checkboxtext_0',['CheckBoxText',['../classautomeas__ui_1_1___common_1_1_dev_config.html#a2d2535dc4ad10fb27f88ee97f58b13cb',1,'automeas_ui._Common.DevConfig.CheckBoxText()'],['../classautomeas__ui_1_1_m_w_m_1_1_model_1_1_launcher_1_1_a_m_dev_config.html#a1c1e1abd824c3fd70163b7af0298058a',1,'automeas_ui.MWM.Model.Launcher.AMDevConfig.CheckBoxText()']]],
+  ['checkboxtext_5falternative_1',['CheckBoxText_Alternative',['../classautomeas__ui_1_1___common_1_1_dev_config.html#a8f77ac724ba39d80e702d54f6ee1170e',1,'automeas_ui._Common.DevConfig.CheckBoxText_Alternative()'],['../classautomeas__ui_1_1_m_w_m_1_1_model_1_1_launcher_1_1_a_m_dev_config.html#a15d37e39be479151b2ca6226886a43fa',1,'automeas_ui.MWM.Model.Launcher.AMDevConfig.CheckBoxText_Alternative()']]],
+  ['configfilename_2',['ConfigFileName',['../classautomeas__ui_1_1___launcher_1_1_model_1_1_target.html#ae73c3b703a3b88d640fa92b30ec26f0c',1,'automeas_ui._Launcher.Model.Target.ConfigFileName()'],['../classautomeas__ui_1_1_m_w_m_1_1_model_1_1_launcher_1_1_target.html#ae0a3ca3ee7b3da8f8398adb9eb6b12fd',1,'automeas_ui.MWM.Model.Launcher.Target.ConfigFileName()']]],
+  ['configfilepath_3',['ConfigFilePath',['../classautomeas__ui_1_1___launcher_1_1_model_1_1_target.html#a9f25ac1099eb180118b6f30256230365',1,'automeas_ui._Launcher.Model.Target.ConfigFilePath()'],['../classautomeas__ui_1_1_m_w_m_1_1_model_1_1_launcher_1_1_target.html#ac086bf69804de9075f405fc8b834a1bd',1,'automeas_ui.MWM.Model.Launcher.Target.ConfigFilePath()']]]
 ];

@@ -1,0 +1,299 @@
+\hypertarget{classautomeas__ui_1_1___launcher_1_1_model_1_1_target}{}\doxysection{automeas\+\_\+ui.\+\_\+\+Launcher.\+Model.\+Target Class Reference}
+\label{classautomeas__ui_1_1___launcher_1_1_model_1_1_target}\index{automeas\_ui.\_Launcher.Model.Target@{automeas\_ui.\_Launcher.Model.Target}}
+
+
+Singleton {\ttfamily \mbox{\hyperlink{classautomeas__ui_1_1___launcher_1_1_model_1_1_target}{Target}}} serves as communication layer between different view models belonging to {\ttfamily \mbox{\hyperlink{classautomeas__ui_1_1___launcher_1_1_launcher}{Launcher}}} page view models load and store data in this class.  
+
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classautomeas__ui_1_1___launcher_1_1_model_1_1_target_a9fbb99aa7af8282b33385fa73b3267c7}{Launcher\+\_\+\+Main\+View\+Model\+\_\+\+Set\+Master}} (\mbox{\hyperlink{classautomeas__ui_1_1___launcher_1_1_view_model_1_1_launcher___main_view_model}{Launcher\+\_\+\+Main\+View\+Model}} master)
+\item 
+void \mbox{\hyperlink{classautomeas__ui_1_1___launcher_1_1_model_1_1_target_a0448ea6662fd4df6ceec579eadc36d4b}{Notify\+Change\+Window\+To\+Dashboard}} ()
+\item 
+void \mbox{\hyperlink{classautomeas__ui_1_1___launcher_1_1_model_1_1_target_a7e3d83799069375c1fae8da24adbf779}{Notify\+Change\+Window\+To\+MVG}} ()
+\item 
+void \mbox{\hyperlink{classautomeas__ui_1_1___launcher_1_1_model_1_1_target_aac673bbb55e83300387bbed28b4da6d7}{Notify\+Change\+MVGTo\+Launcher}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+string \mbox{\hyperlink{classautomeas__ui_1_1___launcher_1_1_model_1_1_target_a92b6bfb56ae7723946fbf18309292a98}{Destination}}
+\item 
+string \mbox{\hyperlink{classautomeas__ui_1_1___launcher_1_1_model_1_1_target_a8ffca0c1a146eb4a27eb74ae44bab2ee}{Name}}
+\item 
+string \mbox{\hyperlink{classautomeas__ui_1_1___launcher_1_1_model_1_1_target_affc353ba018d632cd28b384cc06b0140}{Description}}
+\item 
+string \mbox{\hyperlink{classautomeas__ui_1_1___launcher_1_1_model_1_1_target_a9f25ac1099eb180118b6f30256230365}{Config\+File\+Path}}
+\item 
+string \mbox{\hyperlink{classautomeas__ui_1_1___launcher_1_1_model_1_1_target_ae73c3b703a3b88d640fa92b30ec26f0c}{Config\+File\+Name}}
+\item 
+int \mbox{\hyperlink{classautomeas__ui_1_1___launcher_1_1_model_1_1_target_a5efc639c5a1e93977a392df7837b154d}{Number\+Of\+Moves}}
+\item 
+List$<$ bool $>$ \mbox{\hyperlink{classautomeas__ui_1_1___launcher_1_1_model_1_1_target_a698a3dca44dae0412c7926e4c6f1971f}{Options}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{classautomeas__ui_1_1___launcher_1_1_model_1_1_target}{Target}} \mbox{\hyperlink{classautomeas__ui_1_1___launcher_1_1_model_1_1_target_a19e5c64fa543b6f5b927e5af4ec6f0b4}{Instance}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Events}
+\begin{DoxyCompactItemize}
+\item 
+Action$<$ int $>$? \mbox{\hyperlink{classautomeas__ui_1_1___launcher_1_1_model_1_1_target_a4ae0568fee037a744a24dd5960e68ac6}{Page\+Changed\+Event}}
+\begin{DoxyCompactList}\small\item\em \mbox{[}Obsolete\mbox{]} Prompts old view to uppload all collected input \end{DoxyCompactList}\item 
+Action$<$ List$<$ string $>$ $>$? \mbox{\hyperlink{classautomeas__ui_1_1___launcher_1_1_model_1_1_target_ada1001fdeeed92c0a0a1482b371f734d}{Change\+Window\+To\+Dashboard}}
+\begin{DoxyCompactList}\small\item\em \mbox{[}Obsolete\mbox{]} Tells \mbox{\hyperlink{classautomeas__ui_1_1_app}{App}} that window should be changed from \mbox{\hyperlink{classautomeas__ui_1_1___launcher_1_1_launcher}{Launcher}} to \mbox{\hyperlink{classautomeas__ui_1_1_dashboard}{Dashboard}} \end{DoxyCompactList}\item 
+Action \mbox{\hyperlink{classautomeas__ui_1_1___launcher_1_1_model_1_1_target_a60143676096b5397a7750740b3a82fbd}{Change\+Window\+To\+MVG}}
+\begin{DoxyCompactList}\small\item\em \mbox{[}Obsolete\mbox{]} Tells \mbox{\hyperlink{classautomeas__ui_1_1_app}{App}} that window should be changed to MVG \end{DoxyCompactList}\item 
+Action \mbox{\hyperlink{classautomeas__ui_1_1___launcher_1_1_model_1_1_target_a69f4c7895f308072d433cd0fd1f7d1c4}{Change\+MVGTo\+Launcher}}
+\begin{DoxyCompactList}\small\item\em \mbox{[}Obsolete\mbox{]} Tells \mbox{\hyperlink{classautomeas__ui_1_1_app}{App}} that window should be changed to \mbox{\hyperlink{classautomeas__ui_1_1___launcher_1_1_launcher}{Launcher}} \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classautomeas__ui_1_1___launcher_1_1_model_1_1_target_a6d3068ecc3ae5d4d61df95e59bacdf8e}{Target}} ()
+\begin{DoxyCompactList}\small\item\em Default values. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classautomeas__ui_1_1___launcher_1_1_model_1_1_target_a2e1dd833e88ffdae0fa72a9e1c5877bf}{Notify\+Page\+Changed}} (int msg)
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classautomeas__ui_1_1___launcher_1_1_view_model_1_1_launcher___main_view_model}{Launcher\+\_\+\+Main\+View\+Model}} \mbox{\hyperlink{classautomeas__ui_1_1___launcher_1_1_model_1_1_target_a723d24b072fe053ecac0b594de14086b}{\+\_\+master}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static readonly Lazy$<$ \mbox{\hyperlink{classautomeas__ui_1_1___launcher_1_1_model_1_1_target}{Target}} $>$ \mbox{\hyperlink{classautomeas__ui_1_1___launcher_1_1_model_1_1_target_a956067167e1239a7326b61ad995ce2c4}{lazy}} = new Lazy$<$\mbox{\hyperlink{classautomeas__ui_1_1___launcher_1_1_model_1_1_target}{Target}}$>$(() =$>$ new \mbox{\hyperlink{classautomeas__ui_1_1___launcher_1_1_model_1_1_target}{Target}}())
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Singleton {\ttfamily \mbox{\hyperlink{classautomeas__ui_1_1___launcher_1_1_model_1_1_target}{Target}}} serves as communication layer between different view models belonging to {\ttfamily \mbox{\hyperlink{classautomeas__ui_1_1___launcher_1_1_launcher}{Launcher}}} page view models load and store data in this class. 
+
+Definition at line \mbox{\hyperlink{___launcher_2_model_2_target_8cs_source_l00014}{14}} of file \mbox{\hyperlink{___launcher_2_model_2_target_8cs_source}{Target.\+cs}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classautomeas__ui_1_1___launcher_1_1_model_1_1_target_a6d3068ecc3ae5d4d61df95e59bacdf8e}\label{classautomeas__ui_1_1___launcher_1_1_model_1_1_target_a6d3068ecc3ae5d4d61df95e59bacdf8e}} 
+\index{automeas\_ui.\_Launcher.Model.Target@{automeas\_ui.\_Launcher.Model.Target}!Target@{Target}}
+\index{Target@{Target}!automeas\_ui.\_Launcher.Model.Target@{automeas\_ui.\_Launcher.Model.Target}}
+\doxysubsubsection{\texorpdfstring{Target()}{Target()}}
+{\footnotesize\ttfamily automeas\+\_\+ui.\+\_\+\+Launcher.\+Model.\+Target.\+Target (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Default values. 
+
+
+
+Definition at line \mbox{\hyperlink{___launcher_2_model_2_target_8cs_source_l00023}{23}} of file \mbox{\hyperlink{___launcher_2_model_2_target_8cs_source}{Target.\+cs}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classautomeas__ui_1_1___launcher_1_1_model_1_1_target_a9fbb99aa7af8282b33385fa73b3267c7}\label{classautomeas__ui_1_1___launcher_1_1_model_1_1_target_a9fbb99aa7af8282b33385fa73b3267c7}} 
+\index{automeas\_ui.\_Launcher.Model.Target@{automeas\_ui.\_Launcher.Model.Target}!Launcher\_MainViewModel\_SetMaster@{Launcher\_MainViewModel\_SetMaster}}
+\index{Launcher\_MainViewModel\_SetMaster@{Launcher\_MainViewModel\_SetMaster}!automeas\_ui.\_Launcher.Model.Target@{automeas\_ui.\_Launcher.Model.Target}}
+\doxysubsubsection{\texorpdfstring{Launcher\_MainViewModel\_SetMaster()}{Launcher\_MainViewModel\_SetMaster()}}
+{\footnotesize\ttfamily void automeas\+\_\+ui.\+\_\+\+Launcher.\+Model.\+Target.\+Launcher\+\_\+\+Main\+View\+Model\+\_\+\+Set\+Master (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classautomeas__ui_1_1___launcher_1_1_view_model_1_1_launcher___main_view_model}{Launcher\+\_\+\+Main\+View\+Model}}}]{master }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{___launcher_2_model_2_target_8cs_source_l00067}{67}} of file \mbox{\hyperlink{___launcher_2_model_2_target_8cs_source}{Target.\+cs}}.
+
+\mbox{\Hypertarget{classautomeas__ui_1_1___launcher_1_1_model_1_1_target_aac673bbb55e83300387bbed28b4da6d7}\label{classautomeas__ui_1_1___launcher_1_1_model_1_1_target_aac673bbb55e83300387bbed28b4da6d7}} 
+\index{automeas\_ui.\_Launcher.Model.Target@{automeas\_ui.\_Launcher.Model.Target}!NotifyChangeMVGToLauncher@{NotifyChangeMVGToLauncher}}
+\index{NotifyChangeMVGToLauncher@{NotifyChangeMVGToLauncher}!automeas\_ui.\_Launcher.Model.Target@{automeas\_ui.\_Launcher.Model.Target}}
+\doxysubsubsection{\texorpdfstring{NotifyChangeMVGToLauncher()}{NotifyChangeMVGToLauncher()}}
+{\footnotesize\ttfamily void automeas\+\_\+ui.\+\_\+\+Launcher.\+Model.\+Target.\+Notify\+Change\+MVGTo\+Launcher (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classautomeas__ui_1_1___launcher_1_1_model_1_1_target_a0448ea6662fd4df6ceec579eadc36d4b}\label{classautomeas__ui_1_1___launcher_1_1_model_1_1_target_a0448ea6662fd4df6ceec579eadc36d4b}} 
+\index{automeas\_ui.\_Launcher.Model.Target@{automeas\_ui.\_Launcher.Model.Target}!NotifyChangeWindowToDashboard@{NotifyChangeWindowToDashboard}}
+\index{NotifyChangeWindowToDashboard@{NotifyChangeWindowToDashboard}!automeas\_ui.\_Launcher.Model.Target@{automeas\_ui.\_Launcher.Model.Target}}
+\doxysubsubsection{\texorpdfstring{NotifyChangeWindowToDashboard()}{NotifyChangeWindowToDashboard()}}
+{\footnotesize\ttfamily void automeas\+\_\+ui.\+\_\+\+Launcher.\+Model.\+Target.\+Notify\+Change\+Window\+To\+Dashboard (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classautomeas__ui_1_1___launcher_1_1_model_1_1_target_a7e3d83799069375c1fae8da24adbf779}\label{classautomeas__ui_1_1___launcher_1_1_model_1_1_target_a7e3d83799069375c1fae8da24adbf779}} 
+\index{automeas\_ui.\_Launcher.Model.Target@{automeas\_ui.\_Launcher.Model.Target}!NotifyChangeWindowToMVG@{NotifyChangeWindowToMVG}}
+\index{NotifyChangeWindowToMVG@{NotifyChangeWindowToMVG}!automeas\_ui.\_Launcher.Model.Target@{automeas\_ui.\_Launcher.Model.Target}}
+\doxysubsubsection{\texorpdfstring{NotifyChangeWindowToMVG()}{NotifyChangeWindowToMVG()}}
+{\footnotesize\ttfamily void automeas\+\_\+ui.\+\_\+\+Launcher.\+Model.\+Target.\+Notify\+Change\+Window\+To\+MVG (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classautomeas__ui_1_1___launcher_1_1_model_1_1_target_a2e1dd833e88ffdae0fa72a9e1c5877bf}\label{classautomeas__ui_1_1___launcher_1_1_model_1_1_target_a2e1dd833e88ffdae0fa72a9e1c5877bf}} 
+\index{automeas\_ui.\_Launcher.Model.Target@{automeas\_ui.\_Launcher.Model.Target}!NotifyPageChanged@{NotifyPageChanged}}
+\index{NotifyPageChanged@{NotifyPageChanged}!automeas\_ui.\_Launcher.Model.Target@{automeas\_ui.\_Launcher.Model.Target}}
+\doxysubsubsection{\texorpdfstring{NotifyPageChanged()}{NotifyPageChanged()}}
+{\footnotesize\ttfamily void automeas\+\_\+ui.\+\_\+\+Launcher.\+Model.\+Target.\+Notify\+Page\+Changed (\begin{DoxyParamCaption}\item[{int}]{msg }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classautomeas__ui_1_1___launcher_1_1_model_1_1_target_a723d24b072fe053ecac0b594de14086b}\label{classautomeas__ui_1_1___launcher_1_1_model_1_1_target_a723d24b072fe053ecac0b594de14086b}} 
+\index{automeas\_ui.\_Launcher.Model.Target@{automeas\_ui.\_Launcher.Model.Target}!\_master@{\_master}}
+\index{\_master@{\_master}!automeas\_ui.\_Launcher.Model.Target@{automeas\_ui.\_Launcher.Model.Target}}
+\doxysubsubsection{\texorpdfstring{\_master}{\_master}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classautomeas__ui_1_1___launcher_1_1_view_model_1_1_launcher___main_view_model}{Launcher\+\_\+\+Main\+View\+Model}} automeas\+\_\+ui.\+\_\+\+Launcher.\+Model.\+Target.\+\_\+master\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{___launcher_2_model_2_target_8cs_source_l00066}{66}} of file \mbox{\hyperlink{___launcher_2_model_2_target_8cs_source}{Target.\+cs}}.
+
+\mbox{\Hypertarget{classautomeas__ui_1_1___launcher_1_1_model_1_1_target_ae73c3b703a3b88d640fa92b30ec26f0c}\label{classautomeas__ui_1_1___launcher_1_1_model_1_1_target_ae73c3b703a3b88d640fa92b30ec26f0c}} 
+\index{automeas\_ui.\_Launcher.Model.Target@{automeas\_ui.\_Launcher.Model.Target}!ConfigFileName@{ConfigFileName}}
+\index{ConfigFileName@{ConfigFileName}!automeas\_ui.\_Launcher.Model.Target@{automeas\_ui.\_Launcher.Model.Target}}
+\doxysubsubsection{\texorpdfstring{ConfigFileName}{ConfigFileName}}
+{\footnotesize\ttfamily string automeas\+\_\+ui.\+\_\+\+Launcher.\+Model.\+Target.\+Config\+File\+Name}
+
+
+
+Definition at line \mbox{\hyperlink{___launcher_2_model_2_target_8cs_source_l00077}{77}} of file \mbox{\hyperlink{___launcher_2_model_2_target_8cs_source}{Target.\+cs}}.
+
+\mbox{\Hypertarget{classautomeas__ui_1_1___launcher_1_1_model_1_1_target_a9f25ac1099eb180118b6f30256230365}\label{classautomeas__ui_1_1___launcher_1_1_model_1_1_target_a9f25ac1099eb180118b6f30256230365}} 
+\index{automeas\_ui.\_Launcher.Model.Target@{automeas\_ui.\_Launcher.Model.Target}!ConfigFilePath@{ConfigFilePath}}
+\index{ConfigFilePath@{ConfigFilePath}!automeas\_ui.\_Launcher.Model.Target@{automeas\_ui.\_Launcher.Model.Target}}
+\doxysubsubsection{\texorpdfstring{ConfigFilePath}{ConfigFilePath}}
+{\footnotesize\ttfamily string automeas\+\_\+ui.\+\_\+\+Launcher.\+Model.\+Target.\+Config\+File\+Path}
+
+
+
+Definition at line \mbox{\hyperlink{___launcher_2_model_2_target_8cs_source_l00076}{76}} of file \mbox{\hyperlink{___launcher_2_model_2_target_8cs_source}{Target.\+cs}}.
+
+\mbox{\Hypertarget{classautomeas__ui_1_1___launcher_1_1_model_1_1_target_affc353ba018d632cd28b384cc06b0140}\label{classautomeas__ui_1_1___launcher_1_1_model_1_1_target_affc353ba018d632cd28b384cc06b0140}} 
+\index{automeas\_ui.\_Launcher.Model.Target@{automeas\_ui.\_Launcher.Model.Target}!Description@{Description}}
+\index{Description@{Description}!automeas\_ui.\_Launcher.Model.Target@{automeas\_ui.\_Launcher.Model.Target}}
+\doxysubsubsection{\texorpdfstring{Description}{Description}}
+{\footnotesize\ttfamily string automeas\+\_\+ui.\+\_\+\+Launcher.\+Model.\+Target.\+Description}
+
+
+
+Definition at line \mbox{\hyperlink{___launcher_2_model_2_target_8cs_source_l00075}{75}} of file \mbox{\hyperlink{___launcher_2_model_2_target_8cs_source}{Target.\+cs}}.
+
+\mbox{\Hypertarget{classautomeas__ui_1_1___launcher_1_1_model_1_1_target_a92b6bfb56ae7723946fbf18309292a98}\label{classautomeas__ui_1_1___launcher_1_1_model_1_1_target_a92b6bfb56ae7723946fbf18309292a98}} 
+\index{automeas\_ui.\_Launcher.Model.Target@{automeas\_ui.\_Launcher.Model.Target}!Destination@{Destination}}
+\index{Destination@{Destination}!automeas\_ui.\_Launcher.Model.Target@{automeas\_ui.\_Launcher.Model.Target}}
+\doxysubsubsection{\texorpdfstring{Destination}{Destination}}
+{\footnotesize\ttfamily string automeas\+\_\+ui.\+\_\+\+Launcher.\+Model.\+Target.\+Destination}
+
+
+
+Definition at line \mbox{\hyperlink{___launcher_2_model_2_target_8cs_source_l00073}{73}} of file \mbox{\hyperlink{___launcher_2_model_2_target_8cs_source}{Target.\+cs}}.
+
+\mbox{\Hypertarget{classautomeas__ui_1_1___launcher_1_1_model_1_1_target_a956067167e1239a7326b61ad995ce2c4}\label{classautomeas__ui_1_1___launcher_1_1_model_1_1_target_a956067167e1239a7326b61ad995ce2c4}} 
+\index{automeas\_ui.\_Launcher.Model.Target@{automeas\_ui.\_Launcher.Model.Target}!lazy@{lazy}}
+\index{lazy@{lazy}!automeas\_ui.\_Launcher.Model.Target@{automeas\_ui.\_Launcher.Model.Target}}
+\doxysubsubsection{\texorpdfstring{lazy}{lazy}}
+{\footnotesize\ttfamily readonly Lazy$<$\mbox{\hyperlink{classautomeas__ui_1_1___launcher_1_1_model_1_1_target}{Target}}$>$ automeas\+\_\+ui.\+\_\+\+Launcher.\+Model.\+Target.\+lazy = new Lazy$<$\mbox{\hyperlink{classautomeas__ui_1_1___launcher_1_1_model_1_1_target}{Target}}$>$(() =$>$ new \mbox{\hyperlink{classautomeas__ui_1_1___launcher_1_1_model_1_1_target}{Target}}())\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{___launcher_2_model_2_target_8cs_source_l00017}{17}} of file \mbox{\hyperlink{___launcher_2_model_2_target_8cs_source}{Target.\+cs}}.
+
+\mbox{\Hypertarget{classautomeas__ui_1_1___launcher_1_1_model_1_1_target_a8ffca0c1a146eb4a27eb74ae44bab2ee}\label{classautomeas__ui_1_1___launcher_1_1_model_1_1_target_a8ffca0c1a146eb4a27eb74ae44bab2ee}} 
+\index{automeas\_ui.\_Launcher.Model.Target@{automeas\_ui.\_Launcher.Model.Target}!Name@{Name}}
+\index{Name@{Name}!automeas\_ui.\_Launcher.Model.Target@{automeas\_ui.\_Launcher.Model.Target}}
+\doxysubsubsection{\texorpdfstring{Name}{Name}}
+{\footnotesize\ttfamily string automeas\+\_\+ui.\+\_\+\+Launcher.\+Model.\+Target.\+Name}
+
+
+
+Definition at line \mbox{\hyperlink{___launcher_2_model_2_target_8cs_source_l00074}{74}} of file \mbox{\hyperlink{___launcher_2_model_2_target_8cs_source}{Target.\+cs}}.
+
+\mbox{\Hypertarget{classautomeas__ui_1_1___launcher_1_1_model_1_1_target_a5efc639c5a1e93977a392df7837b154d}\label{classautomeas__ui_1_1___launcher_1_1_model_1_1_target_a5efc639c5a1e93977a392df7837b154d}} 
+\index{automeas\_ui.\_Launcher.Model.Target@{automeas\_ui.\_Launcher.Model.Target}!NumberOfMoves@{NumberOfMoves}}
+\index{NumberOfMoves@{NumberOfMoves}!automeas\_ui.\_Launcher.Model.Target@{automeas\_ui.\_Launcher.Model.Target}}
+\doxysubsubsection{\texorpdfstring{NumberOfMoves}{NumberOfMoves}}
+{\footnotesize\ttfamily int automeas\+\_\+ui.\+\_\+\+Launcher.\+Model.\+Target.\+Number\+Of\+Moves}
+
+
+
+Definition at line \mbox{\hyperlink{___launcher_2_model_2_target_8cs_source_l00078}{78}} of file \mbox{\hyperlink{___launcher_2_model_2_target_8cs_source}{Target.\+cs}}.
+
+\mbox{\Hypertarget{classautomeas__ui_1_1___launcher_1_1_model_1_1_target_a698a3dca44dae0412c7926e4c6f1971f}\label{classautomeas__ui_1_1___launcher_1_1_model_1_1_target_a698a3dca44dae0412c7926e4c6f1971f}} 
+\index{automeas\_ui.\_Launcher.Model.Target@{automeas\_ui.\_Launcher.Model.Target}!Options@{Options}}
+\index{Options@{Options}!automeas\_ui.\_Launcher.Model.Target@{automeas\_ui.\_Launcher.Model.Target}}
+\doxysubsubsection{\texorpdfstring{Options}{Options}}
+{\footnotesize\ttfamily List$<$bool$>$ automeas\+\_\+ui.\+\_\+\+Launcher.\+Model.\+Target.\+Options}
+
+
+
+Definition at line \mbox{\hyperlink{___launcher_2_model_2_target_8cs_source_l00079}{79}} of file \mbox{\hyperlink{___launcher_2_model_2_target_8cs_source}{Target.\+cs}}.
+
+
+
+\doxysubsection{Property Documentation}
+\mbox{\Hypertarget{classautomeas__ui_1_1___launcher_1_1_model_1_1_target_a19e5c64fa543b6f5b927e5af4ec6f0b4}\label{classautomeas__ui_1_1___launcher_1_1_model_1_1_target_a19e5c64fa543b6f5b927e5af4ec6f0b4}} 
+\index{automeas\_ui.\_Launcher.Model.Target@{automeas\_ui.\_Launcher.Model.Target}!Instance@{Instance}}
+\index{Instance@{Instance}!automeas\_ui.\_Launcher.Model.Target@{automeas\_ui.\_Launcher.Model.Target}}
+\doxysubsubsection{\texorpdfstring{Instance}{Instance}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classautomeas__ui_1_1___launcher_1_1_model_1_1_target}{Target}} automeas\+\_\+ui.\+\_\+\+Launcher.\+Model.\+Target.\+Instance\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [get]}}
+
+
+
+Definition at line \mbox{\hyperlink{___launcher_2_model_2_target_8cs_source_l00018}{18}} of file \mbox{\hyperlink{___launcher_2_model_2_target_8cs_source}{Target.\+cs}}.
+
+
+
+\doxysubsection{Event Documentation}
+\mbox{\Hypertarget{classautomeas__ui_1_1___launcher_1_1_model_1_1_target_a69f4c7895f308072d433cd0fd1f7d1c4}\label{classautomeas__ui_1_1___launcher_1_1_model_1_1_target_a69f4c7895f308072d433cd0fd1f7d1c4}} 
+\index{automeas\_ui.\_Launcher.Model.Target@{automeas\_ui.\_Launcher.Model.Target}!ChangeMVGToLauncher@{ChangeMVGToLauncher}}
+\index{ChangeMVGToLauncher@{ChangeMVGToLauncher}!automeas\_ui.\_Launcher.Model.Target@{automeas\_ui.\_Launcher.Model.Target}}
+\doxysubsubsection{\texorpdfstring{ChangeMVGToLauncher}{ChangeMVGToLauncher}}
+{\footnotesize\ttfamily Action automeas\+\_\+ui.\+\_\+\+Launcher.\+Model.\+Target.\+Change\+MVGTo\+Launcher}
+
+
+
+\mbox{[}Obsolete\mbox{]} Tells \mbox{\hyperlink{classautomeas__ui_1_1_app}{App}} that window should be changed to \mbox{\hyperlink{classautomeas__ui_1_1___launcher_1_1_launcher}{Launcher}} 
+
+
+
+Definition at line \mbox{\hyperlink{___launcher_2_model_2_target_8cs_source_l00055}{55}} of file \mbox{\hyperlink{___launcher_2_model_2_target_8cs_source}{Target.\+cs}}.
+
+\mbox{\Hypertarget{classautomeas__ui_1_1___launcher_1_1_model_1_1_target_ada1001fdeeed92c0a0a1482b371f734d}\label{classautomeas__ui_1_1___launcher_1_1_model_1_1_target_ada1001fdeeed92c0a0a1482b371f734d}} 
+\index{automeas\_ui.\_Launcher.Model.Target@{automeas\_ui.\_Launcher.Model.Target}!ChangeWindowToDashboard@{ChangeWindowToDashboard}}
+\index{ChangeWindowToDashboard@{ChangeWindowToDashboard}!automeas\_ui.\_Launcher.Model.Target@{automeas\_ui.\_Launcher.Model.Target}}
+\doxysubsubsection{\texorpdfstring{ChangeWindowToDashboard}{ChangeWindowToDashboard}}
+{\footnotesize\ttfamily Action$<$List$<$string$>$ $>$? automeas\+\_\+ui.\+\_\+\+Launcher.\+Model.\+Target.\+Change\+Window\+To\+Dashboard}
+
+
+
+\mbox{[}Obsolete\mbox{]} Tells \mbox{\hyperlink{classautomeas__ui_1_1_app}{App}} that window should be changed from \mbox{\hyperlink{classautomeas__ui_1_1___launcher_1_1_launcher}{Launcher}} to \mbox{\hyperlink{classautomeas__ui_1_1_dashboard}{Dashboard}} 
+
+
+
+Definition at line \mbox{\hyperlink{___launcher_2_model_2_target_8cs_source_l00047}{47}} of file \mbox{\hyperlink{___launcher_2_model_2_target_8cs_source}{Target.\+cs}}.
+
+\mbox{\Hypertarget{classautomeas__ui_1_1___launcher_1_1_model_1_1_target_a60143676096b5397a7750740b3a82fbd}\label{classautomeas__ui_1_1___launcher_1_1_model_1_1_target_a60143676096b5397a7750740b3a82fbd}} 
+\index{automeas\_ui.\_Launcher.Model.Target@{automeas\_ui.\_Launcher.Model.Target}!ChangeWindowToMVG@{ChangeWindowToMVG}}
+\index{ChangeWindowToMVG@{ChangeWindowToMVG}!automeas\_ui.\_Launcher.Model.Target@{automeas\_ui.\_Launcher.Model.Target}}
+\doxysubsubsection{\texorpdfstring{ChangeWindowToMVG}{ChangeWindowToMVG}}
+{\footnotesize\ttfamily Action automeas\+\_\+ui.\+\_\+\+Launcher.\+Model.\+Target.\+Change\+Window\+To\+MVG}
+
+
+
+\mbox{[}Obsolete\mbox{]} Tells \mbox{\hyperlink{classautomeas__ui_1_1_app}{App}} that window should be changed to MVG 
+
+
+
+Definition at line \mbox{\hyperlink{___launcher_2_model_2_target_8cs_source_l00051}{51}} of file \mbox{\hyperlink{___launcher_2_model_2_target_8cs_source}{Target.\+cs}}.
+
+\mbox{\Hypertarget{classautomeas__ui_1_1___launcher_1_1_model_1_1_target_a4ae0568fee037a744a24dd5960e68ac6}\label{classautomeas__ui_1_1___launcher_1_1_model_1_1_target_a4ae0568fee037a744a24dd5960e68ac6}} 
+\index{automeas\_ui.\_Launcher.Model.Target@{automeas\_ui.\_Launcher.Model.Target}!PageChangedEvent@{PageChangedEvent}}
+\index{PageChangedEvent@{PageChangedEvent}!automeas\_ui.\_Launcher.Model.Target@{automeas\_ui.\_Launcher.Model.Target}}
+\doxysubsubsection{\texorpdfstring{PageChangedEvent}{PageChangedEvent}}
+{\footnotesize\ttfamily Action$<$int$>$? automeas\+\_\+ui.\+\_\+\+Launcher.\+Model.\+Target.\+Page\+Changed\+Event}
+
+
+
+\mbox{[}Obsolete\mbox{]} Prompts old view to uppload all collected input 
+
+
+
+Definition at line \mbox{\hyperlink{___launcher_2_model_2_target_8cs_source_l00036}{36}} of file \mbox{\hyperlink{___launcher_2_model_2_target_8cs_source}{Target.\+cs}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Admin/source/repos/automeas/automeas-\/ui/\+\_\+\+Launcher/\+Model/\mbox{\hyperlink{___launcher_2_model_2_target_8cs}{Target.\+cs}}\end{DoxyCompactItemize}

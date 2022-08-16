@@ -12,6 +12,7 @@ using automeas_ui._Launcher.Model;
 
 namespace automeas_ui._Launcher.ViewModel
 {
+
     public class PageBarViewModel
     {
         // ctor

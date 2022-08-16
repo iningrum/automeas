@@ -1,6 +1,6 @@
 \hypertarget{___launcher_2_model_2_navigator_8cs_source}{}\doxysection{Navigator.\+cs}
 \label{___launcher_2_model_2_navigator_8cs_source}\index{C:/Users/Admin/source/repos/automeas/automeas-\/ui/\_Launcher/Model/Navigator.cs@{C:/Users/Admin/source/repos/automeas/automeas-\/ui/\_Launcher/Model/Navigator.cs}}
-
+\mbox{\hyperlink{___launcher_2_model_2_navigator_8cs}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{\Hypertarget{___launcher_2_model_2_navigator_8cs_source_l00001}00001 \textcolor{keyword}{using }\mbox{\hyperlink{namespaceautomeas__ui_1_1_m_v_generator}{automeas\_ui.MVGenerator}};}
 \DoxyCodeLine{\Hypertarget{___launcher_2_model_2_navigator_8cs_source_l00002}00002 \textcolor{keyword}{using }System;}
@@ -11,13 +11,13 @@
 \DoxyCodeLine{\Hypertarget{___launcher_2_model_2_navigator_8cs_source_l00007}00007 }
 \DoxyCodeLine{\Hypertarget{___launcher_2_model_2_navigator_8cs_source_l00008}\mbox{\hyperlink{namespaceautomeas__ui_1_1___launcher_1_1_model}{00008}} \textcolor{keyword}{namespace }\mbox{\hyperlink{namespaceautomeas__ui_1_1___launcher_1_1_model}{automeas\_ui.\_Launcher.Model}}}
 \DoxyCodeLine{\Hypertarget{___launcher_2_model_2_navigator_8cs_source_l00009}00009 \{}
-\DoxyCodeLine{\Hypertarget{___launcher_2_model_2_navigator_8cs_source_l00010}00010     \textcolor{keyword}{internal} sealed \textcolor{keyword}{class }Navigator}
+\DoxyCodeLine{\Hypertarget{___launcher_2_model_2_navigator_8cs_source_l00010}00010     \textcolor{keyword}{internal} sealed \textcolor{keyword}{class }\mbox{\hyperlink{___launcher_2_view_model_2_pages_2_launcher_summary_view_model_8cs_a5ecfbef388f8a160022866e897ee4cbd}{Navigator}}}
 \DoxyCodeLine{\Hypertarget{___launcher_2_model_2_navigator_8cs_source_l00011}00011     \{}
 \DoxyCodeLine{\Hypertarget{___launcher_2_model_2_navigator_8cs_source_l00012}00012         \textcolor{comment}{// singleton implementation -\/ thread safe}}
-\DoxyCodeLine{\Hypertarget{___launcher_2_model_2_navigator_8cs_source_l00013}00013         \textcolor{keyword}{private} \textcolor{keyword}{static} readonly Lazy<Navigator> lazy = \textcolor{keyword}{new} Lazy<Navigator>(() => \textcolor{keyword}{new} Navigator(typeof(\mbox{\hyperlink{namespaceautomeas__ui}{automeas\_ui}}.\mbox{\hyperlink{classautomeas__ui_1_1_launcher}{Launcher}})));}
-\DoxyCodeLine{\Hypertarget{___launcher_2_model_2_navigator_8cs_source_l00014}00014         \textcolor{keyword}{public} \textcolor{keyword}{static} Navigator Instance \{ \textcolor{keyword}{get} \{ \textcolor{keywordflow}{return} lazy.Value; \} \}}
+\DoxyCodeLine{\Hypertarget{___launcher_2_model_2_navigator_8cs_source_l00013}00013         \textcolor{keyword}{private} \textcolor{keyword}{static} readonly Lazy<Navigator> lazy = \textcolor{keyword}{new} Lazy<Navigator>(() => \textcolor{keyword}{new} \mbox{\hyperlink{___launcher_2_view_model_2_pages_2_launcher_summary_view_model_8cs_a5ecfbef388f8a160022866e897ee4cbd}{Navigator}}(typeof(\mbox{\hyperlink{namespaceautomeas__ui}{automeas\_ui}}.\mbox{\hyperlink{classautomeas__ui_1_1_launcher}{Launcher}})));}
+\DoxyCodeLine{\Hypertarget{___launcher_2_model_2_navigator_8cs_source_l00014}00014         \textcolor{keyword}{public} \textcolor{keyword}{static} \mbox{\hyperlink{___launcher_2_view_model_2_pages_2_launcher_summary_view_model_8cs_a5ecfbef388f8a160022866e897ee4cbd}{Navigator}} Instance \{ \textcolor{keyword}{get} \{ \textcolor{keywordflow}{return} lazy.Value; \} \}}
 \DoxyCodeLine{\Hypertarget{___launcher_2_model_2_navigator_8cs_source_l00015}00015         \textcolor{comment}{// ctor}}
-\DoxyCodeLine{\Hypertarget{___launcher_2_model_2_navigator_8cs_source_l00016}00016         \textcolor{keyword}{private} Navigator(Type t)}
+\DoxyCodeLine{\Hypertarget{___launcher_2_model_2_navigator_8cs_source_l00016}00016         \textcolor{keyword}{private} \mbox{\hyperlink{___launcher_2_view_model_2_pages_2_launcher_summary_view_model_8cs_a5ecfbef388f8a160022866e897ee4cbd}{Navigator}}(Type t)}
 \DoxyCodeLine{\Hypertarget{___launcher_2_model_2_navigator_8cs_source_l00017}00017         \{}
 \DoxyCodeLine{\Hypertarget{___launcher_2_model_2_navigator_8cs_source_l00018}00018             \_previousWindow = t;}
 \DoxyCodeLine{\Hypertarget{___launcher_2_model_2_navigator_8cs_source_l00019}00019             \_currentWindow = t;}

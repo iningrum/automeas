@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['createdelegate_0',['CreateDelegate',['../class_xaml_generated_namespace_1_1_generated_internal_type_helper.html#a8ec4c37e82d9f4e867e9655f4eac3a78',1,'XamlGeneratedNamespace::GeneratedInternalTypeHelper']]],
-  ['createinstance_1',['CreateInstance',['../class_xaml_generated_namespace_1_1_generated_internal_type_helper.html#aefb7a98fceb9c287cef4756942f441d1',1,'XamlGeneratedNamespace::GeneratedInternalTypeHelper']]]
+  ['addeventhandler_0',['AddEventHandler',['../class_xaml_generated_namespace_1_1_generated_internal_type_helper.html#a73471f4a6d1ca4c4fceec9ad8610f0c8',1,'XamlGeneratedNamespace.GeneratedInternalTypeHelper.AddEventHandler(System.Reflection.EventInfo eventInfo, object target, System.Delegate handler)'],['../class_xaml_generated_namespace_1_1_generated_internal_type_helper.html#a73471f4a6d1ca4c4fceec9ad8610f0c8',1,'XamlGeneratedNamespace.GeneratedInternalTypeHelper.AddEventHandler(System.Reflection.EventInfo eventInfo, object target, System.Delegate handler)']]],
+  ['axis_1',['Axis',['../structautomeas__ui_1_1_m_v_generator_1_1_m_v_v_m_1_1_model_1_1_m_v_g_target_1_1_axis.html#a24c87d4ae17620f27f33b124172d6c54',1,'automeas_ui::MVGenerator::MVVM::Model::MVGTarget::Axis']]]
 ];

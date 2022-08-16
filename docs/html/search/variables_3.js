@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['summarytitles_0',['SummaryTitles',['../classautomeas__ui_1_1___common_1_1_dev_config.html#a65fe1efa19da9acd277e6f5c3071a9f3',1,'automeas_ui::_Common::DevConfig']]]
+  ['focus_0',['Focus',['../structautomeas__ui_1_1_m_v_generator_1_1_m_v_v_m_1_1_model_1_1_m_v_g_target_1_1_m_v_data.html#a288e441a0d0c824abc3343a9996bbf2e',1,'automeas_ui::MVGenerator::MVVM::Model::MVGTarget::MVData']]]
 ];

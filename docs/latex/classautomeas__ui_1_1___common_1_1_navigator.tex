@@ -1,0 +1,245 @@
+\hypertarget{classautomeas__ui_1_1___common_1_1_navigator}{}\doxysection{automeas\+\_\+ui.\+\_\+\+Common.\+Navigator\texorpdfstring{$<$}{<} T \texorpdfstring{$>$}{>} Class Template Reference}
+\label{classautomeas__ui_1_1___common_1_1_navigator}\index{automeas\_ui.\_Common.Navigator$<$ T $>$@{automeas\_ui.\_Common.Navigator$<$ T $>$}}
+
+
+Used for navigation -\/ changing views, windows or pages. {\ttfamily \mbox{\hyperlink{classautomeas__ui_1_1___common_1_1_navigator}{Navigator}}} consists of register which converts string into Type. This type can be then used for reinstantiation of register can be only loaded once  
+
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classautomeas__ui_1_1___common_1_1_navigator_ac0a87d5620c3685bec2fafb65e55423e}{Navigator}} (Type t)
+\begin{DoxyCompactList}\small\item\em Default values \end{DoxyCompactList}\item 
+Z \mbox{\hyperlink{classautomeas__ui_1_1___common_1_1_navigator_a6b5528d5bc7ca0c7cfb241fb484c5990}{Change$<$ Z $>$}} (string id, bool notify=true)
+\begin{DoxyCompactList}\small\item\em Find id in register, return new instance of matched Type. If notify==true notify subscribers about the change. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classautomeas__ui_1_1___common_1_1_navigator_a82bb174fde8fca3e1ddb1e16ccd5023f}{Change}} (string id)
+\begin{DoxyCompactList}\small\item\em Find id in register, match to corresponding type, return this type via notification to all suscribers. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classautomeas__ui_1_1___common_1_1_navigator_a0c20727979b753689a9178037909d35b}{Load\+Register}} (Dictionary$<$ string, Type $>$ register)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Action$<$ Type $>$? \mbox{\hyperlink{classautomeas__ui_1_1___common_1_1_navigator_a38fe2f288680e314960823c17e9e6aa2}{Window\+Changed}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{classautomeas__ui_1_1___common_1_1_navigator}{Navigator}}$<$ T $>$ \mbox{\hyperlink{classautomeas__ui_1_1___common_1_1_navigator_ae8c4a1c1d5d10d47470e64b91ddf1b3b}{Instance}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classautomeas__ui_1_1___common_1_1_navigator_a1cb183cd65a5992aa5e556679608bcd1}{Notify\+Window\+Changed}} (Type msg)
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Dictionary$<$ string, Type $>$ \mbox{\hyperlink{classautomeas__ui_1_1___common_1_1_navigator_a730970b7e92dc991b63f02998170bca6}{\+\_\+reg}}
+\item 
+bool \mbox{\hyperlink{classautomeas__ui_1_1___common_1_1_navigator_a2c399e92b5beee8534e5461d89c92672}{\+\_\+locked}} = false
+\item 
+Type \mbox{\hyperlink{classautomeas__ui_1_1___common_1_1_navigator_a3d69417a05e01f41695fb77dbbcc182a}{\+\_\+previous}}
+\item 
+Type \mbox{\hyperlink{classautomeas__ui_1_1___common_1_1_navigator_a1b435b841200de0a93d14878b4e3398c}{\+\_\+current}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static readonly Lazy$<$ \mbox{\hyperlink{classautomeas__ui_1_1___common_1_1_navigator}{Navigator}}$<$ T $>$ $>$ \mbox{\hyperlink{classautomeas__ui_1_1___common_1_1_navigator_ae3102c4e294875c8cea5246182aa88ec}{lazy}} = new Lazy$<$\mbox{\hyperlink{classautomeas__ui_1_1___common_1_1_navigator}{Navigator}}$<$T$>$$>$(() =$>$ new \mbox{\hyperlink{classautomeas__ui_1_1___common_1_1_navigator}{Navigator}}$<$T$>$(typeof(T)))
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Used for navigation -\/ changing views, windows or pages. {\ttfamily \mbox{\hyperlink{classautomeas__ui_1_1___common_1_1_navigator}{Navigator}}} consists of register which converts string into Type. This type can be then used for reinstantiation of register can be only loaded once 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Default type stored\\
+\hline
+\end{DoxyTemplParams}
+
+
+Definition at line \mbox{\hyperlink{___common_2_navigator_8cs_source_l00017}{17}} of file \mbox{\hyperlink{___common_2_navigator_8cs_source}{Navigator.\+cs}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classautomeas__ui_1_1___common_1_1_navigator_ac0a87d5620c3685bec2fafb65e55423e}\label{classautomeas__ui_1_1___common_1_1_navigator_ac0a87d5620c3685bec2fafb65e55423e}} 
+\index{automeas\_ui.\_Common.Navigator$<$ T $>$@{automeas\_ui.\_Common.Navigator$<$ T $>$}!Navigator@{Navigator}}
+\index{Navigator@{Navigator}!automeas\_ui.\_Common.Navigator$<$ T $>$@{automeas\_ui.\_Common.Navigator$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Navigator()}{Navigator()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classautomeas__ui_1_1___common_1_1_navigator}{automeas\+\_\+ui.\+\_\+\+Common.\+Navigator}}$<$ T $>$.\mbox{\hyperlink{classautomeas__ui_1_1___common_1_1_navigator}{Navigator}} (\begin{DoxyParamCaption}\item[{Type}]{t }\end{DoxyParamCaption})}
+
+
+
+Default values 
+
+
+\begin{DoxyParams}{Parameters}
+{\em t} & Default value of \+\_\+previous and \+\_\+current\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{___common_2_navigator_8cs_source_l00027}{27}} of file \mbox{\hyperlink{___common_2_navigator_8cs_source}{Navigator.\+cs}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classautomeas__ui_1_1___common_1_1_navigator_a82bb174fde8fca3e1ddb1e16ccd5023f}\label{classautomeas__ui_1_1___common_1_1_navigator_a82bb174fde8fca3e1ddb1e16ccd5023f}} 
+\index{automeas\_ui.\_Common.Navigator$<$ T $>$@{automeas\_ui.\_Common.Navigator$<$ T $>$}!Change@{Change}}
+\index{Change@{Change}!automeas\_ui.\_Common.Navigator$<$ T $>$@{automeas\_ui.\_Common.Navigator$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Change()}{Change()}}
+{\footnotesize\ttfamily void \mbox{\hyperlink{classautomeas__ui_1_1___common_1_1_navigator}{automeas\+\_\+ui.\+\_\+\+Common.\+Navigator}}$<$ T $>$.Change (\begin{DoxyParamCaption}\item[{string}]{id }\end{DoxyParamCaption})}
+
+
+
+Find id in register, match to corresponding type, return this type via notification to all suscribers. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & Id of item that will be instantiated\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Invalid\+Operation\+Exception} & Thrown when given id does not exist in register\\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line \mbox{\hyperlink{___common_2_navigator_8cs_source_l00087}{87}} of file \mbox{\hyperlink{___common_2_navigator_8cs_source}{Navigator.\+cs}}.
+
+\mbox{\Hypertarget{classautomeas__ui_1_1___common_1_1_navigator_a6b5528d5bc7ca0c7cfb241fb484c5990}\label{classautomeas__ui_1_1___common_1_1_navigator_a6b5528d5bc7ca0c7cfb241fb484c5990}} 
+\index{automeas\_ui.\_Common.Navigator$<$ T $>$@{automeas\_ui.\_Common.Navigator$<$ T $>$}!Change$<$ Z $>$@{Change$<$ Z $>$}}
+\index{Change$<$ Z $>$@{Change$<$ Z $>$}!automeas\_ui.\_Common.Navigator$<$ T $>$@{automeas\_ui.\_Common.Navigator$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Change$<$ Z $>$()}{Change< Z >()}}
+{\footnotesize\ttfamily Z \mbox{\hyperlink{classautomeas__ui_1_1___common_1_1_navigator}{automeas\+\_\+ui.\+\_\+\+Common.\+Navigator}}$<$ T $>$.\mbox{\hyperlink{classautomeas__ui_1_1___common_1_1_navigator_a82bb174fde8fca3e1ddb1e16ccd5023f}{Change}}$<$ Z $>$ (\begin{DoxyParamCaption}\item[{string}]{id,  }\item[{bool}]{notify = {\ttfamily true} }\end{DoxyParamCaption})}
+
+
+
+Find id in register, return new instance of matched Type. If notify==true notify subscribers about the change. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Z} & Base type common to all Types in register. To be treated like type cast.\\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em id} & Id of item that will be instantiated\\
+\hline
+{\em notify} & (optional) notify subscribers about the change.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Object of base type Z that is registered
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Invalid\+Operation\+Exception} & Thrown when given id does not exist in register\\
+\hline
+{\em Exception} & Thrown when object instantiation failed.\\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line \mbox{\hyperlink{___common_2_navigator_8cs_source_l00049}{49}} of file \mbox{\hyperlink{___common_2_navigator_8cs_source}{Navigator.\+cs}}.
+
+\mbox{\Hypertarget{classautomeas__ui_1_1___common_1_1_navigator_a0c20727979b753689a9178037909d35b}\label{classautomeas__ui_1_1___common_1_1_navigator_a0c20727979b753689a9178037909d35b}} 
+\index{automeas\_ui.\_Common.Navigator$<$ T $>$@{automeas\_ui.\_Common.Navigator$<$ T $>$}!LoadRegister@{LoadRegister}}
+\index{LoadRegister@{LoadRegister}!automeas\_ui.\_Common.Navigator$<$ T $>$@{automeas\_ui.\_Common.Navigator$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{LoadRegister()}{LoadRegister()}}
+{\footnotesize\ttfamily void \mbox{\hyperlink{classautomeas__ui_1_1___common_1_1_navigator}{automeas\+\_\+ui.\+\_\+\+Common.\+Navigator}}$<$ T $>$.Load\+Register (\begin{DoxyParamCaption}\item[{Dictionary$<$ string, Type $>$}]{register }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{___common_2_navigator_8cs_source_l00113}{113}} of file \mbox{\hyperlink{___common_2_navigator_8cs_source}{Navigator.\+cs}}.
+
+\mbox{\Hypertarget{classautomeas__ui_1_1___common_1_1_navigator_a1cb183cd65a5992aa5e556679608bcd1}\label{classautomeas__ui_1_1___common_1_1_navigator_a1cb183cd65a5992aa5e556679608bcd1}} 
+\index{automeas\_ui.\_Common.Navigator$<$ T $>$@{automeas\_ui.\_Common.Navigator$<$ T $>$}!NotifyWindowChanged@{NotifyWindowChanged}}
+\index{NotifyWindowChanged@{NotifyWindowChanged}!automeas\_ui.\_Common.Navigator$<$ T $>$@{automeas\_ui.\_Common.Navigator$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{NotifyWindowChanged()}{NotifyWindowChanged()}}
+{\footnotesize\ttfamily void \mbox{\hyperlink{classautomeas__ui_1_1___common_1_1_navigator}{automeas\+\_\+ui.\+\_\+\+Common.\+Navigator}}$<$ T $>$.Notify\+Window\+Changed (\begin{DoxyParamCaption}\item[{Type}]{msg }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classautomeas__ui_1_1___common_1_1_navigator_a1b435b841200de0a93d14878b4e3398c}\label{classautomeas__ui_1_1___common_1_1_navigator_a1b435b841200de0a93d14878b4e3398c}} 
+\index{automeas\_ui.\_Common.Navigator$<$ T $>$@{automeas\_ui.\_Common.Navigator$<$ T $>$}!\_current@{\_current}}
+\index{\_current@{\_current}!automeas\_ui.\_Common.Navigator$<$ T $>$@{automeas\_ui.\_Common.Navigator$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{\_current}{\_current}}
+{\footnotesize\ttfamily Type \mbox{\hyperlink{classautomeas__ui_1_1___common_1_1_navigator}{automeas\+\_\+ui.\+\_\+\+Common.\+Navigator}}$<$ T $>$.\+\_\+current\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{___common_2_navigator_8cs_source_l00036}{36}} of file \mbox{\hyperlink{___common_2_navigator_8cs_source}{Navigator.\+cs}}.
+
+\mbox{\Hypertarget{classautomeas__ui_1_1___common_1_1_navigator_a2c399e92b5beee8534e5461d89c92672}\label{classautomeas__ui_1_1___common_1_1_navigator_a2c399e92b5beee8534e5461d89c92672}} 
+\index{automeas\_ui.\_Common.Navigator$<$ T $>$@{automeas\_ui.\_Common.Navigator$<$ T $>$}!\_locked@{\_locked}}
+\index{\_locked@{\_locked}!automeas\_ui.\_Common.Navigator$<$ T $>$@{automeas\_ui.\_Common.Navigator$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{\_locked}{\_locked}}
+{\footnotesize\ttfamily bool \mbox{\hyperlink{classautomeas__ui_1_1___common_1_1_navigator}{automeas\+\_\+ui.\+\_\+\+Common.\+Navigator}}$<$ T $>$.\+\_\+locked = false\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{___common_2_navigator_8cs_source_l00034}{34}} of file \mbox{\hyperlink{___common_2_navigator_8cs_source}{Navigator.\+cs}}.
+
+\mbox{\Hypertarget{classautomeas__ui_1_1___common_1_1_navigator_a3d69417a05e01f41695fb77dbbcc182a}\label{classautomeas__ui_1_1___common_1_1_navigator_a3d69417a05e01f41695fb77dbbcc182a}} 
+\index{automeas\_ui.\_Common.Navigator$<$ T $>$@{automeas\_ui.\_Common.Navigator$<$ T $>$}!\_previous@{\_previous}}
+\index{\_previous@{\_previous}!automeas\_ui.\_Common.Navigator$<$ T $>$@{automeas\_ui.\_Common.Navigator$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{\_previous}{\_previous}}
+{\footnotesize\ttfamily Type \mbox{\hyperlink{classautomeas__ui_1_1___common_1_1_navigator}{automeas\+\_\+ui.\+\_\+\+Common.\+Navigator}}$<$ T $>$.\+\_\+previous\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{___common_2_navigator_8cs_source_l00035}{35}} of file \mbox{\hyperlink{___common_2_navigator_8cs_source}{Navigator.\+cs}}.
+
+\mbox{\Hypertarget{classautomeas__ui_1_1___common_1_1_navigator_a730970b7e92dc991b63f02998170bca6}\label{classautomeas__ui_1_1___common_1_1_navigator_a730970b7e92dc991b63f02998170bca6}} 
+\index{automeas\_ui.\_Common.Navigator$<$ T $>$@{automeas\_ui.\_Common.Navigator$<$ T $>$}!\_reg@{\_reg}}
+\index{\_reg@{\_reg}!automeas\_ui.\_Common.Navigator$<$ T $>$@{automeas\_ui.\_Common.Navigator$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{\_reg}{\_reg}}
+{\footnotesize\ttfamily Dictionary$<$string, Type$>$ \mbox{\hyperlink{classautomeas__ui_1_1___common_1_1_navigator}{automeas\+\_\+ui.\+\_\+\+Common.\+Navigator}}$<$ T $>$.\+\_\+reg\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{___common_2_navigator_8cs_source_l00033}{33}} of file \mbox{\hyperlink{___common_2_navigator_8cs_source}{Navigator.\+cs}}.
+
+\mbox{\Hypertarget{classautomeas__ui_1_1___common_1_1_navigator_ae3102c4e294875c8cea5246182aa88ec}\label{classautomeas__ui_1_1___common_1_1_navigator_ae3102c4e294875c8cea5246182aa88ec}} 
+\index{automeas\_ui.\_Common.Navigator$<$ T $>$@{automeas\_ui.\_Common.Navigator$<$ T $>$}!lazy@{lazy}}
+\index{lazy@{lazy}!automeas\_ui.\_Common.Navigator$<$ T $>$@{automeas\_ui.\_Common.Navigator$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{lazy}{lazy}}
+{\footnotesize\ttfamily readonly Lazy$<$\mbox{\hyperlink{classautomeas__ui_1_1___common_1_1_navigator}{Navigator}}$<$T$>$ $>$ \mbox{\hyperlink{classautomeas__ui_1_1___common_1_1_navigator}{automeas\+\_\+ui.\+\_\+\+Common.\+Navigator}}$<$ T $>$.lazy = new Lazy$<$\mbox{\hyperlink{classautomeas__ui_1_1___common_1_1_navigator}{Navigator}}$<$T$>$$>$(() =$>$ new \mbox{\hyperlink{classautomeas__ui_1_1___common_1_1_navigator}{Navigator}}$<$T$>$(typeof(T)))\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{___common_2_navigator_8cs_source_l00020}{20}} of file \mbox{\hyperlink{___common_2_navigator_8cs_source}{Navigator.\+cs}}.
+
+\mbox{\Hypertarget{classautomeas__ui_1_1___common_1_1_navigator_a38fe2f288680e314960823c17e9e6aa2}\label{classautomeas__ui_1_1___common_1_1_navigator_a38fe2f288680e314960823c17e9e6aa2}} 
+\index{automeas\_ui.\_Common.Navigator$<$ T $>$@{automeas\_ui.\_Common.Navigator$<$ T $>$}!WindowChanged@{WindowChanged}}
+\index{WindowChanged@{WindowChanged}!automeas\_ui.\_Common.Navigator$<$ T $>$@{automeas\_ui.\_Common.Navigator$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{WindowChanged}{WindowChanged}}
+{\footnotesize\ttfamily Action$<$Type$>$? \mbox{\hyperlink{classautomeas__ui_1_1___common_1_1_navigator}{automeas\+\_\+ui.\+\_\+\+Common.\+Navigator}}$<$ T $>$.Window\+Changed}
+
+
+
+Definition at line \mbox{\hyperlink{___common_2_navigator_8cs_source_l00119}{119}} of file \mbox{\hyperlink{___common_2_navigator_8cs_source}{Navigator.\+cs}}.
+
+
+
+\doxysubsection{Property Documentation}
+\mbox{\Hypertarget{classautomeas__ui_1_1___common_1_1_navigator_ae8c4a1c1d5d10d47470e64b91ddf1b3b}\label{classautomeas__ui_1_1___common_1_1_navigator_ae8c4a1c1d5d10d47470e64b91ddf1b3b}} 
+\index{automeas\_ui.\_Common.Navigator$<$ T $>$@{automeas\_ui.\_Common.Navigator$<$ T $>$}!Instance@{Instance}}
+\index{Instance@{Instance}!automeas\_ui.\_Common.Navigator$<$ T $>$@{automeas\_ui.\_Common.Navigator$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Instance}{Instance}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classautomeas__ui_1_1___common_1_1_navigator}{Navigator}}$<$T$>$ \mbox{\hyperlink{classautomeas__ui_1_1___common_1_1_navigator}{automeas\+\_\+ui.\+\_\+\+Common.\+Navigator}}$<$ T $>$.Instance\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [get]}}
+
+
+
+Definition at line \mbox{\hyperlink{___common_2_navigator_8cs_source_l00021}{21}} of file \mbox{\hyperlink{___common_2_navigator_8cs_source}{Navigator.\+cs}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Admin/source/repos/automeas/automeas-\/ui/\+\_\+\+Common/\mbox{\hyperlink{___common_2_navigator_8cs}{Navigator.\+cs}}\end{DoxyCompactItemize}

@@ -1,0 +1,101 @@
+\hypertarget{___common_2_navigator_8cs_source}{}\doxysection{Navigator.\+cs}
+\label{___common_2_navigator_8cs_source}\index{C:/Users/Admin/source/repos/automeas/automeas-\/ui/\_Common/Navigator.cs@{C:/Users/Admin/source/repos/automeas/automeas-\/ui/\_Common/Navigator.cs}}
+\mbox{\hyperlink{___common_2_navigator_8cs}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{___common_2_navigator_8cs_source_l00001}00001 \textcolor{keyword}{using }System;}
+\DoxyCodeLine{\Hypertarget{___common_2_navigator_8cs_source_l00002}00002 \textcolor{keyword}{using }System.Collections.Generic;}
+\DoxyCodeLine{\Hypertarget{___common_2_navigator_8cs_source_l00003}00003 \textcolor{keyword}{using }System.Linq;}
+\DoxyCodeLine{\Hypertarget{___common_2_navigator_8cs_source_l00004}00004 \textcolor{keyword}{using }System.Security;}
+\DoxyCodeLine{\Hypertarget{___common_2_navigator_8cs_source_l00005}00005 \textcolor{keyword}{using }System.Text;}
+\DoxyCodeLine{\Hypertarget{___common_2_navigator_8cs_source_l00006}00006 \textcolor{keyword}{using }System.Threading.Tasks;}
+\DoxyCodeLine{\Hypertarget{___common_2_navigator_8cs_source_l00007}00007 }
+\DoxyCodeLine{\Hypertarget{___common_2_navigator_8cs_source_l00008}00008 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespaceautomeas__ui_1_1___common}{automeas\_ui.\_Common}}}
+\DoxyCodeLine{\Hypertarget{___common_2_navigator_8cs_source_l00009}00009 \{}
+\DoxyCodeLine{\Hypertarget{___common_2_navigator_8cs_source_l00017}\mbox{\hyperlink{classautomeas__ui_1_1___common_1_1_navigator}{00017}}     \textcolor{keyword}{public} sealed \textcolor{keyword}{class }\mbox{\hyperlink{classautomeas__ui_1_1___common_1_1_navigator}{Navigator}}<T>}
+\DoxyCodeLine{\Hypertarget{___common_2_navigator_8cs_source_l00018}00018     \{}
+\DoxyCodeLine{\Hypertarget{___common_2_navigator_8cs_source_l00019}00019         \textcolor{comment}{// singleton implementation -\/ thread safe}}
+\DoxyCodeLine{\Hypertarget{___common_2_navigator_8cs_source_l00020}\mbox{\hyperlink{classautomeas__ui_1_1___common_1_1_navigator_ae3102c4e294875c8cea5246182aa88ec}{00020}}         \textcolor{keyword}{private} \textcolor{keyword}{static} readonly Lazy<Navigator<T>> \mbox{\hyperlink{classautomeas__ui_1_1___common_1_1_navigator_ae3102c4e294875c8cea5246182aa88ec}{lazy}} = \textcolor{keyword}{new} Lazy<Navigator<T>>(() => \textcolor{keyword}{new} \mbox{\hyperlink{classautomeas__ui_1_1___common_1_1_navigator}{Navigator<T>}}(typeof(T)));}
+\DoxyCodeLine{\Hypertarget{___common_2_navigator_8cs_source_l00021}\mbox{\hyperlink{classautomeas__ui_1_1___common_1_1_navigator_ae8c4a1c1d5d10d47470e64b91ddf1b3b}{00021}}         \textcolor{keyword}{public} \textcolor{keyword}{static} \mbox{\hyperlink{classautomeas__ui_1_1___common_1_1_navigator}{Navigator<T>}} \mbox{\hyperlink{classautomeas__ui_1_1___common_1_1_navigator_ae8c4a1c1d5d10d47470e64b91ddf1b3b}{Instance}} \{ \textcolor{keyword}{get} \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classautomeas__ui_1_1___common_1_1_navigator_ae3102c4e294875c8cea5246182aa88ec}{lazy}}.Value; \} \}}
+\DoxyCodeLine{\Hypertarget{___common_2_navigator_8cs_source_l00022}00022         \textcolor{comment}{// ctor}}
+\DoxyCodeLine{\Hypertarget{___common_2_navigator_8cs_source_l00027}\mbox{\hyperlink{classautomeas__ui_1_1___common_1_1_navigator_ac0a87d5620c3685bec2fafb65e55423e}{00027}} \textcolor{comment}{}        \textcolor{keyword}{public} \mbox{\hyperlink{classautomeas__ui_1_1___common_1_1_navigator_ac0a87d5620c3685bec2fafb65e55423e}{Navigator}}(Type t)}
+\DoxyCodeLine{\Hypertarget{___common_2_navigator_8cs_source_l00028}00028         \{}
+\DoxyCodeLine{\Hypertarget{___common_2_navigator_8cs_source_l00029}00029             \mbox{\hyperlink{classautomeas__ui_1_1___common_1_1_navigator_a3d69417a05e01f41695fb77dbbcc182a}{\_previous}} = t;}
+\DoxyCodeLine{\Hypertarget{___common_2_navigator_8cs_source_l00030}00030             \mbox{\hyperlink{classautomeas__ui_1_1___common_1_1_navigator_a1b435b841200de0a93d14878b4e3398c}{\_current}} = t;}
+\DoxyCodeLine{\Hypertarget{___common_2_navigator_8cs_source_l00031}00031             \mbox{\hyperlink{classautomeas__ui_1_1___common_1_1_navigator_a730970b7e92dc991b63f02998170bca6}{\_reg}} = \textcolor{keyword}{new}();}
+\DoxyCodeLine{\Hypertarget{___common_2_navigator_8cs_source_l00032}00032         \}}
+\DoxyCodeLine{\Hypertarget{___common_2_navigator_8cs_source_l00033}\mbox{\hyperlink{classautomeas__ui_1_1___common_1_1_navigator_a730970b7e92dc991b63f02998170bca6}{00033}}         \textcolor{keyword}{private} Dictionary<string, Type> \mbox{\hyperlink{classautomeas__ui_1_1___common_1_1_navigator_a730970b7e92dc991b63f02998170bca6}{\_reg}};}
+\DoxyCodeLine{\Hypertarget{___common_2_navigator_8cs_source_l00034}\mbox{\hyperlink{classautomeas__ui_1_1___common_1_1_navigator_a2c399e92b5beee8534e5461d89c92672}{00034}}         \textcolor{keyword}{private} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classautomeas__ui_1_1___common_1_1_navigator_a2c399e92b5beee8534e5461d89c92672}{\_locked}} = \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{___common_2_navigator_8cs_source_l00035}\mbox{\hyperlink{classautomeas__ui_1_1___common_1_1_navigator_a3d69417a05e01f41695fb77dbbcc182a}{00035}}         \textcolor{keyword}{private} Type \mbox{\hyperlink{classautomeas__ui_1_1___common_1_1_navigator_a3d69417a05e01f41695fb77dbbcc182a}{\_previous}};}
+\DoxyCodeLine{\Hypertarget{___common_2_navigator_8cs_source_l00036}\mbox{\hyperlink{classautomeas__ui_1_1___common_1_1_navigator_a1b435b841200de0a93d14878b4e3398c}{00036}}         \textcolor{keyword}{private} Type \mbox{\hyperlink{classautomeas__ui_1_1___common_1_1_navigator_a1b435b841200de0a93d14878b4e3398c}{\_current}};}
+\DoxyCodeLine{\Hypertarget{___common_2_navigator_8cs_source_l00037}00037         \textcolor{comment}{// functions}}
+\DoxyCodeLine{\Hypertarget{___common_2_navigator_8cs_source_l00049}\mbox{\hyperlink{classautomeas__ui_1_1___common_1_1_navigator_a6b5528d5bc7ca0c7cfb241fb484c5990}{00049}} \textcolor{comment}{}        \textcolor{keyword}{public} Z \mbox{\hyperlink{classautomeas__ui_1_1___common_1_1_navigator_a6b5528d5bc7ca0c7cfb241fb484c5990}{Change<Z>}}(\textcolor{keywordtype}{string} \textcolor{keywordtype}{id}, \textcolor{keywordtype}{bool} notify=\textcolor{keyword}{true})}
+\DoxyCodeLine{\Hypertarget{___common_2_navigator_8cs_source_l00050}00050         \{}
+\DoxyCodeLine{\Hypertarget{___common_2_navigator_8cs_source_l00051}00051             \textcolor{keywordflow}{if} (\textcolor{keywordtype}{id} == \textcolor{stringliteral}{"{}\(\backslash\)r"{}})}
+\DoxyCodeLine{\Hypertarget{___common_2_navigator_8cs_source_l00052}00052             \{}
+\DoxyCodeLine{\Hypertarget{___common_2_navigator_8cs_source_l00053}00053                 \mbox{\hyperlink{classautomeas__ui_1_1___common_1_1_navigator_a1b435b841200de0a93d14878b4e3398c}{\_current}} = \mbox{\hyperlink{classautomeas__ui_1_1___common_1_1_navigator_a3d69417a05e01f41695fb77dbbcc182a}{\_previous}};}
+\DoxyCodeLine{\Hypertarget{___common_2_navigator_8cs_source_l00054}00054             \}}
+\DoxyCodeLine{\Hypertarget{___common_2_navigator_8cs_source_l00055}00055             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (\textcolor{keywordtype}{id} == \textcolor{stringliteral}{"{}\(\backslash\)0"{}})}
+\DoxyCodeLine{\Hypertarget{___common_2_navigator_8cs_source_l00056}00056             \{}
+\DoxyCodeLine{\Hypertarget{___common_2_navigator_8cs_source_l00057}00057                 System.Windows.Application.Current.Shutdown();}
+\DoxyCodeLine{\Hypertarget{___common_2_navigator_8cs_source_l00058}00058             \}}
+\DoxyCodeLine{\Hypertarget{___common_2_navigator_8cs_source_l00059}00059             \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{___common_2_navigator_8cs_source_l00060}00060             \{}
+\DoxyCodeLine{\Hypertarget{___common_2_navigator_8cs_source_l00061}00061                 Type? getVal;}
+\DoxyCodeLine{\Hypertarget{___common_2_navigator_8cs_source_l00062}00062                 \textcolor{keywordflow}{if} (\mbox{\hyperlink{classautomeas__ui_1_1___common_1_1_navigator_a730970b7e92dc991b63f02998170bca6}{\_reg}}.TryGetValue(\textcolor{keywordtype}{id}, out getVal))}
+\DoxyCodeLine{\Hypertarget{___common_2_navigator_8cs_source_l00063}00063                 \{}
+\DoxyCodeLine{\Hypertarget{___common_2_navigator_8cs_source_l00064}00064                     \mbox{\hyperlink{classautomeas__ui_1_1___common_1_1_navigator_a3d69417a05e01f41695fb77dbbcc182a}{\_previous}} = \mbox{\hyperlink{classautomeas__ui_1_1___common_1_1_navigator_a1b435b841200de0a93d14878b4e3398c}{\_current}};}
+\DoxyCodeLine{\Hypertarget{___common_2_navigator_8cs_source_l00065}00065                     \mbox{\hyperlink{classautomeas__ui_1_1___common_1_1_navigator_a1b435b841200de0a93d14878b4e3398c}{\_current}} = getVal;}
+\DoxyCodeLine{\Hypertarget{___common_2_navigator_8cs_source_l00066}00066 }
+\DoxyCodeLine{\Hypertarget{___common_2_navigator_8cs_source_l00067}00067                 \}}
+\DoxyCodeLine{\Hypertarget{___common_2_navigator_8cs_source_l00068}00068                 \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{___common_2_navigator_8cs_source_l00069}00069                 \{}
+\DoxyCodeLine{\Hypertarget{___common_2_navigator_8cs_source_l00070}00070                     \textcolor{keywordflow}{throw} \textcolor{keyword}{new} InvalidOperationException(\textcolor{stringliteral}{"{}Window id not in register"{}});}
+\DoxyCodeLine{\Hypertarget{___common_2_navigator_8cs_source_l00071}00071                 \}}
+\DoxyCodeLine{\Hypertarget{___common_2_navigator_8cs_source_l00072}00072             \}}
+\DoxyCodeLine{\Hypertarget{___common_2_navigator_8cs_source_l00073}00073             \textcolor{keywordflow}{if} (notify)}
+\DoxyCodeLine{\Hypertarget{___common_2_navigator_8cs_source_l00074}00074             \{}
+\DoxyCodeLine{\Hypertarget{___common_2_navigator_8cs_source_l00075}00075                 \mbox{\hyperlink{classautomeas__ui_1_1___common_1_1_navigator_a1cb183cd65a5992aa5e556679608bcd1}{NotifyWindowChanged}}(\mbox{\hyperlink{classautomeas__ui_1_1___common_1_1_navigator_a1b435b841200de0a93d14878b4e3398c}{\_current}});}
+\DoxyCodeLine{\Hypertarget{___common_2_navigator_8cs_source_l00076}00076             \}}
+\DoxyCodeLine{\Hypertarget{___common_2_navigator_8cs_source_l00077}00077             Z? result = (Z?)Activator.CreateInstance(\mbox{\hyperlink{classautomeas__ui_1_1___common_1_1_navigator_a1b435b841200de0a93d14878b4e3398c}{\_current}});}
+\DoxyCodeLine{\Hypertarget{___common_2_navigator_8cs_source_l00078}00078             \textcolor{keywordflow}{if} (result != \textcolor{keyword}{null}) \{ \textcolor{keywordflow}{return} (Z)result; \}}
+\DoxyCodeLine{\Hypertarget{___common_2_navigator_8cs_source_l00079}00079             \textcolor{keywordflow}{else} \{ \textcolor{keywordflow}{throw} \textcolor{keyword}{new} Exception(\textcolor{stringliteral}{"{}Instantiation of type failed"{}}); \}}
+\DoxyCodeLine{\Hypertarget{___common_2_navigator_8cs_source_l00080}00080         \}}
+\DoxyCodeLine{\Hypertarget{___common_2_navigator_8cs_source_l00087}\mbox{\hyperlink{classautomeas__ui_1_1___common_1_1_navigator_a82bb174fde8fca3e1ddb1e16ccd5023f}{00087}}         \textcolor{keyword}{public} \textcolor{keywordtype}{void} \mbox{\hyperlink{classautomeas__ui_1_1___common_1_1_navigator_a82bb174fde8fca3e1ddb1e16ccd5023f}{Change}}(\textcolor{keywordtype}{string} \textcolor{keywordtype}{id})}
+\DoxyCodeLine{\Hypertarget{___common_2_navigator_8cs_source_l00088}00088         \{}
+\DoxyCodeLine{\Hypertarget{___common_2_navigator_8cs_source_l00089}00089             \textcolor{keywordflow}{if} (\textcolor{keywordtype}{id} == \textcolor{stringliteral}{"{}\(\backslash\)r"{}})}
+\DoxyCodeLine{\Hypertarget{___common_2_navigator_8cs_source_l00090}00090             \{}
+\DoxyCodeLine{\Hypertarget{___common_2_navigator_8cs_source_l00091}00091                 \mbox{\hyperlink{classautomeas__ui_1_1___common_1_1_navigator_a1b435b841200de0a93d14878b4e3398c}{\_current}} = \mbox{\hyperlink{classautomeas__ui_1_1___common_1_1_navigator_a3d69417a05e01f41695fb77dbbcc182a}{\_previous}};}
+\DoxyCodeLine{\Hypertarget{___common_2_navigator_8cs_source_l00092}00092             \}}
+\DoxyCodeLine{\Hypertarget{___common_2_navigator_8cs_source_l00093}00093             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (\textcolor{keywordtype}{id} == \textcolor{stringliteral}{"{}\(\backslash\)0"{}})}
+\DoxyCodeLine{\Hypertarget{___common_2_navigator_8cs_source_l00094}00094             \{}
+\DoxyCodeLine{\Hypertarget{___common_2_navigator_8cs_source_l00095}00095                 System.Windows.Application.Current.Shutdown();}
+\DoxyCodeLine{\Hypertarget{___common_2_navigator_8cs_source_l00096}00096             \}}
+\DoxyCodeLine{\Hypertarget{___common_2_navigator_8cs_source_l00097}00097             \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{___common_2_navigator_8cs_source_l00098}00098             \{}
+\DoxyCodeLine{\Hypertarget{___common_2_navigator_8cs_source_l00099}00099                 Type? getVal;}
+\DoxyCodeLine{\Hypertarget{___common_2_navigator_8cs_source_l00100}00100                 \textcolor{keywordflow}{if} (\mbox{\hyperlink{classautomeas__ui_1_1___common_1_1_navigator_a730970b7e92dc991b63f02998170bca6}{\_reg}}.TryGetValue(\textcolor{keywordtype}{id}, out getVal))}
+\DoxyCodeLine{\Hypertarget{___common_2_navigator_8cs_source_l00101}00101                 \{}
+\DoxyCodeLine{\Hypertarget{___common_2_navigator_8cs_source_l00102}00102                     \mbox{\hyperlink{classautomeas__ui_1_1___common_1_1_navigator_a3d69417a05e01f41695fb77dbbcc182a}{\_previous}} = \mbox{\hyperlink{classautomeas__ui_1_1___common_1_1_navigator_a1b435b841200de0a93d14878b4e3398c}{\_current}};}
+\DoxyCodeLine{\Hypertarget{___common_2_navigator_8cs_source_l00103}00103                     \mbox{\hyperlink{classautomeas__ui_1_1___common_1_1_navigator_a1b435b841200de0a93d14878b4e3398c}{\_current}} = getVal;}
+\DoxyCodeLine{\Hypertarget{___common_2_navigator_8cs_source_l00104}00104 }
+\DoxyCodeLine{\Hypertarget{___common_2_navigator_8cs_source_l00105}00105                 \}}
+\DoxyCodeLine{\Hypertarget{___common_2_navigator_8cs_source_l00106}00106                 \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{___common_2_navigator_8cs_source_l00107}00107                 \{}
+\DoxyCodeLine{\Hypertarget{___common_2_navigator_8cs_source_l00108}00108                     \textcolor{keywordflow}{throw} \textcolor{keyword}{new} InvalidOperationException(\textcolor{stringliteral}{"{}Window id not in register"{}});}
+\DoxyCodeLine{\Hypertarget{___common_2_navigator_8cs_source_l00109}00109                 \}}
+\DoxyCodeLine{\Hypertarget{___common_2_navigator_8cs_source_l00110}00110             \}}
+\DoxyCodeLine{\Hypertarget{___common_2_navigator_8cs_source_l00111}00111             \mbox{\hyperlink{classautomeas__ui_1_1___common_1_1_navigator_a1cb183cd65a5992aa5e556679608bcd1}{NotifyWindowChanged}}(\mbox{\hyperlink{classautomeas__ui_1_1___common_1_1_navigator_a1b435b841200de0a93d14878b4e3398c}{\_current}});}
+\DoxyCodeLine{\Hypertarget{___common_2_navigator_8cs_source_l00112}00112         \}}
+\DoxyCodeLine{\Hypertarget{___common_2_navigator_8cs_source_l00113}\mbox{\hyperlink{classautomeas__ui_1_1___common_1_1_navigator_a0c20727979b753689a9178037909d35b}{00113}}         \textcolor{keyword}{public} \textcolor{keywordtype}{void} \mbox{\hyperlink{classautomeas__ui_1_1___common_1_1_navigator_a0c20727979b753689a9178037909d35b}{LoadRegister}}(Dictionary<string, Type> \textcolor{keyword}{register})}
+\DoxyCodeLine{\Hypertarget{___common_2_navigator_8cs_source_l00114}00114         \{}
+\DoxyCodeLine{\Hypertarget{___common_2_navigator_8cs_source_l00115}00115             \textcolor{keywordflow}{if}(\mbox{\hyperlink{classautomeas__ui_1_1___common_1_1_navigator_a2c399e92b5beee8534e5461d89c92672}{\_locked}} == \textcolor{keyword}{true}) \{ \textcolor{keywordflow}{return}; \}}
+\DoxyCodeLine{\Hypertarget{___common_2_navigator_8cs_source_l00116}00116             \mbox{\hyperlink{classautomeas__ui_1_1___common_1_1_navigator_a2c399e92b5beee8534e5461d89c92672}{\_locked}} = \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{___common_2_navigator_8cs_source_l00117}00117             \mbox{\hyperlink{classautomeas__ui_1_1___common_1_1_navigator_a730970b7e92dc991b63f02998170bca6}{\_reg}} = \textcolor{keyword}{register};}
+\DoxyCodeLine{\Hypertarget{___common_2_navigator_8cs_source_l00118}00118         \}}
+\DoxyCodeLine{\Hypertarget{___common_2_navigator_8cs_source_l00119}\mbox{\hyperlink{classautomeas__ui_1_1___common_1_1_navigator_a38fe2f288680e314960823c17e9e6aa2}{00119}}         \textcolor{keyword}{public} Action<Type>? \mbox{\hyperlink{classautomeas__ui_1_1___common_1_1_navigator_a38fe2f288680e314960823c17e9e6aa2}{WindowChanged}};}
+\DoxyCodeLine{\Hypertarget{___common_2_navigator_8cs_source_l00120}00120 }
+\DoxyCodeLine{\Hypertarget{___common_2_navigator_8cs_source_l00121}\mbox{\hyperlink{classautomeas__ui_1_1___common_1_1_navigator_a1cb183cd65a5992aa5e556679608bcd1}{00121}}         \textcolor{keyword}{private} \textcolor{keywordtype}{void} \mbox{\hyperlink{classautomeas__ui_1_1___common_1_1_navigator_a1cb183cd65a5992aa5e556679608bcd1}{NotifyWindowChanged}}(Type msg) => \mbox{\hyperlink{classautomeas__ui_1_1___common_1_1_navigator_a38fe2f288680e314960823c17e9e6aa2}{WindowChanged}}?.Invoke(msg);}
+\DoxyCodeLine{\Hypertarget{___common_2_navigator_8cs_source_l00122}00122     \}}
+\DoxyCodeLine{\Hypertarget{___common_2_navigator_8cs_source_l00123}00123 \}}
+
+\end{DoxyCode}

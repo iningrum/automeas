@@ -1,6 +1,6 @@
 \hypertarget{___launcher_2_view_model_2_page_bar_view_model_8cs_source}{}\doxysection{Page\+Bar\+View\+Model.\+cs}
 \label{___launcher_2_view_model_2_page_bar_view_model_8cs_source}\index{C:/Users/Admin/source/repos/automeas/automeas-\/ui/\_Launcher/ViewModel/PageBarViewModel.cs@{C:/Users/Admin/source/repos/automeas/automeas-\/ui/\_Launcher/ViewModel/PageBarViewModel.cs}}
-
+\mbox{\hyperlink{___launcher_2_view_model_2_page_bar_view_model_8cs}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{\Hypertarget{___launcher_2_view_model_2_page_bar_view_model_8cs_source_l00001}00001 \textcolor{keyword}{using }\mbox{\hyperlink{namespaceautomeas__ui_1_1_core}{automeas\_ui.Core}};}
 \DoxyCodeLine{\Hypertarget{___launcher_2_view_model_2_page_bar_view_model_8cs_source_l00002}00002 \textcolor{keyword}{using }\mbox{\hyperlink{namespaceautomeas__ui_1_1_m_w_m_1_1_model_1_1_launcher}{automeas\_ui.MWM.Model.Launcher}};}
@@ -16,71 +16,72 @@
 \DoxyCodeLine{\Hypertarget{___launcher_2_view_model_2_page_bar_view_model_8cs_source_l00012}00012 }
 \DoxyCodeLine{\Hypertarget{___launcher_2_view_model_2_page_bar_view_model_8cs_source_l00013}00013 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespaceautomeas__ui_1_1___launcher_1_1_view_model}{automeas\_ui.\_Launcher.ViewModel}}}
 \DoxyCodeLine{\Hypertarget{___launcher_2_view_model_2_page_bar_view_model_8cs_source_l00014}00014 \{}
-\DoxyCodeLine{\Hypertarget{___launcher_2_view_model_2_page_bar_view_model_8cs_source_l00015}\mbox{\hyperlink{classautomeas__ui_1_1___launcher_1_1_view_model_1_1_page_bar_view_model}{00015}}     \textcolor{keyword}{public} \textcolor{keyword}{class }\mbox{\hyperlink{classautomeas__ui_1_1___launcher_1_1_view_model_1_1_page_bar_view_model}{PageBarViewModel}}}
-\DoxyCodeLine{\Hypertarget{___launcher_2_view_model_2_page_bar_view_model_8cs_source_l00016}00016     \{}
-\DoxyCodeLine{\Hypertarget{___launcher_2_view_model_2_page_bar_view_model_8cs_source_l00017}00017         \textcolor{comment}{// ctor}}
-\DoxyCodeLine{\Hypertarget{___launcher_2_view_model_2_page_bar_view_model_8cs_source_l00018}00018         \textcolor{keyword}{public} \mbox{\hyperlink{classautomeas__ui_1_1___launcher_1_1_view_model_1_1_page_bar_view_model}{PageBarViewModel}}(\mbox{\hyperlink{classautomeas__ui_1_1___launcher_1_1_view_model_1_1_launcher___main_view_model}{Launcher\_MainViewModel}} master)}
-\DoxyCodeLine{\Hypertarget{___launcher_2_view_model_2_page_bar_view_model_8cs_source_l00019}00019         \{}
-\DoxyCodeLine{\Hypertarget{___launcher_2_view_model_2_page_bar_view_model_8cs_source_l00020}00020             this.master = master;}
-\DoxyCodeLine{\Hypertarget{___launcher_2_view_model_2_page_bar_view_model_8cs_source_l00021}00021             master.PageChanged += LauncherMaster\_PageChanged;}
-\DoxyCodeLine{\Hypertarget{___launcher_2_view_model_2_page_bar_view_model_8cs_source_l00022}00022             Pages = \textcolor{keyword}{new} \mbox{\hyperlink{classautomeas__ui_1_1_core_1_1_truly_observable_collection}{TrulyObservableCollection<ObservableType<bool>}}>();}
-\DoxyCodeLine{\Hypertarget{___launcher_2_view_model_2_page_bar_view_model_8cs_source_l00023}00023             Pages.Add(\textcolor{keyword}{new} \mbox{\hyperlink{classautomeas__ui_1_1___launcher_1_1_model_1_1_observable_type}{ObservableType<bool>}}(\textcolor{keyword}{true}));}
-\DoxyCodeLine{\Hypertarget{___launcher_2_view_model_2_page_bar_view_model_8cs_source_l00024}00024             Pages.Last().PropertyChanged += ViewedPage\_PropertyChanged;}
-\DoxyCodeLine{\Hypertarget{___launcher_2_view_model_2_page_bar_view_model_8cs_source_l00025}00025             \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 1; i < \mbox{\hyperlink{classautomeas__ui_1_1_m_w_m_1_1_model_1_1_launcher_1_1_a_m_dev_config}{AMDevConfig}}.NumberOfPages; i++)}
-\DoxyCodeLine{\Hypertarget{___launcher_2_view_model_2_page_bar_view_model_8cs_source_l00026}00026             \{}
-\DoxyCodeLine{\Hypertarget{___launcher_2_view_model_2_page_bar_view_model_8cs_source_l00027}00027                 Pages.Add(\textcolor{keyword}{new} \mbox{\hyperlink{classautomeas__ui_1_1___launcher_1_1_model_1_1_observable_type}{ObservableType<bool>}}(\textcolor{keyword}{false}));}
-\DoxyCodeLine{\Hypertarget{___launcher_2_view_model_2_page_bar_view_model_8cs_source_l00028}00028                 Pages.Last().PropertyChanged += ViewedPage\_PropertyChanged;}
-\DoxyCodeLine{\Hypertarget{___launcher_2_view_model_2_page_bar_view_model_8cs_source_l00029}00029             \}}
-\DoxyCodeLine{\Hypertarget{___launcher_2_view_model_2_page_bar_view_model_8cs_source_l00030}00030         \}}
-\DoxyCodeLine{\Hypertarget{___launcher_2_view_model_2_page_bar_view_model_8cs_source_l00031}00031         \textcolor{comment}{// attrs}}
-\DoxyCodeLine{\Hypertarget{___launcher_2_view_model_2_page_bar_view_model_8cs_source_l00032}00032         \textcolor{keyword}{private} readonly \mbox{\hyperlink{classautomeas__ui_1_1___launcher_1_1_view_model_1_1_launcher___main_view_model}{Launcher\_MainViewModel}} master;}
-\DoxyCodeLine{\Hypertarget{___launcher_2_view_model_2_page_bar_view_model_8cs_source_l00033}00033         \textcolor{keyword}{private} \mbox{\hyperlink{classautomeas__ui_1_1_core_1_1_truly_observable_collection}{TrulyObservableCollection<ObservableType<bool>}}> \_Pages;}
-\DoxyCodeLine{\Hypertarget{___launcher_2_view_model_2_page_bar_view_model_8cs_source_l00034}00034         \textcolor{keyword}{public} \mbox{\hyperlink{classautomeas__ui_1_1_core_1_1_truly_observable_collection}{TrulyObservableCollection<ObservableType<bool>}}> Pages}
-\DoxyCodeLine{\Hypertarget{___launcher_2_view_model_2_page_bar_view_model_8cs_source_l00035}00035         \{}
-\DoxyCodeLine{\Hypertarget{___launcher_2_view_model_2_page_bar_view_model_8cs_source_l00036}00036             \textcolor{keyword}{get} \{ \textcolor{keywordflow}{return} \_Pages; \}}
-\DoxyCodeLine{\Hypertarget{___launcher_2_view_model_2_page_bar_view_model_8cs_source_l00037}00037             \textcolor{keyword}{set}}
-\DoxyCodeLine{\Hypertarget{___launcher_2_view_model_2_page_bar_view_model_8cs_source_l00038}00038             \{}
-\DoxyCodeLine{\Hypertarget{___launcher_2_view_model_2_page_bar_view_model_8cs_source_l00039}00039                 \textcolor{keywordflow}{if} (\_Pages == value) \textcolor{keywordflow}{return};}
-\DoxyCodeLine{\Hypertarget{___launcher_2_view_model_2_page_bar_view_model_8cs_source_l00040}00040                 \_Pages = value;}
-\DoxyCodeLine{\Hypertarget{___launcher_2_view_model_2_page_bar_view_model_8cs_source_l00041}00041                 NotifyPropertyChanged();}
-\DoxyCodeLine{\Hypertarget{___launcher_2_view_model_2_page_bar_view_model_8cs_source_l00042}00042             \}}
-\DoxyCodeLine{\Hypertarget{___launcher_2_view_model_2_page_bar_view_model_8cs_source_l00043}00043         \}}
-\DoxyCodeLine{\Hypertarget{___launcher_2_view_model_2_page_bar_view_model_8cs_source_l00044}00044         \textcolor{comment}{// events}}
-\DoxyCodeLine{\Hypertarget{___launcher_2_view_model_2_page_bar_view_model_8cs_source_l00045}00045         \textcolor{keyword}{public} \textcolor{keyword}{event} PropertyChangedEventHandler? PropertyChanged;}
-\DoxyCodeLine{\Hypertarget{___launcher_2_view_model_2_page_bar_view_model_8cs_source_l00046}00046         \textcolor{keyword}{public} \textcolor{keyword}{event} Action<int>? PageChanged;}
-\DoxyCodeLine{\Hypertarget{___launcher_2_view_model_2_page_bar_view_model_8cs_source_l00047}00047         \textcolor{keyword}{private} \textcolor{keywordtype}{void} NotifyPropertyChanged([CallerMemberName] \textcolor{keywordtype}{string} propertyName = \textcolor{keyword}{null})}
-\DoxyCodeLine{\Hypertarget{___launcher_2_view_model_2_page_bar_view_model_8cs_source_l00048}00048         \{}
-\DoxyCodeLine{\Hypertarget{___launcher_2_view_model_2_page_bar_view_model_8cs_source_l00049}00049             PropertyChanged?.Invoke(\textcolor{keyword}{this}, \textcolor{keyword}{new} PropertyChangedEventArgs(propertyName));}
-\DoxyCodeLine{\Hypertarget{___launcher_2_view_model_2_page_bar_view_model_8cs_source_l00050}00050         \}}
-\DoxyCodeLine{\Hypertarget{___launcher_2_view_model_2_page_bar_view_model_8cs_source_l00051}00051         \textcolor{keyword}{public} \textcolor{keywordtype}{void} ViewedPage\_PropertyChanged(\textcolor{keywordtype}{object} sender, PropertyChangedEventArgs e)}
-\DoxyCodeLine{\Hypertarget{___launcher_2_view_model_2_page_bar_view_model_8cs_source_l00052}00052         \{}
-\DoxyCodeLine{\Hypertarget{___launcher_2_view_model_2_page_bar_view_model_8cs_source_l00053}00053             \textcolor{keywordflow}{if} (e.PropertyName == \textcolor{stringliteral}{"{}Value"{}})}
-\DoxyCodeLine{\Hypertarget{___launcher_2_view_model_2_page_bar_view_model_8cs_source_l00054}00054             \{}
-\DoxyCodeLine{\Hypertarget{___launcher_2_view_model_2_page_bar_view_model_8cs_source_l00055}00055                 \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < Pages.Count(); i++)}
-\DoxyCodeLine{\Hypertarget{___launcher_2_view_model_2_page_bar_view_model_8cs_source_l00056}00056                 \{}
-\DoxyCodeLine{\Hypertarget{___launcher_2_view_model_2_page_bar_view_model_8cs_source_l00057}00057                     \textcolor{keywordflow}{if} (Pages.ElementAt(i).Value == \textcolor{keyword}{true} \&\& master.CurrentPage.Value != i)}
-\DoxyCodeLine{\Hypertarget{___launcher_2_view_model_2_page_bar_view_model_8cs_source_l00058}00058                     \{}
-\DoxyCodeLine{\Hypertarget{___launcher_2_view_model_2_page_bar_view_model_8cs_source_l00059}00059                         PageChanged?.Invoke(i);}
-\DoxyCodeLine{\Hypertarget{___launcher_2_view_model_2_page_bar_view_model_8cs_source_l00060}00060                         \textcolor{keywordflow}{return};}
-\DoxyCodeLine{\Hypertarget{___launcher_2_view_model_2_page_bar_view_model_8cs_source_l00061}00061                     \}}
-\DoxyCodeLine{\Hypertarget{___launcher_2_view_model_2_page_bar_view_model_8cs_source_l00062}00062                 \}}
-\DoxyCodeLine{\Hypertarget{___launcher_2_view_model_2_page_bar_view_model_8cs_source_l00063}00063 }
-\DoxyCodeLine{\Hypertarget{___launcher_2_view_model_2_page_bar_view_model_8cs_source_l00064}00064             \}}
-\DoxyCodeLine{\Hypertarget{___launcher_2_view_model_2_page_bar_view_model_8cs_source_l00065}00065         \}}
-\DoxyCodeLine{\Hypertarget{___launcher_2_view_model_2_page_bar_view_model_8cs_source_l00066}00066         \textcolor{keyword}{public} \textcolor{keywordtype}{void} LauncherMaster\_PageChanged(\textcolor{keywordtype}{int} sender)}
-\DoxyCodeLine{\Hypertarget{___launcher_2_view_model_2_page_bar_view_model_8cs_source_l00067}00067         \{}
-\DoxyCodeLine{\Hypertarget{___launcher_2_view_model_2_page_bar_view_model_8cs_source_l00068}00068             \textcolor{keywordflow}{if} (sender < 0)}
-\DoxyCodeLine{\Hypertarget{___launcher_2_view_model_2_page_bar_view_model_8cs_source_l00069}00069             \{}
-\DoxyCodeLine{\Hypertarget{___launcher_2_view_model_2_page_bar_view_model_8cs_source_l00070}00070                 sender = Pages.Count -\/ 1;}
-\DoxyCodeLine{\Hypertarget{___launcher_2_view_model_2_page_bar_view_model_8cs_source_l00071}00071             \}}
-\DoxyCodeLine{\Hypertarget{___launcher_2_view_model_2_page_bar_view_model_8cs_source_l00072}00072             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (sender >= Pages.Count)}
-\DoxyCodeLine{\Hypertarget{___launcher_2_view_model_2_page_bar_view_model_8cs_source_l00073}00073             \{}
-\DoxyCodeLine{\Hypertarget{___launcher_2_view_model_2_page_bar_view_model_8cs_source_l00074}00074                 sender = 0;}
-\DoxyCodeLine{\Hypertarget{___launcher_2_view_model_2_page_bar_view_model_8cs_source_l00075}00075             \}}
-\DoxyCodeLine{\Hypertarget{___launcher_2_view_model_2_page_bar_view_model_8cs_source_l00076}00076             Pages.ElementAt(sender).Value = \textcolor{keyword}{true};}
-\DoxyCodeLine{\Hypertarget{___launcher_2_view_model_2_page_bar_view_model_8cs_source_l00077}00077             \textcolor{keywordflow}{return};}
-\DoxyCodeLine{\Hypertarget{___launcher_2_view_model_2_page_bar_view_model_8cs_source_l00078}00078         \}}
-\DoxyCodeLine{\Hypertarget{___launcher_2_view_model_2_page_bar_view_model_8cs_source_l00079}00079     \}}
-\DoxyCodeLine{\Hypertarget{___launcher_2_view_model_2_page_bar_view_model_8cs_source_l00080}00080 \}}
+\DoxyCodeLine{\Hypertarget{___launcher_2_view_model_2_page_bar_view_model_8cs_source_l00015}00015 }
+\DoxyCodeLine{\Hypertarget{___launcher_2_view_model_2_page_bar_view_model_8cs_source_l00016}\mbox{\hyperlink{classautomeas__ui_1_1___launcher_1_1_view_model_1_1_page_bar_view_model}{00016}}     \textcolor{keyword}{public} \textcolor{keyword}{class }\mbox{\hyperlink{classautomeas__ui_1_1___launcher_1_1_view_model_1_1_page_bar_view_model}{PageBarViewModel}}}
+\DoxyCodeLine{\Hypertarget{___launcher_2_view_model_2_page_bar_view_model_8cs_source_l00017}00017     \{}
+\DoxyCodeLine{\Hypertarget{___launcher_2_view_model_2_page_bar_view_model_8cs_source_l00018}00018         \textcolor{comment}{// ctor}}
+\DoxyCodeLine{\Hypertarget{___launcher_2_view_model_2_page_bar_view_model_8cs_source_l00019}\mbox{\hyperlink{classautomeas__ui_1_1___launcher_1_1_view_model_1_1_page_bar_view_model_a98aa917f64f4cdb93a39dd3981854dcf}{00019}}         \textcolor{keyword}{public} \mbox{\hyperlink{classautomeas__ui_1_1___launcher_1_1_view_model_1_1_page_bar_view_model_a98aa917f64f4cdb93a39dd3981854dcf}{PageBarViewModel}}(\mbox{\hyperlink{classautomeas__ui_1_1___launcher_1_1_view_model_1_1_launcher___main_view_model}{Launcher\_MainViewModel}} \mbox{\hyperlink{classautomeas__ui_1_1___launcher_1_1_view_model_1_1_page_bar_view_model_a75d8338bc7a14f576ada9bd5a17e1118}{master}})}
+\DoxyCodeLine{\Hypertarget{___launcher_2_view_model_2_page_bar_view_model_8cs_source_l00020}00020         \{}
+\DoxyCodeLine{\Hypertarget{___launcher_2_view_model_2_page_bar_view_model_8cs_source_l00021}00021             this.master = \mbox{\hyperlink{classautomeas__ui_1_1___launcher_1_1_view_model_1_1_page_bar_view_model_a75d8338bc7a14f576ada9bd5a17e1118}{master}};}
+\DoxyCodeLine{\Hypertarget{___launcher_2_view_model_2_page_bar_view_model_8cs_source_l00022}00022             master.PageChanged += \mbox{\hyperlink{classautomeas__ui_1_1___launcher_1_1_view_model_1_1_page_bar_view_model_a64f0d77d3c537466b62ccf024475a513}{LauncherMaster\_PageChanged}};}
+\DoxyCodeLine{\Hypertarget{___launcher_2_view_model_2_page_bar_view_model_8cs_source_l00023}00023             \mbox{\hyperlink{classautomeas__ui_1_1___launcher_1_1_view_model_1_1_page_bar_view_model_a98ee17535b8b7f2392067648884d3f41}{Pages}} = \textcolor{keyword}{new} \mbox{\hyperlink{classautomeas__ui_1_1_core_1_1_truly_observable_collection}{TrulyObservableCollection<ObservableType<bool>}}>();}
+\DoxyCodeLine{\Hypertarget{___launcher_2_view_model_2_page_bar_view_model_8cs_source_l00024}00024             \mbox{\hyperlink{classautomeas__ui_1_1___launcher_1_1_view_model_1_1_page_bar_view_model_a98ee17535b8b7f2392067648884d3f41}{Pages}}.Add(\textcolor{keyword}{new} \mbox{\hyperlink{classautomeas__ui_1_1___launcher_1_1_model_1_1_observable_type}{ObservableType<bool>}}(\textcolor{keyword}{true}));}
+\DoxyCodeLine{\Hypertarget{___launcher_2_view_model_2_page_bar_view_model_8cs_source_l00025}00025             \mbox{\hyperlink{classautomeas__ui_1_1___launcher_1_1_view_model_1_1_page_bar_view_model_a98ee17535b8b7f2392067648884d3f41}{Pages}}.Last().PropertyChanged += \mbox{\hyperlink{classautomeas__ui_1_1___launcher_1_1_view_model_1_1_page_bar_view_model_a6879fe9b8ddd7a9ef334b30865cf76c6}{ViewedPage\_PropertyChanged}};}
+\DoxyCodeLine{\Hypertarget{___launcher_2_view_model_2_page_bar_view_model_8cs_source_l00026}00026             \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 1; i < \mbox{\hyperlink{classautomeas__ui_1_1_m_w_m_1_1_model_1_1_launcher_1_1_a_m_dev_config}{AMDevConfig}}.\mbox{\hyperlink{classautomeas__ui_1_1_m_w_m_1_1_model_1_1_launcher_1_1_a_m_dev_config_a5e5836e5ccf31ebd819e7a890300568d}{NumberOfPages}}; i++)}
+\DoxyCodeLine{\Hypertarget{___launcher_2_view_model_2_page_bar_view_model_8cs_source_l00027}00027             \{}
+\DoxyCodeLine{\Hypertarget{___launcher_2_view_model_2_page_bar_view_model_8cs_source_l00028}00028                 \mbox{\hyperlink{classautomeas__ui_1_1___launcher_1_1_view_model_1_1_page_bar_view_model_a98ee17535b8b7f2392067648884d3f41}{Pages}}.Add(\textcolor{keyword}{new} \mbox{\hyperlink{classautomeas__ui_1_1___launcher_1_1_model_1_1_observable_type}{ObservableType<bool>}}(\textcolor{keyword}{false}));}
+\DoxyCodeLine{\Hypertarget{___launcher_2_view_model_2_page_bar_view_model_8cs_source_l00029}00029                 \mbox{\hyperlink{classautomeas__ui_1_1___launcher_1_1_view_model_1_1_page_bar_view_model_a98ee17535b8b7f2392067648884d3f41}{Pages}}.Last().PropertyChanged += \mbox{\hyperlink{classautomeas__ui_1_1___launcher_1_1_view_model_1_1_page_bar_view_model_a6879fe9b8ddd7a9ef334b30865cf76c6}{ViewedPage\_PropertyChanged}};}
+\DoxyCodeLine{\Hypertarget{___launcher_2_view_model_2_page_bar_view_model_8cs_source_l00030}00030             \}}
+\DoxyCodeLine{\Hypertarget{___launcher_2_view_model_2_page_bar_view_model_8cs_source_l00031}00031         \}}
+\DoxyCodeLine{\Hypertarget{___launcher_2_view_model_2_page_bar_view_model_8cs_source_l00032}00032         \textcolor{comment}{// attrs}}
+\DoxyCodeLine{\Hypertarget{___launcher_2_view_model_2_page_bar_view_model_8cs_source_l00033}\mbox{\hyperlink{classautomeas__ui_1_1___launcher_1_1_view_model_1_1_page_bar_view_model_a75d8338bc7a14f576ada9bd5a17e1118}{00033}}         \textcolor{keyword}{private} readonly \mbox{\hyperlink{classautomeas__ui_1_1___launcher_1_1_view_model_1_1_launcher___main_view_model}{Launcher\_MainViewModel}} \mbox{\hyperlink{classautomeas__ui_1_1___launcher_1_1_view_model_1_1_page_bar_view_model_a75d8338bc7a14f576ada9bd5a17e1118}{master}};}
+\DoxyCodeLine{\Hypertarget{___launcher_2_view_model_2_page_bar_view_model_8cs_source_l00034}\mbox{\hyperlink{classautomeas__ui_1_1___launcher_1_1_view_model_1_1_page_bar_view_model_a146641ccea2769f2487e76921fcc6bdf}{00034}}         \textcolor{keyword}{private} \mbox{\hyperlink{classautomeas__ui_1_1_core_1_1_truly_observable_collection}{TrulyObservableCollection<ObservableType<bool>}}> \mbox{\hyperlink{classautomeas__ui_1_1___launcher_1_1_view_model_1_1_page_bar_view_model_a146641ccea2769f2487e76921fcc6bdf}{\_Pages}};}
+\DoxyCodeLine{\Hypertarget{___launcher_2_view_model_2_page_bar_view_model_8cs_source_l00035}\mbox{\hyperlink{classautomeas__ui_1_1___launcher_1_1_view_model_1_1_page_bar_view_model_a98ee17535b8b7f2392067648884d3f41}{00035}}         \textcolor{keyword}{public} \mbox{\hyperlink{classautomeas__ui_1_1_core_1_1_truly_observable_collection}{TrulyObservableCollection<ObservableType<bool>}}> \mbox{\hyperlink{classautomeas__ui_1_1___launcher_1_1_view_model_1_1_page_bar_view_model_a98ee17535b8b7f2392067648884d3f41}{Pages}}}
+\DoxyCodeLine{\Hypertarget{___launcher_2_view_model_2_page_bar_view_model_8cs_source_l00036}00036         \{}
+\DoxyCodeLine{\Hypertarget{___launcher_2_view_model_2_page_bar_view_model_8cs_source_l00037}00037             \textcolor{keyword}{get} \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classautomeas__ui_1_1___launcher_1_1_view_model_1_1_page_bar_view_model_a146641ccea2769f2487e76921fcc6bdf}{\_Pages}}; \}}
+\DoxyCodeLine{\Hypertarget{___launcher_2_view_model_2_page_bar_view_model_8cs_source_l00038}00038             \textcolor{keyword}{set}}
+\DoxyCodeLine{\Hypertarget{___launcher_2_view_model_2_page_bar_view_model_8cs_source_l00039}00039             \{}
+\DoxyCodeLine{\Hypertarget{___launcher_2_view_model_2_page_bar_view_model_8cs_source_l00040}00040                 \textcolor{keywordflow}{if} (\mbox{\hyperlink{classautomeas__ui_1_1___launcher_1_1_view_model_1_1_page_bar_view_model_a146641ccea2769f2487e76921fcc6bdf}{\_Pages}} == value) \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{___launcher_2_view_model_2_page_bar_view_model_8cs_source_l00041}00041                 \mbox{\hyperlink{classautomeas__ui_1_1___launcher_1_1_view_model_1_1_page_bar_view_model_a146641ccea2769f2487e76921fcc6bdf}{\_Pages}} = value;}
+\DoxyCodeLine{\Hypertarget{___launcher_2_view_model_2_page_bar_view_model_8cs_source_l00042}00042                 \mbox{\hyperlink{classautomeas__ui_1_1___launcher_1_1_view_model_1_1_page_bar_view_model_a06b2daeb877abac3f4c9afb9a6c35df2}{NotifyPropertyChanged}}();}
+\DoxyCodeLine{\Hypertarget{___launcher_2_view_model_2_page_bar_view_model_8cs_source_l00043}00043             \}}
+\DoxyCodeLine{\Hypertarget{___launcher_2_view_model_2_page_bar_view_model_8cs_source_l00044}00044         \}}
+\DoxyCodeLine{\Hypertarget{___launcher_2_view_model_2_page_bar_view_model_8cs_source_l00045}00045         \textcolor{comment}{// events}}
+\DoxyCodeLine{\Hypertarget{___launcher_2_view_model_2_page_bar_view_model_8cs_source_l00046}\mbox{\hyperlink{classautomeas__ui_1_1___launcher_1_1_view_model_1_1_page_bar_view_model_a1db93c24ad43bf81b569da0986c6cf8e}{00046}}         \textcolor{keyword}{public} \textcolor{keyword}{event} PropertyChangedEventHandler? \mbox{\hyperlink{classautomeas__ui_1_1___launcher_1_1_view_model_1_1_page_bar_view_model_a1db93c24ad43bf81b569da0986c6cf8e}{PropertyChanged}};}
+\DoxyCodeLine{\Hypertarget{___launcher_2_view_model_2_page_bar_view_model_8cs_source_l00047}\mbox{\hyperlink{classautomeas__ui_1_1___launcher_1_1_view_model_1_1_page_bar_view_model_a5d7898c63593133802dcf63bf34e11d8}{00047}}         \textcolor{keyword}{public} \textcolor{keyword}{event} Action<int>? \mbox{\hyperlink{classautomeas__ui_1_1___launcher_1_1_view_model_1_1_page_bar_view_model_a5d7898c63593133802dcf63bf34e11d8}{PageChanged}};}
+\DoxyCodeLine{\Hypertarget{___launcher_2_view_model_2_page_bar_view_model_8cs_source_l00048}\mbox{\hyperlink{classautomeas__ui_1_1___launcher_1_1_view_model_1_1_page_bar_view_model_a06b2daeb877abac3f4c9afb9a6c35df2}{00048}}         \textcolor{keyword}{private} \textcolor{keywordtype}{void} \mbox{\hyperlink{classautomeas__ui_1_1___launcher_1_1_view_model_1_1_page_bar_view_model_a06b2daeb877abac3f4c9afb9a6c35df2}{NotifyPropertyChanged}}([CallerMemberName] \textcolor{keywordtype}{string} propertyName = \textcolor{keyword}{null})}
+\DoxyCodeLine{\Hypertarget{___launcher_2_view_model_2_page_bar_view_model_8cs_source_l00049}00049         \{}
+\DoxyCodeLine{\Hypertarget{___launcher_2_view_model_2_page_bar_view_model_8cs_source_l00050}00050             \mbox{\hyperlink{classautomeas__ui_1_1___launcher_1_1_view_model_1_1_page_bar_view_model_a1db93c24ad43bf81b569da0986c6cf8e}{PropertyChanged}}?.Invoke(\textcolor{keyword}{this}, \textcolor{keyword}{new} PropertyChangedEventArgs(propertyName));}
+\DoxyCodeLine{\Hypertarget{___launcher_2_view_model_2_page_bar_view_model_8cs_source_l00051}00051         \}}
+\DoxyCodeLine{\Hypertarget{___launcher_2_view_model_2_page_bar_view_model_8cs_source_l00052}\mbox{\hyperlink{classautomeas__ui_1_1___launcher_1_1_view_model_1_1_page_bar_view_model_a6879fe9b8ddd7a9ef334b30865cf76c6}{00052}}         \textcolor{keyword}{public} \textcolor{keywordtype}{void} \mbox{\hyperlink{classautomeas__ui_1_1___launcher_1_1_view_model_1_1_page_bar_view_model_a6879fe9b8ddd7a9ef334b30865cf76c6}{ViewedPage\_PropertyChanged}}(\textcolor{keywordtype}{object} sender, PropertyChangedEventArgs e)}
+\DoxyCodeLine{\Hypertarget{___launcher_2_view_model_2_page_bar_view_model_8cs_source_l00053}00053         \{}
+\DoxyCodeLine{\Hypertarget{___launcher_2_view_model_2_page_bar_view_model_8cs_source_l00054}00054             \textcolor{keywordflow}{if} (e.PropertyName == \textcolor{stringliteral}{"{}Value"{}})}
+\DoxyCodeLine{\Hypertarget{___launcher_2_view_model_2_page_bar_view_model_8cs_source_l00055}00055             \{}
+\DoxyCodeLine{\Hypertarget{___launcher_2_view_model_2_page_bar_view_model_8cs_source_l00056}00056                 \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < \mbox{\hyperlink{classautomeas__ui_1_1___launcher_1_1_view_model_1_1_page_bar_view_model_a98ee17535b8b7f2392067648884d3f41}{Pages}}.Count(); i++)}
+\DoxyCodeLine{\Hypertarget{___launcher_2_view_model_2_page_bar_view_model_8cs_source_l00057}00057                 \{}
+\DoxyCodeLine{\Hypertarget{___launcher_2_view_model_2_page_bar_view_model_8cs_source_l00058}00058                     \textcolor{keywordflow}{if} (\mbox{\hyperlink{classautomeas__ui_1_1___launcher_1_1_view_model_1_1_page_bar_view_model_a98ee17535b8b7f2392067648884d3f41}{Pages}}.ElementAt(i).Value == \textcolor{keyword}{true} \&\& \mbox{\hyperlink{classautomeas__ui_1_1___launcher_1_1_view_model_1_1_page_bar_view_model_a75d8338bc7a14f576ada9bd5a17e1118}{master}}.\mbox{\hyperlink{classautomeas__ui_1_1___launcher_1_1_view_model_1_1_launcher___main_view_model_af2465d430f2199d7740efefea258d0e1}{CurrentPage}}.Value != i)}
+\DoxyCodeLine{\Hypertarget{___launcher_2_view_model_2_page_bar_view_model_8cs_source_l00059}00059                     \{}
+\DoxyCodeLine{\Hypertarget{___launcher_2_view_model_2_page_bar_view_model_8cs_source_l00060}00060                         \mbox{\hyperlink{classautomeas__ui_1_1___launcher_1_1_view_model_1_1_page_bar_view_model_a5d7898c63593133802dcf63bf34e11d8}{PageChanged}}?.Invoke(i);}
+\DoxyCodeLine{\Hypertarget{___launcher_2_view_model_2_page_bar_view_model_8cs_source_l00061}00061                         \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{___launcher_2_view_model_2_page_bar_view_model_8cs_source_l00062}00062                     \}}
+\DoxyCodeLine{\Hypertarget{___launcher_2_view_model_2_page_bar_view_model_8cs_source_l00063}00063                 \}}
+\DoxyCodeLine{\Hypertarget{___launcher_2_view_model_2_page_bar_view_model_8cs_source_l00064}00064 }
+\DoxyCodeLine{\Hypertarget{___launcher_2_view_model_2_page_bar_view_model_8cs_source_l00065}00065             \}}
+\DoxyCodeLine{\Hypertarget{___launcher_2_view_model_2_page_bar_view_model_8cs_source_l00066}00066         \}}
+\DoxyCodeLine{\Hypertarget{___launcher_2_view_model_2_page_bar_view_model_8cs_source_l00067}\mbox{\hyperlink{classautomeas__ui_1_1___launcher_1_1_view_model_1_1_page_bar_view_model_a64f0d77d3c537466b62ccf024475a513}{00067}}         \textcolor{keyword}{public} \textcolor{keywordtype}{void} \mbox{\hyperlink{classautomeas__ui_1_1___launcher_1_1_view_model_1_1_page_bar_view_model_a64f0d77d3c537466b62ccf024475a513}{LauncherMaster\_PageChanged}}(\textcolor{keywordtype}{int} sender)}
+\DoxyCodeLine{\Hypertarget{___launcher_2_view_model_2_page_bar_view_model_8cs_source_l00068}00068         \{}
+\DoxyCodeLine{\Hypertarget{___launcher_2_view_model_2_page_bar_view_model_8cs_source_l00069}00069             \textcolor{keywordflow}{if} (sender < 0)}
+\DoxyCodeLine{\Hypertarget{___launcher_2_view_model_2_page_bar_view_model_8cs_source_l00070}00070             \{}
+\DoxyCodeLine{\Hypertarget{___launcher_2_view_model_2_page_bar_view_model_8cs_source_l00071}00071                 sender = Pages.Count -\/ 1;}
+\DoxyCodeLine{\Hypertarget{___launcher_2_view_model_2_page_bar_view_model_8cs_source_l00072}00072             \}}
+\DoxyCodeLine{\Hypertarget{___launcher_2_view_model_2_page_bar_view_model_8cs_source_l00073}00073             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (sender >= \mbox{\hyperlink{classautomeas__ui_1_1___launcher_1_1_view_model_1_1_page_bar_view_model_a98ee17535b8b7f2392067648884d3f41}{Pages}}.Count)}
+\DoxyCodeLine{\Hypertarget{___launcher_2_view_model_2_page_bar_view_model_8cs_source_l00074}00074             \{}
+\DoxyCodeLine{\Hypertarget{___launcher_2_view_model_2_page_bar_view_model_8cs_source_l00075}00075                 sender = 0;}
+\DoxyCodeLine{\Hypertarget{___launcher_2_view_model_2_page_bar_view_model_8cs_source_l00076}00076             \}}
+\DoxyCodeLine{\Hypertarget{___launcher_2_view_model_2_page_bar_view_model_8cs_source_l00077}00077             \mbox{\hyperlink{classautomeas__ui_1_1___launcher_1_1_view_model_1_1_page_bar_view_model_a98ee17535b8b7f2392067648884d3f41}{Pages}}.ElementAt(sender).Value = \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{___launcher_2_view_model_2_page_bar_view_model_8cs_source_l00078}00078             \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{___launcher_2_view_model_2_page_bar_view_model_8cs_source_l00079}00079         \}}
+\DoxyCodeLine{\Hypertarget{___launcher_2_view_model_2_page_bar_view_model_8cs_source_l00080}00080     \}}
+\DoxyCodeLine{\Hypertarget{___launcher_2_view_model_2_page_bar_view_model_8cs_source_l00081}00081 \}}
 
 \end{DoxyCode}

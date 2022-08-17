@@ -23,15 +23,11 @@ namespace automeas_ui.MWM.ViewModel
             Target.Instance.Launcher_MainViewModel_SetMaster(this);
             CurrentView = new ObservableType<object>(null);
             GetCurrentPage(0);
-            // views
-            PageBarView = new PageBarViewModel(this);
-            // event links
-            PageBarView.PageChanged += _PageBarView_PageChanged;
+    
             // observables
             CurrentPage = new ObservableType<int>(0);
             CurrentPageTitle = new ObservableType<string>(AMDevConfig.PageTitles[CurrentPage.Value]);
         }
-        public PageBarViewModel PageBarView { get; set; }
         public ObservableType<int> CurrentPage { get; set; }
         public ObservableType<string> CurrentPageTitle { get; set; }
 

@@ -35,7 +35,7 @@
         <DataTemplate x:Key="View5Template" DataType="{x:Type viewm:Launcher_MainViewModel}">
             <page:Page5 />
         </DataTemplate>
-        <DataTemplate DataType="{x:Type viewm:PageBarViewModel}">
+        <DataTemplate DataType="{x:Type viewm:Launcher_MainViewModel}">
             <view:PageBarView/>
         </DataTemplate>
     </Window.Resources>

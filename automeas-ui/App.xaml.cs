@@ -14,7 +14,7 @@ namespace automeas_ui
     {
         protected override void OnStartup(StartupEventArgs e)
         {
-            { // Set main Window
+            { // Set & open default Window
                 automeas_ui._Common.Navigator.App._handle = this;
                 mw = automeas_ui._Common.Navigator.App.Change<Window>("\r");
                 mw.Show();
@@ -32,68 +32,5 @@ namespace automeas_ui
             }
             toBeClosed.Close();
         }
-        /*private void InitLauncher()
-        {
-            llc launcher = new();
-            //var x = (Launcher_MainViewModel)launcher.DataContext;
-            Navigator.Instance.WindowChanged += HandleWindowChanged;
-            mw = launcher;
-            mw.Show();
-            return;
-        }
-        private void InitAnyWindow(Type T)
-        {
-            mw = (Window?)Activator.CreateInstance(T);
-            if (mw == null)
-            {
-                throw new Exception("It should not even be possible for app.mw to be null");
-            }
-            mw.Show();
-        }
-        private void InitDashboard()
-        {
-            Dashboard dashboard = new Dashboard();
-            mw = dashboard;
-            mw.Show();
-            return;
-        }
-        private void InitMVG()
-        {
-            MVG MoVeGenerator = new MVG();
-            mw = MoVeGenerator;
-            mw.Show();
-            return;
-        }
-        private void ReInitLauncher()
-        {
-            mw = new llc();
-            mw.Show();
-            return;
-        }
-        private void Switch(Action initializer)
-        {
-            Window toBeClosed = mw;
-            initializer();
-            toBeClosed.Close();
-        }
-        private void SwitchAnyWindow(Type window)
-        {
-            Window toBeClosed = mw;
-            InitAnyWindow(window);
-            toBeClosed.Close();
-        }
-        public void HandleWindowToDashboard(List<string> msg)
-        {
-            Switch(InitDashboard);
-        }
-        public void HandleUnsavedMVG()
-        {
-            Switch(ReInitLauncher);
-        }
-        public void HandleWindowToMVG()
-        {
-            Switch(InitMVG);
-        }
-        public void HandleWindowChanged(Type msg) => SwitchAnyWindow(msg);*/
     }
 }

@@ -78,10 +78,18 @@ namespace automeas_ui._Common
             Reg = new()
             {
                 {"Launcher", typeof(automeas_ui._Launcher.Launcher) },
-                {"MVG", typeof(MVG) },
+                {"MVG", typeof(automeas_ui._MVG.MVG) },
                 {"Dashboard", typeof(automeas_ui._Dashboard.Dashboard) }
             }
         };
-        //public static Navigator<object> MVG = new();
+        public static Navigator<object> MVG = new()
+        {
+            Reg = new()
+            {
+                {"Push", typeof(automeas_ui._MVG.ViewModel.MoveCreatorViewModel) },
+                {"Pull", typeof(automeas_ui._MVG.ViewModel.MoveCreatorViewModel) },
+                {"", typeof(object) }
+            }
+        };
     }
 }

@@ -42,9 +42,6 @@
   <ItemGroup>
     <Folder Include="_Dashboard\Model\" />
     <Folder Include="_Dashboard\View\" />
-    <Folder Include="_MVG\Model\" />
-    <Folder Include="_MVG\ViewModel\" />
-    <Folder Include="_MVG\View\" />
   </ItemGroup>
 
 </Project>

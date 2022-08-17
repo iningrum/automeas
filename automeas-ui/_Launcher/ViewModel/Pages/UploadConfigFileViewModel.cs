@@ -1,7 +1,8 @@
 ﻿using automeas_ui._Launcher.Model;
 using CommunityToolkit.Mvvm.Input;
-using Navigator = automeas_ui._Launcher.Model.Navigator;
+using automeas_ui._Common;
 using Target = automeas_ui._Launcher.Model.Target;
+using Navigator = automeas_ui._Common.Navigator;
 
 namespace automeas_ui._Launcher.ViewModel.Pages
 {
@@ -49,7 +50,7 @@ namespace automeas_ui._Launcher.ViewModel.Pages
             }
         }
         [RelayCommand]
-        void OpenMVG() => Navigator.Instance.ChangeWindow("mvg");
+        void OpenMVG() => ((App)Navigator.App._handle).sSwitch("MVG");
         public void RefreshIntegerUpDown(int msg) => Target.Instance.NumberOfMoves = msg;
 
         public void Save()

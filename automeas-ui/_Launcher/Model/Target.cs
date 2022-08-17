@@ -60,14 +60,12 @@ namespace automeas_ui._Launcher.Model
          *  Used solely to close Launcher and open Dashboard
          */
         // senders
-        private void NotifyPageChanged(int msg) => PageChangedEvent?.Invoke(msg);
         // handlers
         // attr
         private Launcher_MainViewModel _master;
         public void Launcher_MainViewModel_SetMaster(Launcher_MainViewModel master)
         {
             _master = master;
-            //master.PageNoLongerRelevant += NotifyPageChanged;
             return;
         }
         public string Destination;
@@ -77,8 +75,5 @@ namespace automeas_ui._Launcher.Model
         public string ConfigFileName;
         public int NumberOfMoves;
         public List<bool> Options;
-        public void NotifyChangeWindowToDashboard() => ChangeWindowToDashboard?.Invoke(new List<string>());
-        public void NotifyChangeWindowToMVG() => ChangeWindowToMVG?.Invoke();
-        public void NotifyChangeMVGToLauncher() => ChangeMVGToLauncher?.Invoke();
     }
 }

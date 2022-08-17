@@ -32,6 +32,9 @@
         <DataTemplate x:Key="MoveCreatorTemplate" DataType="{x:Type viewm:MainViewModel}">
             <view:MoveCreatorView/>
         </DataTemplate>
+        <DataTemplate x:Key="HomeViewModel" DataType="{x:Type viewm:MainViewModel}">
+            <view:HomeView/>
+        </DataTemplate>
     </Window.Resources>
     <Border Background="#272537"
             CornerRadius="10">
@@ -57,15 +60,15 @@
                     Style="{StaticResource FOC_SquareButtonTheme}"
                     Click="Button_Click"/>
                 <ContentControl Grid.Column="1"
-                Content="{Binding View, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                Content="{Binding View.Current, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
                     <ContentControl.Style>
                         <Style TargetType="{x:Type ContentControl}">
                             <Setter Property="ContentTemplate" Value="{StaticResource PlaceholderTemplate}"/>
                             <Style.Triggers>
-                                <DataTrigger Binding="{Binding Page}" Value="1">
+                                <DataTrigger Binding="{Binding View.Page}" Value="1">
                                     <Setter Property="ContentTemplate" Value="{StaticResource MinimapTemplate}" />
                                 </DataTrigger>
-                                <DataTrigger Binding="{Binding Page}" Value="2">
+                                <DataTrigger Binding="{Binding View.Page}" Value="2">
                                     <Setter Property="ContentTemplate" Value="{StaticResource MinimapTemplate}" />
                                 </DataTrigger>
                             </Style.Triggers>
@@ -73,15 +76,15 @@
                     </ContentControl.Style>
                 </ContentControl>
                 <ContentControl Grid.Column="0"
-                Content="{Binding View, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                Content="{Binding View.Current, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
                     <ContentControl.Style>
                         <Style TargetType="{x:Type ContentControl}">
                             <Setter Property="ContentTemplate" Value="{StaticResource PlaceholderTemplate}"/>
                             <Style.Triggers>
-                                <DataTrigger Binding="{Binding Page}" Value="1">
+                                <DataTrigger Binding="{Binding View.Page}" Value="1">
                                     <Setter Property="ContentTemplate" Value="{StaticResource UndoRedoTemplate}" />
                                 </DataTrigger>
-                                <DataTrigger Binding="{Binding Page}" Value="2">
+                                <DataTrigger Binding="{Binding View.Page}" Value="2">
                                     <Setter Property="ContentTemplate" Value="{StaticResource UndoRedoTemplate}" />
                                 </DataTrigger>
                             </Style.Triggers>
@@ -92,15 +95,15 @@
 
             <Grid Grid.Row="1">
                 <ContentControl Grid.Column="1"
-                Content="{Binding View, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                Content="{Binding View.Current, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
                     <ContentControl.Style>
                         <Style TargetType="{x:Type ContentControl}">
                             <Setter Property="ContentTemplate" Value="{StaticResource MainTemplate}" />
                             <Style.Triggers>
-                                <DataTrigger Binding="{Binding Page}" Value="1">
+                                <DataTrigger Binding="{Binding View.Page}" Value="1">
                                     <Setter Property="ContentTemplate" Value="{StaticResource MoveCreatorTemplate}" />
                                 </DataTrigger>
-                                <DataTrigger Binding="{Binding Page}" Value="2">
+                                <DataTrigger Binding="{Binding View.Page}" Value="2">
                                     <Setter Property="ContentTemplate" Value="{StaticResource MoveCreatorTemplate}" />
                                 </DataTrigger>
                             </Style.Triggers>

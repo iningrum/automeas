@@ -1,4 +1,5 @@
 ﻿using automeas_ui._Launcher.Model;
+using automeas_ui._MVG.Model;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using System;
@@ -16,7 +17,7 @@ namespace automeas_ui._MVG.ViewModel
         [ObservableProperty]
         private int page = 0;
         [ObservableProperty]
-        private object current = new();
+        private IViewMVG current;
     }
     public partial class MainViewModel
     {
@@ -24,24 +25,8 @@ namespace automeas_ui._MVG.ViewModel
         {
             View = new();
             View.Page = 0;
-            View.Current = automeas_ui._Common.Navigator.MVG.GetCurrent<object>();
+            View.Current = automeas_ui._Common.Navigator.MVG.GetCurrent<IViewMVG>();
         }
         public MVGMainViewModelBindings View { get; set; }
-
-        [RelayCommand]
-        void SaveMVGData()
-        {
-            throw new NotImplementedException();
-        }
-        [RelayCommand]
-        void PushCreator()
-        {
-
-        }
-        [RelayCommand]
-        void PullCreator()
-        {
-
-        }
     }
 }

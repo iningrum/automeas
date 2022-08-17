@@ -14,7 +14,7 @@ using automeas_ui._MVG.Model;
 
 namespace automeas_ui._MVG.ViewModel
 {
-    internal class MoveCreatorViewModel
+    internal class MoveCreatorViewModel: IViewMVG
     {
         // ctor
         public MoveCreatorViewModel()

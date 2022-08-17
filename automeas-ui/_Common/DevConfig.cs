@@ -1,5 +1,7 @@
 ﻿using automeas_ui._Launcher;
 using automeas_ui._Launcher.ViewModel.Pages;
+using automeas_ui._MVG.Model;
+using automeas_ui._MVG.ViewModel;
 using automeas_ui.MVGenerator;
 using System.Collections.Generic;
 using System.Linq;
@@ -82,13 +84,13 @@ namespace automeas_ui._Common
                 {"Dashboard", typeof(automeas_ui._Dashboard.Dashboard) }
             }
         };
-        public static Navigator<object> MVG = new()
+        public static Navigator<HomeViewModel> MVG = new()
         {
             Reg = new()
             {
                 {"Push", typeof(automeas_ui._MVG.ViewModel.MoveCreatorViewModel) },
                 {"Pull", typeof(automeas_ui._MVG.ViewModel.MoveCreatorViewModel) },
-                {"", typeof(object) }
+                {"", typeof(HomeViewModel) }
             }
         };
     }

@@ -32,7 +32,7 @@
         <DataTemplate x:Key="MoveCreatorTemplate" DataType="{x:Type viewm:MainViewModel}">
             <view:MoveCreatorView/>
         </DataTemplate>
-        <DataTemplate x:Key="HomeViewModel" DataType="{x:Type viewm:MainViewModel}">
+        <DataTemplate x:Key="HomeViewTemplate" DataType="{x:Type viewm:MainViewModel}">
             <view:HomeView/>
         </DataTemplate>
     </Window.Resources>
@@ -98,7 +98,7 @@
                 Content="{Binding View.Current, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
                     <ContentControl.Style>
                         <Style TargetType="{x:Type ContentControl}">
-                            <Setter Property="ContentTemplate" Value="{StaticResource MainTemplate}" />
+                            <Setter Property="ContentTemplate" Value="{StaticResource HomeViewTemplate}" />
                             <Style.Triggers>
                                 <DataTrigger Binding="{Binding View.Page}" Value="1">
                                     <Setter Property="ContentTemplate" Value="{StaticResource MoveCreatorTemplate}" />

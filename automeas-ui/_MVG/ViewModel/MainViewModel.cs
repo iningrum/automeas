@@ -23,10 +23,33 @@ namespace automeas_ui._MVG.ViewModel
     {
         public MainViewModel()
         {
+            automeas_ui._Common.Navigator.MVG._handle = this;
             View = new();
             View.Page = 0;
             View.Current = automeas_ui._Common.Navigator.MVG.GetCurrent<IViewMVG>();
+            /*automeas_ui._Common.Navigator.MVG.WindowChanged += HandleNavigatorWindowChanged;
+            automeas_ui._Common.Navigator.MVG.NewPageId += HandleNewPageId;*/
+        }
+        ~MainViewModel()
+        {
+            /*automeas_ui._Common.Navigator.MVG.WindowChanged -= HandleNavigatorWindowChanged;
+            automeas_ui._Common.Navigator.MVG.NewPageId -= HandleNewPageId;*/
         }
         public MVGMainViewModelBindings View { get; set; }
+        public void HandleNavigatorWindowChanged(Type t)
+        {
+            IViewMVG? nview = (IViewMVG?)Activator.CreateInstance(t);
+            if(nview== null)
+            {
+                throw new Exception("Conversion not possible");
+            }
+            View.Current = (IViewMVG)nview;
+            
+        }
+        public void HandleNewPageId(int id)
+        {
+            View.Page = id;
+        }
+        
     }
 }

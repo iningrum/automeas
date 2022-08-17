@@ -32,7 +32,7 @@
         <DataTemplate x:Key="View4Template" DataType="{x:Type viewm:Launcher_MainViewModel}">
             <page:Page4 />
         </DataTemplate>
-        <DataTemplate DataType="{x:Type viewm:PageBarViewModel}">
+        <DataTemplate DataType="{x:Type viewm:Launcher_MainViewModel}">
             <view:PageBarView/>
         </DataTemplate>
     </Window.Resources>
@@ -85,7 +85,7 @@
             <Grid DockPanel.Dock="Right" Grid.Row="2" Grid.Column="1"
                   HorizontalAlignment="Center"
                   VerticalAlignment="Center">
-                <ContentControl x:Name="Pages" Content="{Binding PageBarView}"/>
+                <ContentControl x:Name="Pages" Content="{Binding .}"/>
             </Grid>
             <Grid Grid.Row="1" Grid.Column="1">
                 <ContentControl Content="{Binding View.Current, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">

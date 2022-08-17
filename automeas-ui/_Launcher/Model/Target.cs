@@ -67,7 +67,7 @@ namespace automeas_ui._Launcher.Model
         public void Launcher_MainViewModel_SetMaster(Launcher_MainViewModel master)
         {
             _master = master;
-            master.PageNoLongerRelevant += NotifyPageChanged;
+            //master.PageNoLongerRelevant += NotifyPageChanged;
             return;
         }
         public string Destination;

@@ -19,8 +19,8 @@ namespace automeas_ui._Launcher.ViewModel
         public PageBarViewModel(Launcher_MainViewModel master)
         {
             this.master = master;
-            master.PageChanged += LauncherMaster_PageChanged;
-            Pages = new TrulyObservableCollection<ObservableType<bool>>();
+            //master.PageChanged += LauncherMaster_PageChanged;
+            Pages = new List<ObservableType<bool>>();
             Pages.Add(new ObservableType<bool>(true));
             Pages.Last().PropertyChanged += ViewedPage_PropertyChanged;
             for (int i = 1; i < AMDevConfig.NumberOfPages; i++)
@@ -31,17 +31,7 @@ namespace automeas_ui._Launcher.ViewModel
         }
         // attrs
         private readonly Launcher_MainViewModel master;
-        private TrulyObservableCollection<ObservableType<bool>> _Pages;
-        public TrulyObservableCollection<ObservableType<bool>> Pages
-        {
-            get { return _Pages; }
-            set
-            {
-                if (_Pages == value) return;
-                _Pages = value;
-                NotifyPropertyChanged();
-            }
-        }
+        public List<ObservableType<bool>> Pages { get; set; }
         // events
         public event PropertyChangedEventHandler? PropertyChanged;
         public event Action<int>? PageChanged;

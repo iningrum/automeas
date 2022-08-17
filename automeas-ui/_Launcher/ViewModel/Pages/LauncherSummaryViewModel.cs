@@ -23,7 +23,7 @@ namespace automeas_ui._Launcher.ViewModel.Pages
         public string? Description { get; set; }
         public string? Color { get; set; }
     }
-    public partial class LauncherSummaryViewModel : BaseViewModel
+    public partial class LauncherSummaryViewModel : ViewPage
     {
         // internal config
         // ctor
@@ -42,6 +42,11 @@ namespace automeas_ui._Launcher.ViewModel.Pages
         }
         // attr
         public TrulyObservableCollection<ObservableType<Summary>> ChosenOptions { get; set; }
+
+        public override void Save()
+        {
+            return;
+        }
 
         // func
         private string GetCheckBoxString()

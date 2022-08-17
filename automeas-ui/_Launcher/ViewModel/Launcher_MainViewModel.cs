@@ -12,93 +12,104 @@ using Target = automeas_ui._Launcher.Model.Target;
 using ObservableObject = CommunityToolkit.Mvvm.ComponentModel.ObservableObject;
 using automeas_ui._Common;
 using Navigator = automeas_ui._Common.Navigator;
+using System.ComponentModel;
+using System.Diagnostics.Metrics;
+using automeas_ui.MWM.ViewModel.Launcher.Pages;
+using Page1 = automeas_ui._Launcher.ViewModel.Pages.Page1;
 
 namespace automeas_ui._Launcher.ViewModel
 {
-
+    /// <summary>
+    /// Determines current view, page number and page title.
+    /// Is observable and databound to UI via <c>Launcher_MainViewModel.View</c>
+    /// </summary>
     [ObservableObject]
     public partial class CurrentView
     {
         [ObservableProperty]
-        private object current;
+        private ViewPage current;
         [ObservableProperty]
         private int page;
         [ObservableProperty]
         private string title;
     }
+    /// <summary>
+    /// Main viewm for launcher.
+    /// Used for navigation between subviews (pages).
+    /// </summary>
     public partial class Launcher_MainViewModel
     {
-        // new
+        /// <summary>
+        /// Contains observable objects that are databound.
+        /// </summary>
         public CurrentView View { get; set; }
-        // end
+        /// <summary>
+        /// Only one item in List should be true.
+        /// Used for UI element that indicates the current page and 
+        /// allows for switching between pages.
+        /// </summary>
+        public List<ObservableType<bool>> PageBar { get; set; }
+        /// <summary>
+        /// Init view, populate page bar
+        /// </summary>
         public Launcher_MainViewModel()
         {
-            Target.Instance.Launcher_MainViewModel_SetMaster(this);
             View = new();
-            View.Current = Navigator.Launcher.Change<object>("0");
-            //GetCurrentPage(0);
-            // views
-            PageBarView = new PageBarViewModel(this);
-            // event links
-            PageBarView.PageChanged += _PageBarView_PageChanged;
-            // observables
+            View.Current = Navigator.Launcher.Change<ViewPage>("0");
+            { // load page bar
+                PageBar = new();
+                PageBar.Add(new ObservableType<bool>(true));
+                PageBar.Last().PropertyChanged += HandlePageBarChanged;
+                for (int i = 1; i < DevConfig.NumberOfPages; i++)
+                {
+                    PageBar.Add(new ObservableType<bool>(false));
+                    PageBar.Last().PropertyChanged += HandlePageBarChanged;
+                }
+            }
+            Target.Instance.Launcher_MainViewModel_SetMaster(this);
             View.Page = 0;
             View.Title = DevConfig.PageTitles[View.Page];
         }
-        public PageBarViewModel PageBarView { get; set; }
-        //public ObservableType<int> CurrentPage { get; set; }
-        //public ObservableType<string> CurrentPageTitle { get; set; }
-
-        // events
-        public event Action<int>? PageChanged; // sent to PageBarView
-        public event Action<int>? PageNoLongerRelevant; // sent to subviews
         [RelayCommand]
-        void NextPage() => PageChanged?.Invoke(View.Page + 1);
+        void NextPage() => RenderNewPage(View.Page + 1);
         [RelayCommand]
-        void PreviousPage() => PageChanged?.Invoke(View.Page - 1);
-        // handlers
-
-        public void _PageBarView_PageChanged(int sender)
+        void PreviousPage() => RenderNewPage(View.Page-1);
+        void HandlePageBarChanged(object sender, PropertyChangedEventArgs e)
         {
-            PageNoLongerRelevant?.Invoke(View.Page);
-            View.Page = sender;
-            GetCurrentPage(sender);
-            View.Title = DevConfig.PageTitles[sender];
-            return;
-        }
-        private void GetCurrentPage(int cp)
-        {
-            /*switch (cp)
+            if (e.PropertyName == "Value" && _ignorePageBar==false)
             {
-                case 0:
+                for (int i = 0; i < PageBar.Count(); i++)
+                {
+                    if (PageBar.ElementAt(i).Value == true)
                     {
-                        var result = new Page1();
-                        View.Current = result;
+                        RenderNewPage(i);
+                        return;
                     }
-                    break;
-                case 1:
-                    {
-                        var result = new NameDescriptionViewModel();
-                        View.Current = result;
-                    }
-                    break;
-                case 2:
-                    {
-                        var result = new UploadConfigFileViewModel();
-                        View.Current = result;
-                    }
-                    break;
-                case 3:
-                    {
-                        var result = new LauncherSummaryViewModel();
-                        View.Current = result;
-                    }
-                    break;
-                default:
-                    throw new NotImplementedException();
-            }*/
-            View.Current = Navigator.Launcher.Change<object>(cp.ToString());
+                }
 
+            }
         }
     }
+    public partial class Launcher_MainViewModel
+    {// auxiliary functions
+        private void RenderNewPage(int i)
+        {
+            { // range check i
+                i = (i < 0) ? PageBar.Count() - 1 : (i >= PageBar.Count()) ? 0 : i;
+            }
+            var oldViewPage = View.Page;
+            _ignorePageBar = true;
+            {
+                View.Page = i;
+                PageBar[oldViewPage].Value = false;
+                PageBar[View.Page].Value = true;
+                View.Current.Save();
+                View.Current = Navigator.Launcher.Change<ViewPage>(View.Page.ToString());
+                View.Title = DevConfig.PageTitles[View.Page];
+            }
+            _ignorePageBar = false;
+        }
+        private bool _ignorePageBar = false;
+    }
+    
 }

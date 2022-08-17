@@ -1,4 +1,5 @@
 ﻿using automeas_ui._Launcher.ViewModel.Pages;
+using automeas_ui.MVGenerator;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -65,7 +66,7 @@ namespace automeas_ui._Common
     }
     public static partial class Navigator
     {
-        public static Navigator<Window> Launcher = new()
+        public static Navigator<Page1> Launcher = new()
         {
             Reg = new()
             {
@@ -75,7 +76,15 @@ namespace automeas_ui._Common
                 {"3", typeof(LauncherSummaryViewModel) }
             }
         };
-        //public static Navigator<object> Launcher = new();
+        /*public static Navigator<Window> App = new()
+        {
+            Reg = new()
+            {
+                {"Launcher", typeof(Launcher) },
+                {"MVG", typeof(MVG) },
+                {"Dashboard", typeof(Dashboard) }
+            }
+        };*/
         //public static Navigator<object> MVG = new();
     }
 }

@@ -4,13 +4,14 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:automeas_ui._Launcher.View"
-             d:DataContext="{d:DesignInstance Type=model:PageBarViewModel}"
+             xmlns:lmodel="clr-namespace:automeas_ui._Launcher.ViewModel"
+             d:DataContext="{d:DesignInstance Type=lmodel:Launcher_MainViewModel}"
              mc:Ignorable="d" 
              d:DesignHeight="50" d:DesignWidth="800">
     <Border CornerRadius="20"
                 Background="#323232"
             Margin="150,0,150,0">
-        <ItemsControl ItemsSource="{Binding Pages}" 
+        <ItemsControl ItemsSource="{Binding PageBar}" 
                           Grid.Column="1"
                           Grid.Row="1">
             <ItemsControl.ItemsPanel>

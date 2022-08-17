@@ -27,7 +27,7 @@ namespace automeas_ui._Launcher.ViewModel.Pages
         public bool Checked { get; set; }
         public string Text { get; set; }
     }
-    public partial class Page1 : BaseViewModel, IBaseViewModel
+    public partial class Page1 : ViewPage
     {
         // internal interface
         const int ID = 0;
@@ -120,6 +120,11 @@ namespace automeas_ui._Launcher.ViewModel.Pages
                 Target.Instance.Options = options;
             }
 
+        }
+
+        public override void Save()
+        {
+            HandlePageChanged(ID);
         }
     }
 }

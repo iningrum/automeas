@@ -9,7 +9,7 @@ using Target = automeas_ui._Launcher.Model.Target;
 
 namespace automeas_ui._Launcher.ViewModel.Pages
 {
-    public class NameDescriptionViewModel : BaseViewModel, IBaseViewModel
+    public class NameDescriptionViewModel : ViewPage
     {
         // ctor
         public NameDescriptionViewModel()
@@ -31,6 +31,11 @@ namespace automeas_ui._Launcher.ViewModel.Pages
                 Target.Instance.Name = this.Name.Value;
             if (this.Description.Value != null)
                 Target.Instance.Description = this.Description.Value;
+        }
+
+        public override void Save()
+        {
+            HandlePageChanged(ID);
         }
 
         // attr

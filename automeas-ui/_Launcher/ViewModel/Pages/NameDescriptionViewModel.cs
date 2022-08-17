@@ -15,7 +15,6 @@ namespace automeas_ui._Launcher.ViewModel.Pages
         public NameDescriptionViewModel()
         {
             { // bind to target
-                Target.Instance.PageChangedEvent += HandlePageChanged;
                 this.Name = new ObservableType<string>(Target.Instance.Name);
                 this.Description = new ObservableType<string>(Target.Instance.Description);
             }

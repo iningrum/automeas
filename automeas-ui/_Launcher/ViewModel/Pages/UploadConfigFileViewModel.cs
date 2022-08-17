@@ -16,12 +16,8 @@ namespace automeas_ui._Launcher.ViewModel.Pages
         // ctor
         public UploadConfigFileViewModel()
         {
-            { // load Target
-                Target.Instance.PageChangedEvent += HandlePageChanged;
-                NOfRepeatsInt = new ObservableType<int>(Target.Instance.NumberOfMoves);
-            }
             NOfRepeatsFontSize = new ObservableType<int>(32);
-            NOfRepeatsInt = new ObservableType<int>(1);
+            NOfRepeatsInt = new ObservableType<int>(Target.Instance.NumberOfMoves);
         }
         // attr
         private int ID = 2;

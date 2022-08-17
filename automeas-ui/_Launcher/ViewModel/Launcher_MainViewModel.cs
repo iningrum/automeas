@@ -55,7 +55,7 @@ namespace automeas_ui._Launcher.ViewModel
         public Launcher_MainViewModel()
         {
             View = new();
-            View.Current = Navigator.Launcher.Change<ILauncherPage>("0");
+            View.Current = Navigator.Launcher.GetCurrent<ILauncherPage>();
             { // load page bar
                 PageBar = new();
                 PageBar.Add(new ObservableType<bool>(true));

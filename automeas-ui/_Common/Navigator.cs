@@ -71,9 +71,7 @@ namespace automeas_ui._Common
             {
                 NotifyWindowChanged(_current);
             }
-            Z? result = (Z?)Activator.CreateInstance(_current);
-            if (result != null) { return (Z)result; }
-            else { throw new Exception("Instantiation of type failed"); }
+            return GetCurrent<Z>();
         }
         /// <summary>
         /// Find id in register, match to corresponding type,
@@ -116,6 +114,12 @@ namespace automeas_ui._Common
         public Action<Type>? WindowChanged;
 
         private void NotifyWindowChanged(Type msg) => WindowChanged?.Invoke(msg);
+        public Z GetCurrent<Z>()
+        {
+            Z? result = (Z?)Activator.CreateInstance(_current);
+            if (result != null) { return (Z)result; }
+            else { throw new Exception("Instantiation of type failed"); }
+        }
     }
     /// <summary>
     /// Master of Navigator[T]

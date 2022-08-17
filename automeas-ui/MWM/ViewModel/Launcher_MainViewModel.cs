@@ -1,4 +1,5 @@
-﻿using automeas_ui.Core;
+﻿using automeas_ui._Common;
+using automeas_ui.Core;
 using automeas_ui.MWM.Model;
 using automeas_ui.MWM.Model.Launcher;
 using automeas_ui.MWM.ViewModel.Launcher.Pages;
@@ -26,7 +27,7 @@ namespace automeas_ui.MWM.ViewModel
     
             // observables
             CurrentPage = new ObservableType<int>(0);
-            CurrentPageTitle = new ObservableType<string>(AMDevConfig.PageTitles[CurrentPage.Value]);
+            CurrentPageTitle = new ObservableType<string>(DevConfig.PageTitles[CurrentPage.Value]);
         }
         public ObservableType<int> CurrentPage { get; set; }
         public ObservableType<string> CurrentPageTitle { get; set; }

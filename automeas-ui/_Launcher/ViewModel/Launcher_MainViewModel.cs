@@ -27,7 +27,7 @@ namespace automeas_ui._Launcher.ViewModel
     public partial class CurrentView
     {
         [ObservableProperty]
-        private ViewPage current;
+        private ILauncherPage current;
         [ObservableProperty]
         private int page;
         [ObservableProperty]
@@ -55,7 +55,7 @@ namespace automeas_ui._Launcher.ViewModel
         public Launcher_MainViewModel()
         {
             View = new();
-            View.Current = Navigator.Launcher.Change<ViewPage>("0");
+            View.Current = Navigator.Launcher.Change<ILauncherPage>("0");
             { // load page bar
                 PageBar = new();
                 PageBar.Add(new ObservableType<bool>(true));
@@ -104,7 +104,7 @@ namespace automeas_ui._Launcher.ViewModel
                 PageBar[oldViewPage].Value = false;
                 PageBar[View.Page].Value = true;
                 View.Current.Save();
-                View.Current = Navigator.Launcher.Change<ViewPage>(View.Page.ToString());
+                View.Current = Navigator.Launcher.Change<ILauncherPage>(View.Page.ToString());
                 View.Title = DevConfig.PageTitles[View.Page];
             }
             _ignorePageBar = false;

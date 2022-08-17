@@ -11,7 +11,7 @@ using Target = automeas_ui._Launcher.Model.Target;
 
 namespace automeas_ui._Launcher.ViewModel.Pages
 {
-    public partial class UploadConfigFileViewModel : ViewPage
+    public partial class UploadConfigFileViewModel : ILauncherPage
     {
         // ctor
         public UploadConfigFileViewModel()
@@ -62,7 +62,7 @@ namespace automeas_ui._Launcher.ViewModel.Pages
         void OpenMVG() => Navigator.Instance.ChangeWindow("mvg");
         public void RefreshIntegerUpDown(int msg) => Target.Instance.NumberOfMoves = msg;
 
-        public override void Save()
+        public void Save()
         {
             HandlePageChanged(ID);
         }

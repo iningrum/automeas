@@ -27,7 +27,7 @@ namespace automeas_ui._Launcher.ViewModel.Pages
         public bool Checked { get; set; }
         public string Text { get; set; }
     }
-    public partial class Page1 : ViewPage
+    public partial class Page1 : ILauncherPage
     {
         // internal interface
         const int ID = 0;
@@ -122,7 +122,7 @@ namespace automeas_ui._Launcher.ViewModel.Pages
 
         }
 
-        public override void Save()
+        public void Save()
         {
             HandlePageChanged(ID);
         }

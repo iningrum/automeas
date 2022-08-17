@@ -1,22 +1,14 @@
-﻿using LiveChartsCore.SkiaSharpView.Painting.Effects;
-using LiveChartsCore.SkiaSharpView.Painting;
-using LiveChartsCore.SkiaSharpView;
-using LiveChartsCore;
-using SkiaSharp;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Collections.ObjectModel;
-using automeas_ui.MVGenerator.MVVM.Model;
-using LiveChartsCore.Defaults;
-using automeas_ui.Core;
-using CommunityToolkit;
-using System.Windows.Interop;
+﻿using automeas_ui.MVGenerator.MVVM.Model;
 using CommunityToolkit.Mvvm.Input;
-using System.Windows.Navigation;
-using System.Windows.Media;
+using LiveChartsCore;
+using LiveChartsCore.Defaults;
+using LiveChartsCore.SkiaSharpView;
+using LiveChartsCore.SkiaSharpView.Painting;
+using LiveChartsCore.SkiaSharpView.Painting.Effects;
+using SkiaSharp;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
 
 namespace automeas_ui.MVGenerator.MVVM.ViewModel
 {
@@ -174,7 +166,7 @@ namespace automeas_ui.MVGenerator.MVVM.ViewModel
         [RelayCommand]
         public void Undo()
         {
-            if(SaveBuffer.Count() < 1) { return; }
+            if (SaveBuffer.Count() < 1) { return; }
             var action = SaveBuffer.Last();
             switch (action.Type)
             {

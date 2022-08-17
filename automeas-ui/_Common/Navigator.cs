@@ -1,9 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Security;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace automeas_ui._Common
 {
@@ -43,7 +39,7 @@ namespace automeas_ui._Common
         /// <returns> Object of base type Z that is registered</returns>
         /// <exception cref="InvalidOperationException">Thrown when given id does not exist in register</exception>
         /// <exception cref="Exception"> Thrown when object instantiation failed.</exception>
-        public Z Change<Z>(string id, bool notify=true)
+        public Z Change<Z>(string id, bool notify = true)
         {
             if (id == "\r")
             {
@@ -105,6 +101,7 @@ namespace automeas_ui._Common
             }
             NotifyWindowChanged(_current);
         }
+        public object _handle = new();
         /*public void LoadRegister(Dictionary<string, Type> register)
         {
             if(_locked == true) { return; }
@@ -124,7 +121,7 @@ namespace automeas_ui._Common
     /// <summary>
     /// Master of Navigator[T]
     /// </summary>
-    public  static partial class Navigator
+    public static partial class Navigator
     {
     }
 }

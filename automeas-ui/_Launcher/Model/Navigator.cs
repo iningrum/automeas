@@ -1,16 +1,14 @@
-﻿using automeas_ui.MVGenerator;
+﻿using automeas_ui._Dashboard;
+using automeas_ui.MVGenerator;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace automeas_ui._Launcher.Model
 {
     internal sealed class Navigator
     {
         // singleton implementation - thread safe
-        private static readonly Lazy<Navigator> lazy = new Lazy<Navigator>(() => new Navigator(typeof(automeas_ui.Launcher)));
+        private static readonly Lazy<Navigator> lazy = new Lazy<Navigator>(() => new Navigator(typeof(Launcher)));
         public static Navigator Instance { get { return lazy.Value; } }
         // ctor
         private Navigator(Type t)
@@ -22,7 +20,7 @@ namespace automeas_ui._Launcher.Model
         public readonly Dictionary<string, Type> RegInit = new Dictionary<string, Type>()
         {
             {"mvg", typeof(MVG) },
-            {"launcher", typeof(automeas_ui.Launcher) },
+            {"launcher", typeof(Launcher) },
             {"dashboard", typeof(Dashboard) }
         };
         private Type _currentWindow;

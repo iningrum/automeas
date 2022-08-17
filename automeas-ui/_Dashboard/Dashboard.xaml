@@ -1,10 +1,11 @@
-﻿<Window x:Class="automeas_ui.Dashboard"
+﻿<Window x:Class="automeas_ui._Dashboard.Dashboard"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:automeas_ui" xmlns:viewModel="clr-namespace:automeas_ui.MWM.ViewModel"
+        xmlns:local="clr-namespace:automeas_ui._Dashboard"
         xmlns:lvc="clr-namespace:LiveChartsCore.SkiaSharpView.WPF;assembly=LiveChartsCore.SkiaSharpView.WPF"
+        xmlns:viewm="clr-namespace:automeas_ui._Dashboard.ViewModel"
         mc:Ignorable="d"
         Title="MainWindow" Height="600" Width="920"
         WindowStartupLocation="CenterScreen"
@@ -13,7 +14,7 @@
         Background="Transparent"
         AllowsTransparency="True">
     <Window.DataContext>
-        <viewModel:LiveChartModel/>
+        <viewm:MainViewModel/>
     </Window.DataContext>
     <Border Background="#272537"
             CornerRadius="10">
@@ -52,21 +53,23 @@
             <StackPanel Orientation="Horizontal"
                         HorizontalAlignment="Center"
                         Grid.Row="3">
-                <RadioButton
+                <Button      Style="{StaticResource FOC_SquareButtonTheme}"
                              Content="⏯"
                              Width="75"
                              Height="75"
                              Foreground="White"
                              FontSize="25"
                              />
-                <RadioButton Content="⏹️"
+                <Button      Style="{StaticResource FOC_SquareButtonTheme}"
+                             Command="{Binding ReturnCommand}"
+                             Content="⏹️"
                              Height="75"
                              Width="75"
                              Foreground="White"
                              FontSize="25"
-                             Click="Button_Clicked"
                              />
-                <RadioButton Content="🔁"
+                <Button      Style="{StaticResource FOC_SquareButtonTheme}"
+                             Content="🔁"
                              Width="75"
                              Height="75"
                              Foreground="White"

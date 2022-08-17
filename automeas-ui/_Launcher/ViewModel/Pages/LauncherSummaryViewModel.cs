@@ -1,14 +1,8 @@
-﻿using automeas_ui._Launcher.Model;
+﻿using automeas_ui._Common;
+using automeas_ui._Launcher.Model;
 using automeas_ui.Core;
-using automeas_ui.MWM.Model.Launcher;
 using CommunityToolkit.Mvvm.Input;
-using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Navigator = automeas_ui._Launcher.Model.Navigator;
 using Target = automeas_ui._Launcher.Model.Target;
 
 namespace automeas_ui._Launcher.ViewModel.Pages
@@ -30,7 +24,7 @@ namespace automeas_ui._Launcher.ViewModel.Pages
         public LauncherSummaryViewModel()
         {
             ChosenOptions = new TrulyObservableCollection<ObservableType<Summary>>();
-            foreach (var item in AMDevConfig.SummaryTitles)
+            foreach (var item in DevConfig.SummaryTitles)
             {
                 ChosenOptions.Add(new ObservableType<Summary>(new Summary(item)));
             }
@@ -56,7 +50,7 @@ namespace automeas_ui._Launcher.ViewModel.Pages
             {
                 if (Target.Instance.Options[i] == true)
                 {
-                    result += $"{AMDevConfig.CheckBoxText_Alternative[i]},  ";
+                    result += $"{DevConfig.CheckBoxText_Alternative[i]},  ";
                 }
 
             }
@@ -68,8 +62,7 @@ namespace automeas_ui._Launcher.ViewModel.Pages
         [RelayCommand]
         void SwitchToDashboard()
         {
-            //Target.Instance.NotifyChangeWindowToDashboard();
-            Navigator.Instance.ChangeWindow("dashboard");
+            ((App)automeas_ui._Common.Navigator.App._handle).sSwitch("Dashboard");
         }
     }
 }

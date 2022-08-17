@@ -1,14 +1,10 @@
-﻿using automeas_ui.Core;
-using automeas_ui.MWM.Model.Launcher;
-using automeas_ui.MWM.ViewModel;
+﻿using automeas_ui._Common;
+using automeas_ui._Launcher.Model;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.ComponentModel;
+using System.Linq;
 using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
-using automeas_ui._Launcher.Model;
 
 namespace automeas_ui._Launcher.ViewModel
 {
@@ -23,7 +19,7 @@ namespace automeas_ui._Launcher.ViewModel
             Pages = new List<ObservableType<bool>>();
             Pages.Add(new ObservableType<bool>(true));
             Pages.Last().PropertyChanged += ViewedPage_PropertyChanged;
-            for (int i = 1; i < AMDevConfig.NumberOfPages; i++)
+            for (int i = 1; i < DevConfig.NumberOfPages; i++)
             {
                 Pages.Add(new ObservableType<bool>(false));
                 Pages.Last().PropertyChanged += ViewedPage_PropertyChanged;

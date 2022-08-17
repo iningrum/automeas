@@ -1,17 +1,6 @@
 ﻿using automeas_ui._Launcher.Model;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using automeas_ui._Launcher.ViewModel;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace automeas_ui._Launcher
 {
@@ -23,6 +12,7 @@ namespace automeas_ui._Launcher
         public Launcher()
         {
             InitializeComponent();
+            this.DataContext = new Launcher_MainViewModel();
         }
         private void Button_Clicked(object sender, RoutedEventArgs e)
         {

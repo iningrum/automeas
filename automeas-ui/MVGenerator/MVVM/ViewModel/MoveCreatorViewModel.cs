@@ -1,23 +1,12 @@
-﻿using automeas_ui.MWM.Model;
-using LiveChartsCore.SkiaSharpView.Painting.Effects;
-using LiveChartsCore.SkiaSharpView.Painting;
-using LiveChartsCore.SkiaSharpView;
+﻿using automeas_ui.MVGenerator.MVVM.Model;
 using LiveChartsCore;
-using SkiaSharp;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using LiveChartsCore.Defaults;
+using LiveChartsCore.SkiaSharpView;
+using LiveChartsCore.SkiaSharpView.Painting;
+using LiveChartsCore.SkiaSharpView.Painting.Effects;
+using SkiaSharp;
 using System.Collections.ObjectModel;
-using automeas_ui.MWM.Model.Launcher;
-using automeas_ui.Core;
-using automeas_ui.MVGenerator.MVVM.Model;
-using System.Windows.Input;
-using CommunityToolkit.Mvvm.Input;
-using System.Data;
-using System.Runtime.InteropServices;
+using System.Linq;
 
 namespace automeas_ui.MVGenerator.MVVM.ViewModel
 {
@@ -46,7 +35,7 @@ namespace automeas_ui.MVGenerator.MVVM.ViewModel
 
                 Data = data;
             }
-            
+
 
             SeriesCollection = new ISeries[]
             {
@@ -65,7 +54,7 @@ namespace automeas_ui.MVGenerator.MVVM.ViewModel
                 var mvgt = MVGTarget.Instance.CurrentMove;
                 mvgt.Focus = new((double)XAxes[0].MinLimit, (double)XAxes[0].MaxLimit);
                 mvgt.Data = Data;
-                
+
             }
         }
         public void Save()
@@ -117,7 +106,7 @@ namespace automeas_ui.MVGenerator.MVVM.ViewModel
         private static RectangularSection[] GenerateLineSections()
         {
             var result = new RectangularSection[StepperMotorDriver.Instance.Step.Count()];
-            for (int i= 0; i < StepperMotorDriver.Instance.Step.Count(); i++)
+            for (int i = 0; i < StepperMotorDriver.Instance.Step.Count(); i++)
             {
                 result[i] = new RectangularSection
                 {
@@ -143,7 +132,7 @@ namespace automeas_ui.MVGenerator.MVVM.ViewModel
             {
                 XAxes[0].MinLimit = 0;
             }
-            XAxes[0].MaxLimit = P.X+5;
+            XAxes[0].MaxLimit = P.X + 5;
         }
         public void HandleUndoRedo(string type, int i, ObservablePoint P)
         {

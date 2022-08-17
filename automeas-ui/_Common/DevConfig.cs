@@ -1,11 +1,8 @@
-﻿using automeas_ui._Launcher.ViewModel.Pages;
+﻿using automeas_ui._Launcher;
+using automeas_ui._Launcher.ViewModel.Pages;
 using automeas_ui.MVGenerator;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
 
 namespace automeas_ui._Common
 {
@@ -76,15 +73,15 @@ namespace automeas_ui._Common
                 {"3", typeof(LauncherSummaryViewModel) }
             }
         };
-        /*public static Navigator<Window> App = new()
+        public static Navigator<Launcher> App = new()
         {
             Reg = new()
             {
-                {"Launcher", typeof(Launcher) },
+                {"Launcher", typeof(automeas_ui._Launcher.Launcher) },
                 {"MVG", typeof(MVG) },
-                {"Dashboard", typeof(Dashboard) }
+                {"Dashboard", typeof(automeas_ui._Dashboard.Dashboard) }
             }
-        };*/
+        };
         //public static Navigator<object> MVG = new();
     }
 }

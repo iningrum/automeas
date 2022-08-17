@@ -1,29 +1,13 @@
 ﻿using automeas_ui.MVGenerator.MVVM.Model;
 using automeas_ui.MVGenerator.MVVM.ViewModel;
-using LiveChartsCore;
 using LiveChartsCore.Defaults;
 using LiveChartsCore.Drawing;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using LiveChartsCore.SkiaSharpView.WPF;
-using automeas_ui.MVGenerator.MVVM.ViewModel;
-using automeas_ui.MVGenerator.MVVM.Model;
-using LiveChartsCore.SkiaSharpView.Painting;
-using SkiaSharp;
-using System.Windows.Ink;
 using LiveChartsCore.SkiaSharpView;
+using LiveChartsCore.SkiaSharpView.Painting;
+using LiveChartsCore.SkiaSharpView.WPF;
+using SkiaSharp;
+using System.Windows.Controls;
+using System.Windows.Input;
 
 namespace automeas_ui.MVGenerator.MVVM.View
 {

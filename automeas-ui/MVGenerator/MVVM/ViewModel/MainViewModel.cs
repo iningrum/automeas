@@ -1,21 +1,9 @@
-﻿using automeas_ui.Core;
-using automeas_ui.MVGenerator.MVVM.Model;
-using automeas_ui.MWM.Model;
-using automeas_ui.MWM.Model.Launcher;
-using CommunityToolkit.Mvvm.Input;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Input;
-
-namespace automeas_ui.MVGenerator.MVVM.ViewModel
+﻿namespace automeas_ui.MVGenerator.MVVM.ViewModel
 {
     internal partial class MainViewModel
     {
         // ctor
-        public MainViewModel()
+        /*public MainViewModel()
         {
             MVGTarget.Instance.ViewNavigate += HandleViewNavigate;
             CurrentPage = new ObservableType<int>(0);
@@ -51,7 +39,7 @@ namespace automeas_ui.MVGenerator.MVVM.ViewModel
             CurrentPage.Value = 0;
             CurrentView.Value = null;
         }*/
-        public void HandleViewNavigate(string id)
+        /*public void HandleViewNavigate(string id)
         {
             switch (id)
             {
@@ -70,7 +58,7 @@ namespace automeas_ui.MVGenerator.MVVM.ViewModel
                     CurrentView.Value = new MoveCreatorViewModel(false);
                     break;
             }   
-        }
+        }*/
     }
-    
+
 }

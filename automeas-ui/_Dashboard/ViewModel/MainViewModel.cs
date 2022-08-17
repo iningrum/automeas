@@ -1,14 +1,17 @@
-﻿using automeas_ui.MWM.Model;
+﻿using automeas_ui._Launcher.Model;
+using CommunityToolkit.Mvvm.Input;
 using LiveChartsCore;
 using LiveChartsCore.SkiaSharpView;
 using LiveChartsCore.SkiaSharpView.Painting;
 using LiveChartsCore.SkiaSharpView.Painting.Effects;
 using SkiaSharp;
 
-namespace automeas_ui.MWM.ViewModel
+namespace automeas_ui._Dashboard.ViewModel
 {
-    internal class LiveChartModel
+    internal partial class MainViewModel
     {
+        [RelayCommand]
+        void Return() => ((App)automeas_ui._Common.Navigator.App._handle).sSwitch("\r");
         public ObservableType<string> Title { get; set; }
         public ObservableType<string> Subtitle { get; set; }
         public ObservableType<string> EstimatedTime { get; set; }
@@ -55,7 +58,7 @@ namespace automeas_ui.MWM.ViewModel
         }
     };
 
-        public LiveChartModel()
+        public MainViewModel()
         {
             Title = new ObservableType<string>("Profil B");
             Subtitle = new ObservableType<string>("Pomiar nr. 7");

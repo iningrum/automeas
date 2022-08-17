@@ -1,21 +1,14 @@
-﻿using automeas_ui._Launcher.Model;
-using automeas_ui._Launcher.ViewModel.Pages;
-using automeas_ui.MWM.Model.Launcher;
+﻿using automeas_ui._Common;
+using automeas_ui._Launcher.Model;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Target = automeas_ui._Launcher.Model.Target;
-using ObservableObject = CommunityToolkit.Mvvm.ComponentModel.ObservableObject;
-using automeas_ui._Common;
-using Navigator = automeas_ui._Common.Navigator;
 using System.ComponentModel;
-using System.Diagnostics.Metrics;
-using automeas_ui.MWM.ViewModel.Launcher.Pages;
+using System.Linq;
+using Navigator = automeas_ui._Common.Navigator;
+using ObservableObject = CommunityToolkit.Mvvm.ComponentModel.ObservableObject;
 using Page1 = automeas_ui._Launcher.ViewModel.Pages.Page1;
+using Target = automeas_ui._Launcher.Model.Target;
 
 namespace automeas_ui._Launcher.ViewModel
 {
@@ -26,6 +19,12 @@ namespace automeas_ui._Launcher.ViewModel
     [ObservableObject]
     public partial class CurrentView
     {
+        public CurrentView()
+        {
+            title = "";
+            page = 0;
+            current = new Page1();
+        }
         [ObservableProperty]
         private ILauncherPage current;
         [ObservableProperty]
@@ -56,6 +55,7 @@ namespace automeas_ui._Launcher.ViewModel
         {
             View = new();
             View.Current = Navigator.Launcher.GetCurrent<ILauncherPage>();
+
             { // load page bar
                 PageBar = new();
                 PageBar.Add(new ObservableType<bool>(true));
@@ -69,14 +69,15 @@ namespace automeas_ui._Launcher.ViewModel
             Target.Instance.Launcher_MainViewModel_SetMaster(this);
             View.Page = 0;
             View.Title = DevConfig.PageTitles[View.Page];
+            RenderNewPage(View.Page);
         }
         [RelayCommand]
         void NextPage() => RenderNewPage(View.Page + 1);
         [RelayCommand]
-        void PreviousPage() => RenderNewPage(View.Page-1);
+        void PreviousPage() => RenderNewPage(View.Page - 1);
         void HandlePageBarChanged(object sender, PropertyChangedEventArgs e)
         {
-            if (e.PropertyName == "Value" && _ignorePageBar==false)
+            if (e.PropertyName == "Value" && _ignorePageBar == false)
             {
                 for (int i = 0; i < PageBar.Count(); i++)
                 {
@@ -111,5 +112,5 @@ namespace automeas_ui._Launcher.ViewModel
         }
         private bool _ignorePageBar = false;
     }
-    
+
 }

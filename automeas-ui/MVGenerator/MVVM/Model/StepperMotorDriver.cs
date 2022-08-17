@@ -1,9 +1,5 @@
-﻿using automeas_ui.MWM.Model.Launcher;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace automeas_ui.MVGenerator.MVVM.Model
 {
@@ -17,10 +13,10 @@ namespace automeas_ui.MVGenerator.MVVM.Model
         {
             Step = new List<double>()
             {
-                9, 
-                7, 
-                5, 
-                3, 
+                9,
+                7,
+                5,
+                3,
                 1
             };
             SmallestDelay = 0.5;

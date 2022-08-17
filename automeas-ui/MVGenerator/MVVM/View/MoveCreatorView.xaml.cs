@@ -1,29 +1,12 @@
-﻿using LiveChartsCore.Defaults;
-using LiveChartsCore.Drawing;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+﻿using automeas_ui.MVGenerator.MVVM.Model;
+using automeas_ui.MVGenerator.MVVM.ViewModel;
 using LiveChartsCore.Defaults;
 using LiveChartsCore.Drawing;
 using LiveChartsCore.SkiaSharpView.WPF;
-using automeas_ui.MVGenerator.MVVM.ViewModel;
-using automeas_ui.MVGenerator.MVVM.Model;
-using LiveChartsCore;
-using LiveChartsCore.SkiaSharpView;
-using System.Windows.Markup;
-using CommunityToolkit.Mvvm.Input;
-using automeas_ui.MWM.Model.Launcher;
+using System;
+using System.Linq;
+using System.Windows;
+using System.Windows.Controls;
 
 namespace automeas_ui.MVGenerator.MVVM.View
 {
@@ -70,20 +53,20 @@ namespace automeas_ui.MVGenerator.MVVM.View
                 viewModel.Data.Add(ClickedPoint);
                 MVGTarget.Instance.NotifyDataModified("+", ClickedPoint);
                 MVGTarget.Instance.CurrentMove.X.Max = x;
-                MVGTarget.Instance.NotifyFocusChanged(new ObservablePoint(x-2,x+5));
+                MVGTarget.Instance.NotifyFocusChanged(new ObservablePoint(x - 2, x + 5));
             }
             else
             {
-                for(int i = 0; i < viewModel.Data.Count; i++)
+                for (int i = 0; i < viewModel.Data.Count; i++)
                 {
                     if (viewModel.Data[i].X > x)
                     {
-                        if ( i>0)
+                        if (i > 0)
                         {
-                            if ((x - (double)viewModel.Data[i - 1].X) < ((double)viewModel.Data[i].X - x) && i>1)
+                            if ((x - (double)viewModel.Data[i - 1].X) < ((double)viewModel.Data[i].X - x) && i > 1)
                             {
                                 viewModel.Data[i - 1].X = x;
-                                viewModel.Data[i-1].Y = y;
+                                viewModel.Data[i - 1].Y = y;
                             }
                             else
                             {

@@ -1,6 +1,6 @@
-﻿using automeas_ui.MVGenerator;
+﻿using automeas_ui._Dashboard;
 using automeas_ui._Launcher.Model;
-using automeas_ui.MWM.ViewModel;
+using automeas_ui.MVGenerator;
 using System;
 using System.Collections.Generic;
 using System.Windows;
@@ -14,10 +14,25 @@ namespace automeas_ui
     {
         protected override void OnStartup(StartupEventArgs e)
         {
-            InitLauncher();
+            { // Set main Window
+                automeas_ui._Common.Navigator.App._handle = this;
+                mw = automeas_ui._Common.Navigator.App.Change<Window>("\r");
+                mw.Show();
+            }
+            
         }
         private Window? mw;
-        private void InitLauncher()
+        public void sSwitch(string id)
+        {
+            Window toBeClosed = mw;
+            {
+                mw = new();
+                mw = automeas_ui._Common.Navigator.App.Change<Window>(id);
+                mw.Show();
+            }
+            toBeClosed.Close();
+        }
+        /*private void InitLauncher()
         {
             llc launcher = new();
             //var x = (Launcher_MainViewModel)launcher.DataContext;
@@ -79,6 +94,6 @@ namespace automeas_ui
         {
             Switch(InitMVG);
         }
-        public void HandleWindowChanged(Type msg) => SwitchAnyWindow(msg);
+        public void HandleWindowChanged(Type msg) => SwitchAnyWindow(msg);*/
     }
 }

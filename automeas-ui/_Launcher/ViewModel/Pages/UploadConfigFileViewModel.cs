@@ -1,11 +1,5 @@
 ﻿using automeas_ui._Launcher.Model;
-using automeas_ui.MWM.Model.Launcher;
 using CommunityToolkit.Mvvm.Input;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Navigator = automeas_ui._Launcher.Model.Navigator;
 using Target = automeas_ui._Launcher.Model.Target;
 

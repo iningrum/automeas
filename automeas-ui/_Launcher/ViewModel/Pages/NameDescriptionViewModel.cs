@@ -1,10 +1,4 @@
 ﻿using automeas_ui._Launcher.Model;
-using automeas_ui.MWM.Model.Launcher;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Target = automeas_ui._Launcher.Model.Target;
 
 namespace automeas_ui._Launcher.ViewModel.Pages

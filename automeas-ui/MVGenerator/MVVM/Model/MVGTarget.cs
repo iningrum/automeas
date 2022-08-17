@@ -3,11 +3,6 @@ using LiveChartsCore.Defaults;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Xceed.Wpf.Toolkit.Zoombox;
 
 namespace automeas_ui.MVGenerator.MVVM.Model
 {
@@ -70,8 +65,8 @@ namespace automeas_ui.MVGenerator.MVVM.Model
     {
         public void SaveCurrentMove(int new_id = 0)
         {
-            if(CurrentMove.id==-1) { return; }
-            else if(CurrentMove.id<0 || CurrentMove.id> Moves.Count-1) { throw new InvalidOperationException("Id has been set but is invalid"); }
+            if (CurrentMove.id == -1) { return; }
+            else if (CurrentMove.id < 0 || CurrentMove.id > Moves.Count - 1) { throw new InvalidOperationException("Id has been set but is invalid"); }
             else
             {
                 Moves[CurrentMove.id] = CurrentMove; // load Move into the list
@@ -109,7 +104,7 @@ namespace automeas_ui.MVGenerator.MVVM.Model
         public struct Axis
         {
             public double Min, Max;
-            public Axis(double min, double max){Min = min; Max = max; } 
+            public Axis(double min, double max) { Min = min; Max = max; }
         }
     }
 }

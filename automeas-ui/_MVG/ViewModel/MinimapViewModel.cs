@@ -20,7 +20,7 @@ namespace automeas_ui._MVG.ViewModel
     internal partial class MinimapViewModel
     {
         public readonly ObservableCollection<ObservablePoint> _observableValues;
-        public List<URSave> SaveBuffer = new List<URSave>();
+        public List<URSave> SaveBuffer = new();
         // ctor
         public MinimapViewModel()
         {
@@ -28,8 +28,8 @@ namespace automeas_ui._MVG.ViewModel
             MVGTarget.Instance.DataModified += HandleDataChanged;
             MVGTarget.Instance.FocusChanged += HandleFocusChanged;
             MVGTarget.Instance.Save += Save;
-            _observableValues = new ObservableCollection<ObservablePoint> { new ObservablePoint(0, 0) };
-            Series = new ObservableCollection<ISeries>
+            _observableValues = new() { new(0, 0) };
+            Series = new()
             {
                 new StepLineSeries<ObservablePoint>
                 {
@@ -78,7 +78,7 @@ namespace automeas_ui._MVG.ViewModel
 
         public Axis[] XAxes { get; set; } =
         {
-        new Axis
+        new()
         {
             MinLimit = 0,
             MaxLimit = 1.2*10,
@@ -95,7 +95,7 @@ namespace automeas_ui._MVG.ViewModel
 
         public Axis[] YAxes { get; set; } =
         {
-        new Axis
+        new()
         {
             MinLimit = 0,
             MaxLimit = 10,
@@ -116,18 +116,18 @@ namespace automeas_ui._MVG.ViewModel
         {
             Fill = new SolidColorPaint
             {
-                Color = new SKColor(0, 0, 0, 30)
+                Color = new(0, 0, 0, 30)
             },
             Stroke = new SolidColorPaint
             {
-                Color = new SKColor(80, 80, 80),
+                Color = new(80, 80, 80),
                 StrokeThickness = 2
             }
         };
 
-        public ObservableCollection<RectangularSection> Sections { get; set; } = new ObservableCollection<RectangularSection>
-    {
-        new RectangularSection
+        public ObservableCollection<RectangularSection> Sections { get; set; } = new()
+        {
+        new()
         {
             Xi = null,
             Xj = null,

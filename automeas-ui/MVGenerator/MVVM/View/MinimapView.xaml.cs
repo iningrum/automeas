@@ -31,7 +31,7 @@ namespace automeas_ui.MVGenerator.MVVM.View
 
             // scales the UI coordinates to the corresponding data in the chart.
             // ScaleUIPoint returns an array of double
-            var scaledPoint = chart.ScaleUIPoint(new LvcPoint((float)p.X, (float)p.Y));
+            var scaledPoint = chart.ScaleUIPoint(new((float)p.X, (float)p.Y));
             // where the X coordinate is in the first position
             var x = scaledPoint[0];
             // and the Y coordinate in the second position

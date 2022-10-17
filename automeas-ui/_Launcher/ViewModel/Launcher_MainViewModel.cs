@@ -41,13 +41,13 @@ namespace automeas_ui._Launcher.ViewModel
         /// <summary>
         /// Contains observable objects that are databound.
         /// </summary>
-        public CurrentView View { get; set; }
+        public CurrentView View { get; }
         /// <summary>
         /// Only one item in List should be true.
         /// Used for UI element that indicates the current page and 
         /// allows for switching between pages.
         /// </summary>
-        public List<ObservableType<bool>> PageBar { get; set; }
+        public List<ObservableType<bool>> PageBar { get;  }
         /// <summary>
         /// Init view, populate page bar
         /// </summary>
@@ -58,15 +58,16 @@ namespace automeas_ui._Launcher.ViewModel
 
             { // load page bar
                 PageBar = new();
-                PageBar.Add(new ObservableType<bool>(true));
+                PageBar.Add(new(true));
                 PageBar.Last().PropertyChanged += HandlePageBarChanged;
                 for (int i = 1; i < DevConfig.NumberOfPages; i++)
                 {
-                    PageBar.Add(new ObservableType<bool>(false));
+                    PageBar.Add(new(false));
                     PageBar.Last().PropertyChanged += HandlePageBarChanged;
                 }
             }
-            Target.Instance.Launcher_MainViewModel_SetMaster(this);
+            // obsolete
+            //Target.Instance.Launcher_MainViewModel_SetMaster(this);
             View.Page = 0;
             View.Title = DevConfig.PageTitles[View.Page];
             RenderNewPage(View.Page);

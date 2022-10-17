@@ -41,7 +41,7 @@ namespace automeas_ui._MVG.View
 
             // scales the UI coordinates to the corresponding data in the chart.
             // ScaleUIPoint returns an array of double
-            var scaledPoint = chart.ScaleUIPoint(new LvcPoint((float)p.X, (float)p.Y));
+            var scaledPoint = chart.ScaleUIPoint(new((float)p.X, (float)p.Y));
             // where the X coordinate is in the first position
             var x = scaledPoint[0];
             // and the Y coordinate in the second position
@@ -64,7 +64,7 @@ namespace automeas_ui._MVG.View
                 viewModel.Data.Add(ClickedPoint);
                 MVGTarget.Instance.NotifyDataModified("+", ClickedPoint);
                 MVGTarget.Instance.CurrentMove.X.Max = x;
-                MVGTarget.Instance.NotifyFocusChanged(new ObservablePoint(x - 2, x + 5));
+                MVGTarget.Instance.NotifyFocusChanged(new(x - 2, x + 5));
             }
             else
             {

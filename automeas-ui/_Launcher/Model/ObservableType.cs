@@ -14,7 +14,7 @@ namespace automeas_ui._Launcher.Model
         {
             var handler = PropertyChanged;
             if (handler != null)
-                handler(this, new PropertyChangedEventArgs(propertyName));
+                handler(this, new(propertyName));
         }
         // Values
         private T? _value;

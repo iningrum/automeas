@@ -1,4 +1,5 @@
-﻿using automeas_ui._Launcher;
+﻿using System;
+using automeas_ui._Launcher;
 using automeas_ui._Launcher.ViewModel.Pages;
 using automeas_ui._MVG.Model;
 using automeas_ui._MVG.ViewModel;
@@ -16,7 +17,7 @@ namespace automeas_ui._Common
         /// <summary>
         /// Titles of pages displayed by <c> Launcher </c>
         /// </summary>
-        public static List<string> PageTitles = new List<string>
+        public static List<string> PageTitles = new()
         { // Nagłówki/tytuły View(Modeli) podległych Launcher_MainViewModel
             "Katalog docelowy",
             "Nazwa i opis próby pomiarowej",
@@ -52,7 +53,7 @@ namespace automeas_ui._Common
         /// <summary>
         /// Labels used for <c>Page4</c> of <c>Launcher</c>
         /// </summary>
-        public static List<string> SummaryTitles = new List<string>
+        public static List<string> SummaryTitles = new()
         {
             "Nazwa próby:\t\t",
             "Katalog docelowy:\t",

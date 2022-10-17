@@ -48,7 +48,7 @@ namespace automeas_ui._MVG.ViewModel
                 {
                     Values = Data,
                     Fill = null,
-                    DataPadding = new LiveChartsCore.Drawing.LvcPoint(5,5)
+                    DataPadding = new(5,5)
                 }
             };
         }
@@ -74,7 +74,7 @@ namespace automeas_ui._MVG.ViewModel
         public ISeries[] SeriesCollection { get; set; }
         public Axis[] YAxes { get; set; } =
         {
-        new Axis
+        new()
         {
             MinLimit = 0,
             MaxLimit = 10,
@@ -91,7 +91,7 @@ namespace automeas_ui._MVG.ViewModel
     };
         public Axis[] XAxes { get; set; } =
             {
-        new Axis
+        new()
         {
             MinLimit = 0,
             MaxLimit = 10,
@@ -113,7 +113,7 @@ namespace automeas_ui._MVG.ViewModel
             var result = new RectangularSection[StepperMotorDriver.Instance.Step.Count()];
             for (int i = 0; i < StepperMotorDriver.Instance.Step.Count(); i++)
             {
-                result[i] = new RectangularSection
+                result[i] = new()
                 {
                     Yi = StepperMotorDriver.Instance.Step[i],
                     Yj = StepperMotorDriver.Instance.Step[i],

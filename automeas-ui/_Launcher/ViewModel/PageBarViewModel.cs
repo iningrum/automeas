@@ -16,12 +16,12 @@ namespace automeas_ui._Launcher.ViewModel
         {
             this.master = master;
             //master.PageChanged += LauncherMaster_PageChanged;
-            Pages = new List<ObservableType<bool>>();
-            Pages.Add(new ObservableType<bool>(true));
+            Pages = new();
+            Pages.Add(new(true));
             Pages.Last().PropertyChanged += ViewedPage_PropertyChanged;
             for (int i = 1; i < DevConfig.NumberOfPages; i++)
             {
-                Pages.Add(new ObservableType<bool>(false));
+                Pages.Add(new(false));
                 Pages.Last().PropertyChanged += ViewedPage_PropertyChanged;
             }
         }
@@ -33,7 +33,7 @@ namespace automeas_ui._Launcher.ViewModel
         public event Action<int>? PageChanged;
         private void NotifyPropertyChanged([CallerMemberName] string propertyName = null)
         {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            PropertyChanged?.Invoke(this, new(propertyName));
         }
         public void ViewedPage_PropertyChanged(object sender, PropertyChangedEventArgs e)
         {

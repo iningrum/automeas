@@ -41,7 +41,7 @@ namespace automeas_ui._MVG.ViewModel
             IViewMVG? nview = (IViewMVG?)Activator.CreateInstance(t);
             if(nview== null)
             {
-                throw new Exception("Conversion not possible");
+                throw new("Conversion not possible");
             }
             View.Current = (IViewMVG)nview;
             

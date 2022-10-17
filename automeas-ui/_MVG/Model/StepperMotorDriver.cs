@@ -9,12 +9,12 @@ namespace automeas_ui._MVG.Model
     internal class StepperMotorDriver
     {
         // singleton implementation - thread safe
-        private static readonly Lazy<StepperMotorDriver> lazy = new Lazy<StepperMotorDriver>(() => new StepperMotorDriver());
+        private static readonly Lazy<StepperMotorDriver> lazy = new(() => new());
         public static StepperMotorDriver Instance { get { return lazy.Value; } }
         // ctor
         public StepperMotorDriver()
         {
-            Step = new List<double>()
+            Step = new()
             {
                 9,
                 7,

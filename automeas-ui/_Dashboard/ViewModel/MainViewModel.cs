@@ -45,7 +45,7 @@ namespace automeas_ui._Dashboard.ViewModel
             };
         public Axis[] XAxes { get; set; } =
             {
-        new Axis
+        new()
         {
             ForceStepToMin = true,
             MinStep = 0.5,
@@ -60,13 +60,13 @@ namespace automeas_ui._Dashboard.ViewModel
 
         public MainViewModel()
         {
-            Title = new ObservableType<string>("Profil B");
-            Subtitle = new ObservableType<string>("Pomiar nr. 7");
-            EstimatedTime = new ObservableType<string>("1h 30m 15s");
+            Title = new("Profil B");
+            Subtitle = new("Pomiar nr. 7");
+            EstimatedTime = new("1h 30m 15s");
         }
         public Axis[] YAxes { get; set; } =
         {
-        new Axis
+        new()
         {
             MinLimit = 17.5,
             MaxLimit = 21.0,
@@ -86,11 +86,11 @@ new()
 {
     Fill = new SolidColorPaint
     {
-        Color = new SKColor(0, 0, 0, 30)
+        Color = new(0, 0, 0, 30)
     },
     Stroke = new SolidColorPaint
     {
-        Color = new SKColor(80, 80, 80),
+        Color = new(80, 80, 80),
         StrokeThickness = 2
     }
 };

@@ -6,8 +6,10 @@ namespace automeas_ui._Common
     /// <summary>
     /// Used for navigation - changing views, windows or pages.
     /// <c>Navigator</c> consists of register which converts string into Type.
-    /// This type can be then used for reinstantiation of
-    /// register can be only loaded once
+    ///
+    /// For navigation use Change()
+    ///
+    /// It's singleton so any register can be only loaded once
     /// </summary>
     /// <typeparam name="T"> Default type stored</typeparam>
     public sealed class Navigator<T>
@@ -117,7 +119,7 @@ namespace automeas_ui._Common
         {
             Z? result = (Z?)Activator.CreateInstance(_current);
             if (result != null) { return (Z)result; }
-            else { throw new Exception("Instantiation of type failed"); }
+            else { throw new("Instantiation of type failed"); }
         }
     }
     /// <summary>

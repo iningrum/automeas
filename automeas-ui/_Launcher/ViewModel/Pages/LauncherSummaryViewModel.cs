@@ -23,10 +23,10 @@ namespace automeas_ui._Launcher.ViewModel.Pages
         // ctor
         public LauncherSummaryViewModel()
         {
-            ChosenOptions = new TrulyObservableCollection<ObservableType<Summary>>();
+            ChosenOptions = new();
             foreach (var item in DevConfig.SummaryTitles)
             {
-                ChosenOptions.Add(new ObservableType<Summary>(new Summary(item)));
+                ChosenOptions.Add(new(new(item)));
             }
             ChosenOptions[0].Value.Description = Target.Instance.Name;
             ChosenOptions[1].Value.Description = Target.Instance.Destination;

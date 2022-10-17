@@ -12,20 +12,20 @@ namespace automeas_ui._MVG.Model
     internal partial class MVGTarget
     {
         // singleton implementation - thread safe
-        private static readonly Lazy<MVGTarget> lazy = new Lazy<MVGTarget>(() => new MVGTarget());
+        private static readonly Lazy<MVGTarget> lazy = new(() => new());
         public static MVGTarget Instance { get { return lazy.Value; } }
         // ctor
         public MVGTarget()
         {
         }
-        private List<MVData> Moves = new List<MVData>()
+        private List<MVData> Moves = new()
         {
-            new MVData(),
+            new(),
             new()
         };
-        public MVData CurrentMove = new MVData();
+        public MVData CurrentMove = new();
         public bool _creator_EditMode = false;
-        public TrulyObservableCollection<ObservablePoint> CurrentSeries = new TrulyObservableCollection<ObservablePoint>();
+        public TrulyObservableCollection<ObservablePoint> CurrentSeries = new();
         // event
         public event Action<ObservablePoint> FocusChanged;
         public event Action<string, int, ObservablePoint> UndoRedoPerformed;
@@ -39,7 +39,7 @@ namespace automeas_ui._MVG.Model
         }
         public void NotifyFocusChanged(double a, double b)
         {
-            FocusChanged?.Invoke(new ObservablePoint(a, b));
+            FocusChanged?.Invoke(new(a, b));
         }
         public void NotifySave() => Save?.Invoke();
         public void NotifyViewNavigate(string id)
@@ -88,17 +88,17 @@ namespace automeas_ui._MVG.Model
             {
                 X = new(0, 10);
                 Y = new(0, 10);
-                Focus = new Axis(0, 10);
-                Data = new ObservableCollection<ObservablePoint>
+                Focus = new(0, 10);
+                Data = new()
                 {
-                    new ObservablePoint(0,0)
+                    new(0,0)
                 };
             }
             public MVData(ObservableCollection<ObservablePoint> data)
             {
                 X = new(0, 10);
                 Y = new(0, 10);
-                Focus = new Axis(0, 10);
+                Focus = new(0, 10);
                 Data = data;
             }
             public Axis X, Y, Focus;

@@ -1,6 +1,7 @@
 ﻿using automeas_ui._Launcher.Model;
 using automeas_ui._Launcher.ViewModel;
 using System.Windows;
+using automeas_ui._Common;
 
 namespace automeas_ui._Launcher
 {
@@ -16,7 +17,7 @@ namespace automeas_ui._Launcher
         }
         private void Button_Clicked(object sender, RoutedEventArgs e)
         {
-            Navigator.Instance.ChangeWindow("\0"); // shutdown app
+            Navigator.Launcher.Change("\0"); // shutdown app
         }
     }
 }

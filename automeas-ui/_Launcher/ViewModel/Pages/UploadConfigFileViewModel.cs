@@ -11,8 +11,8 @@ namespace automeas_ui._Launcher.ViewModel.Pages
         // ctor
         public UploadConfigFileViewModel()
         {
-            NOfRepeatsFontSize = new ObservableType<int>(32);
-            NOfRepeatsInt = new ObservableType<int>(Target.Instance.NumberOfMoves);
+            NOfRepeatsFontSize = new(32);
+            NOfRepeatsInt = new(Target.Instance.NumberOfMoves);
         }
         // attr
         private int ID = 2;
@@ -36,7 +36,7 @@ namespace automeas_ui._Launcher.ViewModel.Pages
         [RelayCommand]
         void ChooseFile()
         {
-            System.Windows.Forms.FolderBrowserDialog openFileDlg = new System.Windows.Forms.FolderBrowserDialog();
+            System.Windows.Forms.FolderBrowserDialog openFileDlg = new();
             var result = openFileDlg.ShowDialog();
             if (result.ToString() != string.Empty)
             {

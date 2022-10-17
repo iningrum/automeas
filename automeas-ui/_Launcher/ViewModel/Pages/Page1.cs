@@ -30,19 +30,19 @@ namespace automeas_ui._Launcher.ViewModel.Pages
             { // load from Target
                 if (Target.Instance.Options == null || Target.Instance.Options.Count < DevConfig.CheckBoxText.Count())
                 {
-                    Target.Instance.Options = new List<bool>(DevConfig.CheckBoxText.Count());
+                    Target.Instance.Options = new(DevConfig.CheckBoxText.Count());
                     Target.Instance.Options.Add(true);
                     for (int i = 1; i < DevConfig.CheckBoxText.Count(); i++)
                     {
                         Target.Instance.Options.Add(false);
                     }
                 }
-                this.ChosenTargetPath = new ObservableType<string>(Target.Instance.Destination);
-                this.Options = new TrulyObservableCollection<ObservableType<CheckBox>>();
-                Options.Add(new ObservableType<CheckBox>(new CheckBox(DevConfig.CheckBoxText[0], true, false)));
+                this.ChosenTargetPath = new(Target.Instance.Destination);
+                this.Options = new();
+                Options.Add(new(new(DevConfig.CheckBoxText[0], true, false)));
                 for (int i = 1; i < DevConfig.CheckBoxText.Count(); i++)
                 {
-                    Options.Add(new ObservableType<CheckBox>(new CheckBox(DevConfig.CheckBoxText[i], Target.Instance.Options[i])));
+                    Options.Add(new(new(DevConfig.CheckBoxText[i], Target.Instance.Options[i])));
                 }
 
             }
@@ -64,7 +64,7 @@ namespace automeas_ui._Launcher.ViewModel.Pages
         [RelayCommand]
         void ChooseFile()
         {
-            System.Windows.Forms.FolderBrowserDialog openFileDlg = new System.Windows.Forms.FolderBrowserDialog();
+            System.Windows.Forms.FolderBrowserDialog openFileDlg = new();
             var result = openFileDlg.ShowDialog();
             if (result.ToString() != string.Empty)
             {
@@ -87,7 +87,7 @@ namespace automeas_ui._Launcher.ViewModel.Pages
             if (ID == msg)
             {
                 Target.Instance.Destination = this.ChosenTargetPath.Value;
-                List<bool> options = new List<bool>();
+                List<bool> options = new();
                 foreach (var item in Options)
                 {
                     options.Add(item.Value.Checked);

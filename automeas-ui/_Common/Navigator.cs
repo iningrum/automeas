@@ -110,11 +110,11 @@ namespace automeas_ui._Common
             _locked = true;
             _reg = register;
         }*/
-        public event Action<Type>? WindowChanged;
-        public event Action<int>? NewPageId;
-
+         public event Action<Type>? WindowChanged;
+        // public event Action<int>? NewPageId;
         private void NotifyWindowChanged(Type msg) => WindowChanged?.Invoke(msg);
-        public void NotifyNewPageId(int msg) => NewPageId?.Invoke(msg);
+        // obsolete?
+        //public void NotifyNewPageId(int msg) => NewPageId?.Invoke(msg);
         public Z GetCurrent<Z>()
         {
             Z? result = (Z?)Activator.CreateInstance(_current);

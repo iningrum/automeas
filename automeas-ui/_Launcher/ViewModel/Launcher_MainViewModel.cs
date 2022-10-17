@@ -47,7 +47,7 @@ namespace automeas_ui._Launcher.ViewModel
         /// Used for UI element that indicates the current page and 
         /// allows for switching between pages.
         /// </summary>
-        public List<ObservableType<bool>> PageBar { get;  }
+        public List<ObservableType<bool>> PageBar { get; }
         /// <summary>
         /// Init view, populate page bar
         /// </summary>
